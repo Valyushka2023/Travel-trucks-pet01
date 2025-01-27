@@ -2,45 +2,38 @@
 //Перехід на сторінку каталогу: користувач повинен мати можливість натиснути на кнопку "View Now" на головній сторінці, щоб перейти на сторінку каталогу.
 
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header.jsx';
 import Button from '..//..//components/Button/Button.jsx';
 import css from './HomePage.module.css';
 
 function HomePage() {
-  const navigate = useNavigate(); 
-  
   return (
     <div className={css.container}>
-
       {/* Header */}
-      
-       <Header />
-
-       {/* Hero Section */}   
+      <Header />
+      {/* Section */}
       <div className={css.heroImage}>
-        <img src="/path-to-your-image.jpg" alt="Camper" className={css.heroImage} />
+        <img
+          src="/path-to-your-image.jpg"
+          alt="Camper"
+          className={css.heroImage}
+        />
         <div>
           <div className={css.title}>
             <div className={css.text}>
               <h1 className={css.heroTitle}>Campers of your dreams</h1>
-              <h2 className={css.heroContent}>You can find everything you want in our catalog</h2>
+              <h2 className={css.heroContent}>
+                You can find everything you want in our catalog
+              </h2>
             </div>
-              <Button 
-                variant="primary" 
-                size="large" 
-                to="/catalog"
-              >
-                View Now
-              </Button>
+            <Button variant="primary" size="large" to="/catalog">
+              View Now
+            </Button>
           </div>
         </div>
       </div>
-      
     </div>
   );
-
 }
 
 export default HomePage;
-

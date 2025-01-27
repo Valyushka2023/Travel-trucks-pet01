@@ -1,18 +1,19 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import PropTypes from 'prop-types'; // Імпортуємо PropTypes
+import { useNavigate } from 'react-router-dom';
 import css from './Button.module.css';
 
 const Button = ({
   variant = 'default', // Тип кнопки: default, primary, secondary
-  onClick,             // Обробник кліку
-  size = 'medium',     // Розмір: small, medium, large
-  disabled = false,    // Заблокований стан
-  children,            // Вміст кнопки
-  to,                  // Шлях для навігації
+  onClick, // Обробник кліку
+  size = 'medium', // Розмір: small, medium, large
+  disabled = false, // Заблокований стан
+  children, // Вміст кнопки
+  to, // Шлях для навігації
 }) => {
   const navigate = useNavigate();
 
-  const handleClick = (e) => {
+  const handleClick = e => {
     if (onClick) {
       onClick(e); // Виконати переданий onClick
     }
@@ -32,6 +33,14 @@ const Button = ({
   );
 };
 
+// Додаємо PropTypes для валідації пропсів
+Button.propTypes = {
+  variant: PropTypes.oneOf(['default', 'primary', 'secondary']),
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  disabled: PropTypes.bool,
+  children: PropTypes.node.isRequired, // children обов'язковий
+  to: PropTypes.string,
+};
+
 export default Button;
-
-

@@ -12,11 +12,10 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/catalog/:id" element={<CamperDetailsPage />} />
-      <Route path="/catalog/:id/reviews" element={<CamperReviewsPage />} />
+        <Route path="/catalog/:id/reviews" element={<CamperReviewsPage />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
-

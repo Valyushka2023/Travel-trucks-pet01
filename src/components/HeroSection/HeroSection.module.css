@@ -28,7 +28,7 @@
 
 .titleReviews {
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-items: flex-start;
   width: 133px;
   background-color: chartreuse;
@@ -36,11 +36,11 @@
 }
 
 .iconStar {
-  margin-right: 4px; 
-  vertical-align: middle; 
+  margin-right: 4px;
+  vertical-align: middle;
   svg {
-  display: inline-block;
-}
+    display: inline-block;
+  }
 }
 
 .textReviewsTitle {
@@ -50,18 +50,18 @@
 
 .locationTitle {
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: flex-start;
   width: 118px;
   background-color: #ffaa00;
 }
 
 .iconMap {
-  margin-right: 4px; 
-  vertical-align: middle; 
+  margin-right: 4px;
+  vertical-align: middle;
   svg {
-  display: inline-block;
-}
+    display: inline-block;
+  }
 }
 
 .containerPrice {

@@ -1,33 +1,30 @@
 //	Каталог: сторінка, де відображаються всі доступні транспортні засоби з можливістю фільтрації за певними критеріями (локація, тип транспорту, наявність кондиціонера, кухні тощо) та можливістю додати кемпер до обраних.
 
 import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Header from '../../components/Header/Header.jsx';
 import Button from '..//..//components/Button/Button.jsx';
 import css from './CatalogPage.module.css';
 
 function CatalogPage() {
-  const navigate = useNavigate();
-  
   return (
     <div className={css.container}>
       {/* Header */}
-      <Header />   
-      {/* Hero Section */}   
+      <Header />
+      {/* Section */}
       <div className={css.containerCatalog}>
         <div className={css.containerLocationFilter}>
           <div className={css.textInputContainer}>
             <h5 className={css.supportingText}>Location</h5>
             <div className={css.textInput}>
               <div className={css.location}>
-                      <svg
-                        className={css.iconMap}
-                        width="20"
-                        height="20"
-                        viewBox="0 0 32 32"
-                      >
-                        <use href="/icons.svg#icon-map"></use>
-                      </svg>
+                <svg
+                  className={css.iconMap}
+                  width="20"
+                  height="20"
+                  viewBox="0 0 32 32"
+                >
+                  <use href="/icons.svg#icon-map"></use>
+                </svg>
                 <p className={css.textLocation}>Kyiv, Ukraine</p>
               </div>
             </div>
@@ -37,57 +34,57 @@ function CatalogPage() {
             <h3 className={css.textEquipment}>Vehicle equipment</h3>
             <hr className={css.divider} />
             <div className={css.equipmentRaw1}>
-             <div className={css.rawIcon}>
-                    <svg
-                        className={css.iconAc}
-                        width="32"
-                        height="64"
-                        viewBox="0 0 16 32"
-                      >
-                        <use href="/icons.svg#icon-icon-AC"></use>
-              </svg>
+              <div className={css.rawIcon}>
+                <svg
+                  className={css.iconAc}
+                  width="32"
+                  height="64"
+                  viewBox="0 0 16 32"
+                >
+                  <use href="/icons.svg#icon-icon-AC"></use>
+                </svg>
               </div>
               <div className={css.rawIcon}>
                 <svg
-                        className={css.iconAutomatic}
-                        width="78"
-                        height="64"
-                        viewBox="0 0 39 32"
-                      >
-                        <use href="/icons.svg#icon-icon-automatic"></use>
-              </svg>
+                  className={css.iconAutomatic}
+                  width="78"
+                  height="64"
+                  viewBox="0 0 39 32"
+                >
+                  <use href="/icons.svg#icon-icon-automatic"></use>
+                </svg>
               </div>
               <div className={css.rawIcon}>
                 <svg
-                        className={css.iconKitchen}
-                        width="59"
-                        height="64"
-                        viewBox="0 0 30 32"
-                      >
-                        <use href="/icons.svg#icon-icon-kitchen"></use>
-              </svg>
-              </div> 
+                  className={css.iconKitchen}
+                  width="59"
+                  height="64"
+                  viewBox="0 0 30 32"
+                >
+                  <use href="/icons.svg#icon-icon-kitchen"></use>
+                </svg>
+              </div>
             </div>
             <div className={css.equipmentRaw2}>
               <div className={css.rawIcon}>
-                    <svg
-                        className={css.iconTv}
-                        width="32"
-                        height="64"
-                        viewBox="0 0 16 32"
-                      >
-                        <use href="/icons.svg#icon-icon-TV"></use>
-              </svg>
+                <svg
+                  className={css.iconTv}
+                  width="32"
+                  height="64"
+                  viewBox="0 0 16 32"
+                >
+                  <use href="/icons.svg#icon-icon-TV"></use>
+                </svg>
               </div>
               <div className={css.rawIcon}>
                 <svg
-                        className={css.iconBathroom}
-                        width="75"
-                        height="64"
-                        viewBox="0 0 38 32"
-                      >
-                        <use href="/icons.svg#icon-icon-bathroom"></use>
-              </svg>
+                  className={css.iconBathroom}
+                  width="75"
+                  height="64"
+                  viewBox="0 0 38 32"
+                >
+                  <use href="/icons.svg#icon-icon-bathroom"></use>
+                </svg>
               </div>
             </div>
           </div>
@@ -96,44 +93,40 @@ function CatalogPage() {
             <hr className={css.divider} />
             <div className={css.typeRaw}>
               <div className={css.rawIcon}>
-                    <svg
-                        className={css.iconVan}
-                        width="32"
-                        height="64"
-                        viewBox="0 0 16 32"
-                      >
-                        <use href="/icons.svg#icon-icon-Van"></use>
-              </svg>
+                <svg
+                  className={css.iconVan}
+                  width="32"
+                  height="64"
+                  viewBox="0 0 16 32"
+                >
+                  <use href="/icons.svg#icon-icon-Van"></use>
+                </svg>
               </div>
               <div className={css.rawIcon}>
                 <svg
-                        className={css.iconFully}
-                        width="80"
-                        height="88"
-                        viewBox="0 0 29 32"
-                      >
-                        <use href="/icons.svg#icon-icon-fully"></use>
-              </svg>
+                  className={css.iconFully}
+                  width="80"
+                  height="88"
+                  viewBox="0 0 29 32"
+                >
+                  <use href="/icons.svg#icon-icon-fully"></use>
+                </svg>
               </div>
               <div className={css.rawIcon}>
                 <svg
-                        className={css.iconAlcove}
-                        width="52"
-                        height="64"
-                        viewBox="0 0 26 32"
-                      >
-                        <use href="/icons.svg#icon-icon-Alcove"></use>
-              </svg>
-              </div>           
+                  className={css.iconAlcove}
+                  width="52"
+                  height="64"
+                  viewBox="0 0 26 32"
+                >
+                  <use href="/icons.svg#icon-icon-Alcove"></use>
+                </svg>
+              </div>
             </div>
-          </div>  
-            <Button 
-              variant="primary" 
-              size="medium" 
-              to="/catalog/:id"
-            >
-             Search
-            </Button>
+          </div>
+          <Button variant="primary" size="medium" to="/catalog/:id">
+            Search
+          </Button>
         </div>
         <div className={css.containerCards}>
           <div className={css.card}>
@@ -239,19 +232,15 @@ function CatalogPage() {
                       </div>
                     </div>
                   </div>
-                  <div className={css.showMore}>           
-                    <Button 
-                      variant="primary" 
-                      size="medium" 
-                      to="/catalog/:id"
-                    >
+                  <div className={css.showMore}>
+                    <Button variant="primary" size="medium" to="/catalog/:id">
                       Show more
-                    </Button>                 
+                    </Button>
                   </div>
                 </div>
               </div>
             </div>
-          </div>       
+          </div>
           <div className={css.card}>
             <div className={css.contentCard}>
               <div className={css.containerPic}>
@@ -305,7 +294,8 @@ function CatalogPage() {
                   </div>
                   <div className={css.supportingTextInfo}>
                     <p className={css.textInfo}>
-                     The pictures shown here are example vehicles of the respective...
+                      The pictures shown here are example vehicles of the
+                      respective...
                     </p>
                   </div>
                   <div className={css.badgesContainerInfo}>
@@ -355,17 +345,13 @@ function CatalogPage() {
                     </div>
                   </div>
                   <div className={css.showMore}>
-                    <Button 
-                      variant="primary" 
-                      size="medium" 
-                      to="/catalog/:id"
-                    >
-                     Show more
+                    <Button variant="primary" size="medium" to="/catalog/:id">
+                      Show more
                     </Button>
                   </div>
                 </div>
               </div>
-          </div>
+            </div>
           </div>
           <div className={css.card}>
             <div className={css.contentCard}>
@@ -420,7 +406,8 @@ function CatalogPage() {
                   </div>
                   <div className={css.supportingTextInfo}>
                     <p className={css.textInfo}>
-                     The pictures shown here are example vehicles of the respective...
+                      The pictures shown here are example vehicles of the
+                      respective...
                     </p>
                   </div>
                   <div className={css.badgesContainerInfo}>
@@ -469,18 +456,14 @@ function CatalogPage() {
                       </div>
                     </div>
                   </div>
-                  <div className={css.showMore}>             
-                    <Button 
-                      variant="primary" 
-                      size="medium" 
-                      to="/catalog/:id"
-                    >
+                  <div className={css.showMore}>
+                    <Button variant="primary" size="medium" to="/catalog/:id">
                       Show more
                     </Button>
                   </div>
                 </div>
               </div>
-          </div>
+            </div>
           </div>
           <div className={css.card}>
             <div className={css.contentCard}>
@@ -494,7 +477,9 @@ function CatalogPage() {
               <div className={css.containerInfo}>
                 <div className={css.textContainerInfo}>
                   <div className={css.titleInfo}>
-                    <h2 className={css.textTitleInfo}>Mighty Class C Medium [MD]</h2>
+                    <h2 className={css.textTitleInfo}>
+                      Mighty Class C Medium [MD]
+                    </h2>
                     <div className={css.priceInfo}>
                       <h2 className={css.textPriceInfo}>
                         €8000
@@ -535,7 +520,8 @@ function CatalogPage() {
                   </div>
                   <div className={css.supportingTextInfo}>
                     <p className={css.textInfo}>
-                     The pictures shown here are example vehicles of the respective...
+                      The pictures shown here are example vehicles of the
+                      respective...
                     </p>
                   </div>
                   <div className={css.badgesContainerInfo}>
@@ -584,32 +570,24 @@ function CatalogPage() {
                       </div>
                     </div>
                   </div>
-                  <div className={css.showMore}>                  
-                    <Button 
-                      variant="primary" 
-                      size="medium" 
-                      to="/catalog/:id"
-                    >
-                     Show more
+                  <div className={css.showMore}>
+                    <Button variant="primary" size="medium" to="/catalog/:id">
+                      Show more
                     </Button>
                   </div>
                 </div>
               </div>
-          </div>
+            </div>
           </div>
           <div className={css.containerLoadMore}>
-            <Button 
-              variant="secondary" 
-              size="small" 
-              to="/catalog/:id"
-            >
+            <Button variant="secondary" size="small" to="/catalog/:id">
               Load more
             </Button>
           </div>
         </div>
-        </div> 
+      </div>
     </div>
   );
 }
- 
-export default CatalogPage;                    
+
+export default CatalogPage;

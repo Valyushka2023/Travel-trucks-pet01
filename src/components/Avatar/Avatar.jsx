@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Avatar = ({ name }) => {
   // Отримуємо першу літеру імені
-  const initial = name?.charAt(0).toUpperCase() || "?";
+  const initial = name?.charAt(0).toUpperCase() || '?';
 
   return (
     <div
@@ -12,6 +13,11 @@ const Avatar = ({ name }) => {
       {initial}
     </div>
   );
+};
+
+// Додаємо перевірку PropTypes
+Avatar.propTypes = {
+  name: PropTypes.string.isRequired,
 };
 
 export default Avatar;
