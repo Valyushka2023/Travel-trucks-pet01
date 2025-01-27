@@ -1,0 +1,9 @@
+.containerPictures {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  width: 1312px;
+  height: 312px;
+  margin-top: 28px;
+  background-color: chocolate;
+}

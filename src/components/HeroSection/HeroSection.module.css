@@ -1,0 +1,73 @@
+.Title {
+  display: flex;
+  align-items: center;
+  width: 128px;
+  height: 32px;
+  background-color: burlywood;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.containerDetail {
+  display: flex;
+  flex-direction: column;
+  width: 267px;
+  height: 72px;
+  background-color: brown;
+}
+
+.reviewsLocation {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+  justify-content: space-between;
+  width: 267px;
+  height: 24px;
+  background-color: #bb99e2;
+}
+
+.titleReviews {
+  display: flex;
+  align-items: center; 
+  justify-items: flex-start;
+  width: 133px;
+  background-color: chartreuse;
+  margin-right: 16px;
+}
+
+.iconStar {
+  margin-right: 4px; 
+  vertical-align: middle; 
+  svg {
+  display: inline-block;
+}
+}
+
+.textReviewsTitle {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+.locationTitle {
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start;
+  width: 118px;
+  background-color: #ffaa00;
+}
+
+.iconMap {
+  margin-right: 4px; 
+  vertical-align: middle; 
+  svg {
+  display: inline-block;
+}
+}
+
+.containerPrice {
+  display: flex;
+  align-items: center;
+  width: 118px;
+  height: 32px;
+  background-color: #dbe72f;
+}

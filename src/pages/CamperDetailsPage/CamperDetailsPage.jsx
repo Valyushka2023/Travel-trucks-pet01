@@ -4,6 +4,9 @@ import React from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header.jsx';
 import BookingForm from "../../components/BookingForm/BookingForm.jsx";
+import ImageGallery from '../../components/ImageGallery/ImageGallery.jsx';
+import VehicleDetails from '../../components/VehicleDetails/VehicleDetails.jsx';
+import HeroSection from '../../components/HeroSection/HeroSection.jsx';
 import css from './CamperDetailsPage.module.css';
 
 
@@ -16,62 +19,15 @@ function CamperDetailsPage() {
     <div className={css.container}> 
       {/* Header */} 
         <Header />   
-       {/* Hero Section */}      
-        <div className={css.containerTitle}>      
-          <div>
-          <h2 className={css.Title}>Mavericks</h2>
-          </div>         
-          <div className={css.containerDetail}>           
-            <div className={css.reviewsLocation}>             
-              <div className={css.titleReviews}>
-              <svg
-              className={css.iconStar}
-              width="16"
-              height="16"
-              viewBox="0 0 32 32"
-              >
-              <use href="/icons.svg#icon-icon-star-icon"></use>
-              </svg>
-              <p className={css.textReviewsTitle}>4.4 (2 Reviews)</p>
-              </div>
-              <div className={css.locationTitle}>
-              <svg
-              className={css.iconMap}
-              width="16"
-              height="16"
-              viewBox="0 0 32 32"
-              >
-              <use href="/icons.svg#icon-map"></use>
-              </svg>
-              <p className={css.textLocationTitle}>Kyiv, Ukraine</p>
-              </div>
-            </div>            
-            <div className={css.containerPrice}>
-            <h2 className={css.Price}>€8000.00</h2>
-            </div>            
-        </div>
-        <div className={css.containerPictures}>
-           <img
-              src="/images/Pic1Mavericks@1x.jpg"
-              srcSet="/images/Pic1Mavericks@1x.jpg 1x, /images/Pic1Mavericks@2x.jpg 2x"
-              alt="Mavericks panel truck"
-              />
-           <img
-              src="/images/Pic2Mavericks@1x.jpg"
-              srcSet="/images/Pic2Mavericks@1x.jpg 1x, /images/Pic2Mavericks@2x.jpg 2x"
-              alt="Mavericks panel truck"
-              />
-            <img
-              src="/images/Pic3Mavericks@1x.jpg"
-              srcSet="/images/Pic3Mavericks@1x.jpg 1x, /images/Pic3Mavericks@2x.jpg 2x"
-              alt="Mavericks panel truck"
-              />
-           <img
-              src="/images/Pic4Mavericks@1x.jpg"
-              srcSet="/images/Pic4Mavericks@1x.jpg 1x, /images/Pic4Mavericks@2x.jpg 2x"
-              alt="Mavericks panel truck"
-              />
-          </div>
+         
+        <div className={css.containerTitle}>  
+          {/* HeroSection */}  
+            <HeroSection /> 
+        
+                 {/*ImageGallery  */}
+                    <ImageGallery /> 
+
+        
           <div className={css.containerText}>
             <p className={css.text}>Embrace simplicity and freedom with the Mavericks panel truck, an ideal choice for solo travelers or couples seeking a compact and efficient way to explore the open roads. This no-frills yet reliable panel truck offers the essentials for a comfortable journey, making it the perfect companion for those who value simplicity and functionality.</p>
           </div>
@@ -84,7 +40,9 @@ function CamperDetailsPage() {
           <div className={css.dividerWrapper}>
             <hr className={css.divider1} />
             <hr className={css.divider2} />
-          </div>
+        </div>
+        
+
           <div className={css.detailsForm}>
             <div className={css.details}>
               <div className={css.badgesContainer}>
@@ -139,39 +97,17 @@ function CamperDetailsPage() {
                   </svg>
                 </div>
               </div>
-              <div className={css.venicleContainerForm}>
-                <div className={css.venicleContainer}>
-                    <h3 className={css.textDetails}>Vehicle details</h3>               
-                  <hr className={css.divider} />
-                  <div className={css.venicleInfo}>
-                  <div className={css.texts}>
-                    <p>Form</p>
-                    <p>Panel truck</p>
-                  </div>
-                  <div className={css.texts}>
-                    <p>Length</p>
-                    <p>5.4 m</p>
-                  </div>
-                  <div className={css.texts}>
-                    <p>Width</p>
-                    <p>2.01 m</p>
-                  </div>
-                  <div className={css.texts}>
-                    <p>Height</p>
-                    <p>2.05 m</p>
-                  </div>
-                  <div className={css.texts}>
-                    <p>Tank</p>
-                    <p>132 I</p>
-                  </div>
-                  <div className={css.texts}>
-                    <p>Consumption</p>
-                    <p>12.4l/100km</p>
-                  </div>
-                </div>
+
+            
+            <div className={css.vehicleContainerForm}>
+
+               {/*VehicleDetails  */}
+                     <VehicleDetails />
+                
+
               </div>
-              </div>
-              </div>            
+          </div> 
+
                   {/* Booking Form */}
                      <BookingForm />           
           </div>
