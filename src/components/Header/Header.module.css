@@ -1,0 +1,41 @@
+.headerContainer {
+  display: flex;
+  width: 1440px;
+  height: 72px;
+  align-items: center;
+  background-color: #f7f7f7;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 900; 
+  color: #101828; 
+  margin-left: 64px;
+  margin-right: 480px;
+}
+
+.logoSecondary {
+  color: grey
+}
+
+.menu {
+  display: flex;
+  gap: 32px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.link {
+  text-decoration: none;
+  color: #333; 
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: rgb(225, 0, 255); 
+}
+
+.active {
+  text-decoration: none;
+  color: red; 
+}

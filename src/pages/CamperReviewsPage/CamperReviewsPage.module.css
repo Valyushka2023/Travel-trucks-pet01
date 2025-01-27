@@ -1,0 +1,278 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 1440px;
+  min-height: 100vh;
+  background-color: #dbe72f;
+  margin: 0 auto;
+}
+
+.containerTitle {
+  display: flex;
+  flex-direction: column;
+  width: 1312px;
+  margin-top: 48px;
+  background-color: aqua;
+  min-height: 100vh;
+  margin-bottom: 44px;
+}
+
+.Title {
+  display: flex;
+  align-items: center;
+  width: 128px;
+  height: 32px;
+  background-color: burlywood;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.containerDetail {
+  display: flex;
+  flex-direction: column;
+  width: 267px;
+  height: 72px;
+  background-color: brown;
+}
+
+.reviewsLocation {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+  justify-content: space-between;
+  width: 267px;
+  height: 24px;
+  background-color: #bb99e2;
+}
+
+.titleReviews {
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start;
+  width: 133px;
+  background-color: chartreuse;
+  margin-right: 16px;
+}
+
+.iconStar {
+  margin-right: 4px; 
+  vertical-align: middle; 
+  svg {
+  display: inline-block;
+}
+}
+
+.textReviewsTitle {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+.locationTitle {
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start;
+  width: 118px;
+  background-color: #ffaa00;
+}
+
+.iconMap {
+  margin-right: 4px; 
+  vertical-align: middle; 
+  svg {
+  display: inline-block;
+}
+}
+
+.containerPrice {
+  display: flex;
+  align-items: center;
+  width: 118px;
+  height: 32px;
+  background-color: #dbe72f;
+}
+
+.containerPictures {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  width: 1312px;
+  height: 312px;
+  margin-top: 28px;
+  background-color: chocolate;
+}
+
+.containerText {
+  display: flex;
+  width: 1312px;
+  height: 48px;
+  align-items: center;
+  background-color: antiquewhite;
+  margin-top: 28px;
+}
+
+.text {
+  letter-spacing: 0.02em;
+  color: #475467;
+}
+
+.tabc {
+  display: flex;
+  width: 1312px;
+  height: 48px;
+  background-color: rgb(204, 175, 181);
+  margin-top: 60px;
+}
+
+.titlesTabs {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  width: 206px;
+  height: 24px;
+  margin-top: 0;
+  margin-left: 0;
+  margin-bottom: 24px;
+  background-color: #ffaa00;
+  align-items: center; 
+}
+
+.textTitlesTabsFeatures {
+  display: flex;
+  align-items: center;
+  width: 85px;
+  height: 24px;
+  background-color: aqua;
+}
+
+.textTitlesTabsReviews {
+  display: flex;
+  align-items: center;
+  width: 81px;
+  height: 24px;
+  background-color: aqua;
+}
+
+.dividerWrapper {
+  display: flex;
+  position: relative; 
+  width: 100%; 
+  height: auto; 
+}
+
+.divider1 {
+  position: relative; 
+  top: 0;
+  left: 0;
+  width: 1312px;
+  color: #cecbcb;
+  stroke-width: 1px;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.divider2 {
+  position: absolute; 
+  top: 0; 
+  left: 125px;
+  width: 85px;
+  color: #dd151f;
+  stroke-width: 1px;
+  margin: 0;
+}
+
+.detailsForm {
+  display: flex;
+  flex-direction: row;
+  width: 1312px;
+  height: 588px;
+  background-color: blue;
+  margin-top: 44px;
+  justify-content: space-between; 
+}
+
+.containerReviews {
+  display: flex;
+  flex-direction: column;
+  width: 631px;
+  height: 340px;
+  background-color: #e44884;
+  gap: 44px;
+}
+
+.blok {
+  display: flex;
+  flex-direction: column;
+  width: 631px;
+  height: 148px;
+  background-color: #007bff;
+}
+
+.person {
+  display: flex;
+  flex-direction: row;
+  width: 172px;
+  height: 60px;
+  gap: 16px;
+  background-color: #9cac82;
+}
+
+.iconUser {
+   background-color: #6c717b;
+}
+
+.personName {
+  display: flex;
+  flex-direction: column;
+  width: 96px;
+  height: 44px;
+  background-color: #0cb444;
+  margin: 0;
+  margin-top: 8px;
+}
+
+.textPersonName {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: 24px;
+  align-items: center;
+  background-color: #a7e72f;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.rate {
+  display: flex;
+  flex-direction: row;
+  width: 96px;
+  height: 16px;
+  margin-top: 4px;
+  margin-bottom: 0;
+  background-color: #991f1f;
+}
+
+.iconStar {
+ margin-right: 4px;
+}
+
+.iconStar:last-child {
+  margin-right: 0;
+}
+
+.textPerson {
+  display: flex;
+  flex-direction: row;
+  width: 631px;
+  height: 72px;
+  align-items: center;
+  background-color: #48e484;
+  line-height: normal;
+  letter-spacing: 0.4px; 
+  color: #475467;
+  margin-bottom: 0;
+}
+
+
+

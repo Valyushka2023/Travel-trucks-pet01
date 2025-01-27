@@ -1,0 +1,78 @@
+/* Загальні стилі для всіх кнопок */
+.button {
+  border-radius: 200px;
+  padding: 16px 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  transition: background-color 0.3s ease;
+}
+
+/* Розміри кнопок */
+.small {
+  width: 145px;
+  height: 56px;
+}
+
+.medium {
+  width: 166px;
+  height: 56px;
+}
+
+.large {
+  width: 176px;
+  height: 56px;
+}
+
+/* Варіанти стилів кнопок */
+.default {
+  background: #f3ebeb;
+  color: #141313;
+}
+
+.default:hover {
+  background-color: #ffaa00;
+}
+
+.default:active {
+  background-color: #ee7008;
+}
+
+.primary {
+  background: #e44848;
+  color: #fff;
+}
+
+.primary:hover {
+  background-color: #ffaa00;
+}
+
+.primary:active {
+  background-color: #ee7008;
+}
+
+.secondary {
+  background: #f3ebeb;
+  color: #141313;
+}
+
+.secondary:hover {
+  background-color: #ffaa00;
+}
+
+.secondary:active {
+  background-color: #ee7008;
+}
+
+/* Стан заблокованої кнопки */
+.button:disabled {
+  background: #ccc;
+  color: #6c757d;
+  cursor: not-allowed;
+}

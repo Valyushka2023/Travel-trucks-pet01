@@ -1,0 +1,402 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  width: 1440px;
+  min-height: 100vh;
+  background-color: #dbe72f;
+  margin: 0 auto;
+}
+
+.containerCatalog {
+  display: flex;
+  width: 1312px;
+  height: 1656px;
+  background-color: aqua;
+  margin-bottom: 44px;
+  margin-top: 44px;
+}
+
+.containerLocationFilter {
+   display: flex;
+   flex-direction: column;
+   width:360px;
+   height: 1656px;
+   background-color: #d3e6a8;
+}
+
+.textInputContainer {
+  display: flex; 
+  flex-direction: column;
+  width:360px;
+  height: 88px;
+  margin-bottom: 40px;
+  background-color: #e623c8; 
+}
+
+.supportingText {
+  display: flex;
+  width: 360px;
+  height: 24px;
+  color: #6c717b;
+  margin: auto;
+  margin-bottom: 8px;
+  background-color: #baadda;
+}
+
+.textInput {
+  display: flex;
+  align-items: center; 
+  border-radius: 12px;
+  width: 360px;
+  height: 56px;
+  background: #f7f7f7;
+
+}
+
+.location {
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  width: 126px;
+  height: 24px;
+  margin-left: 20px;
+}
+
+
+.filterTitle {
+  display: flex;
+  flex-direction: row;
+  width: 360px;
+  height: 24px;
+  line-height: normal;
+  color: #475467;
+  margin: 0;
+  margin-bottom: 32px;
+  background-color: #e44848;
+}
+
+.vehicleEquipment {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 272px;
+  margin-bottom: 32px;
+  background-color: chartreuse;
+}
+
+.textEquipment {
+  display: flex;
+  flex-direction: row;
+  line-height: normal;
+  width: 181px;
+  height: 24px;
+  margin: 0;
+}
+
+.divider {
+  width: 357px;
+  stroke-width: 0.5px;
+  stroke: #dadde1;
+  margin: 24px 0; 
+}
+
+.equipmentRaw1{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  width: 360px;
+  height: 96px;
+  background-color: #ff00b3;
+  margin-bottom: 4px;
+}
+
+.iconAc {
+  display: flex;
+  margin: auto;
+  width: 32px;
+  height: 64px;
+}
+
+.iconAutomatic {
+  display: flex;
+  margin: auto;
+  width: 78px;
+  height: 64px;
+}
+
+.iconKitchen{
+  display: flex;
+  margin: auto;
+  width: 59px;
+  height: 64px;
+}
+
+.equipmentRaw2{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  width: 236px;
+  height: 96px;
+  background-color: #dbe72f;
+}
+
+.iconTv{
+  display: flex;
+  margin: auto;
+  width: 32px;
+  height: 64px;
+}
+
+.iconBathroom{
+  display: flex;
+  margin: auto;
+  width: 75px;
+  height: 64px;
+}
+
+.vehicleType {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 168px;
+  margin-bottom: 40px;
+  background-color: rgb(146, 158, 135);
+}
+
+.textType {
+  display: flex;
+  flex-direction: row;
+  width: 120px;
+  height: 24px;
+  line-height: normal;
+  margin: 0;
+}
+
+.divider {
+  width: 357px;
+  stroke-width: 1px;
+  stroke: #dadde1;
+  margin: 24px 0; 
+}
+
+.typeRaw {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  width: 360px;
+  height: 96px;
+  background-color: blue;
+}
+.rawIcon {
+  display: flex;
+  align-items: center;
+  width: 112px;
+  height: 96px;
+  background-color: #2fe747;
+}
+
+.iconVan {
+  display: flex;
+  margin: auto;
+  width: 32px;
+  height: 64px;
+}
+
+.iconFully {
+  display: flex;
+  margin: auto;
+  width: 80px;
+  height: 88px;
+}
+
+.iconAlcove {
+  display: flex;
+  margin: auto;
+  width: 52px;
+  height: 64px;
+}
+
+.containerCards {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: #8a97e4;
+  width:888px;
+  height: 1568px;
+  margin-left: 64px; 
+}
+
+.card  {
+  display: flex;
+  flex-direction: column;
+  width: 888px;
+  height: 368px;
+  background-color: brown;
+  border-radius: 20px;
+  border:  #696363;
+}
+
+.contentCard {
+  display: flex;
+  flex-direction: row;
+  width: 840px;
+  height: 320px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  margin-left: 24px;
+  background-color: #dadde1;
+}
+
+.containerPic  {
+  display: flex;
+  width: 292px;
+  height: 320px;
+  background-color: rgb(135, 187, 222);
+}
+
+.containerInfo {
+  display: flex;
+  flex-direction: column;
+  width: 524px;
+  height: 320px;
+  margin-left: 24px;
+  background-color: burlywood;
+}
+
+.textContainerInfo{
+  display: flex;
+  flex-direction: column;
+  width: 524px;
+  height: 64px;
+  background-color: rgb(248, 45, 167);
+}
+
+.titleInfo {
+  display: flex;
+  width: 524px;
+  height: 32px;
+  align-items: center; 
+  background-color: #dbe72f;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.priceInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; 
+  width: 156px;
+  margin-left: auto; 
+}
+
+.textPriceInfo {
+  display: flex;
+  align-items: center;
+ 
+}
+
+.iconHeart {
+  fill: currentColor; 
+  margin-left: 12px; 
+  vertical-align: middle; 
+  svg {
+  display: inline-block;
+}
+}
+
+.detailsInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #15b5dd;
+  width: 524px;
+  height: 32px;
+}
+
+.reviewsInfo {
+  display: flex;
+  align-items: center; 
+  width: auto;
+  height: 24px;
+  background-color: #2fe747;
+  margin-right: 16px;
+}
+
+.iconStar {
+  margin-right: 4px; 
+  vertical-align: middle; 
+  svg {
+  display: inline-block;
+}
+}
+
+.locationInfo {
+  display: flex;
+  align-items: center; 
+  width: auto;
+  height: 24px;
+  background-color: #ffaa00;
+}
+
+.iconMap {
+  margin-right: 4px; 
+  vertical-align: middle; 
+  svg {
+  display: inline-block;
+}
+}
+
+.supportingTextInfo {
+  display: flex;
+  flex-direction: row;
+  width: 524px;
+  height: 24px;
+  margin-top: 24px;
+  background-color: #2fe747;
+  align-items: center; 
+}
+
+.textInfo {
+  color: #475467;
+}
+
+.badgesContainerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 524px;
+  height: 104px;
+  margin-top: 24px;
+  background-color: rgb(80, 255, 197);
+}
+
+.row1,.row2  {
+  display: flex;
+  gap: 8px;
+  width: 524px;
+  height: 48px;
+  background-color: darkkhaki;
+}
+
+.showMore {
+  display: inline-flex;
+  width: 524px;
+  height: 96px;
+  background-color: #2fe747;
+  margin-top: 24px;
+}
+
+.containerLoadMore {
+  display: flex;
+  width: 888px;
+  height: 56px;
+  background-color: #2fe747;
+  justify-content: center;
+}
+
+
+
+
+

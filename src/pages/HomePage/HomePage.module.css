@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start;  */
+  /* align-items: center; */
+  width: 1440px;
+  height: 100vh; 
+  margin: 0 auto;
+}
+
+.heroImage {
+  display: flex;
+  width: 1440px;
+  height: 696px;
+  align-items: center;
+  position: relative;
+  background-image: linear-gradient(rgba(46, 47, 66, 0.3), rgba(46, 47, 66, 0.3)), url('../images/Picture@1x.jpg');
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 571px;
+  height: 176px;
+  position: absolute; 
+  top: 50%; 
+  left: 64px; 
+  transform: translateY(-50%); 
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  width: 571px;
+  height: 80px;
+}
+
+.heroTitle {
+  line-height: 0.66667;
+  color: #f7f7f7;
+  margin-top: auto;
+}
+
+.heroContent {
+  color: #f7f7f7;
+  margin-top: auto;
+}
+
+

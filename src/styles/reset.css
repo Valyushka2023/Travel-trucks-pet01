@@ -1,0 +1,20 @@
+/*Скидання стилів браузера*/
+
+
+body, h1, h2, h3, p, ul, ol, li, figure, blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
