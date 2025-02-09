@@ -15,7 +15,7 @@ function HeroSection() {
               height="16"
               viewBox="0 0 32 32"
             >
-              <use href="/icons.svg#icon-icon-star-icon"></use>
+              <use href="/icons.svg#icon-star"></use>
             </svg>
             <p className={css.textReviewsTitle}>4.4 (2 Reviews)</p>
           </div>

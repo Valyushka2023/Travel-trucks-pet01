@@ -46,7 +46,7 @@ function CamperReviewsPage() {
                   height="60"
                   viewBox="0 0 32 32"
                 >
-                  <use href="/icons.svg#icon-User">T</use>
+                  <use href="/icons.svg#icon-user">T</use>
                 </svg>
                 <div className={css.personName}>
                   <div className={css.textPersonName}>Alice</div>
@@ -59,7 +59,7 @@ function CamperReviewsPage() {
                         height="16"
                         viewBox="0 0 32 32"
                       >
-                        <use href="/icons.svg#icon-icon-star-icon"></use>
+                        <use href="/icons.svg#icon-star"></use>
                       </svg>
                     ))}
                   </div>
@@ -81,7 +81,7 @@ function CamperReviewsPage() {
                   height="60"
                   viewBox="0 0 32 32"
                 >
-                  <use href="/icons.svg#icon-User">T</use>
+                  <use href="/icons.svg#icon-user">T</use>
                 </svg>
                 <div className={css.personName}>
                   <div className={css.textPersonName}>Bob</div>
@@ -94,7 +94,7 @@ function CamperReviewsPage() {
                         height="16"
                         viewBox="0 0 32 32"
                       >
-                        <use href="/icons.svg#icon-icon-star-icon"></use>
+                        <use href="/icons.svg#icon-star"></use>
                       </svg>
                     ))}
                   </div>

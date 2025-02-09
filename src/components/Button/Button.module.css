@@ -38,10 +38,12 @@
 
 .default:hover {
   background-color: #ffaa00;
+  transform: scale(1.1); /* Збільшуємо розмір при наведенні */ 
 }
 
 .default:active {
   background-color: #ee7008;
+   transform: scale(0.95); /* Зменшуємо розмір при натисканні */
 }
 
 .primary {
@@ -51,10 +53,12 @@
 
 .primary:hover {
   background-color: #ffaa00;
+  transform: scale(1.1); 
 }
 
 .primary:active {
   background-color: #ee7008;
+  transform: scale(0.95);
 }
 
 .secondary {
@@ -64,10 +68,12 @@
 
 .secondary:hover {
   background-color: #ffaa00;
+  transform: scale(1.1); 
 }
 
 .secondary:active {
   background-color: #ee7008;
+  transform: scale(0.95); 
 }
 
 /* Стан заблокованої кнопки */

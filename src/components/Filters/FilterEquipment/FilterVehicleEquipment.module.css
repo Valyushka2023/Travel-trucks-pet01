@@ -1,0 +1,102 @@
+.filterTitle {
+  display: flex;
+  flex-direction: row;
+  width: 360px;
+  height: 24px;
+  line-height: normal;
+  color: #475467;
+  margin: 0;
+  margin-bottom: 32px;
+  background-color: #e44848;
+}
+.vehicleEquipment {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 272px;
+  margin-bottom: 32px;
+  background-color: chartreuse;
+}
+
+.textEquipment {
+  display: flex;
+  flex-direction: row;
+  line-height: normal;
+  width: 181px;
+  height: 24px;
+  margin: 0;
+}
+
+.divider {
+  width: 357px;
+  stroke-width: 0.5px;
+  stroke: #dadde1;
+  margin: 24px 0; 
+}
+
+
+.equipmentContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  width: 360px;
+  height: 200px;
+  background-color: #eb10bb; 
+  margin-bottom: 4px;
+}
+
+.iconAc {
+  display: flex;
+  margin: auto;
+  width: 32px;
+  height: 64px;
+}
+
+.iconAutomatic {
+  display: flex;
+  margin: auto;
+  width: 78px;
+  height: 64px;
+}
+
+.iconKitchen{
+  display: flex;
+  margin: auto;
+  width: 59px;
+  height: 64px;
+}
+.iconTv{
+  display: flex;
+  margin: auto;
+  width: 32px;
+  height: 64px;
+  
+}
+
+.iconBathroom{
+  display: flex;
+  margin: auto;
+  width: 75px;
+  height: 64px;
+} 
+
+
+.rawIcon {
+  display: flex;
+  align-items: center;
+  width: 112px;
+  height: 96px;
+  background-color: #62d4ae;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.rawIcon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.iconAc, .iconAutomatic, .iconKitchen, .iconTv, .iconBathroom {
+  fill: #333; 
+}

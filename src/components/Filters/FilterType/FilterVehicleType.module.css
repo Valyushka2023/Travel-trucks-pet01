@@ -1,0 +1,75 @@
+.vehicleType {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 168px;
+  margin-bottom: 40px;
+  background-color: rgb(146, 158, 135);
+}
+
+.textType {
+  display: flex;
+  flex-direction: row;
+  width: 120px;
+  height: 24px;
+  line-height: normal;
+  margin: 0;
+}
+
+.divider {
+  width: 357px;
+  stroke-width: 1px;
+  stroke: #dadde1;
+  margin: 24px 0; 
+}
+
+.typeRaw {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  width: 360px;
+  height: 96px;
+  background-color: blue;
+}
+
+.iconVan {
+  display: flex;
+  margin: auto;
+  width: 32px;
+  height: 64px;
+}
+
+.iconFully {
+  display: flex;
+  margin: auto;
+  width: 80px;
+  height: 88px;
+}
+
+.iconAlcove {
+  display: flex;
+  margin: auto;
+  width: 52px;
+  height: 64px;
+}
+
+
+.rawIcon {
+  display: flex;
+  align-items: center;
+  width: 112px;
+  height: 96px;
+  background-color: #62d4ae;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.rawIcon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.iconAc, .iconAutomatic, .iconKitchen, .iconTv, .iconBathroom {
+  fill: #333; 
+}

@@ -1,10 +1,18 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+import * as url from 'url'; // Імпортуємо модуль url повністю
 
-// https://vitejs.dev/config/
+const __dirname = new url.URL('.', import.meta.url).pathname;
+
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
   build: {
     sourcemap: true,
-  }
+  },
 });

@@ -1,0 +1,60 @@
+.featureIcon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 14px;
+    background-color: aliceblue;
+    border-radius: 200px;
+    gap: 6px;
+    height: 48px;
+    width: auto;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+.text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    text-transform: capitalize; /* Це дозволяє зробити першу букву великою */
+}
+
+.featureIcon--microwave .icon {
+    fill: #f0eaf1;
+}
+
+
+.featureIcon--ac .icon {
+    fill: #009688;
+}
+
+.featureIcon--bathroom .icon {
+    fill: #2196F3;
+}
+
+.featureIcon--kitchen .icon {
+    fill: #4CAF50;
+}
+
+.featureIcon--tv .icon {
+    fill: #FFC107;
+}
+
+.featureIcon--radio .icon {
+    fill: #2196F3;
+}
+
+.featureIcon--refrigerator .icon {
+    fill: #4CAF50;
+}
+
+.featureIcon--gas .icon {
+    fill: #FF5722;
+}
+
+.featureIcon--water .icon {
+    fill: #03A9F4;
+}
