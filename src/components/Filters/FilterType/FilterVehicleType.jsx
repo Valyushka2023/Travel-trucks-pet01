@@ -1,30 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import css from './FilterVehicleType.module.css';
 
-const FilterVehicleType = () => {
-  return (
-    <div className={css.vehicleType}>
-      <h3 className={css.textType}>Vehicle type</h3>
-      <hr className={css.divider} />
-      <div className={css.typeRaw}>
-        <div className={css.rawIcon}>
-          <svg className={css.iconVan} width="32" height="64" viewBox="0 0 16 32">
-            <use href="/icons.svg#icon-icon-van"></use>
-          </svg>
+const filterButtons = [
+    { icon: 'van', label: 'Van', ariaLabel: 'Фургон' },
+    { icon: 'fully', label: 'Fully Integrated', ariaLabel: 'Повністю інтегрований' }, 
+      { icon: 'alcove', label: 'Alcove', ariaLabel: 'Альтанка' },
+];
+
+const FilterVehicleType = ({ onFilter }) => {
+    const [filters, setFilters] = useState({
+        van: false,
+       fully: false,  
+        alcove: false,
+       
+    });
+
+    const handleFilterChange = (filterName) => {
+        setFilters({
+            ...filters,
+            [filterName]: !filters[filterName],
+        });
+        onFilter({
+            ...filters,
+            [filterName]: !filters[filterName],
+        });
+    };
+
+    return (
+        <div className={css.vehicleType}>
+            <h3 className={css.textType}>Vehicle type</h3>
+            <hr className={css.divider} />
+            <div className={css.typeContainer}> 
+                {filterButtons.map((button) => (
+             
+<button
+            key={button.icon}
+            className={`${css.rawIcon} ${button.label.includes(' ') ? css.multiLine : ''}`}
+            aria-label={button.ariaLabel}
+            onClick={() => handleFilterChange(button.icon)}
+        >
+            <svg className={css.icon}>
+                <use href={`/icons.svg#icon-icon-button-${button.icon}`}></use>
+            </svg>
+            <span className={css.iconText}>{button.label}</span>
+        </button>
+
+                    
+                ))}
+            </div>
         </div>
-        <div className={css.rawIcon}>
-          <svg className={css.iconFully} width="80" height="88" viewBox="0 0 29 32">
-            <use href="/icons.svg#icon-icon-fully"></use>
-          </svg>
-        </div>
-        <div className={css.rawIcon}>
-          <svg className={css.iconAlcove} width="52" height="64" viewBox="0 0 26 32">
-            <use href="/icons.svg#icon-icon-alcove"></use>
-          </svg>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default FilterVehicleType;
+

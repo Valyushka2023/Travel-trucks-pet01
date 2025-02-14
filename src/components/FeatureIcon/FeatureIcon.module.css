@@ -21,40 +21,21 @@
     color: #333;
     text-transform: capitalize; /* Це дозволяє зробити першу букву великою */
 }
-
-.featureIcon--microwave .icon {
-    fill: #f0eaf1;
+/* Стилізуємо безпосередньо елементи <use> */
+.featureIcon use[href*="icon-icon-button-gas"] {
+       fill: none; /* Видаляємо заливку */
+stroke: currentColor; /* Колір контуру наслідується від кольору тексту */
+    stroke-width: 2; /* Задаємо товщину контуру (за необхідності) */
 }
 
-
-.featureIcon--ac .icon {
-    fill: #009688;
+.featureIcon use[href*="icon-icon-button-water"] {
+    fill: none; /* Видаляємо заливку */
+  stroke: currentColor; /* Колір контуру наслідується від кольору тексту */
+    stroke-width: 2; /* Задаємо товщину контуру (за необхідності) */
 }
 
-.featureIcon--bathroom .icon {
-    fill: #2196F3;
-}
-
-.featureIcon--kitchen .icon {
-    fill: #4CAF50;
-}
-
-.featureIcon--tv .icon {
-    fill: #FFC107;
-}
-
-.featureIcon--radio .icon {
-    fill: #2196F3;
-}
-
-.featureIcon--refrigerator .icon {
-    fill: #4CAF50;
-}
-
-.featureIcon--gas .icon {
-    fill: #FF5722;
-}
-
-.featureIcon--water .icon {
-    fill: #03A9F4;
+.featureIcon use[href*="icon-icon-button-microwave"] {
+      fill: none; /* Видаляємо заливку */
+   stroke: currentColor; /* Колір контуру наслідується від кольору тексту */
+    stroke-width: 2; /* Задаємо товщину контуру (за необхідності) */
 }

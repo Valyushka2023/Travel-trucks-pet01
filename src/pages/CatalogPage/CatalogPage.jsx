@@ -16,12 +16,13 @@ function CatalogPage() {
     const campers = useSelector(selectCampers);
     const isLoading = useSelector(selectIsLoading);
     const error = useSelector(selectError);
-    const location = useLocation();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [visibleCampers, setVisibleCampers] = useState([]);
     const [loadedCount, setLoadedCount] = useState(4);
-    const [showScrollButton, setShowScrollButton] = useState(false); // Стан для відображення кнопки
+    const [showScrollButton, setShowScrollButton] = useState(false);
+    const [filterLocation, setFilterLocation] = useState('all');
 
     useEffect(() => {
         dispatch(getCampers());
@@ -29,22 +30,25 @@ function CatalogPage() {
 
     useEffect(() => {
         if (campers && campers.length > 0) {
-            console.log('Campers data:', campers);  // Лог для перевірки даних
-            setVisibleCampers(campers.slice(0, loadedCount));
+            const filteredCampers = campers.filter(camper => {
+                if (filterLocation === 'all') return true;
+                const [city, country] = filterLocation.split(", "); // Розділяємо на місто та країну
+                return camper.location === `${country}, ${city}`; // Порівнюємо з location кемпера
+            });
+
+            setVisibleCampers(filteredCampers.slice(0, loadedCount));
         }
-    }, [campers, loadedCount]);
+    }, [campers, loadedCount, filterLocation]);
 
     useEffect(() => {
-        // Додаємо слухач події прокручування
         window.addEventListener("scroll", handleScroll);
         return () => {
-            // Видаляємо слухач події при розмонтуванні компонента
             window.removeEventListener("scroll", handleScroll);
         };
-    }, []); // Пустий масив залежностей, щоб ефект спрацював один раз
+    }, []);
 
-    const setLocation = (newLocation) => {
-        navigate(newLocation);
+    const handleLocationChange = (newLocation) => {
+        setFilterLocation(newLocation);
     };
 
     const handleLoadMore = () => {
@@ -52,18 +56,11 @@ function CatalogPage() {
     };
 
     const handleScroll = () => {
-        if (window.pageYOffset > 300) { // Позиція, з якої показувати кнопку
-            setShowScrollButton(true);
-        } else {
-            setShowScrollButton(false);
-        }
+        setShowScrollButton(window.pageYOffset > 300);
     };
 
     const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth" // Плавна прокрутка
-        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     return (
@@ -71,13 +68,16 @@ function CatalogPage() {
             <Header />
             <div className={css.containerCatalog}>
                 <div className={css.containerFilters}>
-                    <FilterLocation setLocation={setLocation} location={location} />
+                    
+                    <FilterLocation
+                        campers={campers}
+                        setLocation={handleLocationChange}
+                        location={filterLocation}
+                    />
                     <h4 className={css.filterTitle}>Filters</h4>
                     <FilterVehicleEquipment />
                     <FilterVehicleType />
-                    <Button variant="primary" size="medium">
-                        Search
-                    </Button>
+                    <Button variant="primary" size="medium">Search</Button>
                 </div>
                 <div className={css.containerCards}>
                     {isLoading ? (
@@ -90,15 +90,15 @@ function CatalogPage() {
                         <div>No campers available.</div>
                     )}
                     {campers && loadedCount < campers.length && !isLoading && !error && visibleCampers.length > 0 && (
-                    <div className={css.containerLoadMore}>
-                        <Button variant="secondary" size="small" onClick={handleLoadMore}>
-                            Load more
-                        </Button>
-                    </div>
+                        <div className={css.containerLoadMore}>
+                            <Button variant="default" size="small" onClick={handleLoadMore}>
+                                Load more
+                            </Button>
+                        </div>
                     )}
                 </div>
             </div>
-            {showScrollButton && ( // Умовне відображення кнопки
+            {showScrollButton && (
                 <button className={css.scrollButton} onClick={scrollToTop}>
                     Up
                 </button>

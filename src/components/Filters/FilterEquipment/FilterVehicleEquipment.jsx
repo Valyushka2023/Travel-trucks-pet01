@@ -1,52 +1,58 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import css from './FilterVehicleEquipment.module.css';
 
-const FilterVehicleEquipment = () => {
-  const handleAcClick = () => { /* ...  */ }; // Приклад обробника кліку
-  const handleAutomaticClick = () => { /* ...  */ }; // Приклад обробника кліку
-  const handleKitchenClick = () => { /* ...  */ }; // І т.д.
-  const handleTvClick = () => { /* ...  */ };
-  const handleBathroomClick = () => { /* ...  */ };
+const filterButtons = [
+    { icon: 'ac', label: 'AC', ariaLabel: 'Кондиціонер' },
+    { icon: 'automatic', label: 'Automatic', ariaLabel: 'Автоматична коробка передач' },
+    { icon: 'kitchen', label: 'Kitchen', ariaLabel: 'Кухня' },
+    { icon: 'tv', label: 'TV', ariaLabel: 'Телевізор' },
+    { icon: 'bathroom', label: 'Bathroom', ariaLabel: 'Ванна кімната' },
+    // ... інші фільтри
+];
 
-  return (
-    <div className={css.vehicleEquipment}>
-      <h3 className={css.textEquipment}>Vehicle equipment</h3>
-      <hr className={css.divider} />
+const FilterVehicleEquipment = ({ onFilter }) => {
+    const [filters, setFilters] = useState({
+        ac: false,
+        automatic: false,
+        kitchen: false,
+        tv: false,
+        bathroom: false,
+        // ... інші фільтри
+    });
 
-      <div className={css.equipmentContainer}>
-        <button className={css.rawIcon} aria-label="Кондиціонер" onClick={handleAcClick}>
-          <svg className={css.iconAc} width="32" height="64" viewBox="0 0 16 32">
-            <use href="/icons.svg#icon-icon-ac"></use> 
-          </svg>
-        </button>
+    const handleFilterChange = (filterName) => {
+        setFilters({
+            ...filters,
+            [filterName]: !filters[filterName],
+        });
+        onFilter({
+            ...filters,
+            [filterName]: !filters[filterName],
+        });
+    };
 
-        <button className={css.rawIcon} aria-label="Автоматична коробка передач" onClick={handleAutomaticClick}>
-          <svg className={css.iconAutomatic} width="78" height="64" viewBox="0 0 39 32">
-            <use href="/icons.svg#icon-icon-automatic"></use> 
-          </svg>
-        </button>
+    return (
+        <div className={css.vehicleEquipment}>
+            <h3 className={css.textEquipment}>Vehicle equipment</h3>
+            <hr className={css.divider} />
 
-        <button className={css.rawIcon} aria-label="Кухня" onClick={handleKitchenClick}>
-          <svg className={css.iconKitchen} width="59" height="64" viewBox="0 0 30 32">
-            <use href="/icons.svg#icon-icon-kitchen"></use> 
-          </svg>
-        </button>
-
-        <button className={css.rawIcon} aria-label="Телевізор" onClick={handleTvClick}>
-          <svg className={css.iconTv} width="32" height="64" viewBox="0 0 16 32">
-            <use href="/icons.svg#icon-icon-tv"></use> 
-          </svg>
-        </button>
-
-        <button className={css.rawIcon} aria-label="Ванна кімната" onClick={handleBathroomClick}>
-          <svg className={css.iconBathroom} width="75" height="64" viewBox="0 0 38 32">
-            <use href="/icons.svg#icon-icon-bathroom"></use> 
-          </svg>
-        </button>
-      </div>
-    </div>
-  );
+            <div className={css.equipmentContainer}>
+                {filterButtons.map((button) => (
+                    <button
+                        key={button.icon}
+                        className={css.rawIcon}
+                        aria-label={button.ariaLabel}
+                        onClick={() => handleFilterChange(button.icon)}
+                    >
+                        <svg className={css.icon}>
+                            <use href={`/icons.svg#icon-icon-button-${button.icon}`}></use>
+                        </svg>
+                        <span className={css.iconText}>{button.label}</span>
+                    </button>
+                ))}
+            </div>
+        </div>
+    );
 };
 
 export default FilterVehicleEquipment;

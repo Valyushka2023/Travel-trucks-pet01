@@ -21,8 +21,9 @@
     display: flex;
     flex-direction: column;
     width: 360px;
-    background-color: #d3e6a8;
+    background-color: #c07410;
 }
+
 
 .filterTitle {
     display: flex;
@@ -30,10 +31,10 @@
     width: 360px;
     height: 24px;
     line-height: normal;
-    color: #475467;
+    color: #4c6747;
     margin: 0;
     margin-bottom: 32px;
-    background-color: #e44848;
+    background-color: #e78c8c;
 }
 
 .containerCards {

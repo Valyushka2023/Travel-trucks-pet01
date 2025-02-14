@@ -216,3 +216,8 @@
     width: auto;
     height: 32px;
 }
+
+.showMore {
+    text-align: center;
+    margin-top: 10px;
+}
