@@ -1,3 +1,6 @@
+
+// код з ітерацією, якщо різні типи даних з API
+
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -22,23 +25,61 @@ function CatalogPage() {
     const [visibleCampers, setVisibleCampers] = useState([]);
     const [loadedCount, setLoadedCount] = useState(4);
     const [showScrollButton, setShowScrollButton] = useState(false);
-    const [filterLocation, setFilterLocation] = useState('all');
+    const [filterLocation, setFilterLocation] = useState("all");
+    const [activeEquipmentFilters, setActiveEquipmentFilters] = useState({});
+    const [activeTypeFilters, setActiveTypeFilters] = useState({});
+    const [searchResults, setSearchResults] = useState([]);
+
+    const [equipmentFilters, setEquipmentFilters] = useState({});
+    const [typeFilters, setTypeFilters] = useState({});
 
     useEffect(() => {
         dispatch(getCampers());
     }, [dispatch]);
 
     useEffect(() => {
-        if (campers && campers.length > 0) {
-            const filteredCampers = campers.filter(camper => {
-                if (filterLocation === 'all') return true;
-                const [city, country] = filterLocation.split(", "); // Розділяємо на місто та країну
-                return camper.location === `${country}, ${city}`; // Порівнюємо з location кемпера
-            });
+        if (!campers || campers.length === 0) return;
 
-            setVisibleCampers(filteredCampers.slice(0, loadedCount));
-        }
-    }, [campers, loadedCount, filterLocation]);
+        const filteredByLocation = campers.filter((camper) => {
+            if (filterLocation === "all") return true;
+            return camper.location === filterLocation;
+        });
+
+        const filteredByEquipment = filteredByLocation.filter((camper) => {
+            for (const filterName in activeEquipmentFilters) {
+                const filterValue = activeEquipmentFilters[filterName];
+                const camperValue = camper[filterName];
+
+                if (filterValue === null || filterValue === undefined) continue;
+
+                if (typeof filterValue === "string") {
+                    if (!(camperValue && camperValue.toLowerCase().includes(filterValue.toLowerCase()))) {
+                        return false;
+                    }
+                } else if (typeof filterValue === "boolean") {
+                    if (camperValue !== filterValue) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        });
+
+        const filteredByType = filteredByEquipment.filter((camper) => {
+            if (Object.values(activeTypeFilters).every((value) => value === false)) return true;
+            return Object.entries(activeTypeFilters).every(([key, value]) => {
+                if (!value) return true;
+                return camper.form === key;
+            });
+        });
+
+        setSearchResults(filteredByType);
+
+    }, [campers, filterLocation, activeEquipmentFilters, activeTypeFilters]);
+
+    useEffect(() => {
+        setVisibleCampers(searchResults.slice(0, loadedCount));
+    }, [searchResults, loadedCount]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -49,6 +90,20 @@ function CatalogPage() {
 
     const handleLocationChange = (newLocation) => {
         setFilterLocation(newLocation);
+    };
+
+    const handleEquipmentFilterChange = (filters) => {
+        setEquipmentFilters(filters);
+    };
+
+    const handleTypeFilterChange = (filters) => {
+        setTypeFilters(filters);
+    };
+
+    const handleSearchClick = () => {
+        setActiveEquipmentFilters(equipmentFilters);
+        setActiveTypeFilters(typeFilters);
+        setVisibleCampers(searchResults.slice(0, loadedCount));
     };
 
     const handleLoadMore = () => {
@@ -68,28 +123,29 @@ function CatalogPage() {
             <Header />
             <div className={css.containerCatalog}>
                 <div className={css.containerFilters}>
-                    
                     <FilterLocation
                         campers={campers}
                         setLocation={handleLocationChange}
                         location={filterLocation}
                     />
                     <h4 className={css.filterTitle}>Filters</h4>
-                    <FilterVehicleEquipment />
-                    <FilterVehicleType />
-                    <Button variant="primary" size="medium">Search</Button>
+                    <FilterVehicleEquipment onFilter={handleEquipmentFilterChange} />
+                    <FilterVehicleType onFilter={handleTypeFilterChange} />
+                    <Button variant="primary" size="medium" onClick={handleSearchClick}>
+                        Search
+                    </Button>
                 </div>
                 <div className={css.containerCards}>
                     {isLoading ? (
                         <div>Loading...</div>
                     ) : error ? (
                         <div>Error: {error}</div>
-                    ) : visibleCampers && visibleCampers.length > 0 ? (
+                    ) : visibleCampers.length > 0 ? (
                         <CardList campers={visibleCampers} />
                     ) : (
                         <div>No campers available.</div>
                     )}
-                    {campers && loadedCount < campers.length && !isLoading && !error && visibleCampers.length > 0 && (
+                    {visibleCampers.length > 0 && loadedCount < searchResults.length && !isLoading && !error && (
                         <div className={css.containerLoadMore}>
                             <Button variant="default" size="small" onClick={handleLoadMore}>
                                 Load more

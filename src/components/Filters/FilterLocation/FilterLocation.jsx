@@ -9,8 +9,7 @@ const FilterLocation = ({ campers, location, setLocation }) => {
         if (campers && campers.length > 0) {
             const uniqueLocations = new Set();
             campers.forEach(camper => {
-                const [country, city] = camper.location.split(", ");
-                uniqueLocations.add(`${city}, ${country}`);
+                uniqueLocations.add(camper.location);
             });
             setLocations(Array.from(uniqueLocations));
         }
@@ -21,8 +20,8 @@ const FilterLocation = ({ campers, location, setLocation }) => {
     };
 
     return (
-        <div className={css.filterContainer}> {/* Combined container */}
-            <h5 className={css.filterTitle}>Location</h5> {/* Consistent naming */}
+        <div className={css.filterContainer}>
+            <h5 className={css.filterTitle}>Location</h5>
             <div className={css.inputWrapper}>
                 <svg className={css.iconMap} width="20" height="20" viewBox="0 0 32 32">
                     <use href="/icons.svg#icon-map"></use>
@@ -35,11 +34,10 @@ const FilterLocation = ({ campers, location, setLocation }) => {
                     <option value="all" className={css.option}>
                         All locations
                     </option>
-                    {locations.map((location) => (
-                        <option key={location} value={location} className={css.option}>
-                            {location}
+                    {locations.map((loc) => (
+                        <option key={loc} value={loc} className={css.option}>
+                            {loc}
                         </option>
-                        
                     ))}
                 </select>
             </div>

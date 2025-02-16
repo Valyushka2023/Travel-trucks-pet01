@@ -62,11 +62,11 @@
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
-.icon { /* Замінено iconAc, iconAutomatic ... на icon */
+.icon { 
     fill: #333;
     margin-top: 16px;
-    width: 48px; /* Додано розміри для іконок */
-    height: 48px; /* Додано розміри для іконок */
+    width: 48px; 
+    height: 48px; 
 }
 
 .iconText {
@@ -75,3 +75,4 @@
     color: #333;
     margin-bottom: 16px;
 }
+

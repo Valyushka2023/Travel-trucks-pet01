@@ -15,7 +15,6 @@ const CardList = ({ campers }) => {
                 const lowerKey = key.toLowerCase();
                 if (lowerKey !== 'id' && lowerKey !== 'name') {
                     const value = camper[key];
-                    // Check if the value is a boolean.  If not, don't include it in features.
                     if (typeof value === 'boolean') {
                         lowerCaseFeatures[lowerKey] = value;
                     }
@@ -56,3 +55,4 @@ CardList.propTypes = {
 };
 
 export default CardList;
+

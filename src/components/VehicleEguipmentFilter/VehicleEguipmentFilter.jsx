@@ -1,5 +1,5 @@
 // import React, { useState } from 'react';
-// import css from './VehicleEguipmentFilter.module.css'; 
+// import css from './VehicleEguipmentFilter.module.css';
 
 // const VehicleEquipmentFilter = () => {
 //   // Стан для збереження активних фільтрів
@@ -41,3 +41,53 @@
 // };
 
 // export default VehicleEquipmentFilter;
+
+
+// import React, { useState } from 'react';
+// import css from './FilterVehicleEquipment.module.css';
+
+// const filterButtons = [
+//     { icon: 'AC', label: 'AC', ariaLabel: 'Кондиціонер' },
+//     { icon: 'transmission', label: 'Automatic', ariaLabel: 'Автоматична коробка передач' },
+//     { icon: 'kitchen', label: 'Kitchen', ariaLabel: 'Кухня' },
+//     { icon: 'TV', label: 'TV', ariaLabel: 'Телевізор' },
+//     { icon: 'bathroom', label: 'Bathroom', ariaLabel: 'Ванна кімната' },
+// ];
+
+
+// const FilterVehicleEquipment = ({ onFilter }) => {
+//     const [filters, setFilters] = useState({});
+
+//     const handleFilterChange = (filterName) => {
+//         const updatedFilters = { ...filters };
+//         updatedFilters[filterName] = !updatedFilters[filterName];
+
+//         setFilters(updatedFilters);
+//         onFilter(updatedFilters);
+//     };
+
+//     return (
+//         <div className={css.vehicleEquipment}>
+//             <h3 className={css.textEquipment}>Vehicle equipment</h3>
+//             <hr className={css.divider} />
+
+//             <div className={css.equipmentContainer}>
+//                 {filterButtons.map((button) => (
+//                     <button
+//                         key={button.icon}
+//                         className={css.rawIcon}
+//                         aria-label={button.ariaLabel}
+//                         onClick={() => handleFilterChange(button.icon)}
+//                     >
+//                         <svg className={css.icon}>
+//                             <use href={`/icons.svg#icon-icon-button-${button.icon}`}></use>
+//                         </svg>
+//                         <span className={css.iconText}>{button.label}</span>
+//                     </button>
+//                 ))}
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default FilterVehicleEquipment;

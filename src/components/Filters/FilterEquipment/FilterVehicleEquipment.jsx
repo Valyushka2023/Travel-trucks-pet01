@@ -1,48 +1,48 @@
+
+// * для вар з ітерацією, якщо різні типи даних з API
+
 import React, { useState } from 'react';
 import css from './FilterVehicleEquipment.module.css';
 
 const filterButtons = [
-    { icon: 'ac', label: 'AC', ariaLabel: 'Кондиціонер' },
-    { icon: 'automatic', label: 'Automatic', ariaLabel: 'Автоматична коробка передач' },
-    { icon: 'kitchen', label: 'Kitchen', ariaLabel: 'Кухня' },
-    { icon: 'tv', label: 'TV', ariaLabel: 'Телевізор' },
-    { icon: 'bathroom', label: 'Bathroom', ariaLabel: 'Ванна кімната' },
-    // ... інші фільтри
+    { icon: 'AC', label: 'AC', ariaLabel: 'Кондиціонер', type: 'boolean' },
+    { icon: 'transmission', label: 'Automatic', ariaLabel: 'Автоматична коробка передач', type: 'string' },
+    { icon: 'kitchen', label: 'Kitchen', ariaLabel: 'Кухня', type: 'boolean' },
+    { icon: 'TV', label: 'TV', ariaLabel: 'Телевізор', type: 'boolean' },
+    { icon: 'bathroom', label: 'Bathroom', ariaLabel: 'Ванна кімната', type: 'boolean' },
 ];
 
 const FilterVehicleEquipment = ({ onFilter }) => {
-    const [filters, setFilters] = useState({
-        ac: false,
-        automatic: false,
-        kitchen: false,
-        tv: false,
-        bathroom: false,
-        // ... інші фільтри
-    });
+    const [filters, setFilters] = useState({});
 
-    const handleFilterChange = (filterName) => {
-        setFilters({
-            ...filters,
-            [filterName]: !filters[filterName],
-        });
-        onFilter({
-            ...filters,
-            [filterName]: !filters[filterName],
-        });
+    const handleFilterChange = (filterName, type) => {
+        const updatedFilters = { ...filters };
+
+        const button = filterButtons.find(button => button.icon === filterName);
+
+        if (type === "string") {
+            const newValue = updatedFilters[filterName] === button.label ? null : button.label;
+            updatedFilters[filterName] = newValue;
+        } else if (type === "boolean") {
+            updatedFilters[filterName] = !updatedFilters[filterName];
+        }
+
+        setFilters(updatedFilters);
+        onFilter(updatedFilters);
     };
 
     return (
         <div className={css.vehicleEquipment}>
             <h3 className={css.textEquipment}>Vehicle equipment</h3>
-            <hr className={css.divider} />
+             <hr className={css.divider} />
 
-            <div className={css.equipmentContainer}>
-                {filterButtons.map((button) => (
+             <div className={css.equipmentContainer}>
+                 {filterButtons.map((button) => (
                     <button
                         key={button.icon}
-                        className={css.rawIcon}
+                        className={`${css.rawIcon} ${button.label.includes(' ') ? css.multiLine : ''} ${filters[button.icon]?.value ? css.active : ''}`}
                         aria-label={button.ariaLabel}
-                        onClick={() => handleFilterChange(button.icon)}
+                        onClick={() => handleFilterChange(button.icon, button.type)}
                     >
                         <svg className={css.icon}>
                             <use href={`/icons.svg#icon-icon-button-${button.icon}`}></use>

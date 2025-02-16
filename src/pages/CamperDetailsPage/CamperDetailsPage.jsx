@@ -67,14 +67,14 @@ function CamperDetailsPage() {
                 <div className={css.detailsForm}>
                     <div className={css.details}>
                         <div className={css.badgesContainer}>
-                           <div className={css.buttonAutomatic}>
+                           <div className={css.buttonTransmission}>
                <svg
-                  className={css.iconButtonAutomatic}
+                  className={css.iconButtonTransmission}
                   width="143"
                   height="48"
                   viewBox="0 0 104 32"
                 >
-                  <use href="/icons.svg#icon-icon-button-automatic"></use>
+                  <use href="/icons.svg#icon-icon-button-transmission"></use>
                 </svg>
               </div>
               <div className={css.buttonAC}>
@@ -84,7 +84,7 @@ function CamperDetailsPage() {
                   height="48"
                   viewBox="0 0 63 32"
                 >
-                  <use href="/icons.svg#icon-icon-button-ac"></use>
+                  <use href="/icons.svg#icon-icon-button-AC"></use>
                 </svg>
               </div>
               <div className={css.buttonPetrol}>
