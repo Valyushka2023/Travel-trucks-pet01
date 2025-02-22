@@ -22,7 +22,8 @@
 .containerText {
   display: flex;
   width: 1312px;
-  height: 48px;
+  /* height: 48px; */
+  height: auto;
   align-items: center;
   background-color: antiquewhite;
   margin-top: 28px;

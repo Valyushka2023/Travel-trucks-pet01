@@ -1,28 +1,48 @@
-import React from "react";
+import React from 'react';
 import PropTypes from "prop-types";
 import css from "./FeatureIcon.module.css";
 
-const FeatureIcon = ({ name, icon }) => {
-    // Залишаємо ім'я іконки без змін
-    const iconType = icon;  
+const FeatureIcon = ({ camper }) => {
+    if (!camper) {
+        console.warn("FeatureIcon: camper відсутній");
+        return null;
+    }
 
-    // Формуємо клас для компонента, динамічно додаючи клас для іконки
-    const className = `${css.featureIcon} ${css[`featureIcon--${iconType}`] || ''}`;
+    const featureIcons = [
+        { name: "AC", key: "AC", svgId: "icon-icon-button-AC" },
+        { name: "Bathroom", key: "bathroom", svgId: "icon-icon-button-bathroom" },
+        { name: "Kitchen", key: "kitchen", svgId: "icon-icon-button-kitchen" },
+        { name: "TV", key: "TV", svgId: "icon-icon-button-TV" },
+        { name: "Radio", key: "radio", svgId: "icon-icon-button-radio" },
+        { name: "Refrigerator", key: "refrigerator", svgId: "icon-icon-button-refrigerator" },
+        { name: "Microwave", key: "microwave", svgId: "icon-icon-button-microwave" },
+        { name: "Gas", key: "gas", svgId: "icon-icon-button-gas" },
+        { name: "Water", key: "water", svgId: "icon-icon-button-water" },
+    ];
 
     return (
-        <div className={className}>
-            <svg className={css.icon} viewBox="0 0 24 24">
-                {/* Використовуємо iconType без змін */}
-               <use href={`/icons.svg#${iconType}`} />
-            </svg>
-            <span className={css.text}>{name}</span>
-        </div>
+        <>
+            <div className={css.badgesContainer}>
+            {featureIcons.map((feature, index) => {
+                const hasFeature = camper[feature.key]; // Доступ напряму
+                return hasFeature ? (
+                    <div className={css.featureIcon} key={index}>
+                        <svg className={css.icon} viewBox="0 0 24 24">
+                            <use href={`/icons.svg#${feature.svgId}`} />
+                        </svg>
+                        <span className={css.text}>{feature.name}</span>
+                    </div>
+                ) : null;
+            })}
+            </div>
+        </>
     );
 };
 
 FeatureIcon.propTypes = {
-    name: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
+    camper: PropTypes.shape({
+        features: PropTypes.objectOf(PropTypes.bool),
+    }).isRequired,
 };
 
 export default FeatureIcon;

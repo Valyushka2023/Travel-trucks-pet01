@@ -1,0 +1,20 @@
+.errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+
+.errorMessage {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.retryButton {
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

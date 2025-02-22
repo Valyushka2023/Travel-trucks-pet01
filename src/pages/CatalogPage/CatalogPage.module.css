@@ -86,6 +86,11 @@
     background-color: #ee7008;
 }
 
-
+.loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Або інша висота */
+}
 
 

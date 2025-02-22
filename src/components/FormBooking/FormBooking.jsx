@@ -1,9 +1,13 @@
 import React from 'react';
-import css from './BookingForm.module.css';
-import Button from '..//..//components/Button/Button.jsx';
+import Button from '../Button/Button.jsx';
+import css from './FormBooking.module.css';
 
-function BookingForm() {
-  return (
+function FormBooking ({ camper }) {
+    console.log("BookingForm отримав camper:", camper);
+    
+    return (
+    
+       
     <div className={css.form}>
       <div className={css.titleForm}>
         <h3 className={css.textTitleForm}>Book your campervan now</h3>
@@ -66,6 +70,10 @@ function BookingForm() {
       </div>
     </div>
   );
+
+    
 }
 
-export default BookingForm;
+export default FormBooking;
+
+

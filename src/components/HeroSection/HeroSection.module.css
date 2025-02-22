@@ -11,7 +11,8 @@
 .containerDetail {
   display: flex;
   flex-direction: column;
-  width: 267px;
+  /* width: 267px; */
+  width: 100%;
   height: 72px;
   background-color: brown;
 }
@@ -20,8 +21,9 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 16px;
-  justify-content: space-between;
-  width: 267px;
+  /* justify-content: space-between; */
+  /* width: 267px; */
+  width: auto;
   height: 24px;
   background-color: #bb99e2;
 }
@@ -52,7 +54,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 118px;
+  /* width: 118px; */
+   width: 158px;
   background-color: #ffaa00;
 }
 

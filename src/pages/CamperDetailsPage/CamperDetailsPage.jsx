@@ -1,132 +1,77 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from "react-redux";
-import { selectCampers, selectIsLoading, selectError } from "../../redux/campers/selectors.js";
-import { getCampers } from "../../redux/campers/operations.js";
-import Header from '../../components/Header/Header.jsx';
-import BookingForm from '../../components/BookingForm/BookingForm.jsx';
-import ImageGallery from '../../components/ImageGallery/ImageGallery.jsx';
-import VehicleDetails from '../../components/VehicleDetails/VehicleDetails.jsx';
-import HeroSection from '../../components/HeroSection/HeroSection.jsx';
-import css from './CamperDetailsPage.module.css';
+import React, { useEffect, useState } from "react";
+import { useParams, useSearchParams, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { ClipLoader } from "react-spinners";
+import { selectCampers } from "../../redux/campers/selectors.js";
+import { fetchCampers } from "../../services/api.js";
+import css from "./CamperDetailsPage.module.css";
 
 function CamperDetailsPage() {
-    const dispatch = useDispatch();
-    const { id } = useParams(); // Отримуємо id з URL
+    const { id } = useParams();
+    const [searchParams] = useSearchParams();
+    const activeTab = searchParams.get('tab') || 'features';
     const campers = useSelector(selectCampers);
-    const isLoading = useSelector(selectIsLoading);
-    const error = useSelector(selectError);
     const [camper, setCamper] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (!campers || campers.length === 0) {
-            dispatch(getCampers());
-        }
-    }, [dispatch, campers]);
+        if (!id) return;
 
-    useEffect(() => {
-        if (campers && campers.length > 0 && id) {
-            const foundCamper = campers.find(c => c.id === id);
-            setCamper(foundCamper || null);
+        console.log("Campers in store (Details):", campers); // Логування campers
+
+        const cachedCamper = campers.find(c => c.id === id);
+        if (cachedCamper) {
+            console.log("Found in cache (Details):", cachedCamper);
+            setCamper(cachedCamper);
+            return;
         }
-    }, [campers, id]);
+
+        const fetchCamperDetails = async () => {
+            setIsLoading(true);
+            setError(null);
+
+            try {
+                const fetchedCampers = await fetchCampers({ id: id });
+                console.log("Fetched campers (Details):", fetchedCampers); // Логування fetchedCampers
+                if (fetchedCampers && fetchedCampers.length > 0) {
+                    setCamper(fetchedCampers[0]);
+                } else {
+                    setError("Camper not found");
+                }
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchCamperDetails();
+    }, [id, campers]);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <div className={css.loaderContainer}>
+                <ClipLoader color="#36D7B7" size={50} />
+            </div>
+        );
     }
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return <div className={css.error}>Error: {error}</div>;
     }
 
     if (!camper) {
-        return <div>Camper not found.</div>;
+        return <div className={css.error}>⚠️ Camper not found.</div>;
     }
 
     return (
-        <div className={css.container}>
-            <Header />
-            <div className={css.containerTitle}>
-                <HeroSection camper={camper} /> {/* Передаємо camper в HeroSection */}
-                <ImageGallery gallery={camper.gallery} /> {/* Передаємо gallery в ImageGallery */}
-                <div className={css.containerText}>
-                    <p className={css.text}>
-                        {camper.description} {/* Використовуємо опис з camper */}
-                    </p>
-                </div>
-                <div className={css.tabc}>
-                    <div className={css.titlesTabs}>
-                        <h3 className={css.textTitlesTabsFeatures}>Features</h3>
-                        <h3 className={css.textTitlesTabsReviews}>Reviews</h3>
-                    </div>
-                </div>
-                <div className={css.dividerWrapper}>
-                    <hr className={css.divider1} />
-                    <hr className={css.divider2} />
-                </div>
-                <div className={css.detailsForm}>
-                    <div className={css.details}>
-                        <div className={css.badgesContainer}>
-                           <div className={css.buttonTransmission}>
-               <svg
-                  className={css.iconButtonTransmission}
-                  width="143"
-                  height="48"
-                  viewBox="0 0 104 32"
-                >
-                  <use href="/icons.svg#icon-icon-button-transmission"></use>
-                </svg>
-              </div>
-              <div className={css.buttonAC}>
-                <svg
-                  className={css.iconButtonAC}
-                  width="87"
-                  height="48"
-                  viewBox="0 0 63 32"
-                >
-                  <use href="/icons.svg#icon-icon-button-AC"></use>
-                </svg>
-              </div>
-              <div className={css.buttonPetrol}>
-                <svg
-                  className={css.iconButtonPetrol}
-                  width="109"
-                  height="48"
-                  viewBox="0 0 79 32"
-                >
-                  <use href="/icons.svg#icon-icon-button-petrol"></use>
-                </svg>
-              </div>
-              <div className={css.buttonKitchen}>
-                <svg
-                  className={css.iconButtonKitchen}
-                  width="123"
-                  height="48"
-                  viewBox="0 0 89 32"
-                >
-                  <use href="/icons.svg#icon-icon-button-kitchen"></use>
-                </svg>
-              </div>
-              <div className={css.buttonRadio}>
-                <svg
-                  className={css.iconButtonRadio}
-                  width="123"
-                  height="48"
-                  viewBox="0 0 79 32"
-                >
-                  <use href="/icons.svg#icon-icon-button-radio"></use>
-                </svg>
-              </div>
-                        </div>
-                        <div className={css.vehicleContainerForm}>
-                            <VehicleDetails camper={camper} /> {/* Передаємо camper в VehicleDetails */}
-                        </div>
-                    </div>
-                    <BookingForm camper={camper} /> {/* Передаємо camper в BookingForm */}
-                </div>
-            </div>
-        </div>
+        <Outlet context={{ camper, activeTab }} />
     );
 }
 
 export default CamperDetailsPage;
+
+
+
+

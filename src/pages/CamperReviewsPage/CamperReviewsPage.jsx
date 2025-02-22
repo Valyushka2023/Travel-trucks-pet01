@@ -1,118 +1,76 @@
-import React from 'react';
-import Header from '../../components/Header/Header.jsx';
-import BookingForm from '../../components/BookingForm/BookingForm.jsx';
-import ImageGallery from '../../components/ImageGallery/ImageGallery.jsx';
-import HeroSection from '../../components/HeroSection/HeroSection.jsx';
-import css from './CamperReviewsPage.module.css';
+import React, { useEffect, useState } from "react";
+import { useParams, useSearchParams, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { ClipLoader } from "react-spinners";
+import { selectCampers } from "../../redux/campers/selectors.js";
+import { fetchCampers } from "../../services/api.js";
+import css from "./CamperReviewsPage.module.css";
 
 function CamperReviewsPage() {
+    const { id } = useParams();
+    const [searchParams] = useSearchParams();
+    const activeTab = searchParams.get('tab') || 'reviews';
+    const campers = useSelector(selectCampers);
+    const [camper, setCamper] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-  return (
-    <div className={css.container}>
-      {/* Header */}
-      <Header />
-      <div className={css.containerTitle}>
-        {/* HeroSection */}
-        <HeroSection />
-        {/*ImageGallery  */}
-        <ImageGallery />
-        <div className={css.containerText}>
-          <p className={css.text}>
-            Embrace simplicity and freedom with the Mavericks panel truck, an
-            ideal choice for solo travelers or couples seeking a compact and
-            efficient way to explore the open roads. This no-frills yet reliable
-            panel truck offers the essentials for a comfortable journey, making
-            it the perfect companion for those who value simplicity and
-            functionality.
-          </p>
-        </div>
-        <div className={css.tabc}>
-          <div className={css.titlesTabs}>
-            <h3 className={css.textTitlesTabsFeatures}>Features</h3>
-            <h3 className={css.textTitlesTabsReviews}>Reviews</h3>
-          </div>
-        </div>
-        <div className={css.dividerWrapper}>
-          <hr className={css.divider1} />
-          <hr className={css.divider2} />
-        </div>
-        <div className={css.detailsForm}>
-          <div className={css.containerReviews}>
-            <div className={css.blok}>
-              <div className={css.person}>
-                <svg
-                  className={css.iconUser}
-                  width="60"
-                  height="60"
-                  viewBox="0 0 32 32"
-                >
-                  <use href="/icons.svg#icon-user">T</use>
-                </svg>
-                <div className={css.personName}>
-                  <div className={css.textPersonName}>Alice</div>
-                  <div className={css.rate}>
-                    {Array.from({ length: 5 }).map((_, index) => (
-                      <svg
-                        key={index}
-                        className={css.iconStar}
-                        width="16"
-                        height="16"
-                        viewBox="0 0 32 32"
-                      >
-                        <use href="/icons.svg#icon-star"></use>
-                      </svg>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <p className={css.textPerson}>
-                The Mavericks panel truck was a perfect choice for my solo road
-                trip. Compact, easy to drive, and had all the essentials. The
-                kitchen facilities were sufficient, and the overall experience
-                was fantastic.
-              </p>
-            </div>
+    useEffect(() => {
+        if (!id) return;
 
-            <div className={css.blok}>
-              <div className={css.person}>
-                <svg
-                  className={css.iconUser}
-                  width="60"
-                  height="60"
-                  viewBox="0 0 32 32"
-                >
-                  <use href="/icons.svg#icon-user">T</use>
-                </svg>
-                <div className={css.personName}>
-                  <div className={css.textPersonName}>Bob</div>
-                  <div className={css.rate}>
-                    {Array.from({ length: 3 }).map((_, index) => (
-                      <svg
-                        key={index}
-                        className={css.iconStar}
-                        width="16"
-                        height="16"
-                        viewBox="0 0 32 32"
-                      >
-                        <use href="/icons.svg#icon-star"></use>
-                      </svg>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <p className={css.textPerson}>
-                A decent option for solo travel. The Mavericks provided a
-                comfortable stay, but the lack of bathroom facilities was a
-                drawback. Good for short trips where simplicity is preferred.
-              </p>
+        console.log("Campers in store (Reviews):", campers); // Логування campers
+
+        const cachedCamper = campers.find(c => c.id === id);
+        if (cachedCamper) {
+            console.log("Found in cache (Reviews):", cachedCamper);
+            setCamper(cachedCamper);
+            return;
+        }
+
+        const fetchCamperReviews = async () => {
+            setIsLoading(true);
+            setError(null);
+
+            try {
+                const fetchedCampers = await fetchCampers({ id: id });
+                console.log("Fetched campers (Reviews):", fetchedCampers); // Логування fetchedCampers
+                if (fetchedCampers && fetchedCampers.length > 0) {
+                    setCamper(fetchedCampers[0]);
+                } else {
+                    setError("Camper not found");
+                }
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchCamperReviews();
+    }, [id, campers]);
+
+    if (isLoading) {
+        return (
+            <div className={css.loaderContainer}>
+                <ClipLoader color="#36D7B7" size={50} />
             </div>
-          </div>
-          {/* Booking Form */}
-          <BookingForm />
-        </div>
-      </div>
-    </div>
-  );
+        );
+    }
+
+    if (error) {
+        return <div className={css.error}>Error: {error}</div>;
+    }
+
+    if (!camper) {
+        return <div className={css.error}>⚠️ Camper not found.</div>;
+    }
+
+    return (
+        <Outlet context={{ camper, activeTab }} />
+    );
 }
 
 export default CamperReviewsPage;
+
+
+

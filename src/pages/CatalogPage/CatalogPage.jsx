@@ -1,7 +1,4 @@
-
-// код з ітерацією, якщо різні типи даних з API
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { selectCampers, selectIsLoading, selectError } from "../../redux/campers/selectors.js";
@@ -12,6 +9,8 @@ import FilterLocation from "../../components/Filters/FilterLocation/FilterLocati
 import FilterVehicleEquipment from "../../components/Filters/FilterEquipment/FilterVehicleEquipment.jsx";
 import FilterVehicleType from "../../components/Filters/FilterType/FilterVehicleType.jsx";
 import CardList from "../../components/CardList/CardList.jsx";
+import { ClipLoader } from 'react-spinners';
+import ErrorComponent from '../../components/ErrorComponent/ErrorComponent.jsx';
 import css from "./CatalogPage.module.css";
 
 function CatalogPage() {
@@ -29,7 +28,6 @@ function CatalogPage() {
     const [activeEquipmentFilters, setActiveEquipmentFilters] = useState({});
     const [activeTypeFilters, setActiveTypeFilters] = useState({});
     const [searchResults, setSearchResults] = useState([]);
-
     const [equipmentFilters, setEquipmentFilters] = useState({});
     const [typeFilters, setTypeFilters] = useState({});
 
@@ -37,49 +35,64 @@ function CatalogPage() {
         dispatch(getCampers());
     }, [dispatch]);
 
-    useEffect(() => {
-        if (!campers || campers.length === 0) return;
+    const filteredCampers = useMemo(() => {
+        if (!campers || campers.length === 0) {
+            return [];
+        }
 
         const filteredByLocation = campers.filter((camper) => {
-            if (filterLocation === "all") return true;
+            if (filterLocation === "all") {
+                return true;
+            }
             return camper.location === filterLocation;
         });
 
-        const filteredByEquipment = filteredByLocation.filter((camper) => {
-            for (const filterName in activeEquipmentFilters) {
-                const filterValue = activeEquipmentFilters[filterName];
-                const camperValue = camper[filterName];
+        const filterByEquipment = (campersToFilter) => {
+            return campersToFilter.filter((camper) => {
+                for (const filterName in activeEquipmentFilters) {
+                    const filterValue = activeEquipmentFilters[filterName];
 
-                if (filterValue === null || filterValue === undefined) continue;
-
-                if (typeof filterValue === "string") {
-                    if (!(camperValue && camperValue.toLowerCase().includes(filterValue.toLowerCase()))) {
-                        return false;
-                    }
-                } else if (typeof filterValue === "boolean") {
-                    if (camperValue !== filterValue) {
-                        return false;
+                    if (camper.hasOwnProperty(filterName)) {
+                        const camperValue = camper[filterName];
+                        if (!filterMatches(camperValue, filterValue)) {
+                            return false;
+                        }
                     }
                 }
-            }
-            return true;
-        });
-
-        const filteredByType = filteredByEquipment.filter((camper) => {
-            if (Object.values(activeTypeFilters).every((value) => value === false)) return true;
-            return Object.entries(activeTypeFilters).every(([key, value]) => {
-                if (!value) return true;
-                return camper.form === key;
+                return true;
             });
-        });
+        };
 
-        setSearchResults(filteredByType);
+        const filterByType = (campersToFilter) => {
+            return campersToFilter.filter((camper) => {
+                if (Object.values(activeTypeFilters).every((value) => value === false)) {
+                    return true;
+                }
+                return Object.entries(activeTypeFilters).every(([key, value]) => {
+                    return !value || camper.form === key;
+                });
+            });
+        };
 
+        const filterMatches = (camperValue, filterValue) => {
+            if (filterValue === null || filterValue === undefined) {
+                return true;
+            }
+
+            if (typeof filterValue === "string") {
+                return camperValue && camperValue.toLowerCase().includes(filterValue.toLowerCase());
+            } else if (typeof filterValue === "boolean") {
+                return camperValue === filterValue;
+            }
+            return false;
+        };
+
+        return filterByType(filterByEquipment(filteredByLocation));
     }, [campers, filterLocation, activeEquipmentFilters, activeTypeFilters]);
 
     useEffect(() => {
-        setVisibleCampers(searchResults.slice(0, loadedCount));
-    }, [searchResults, loadedCount]);
+        setVisibleCampers(filteredCampers.slice(0, loadedCount));
+    }, [filteredCampers, loadedCount]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -87,6 +100,14 @@ function CatalogPage() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    const handleScroll = () => {
+        setShowScrollButton(window.pageYOffset > 300);
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
     const handleLocationChange = (newLocation) => {
         setFilterLocation(newLocation);
@@ -103,19 +124,19 @@ function CatalogPage() {
     const handleSearchClick = () => {
         setActiveEquipmentFilters(equipmentFilters);
         setActiveTypeFilters(typeFilters);
-        setVisibleCampers(searchResults.slice(0, loadedCount));
+        setVisibleCampers(filteredCampers.slice(0, loadedCount));
+    };
+
+    const handleRetry = () => {
+        dispatch(getCampers()); // Повторюємо завантаження даних
+    };
+
+    const handleShowMoreClick = (id) => {
+        navigate(`/catalog/${id}`);
     };
 
     const handleLoadMore = () => {
         setLoadedCount((prevCount) => prevCount + 4);
-    };
-
-    const handleScroll = () => {
-        setShowScrollButton(window.pageYOffset > 300);
-    };
-
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     return (
@@ -137,15 +158,15 @@ function CatalogPage() {
                 </div>
                 <div className={css.containerCards}>
                     {isLoading ? (
-                        <div>Loading...</div>
+                        <div className={css.loaderContainer}>
+                            <ClipLoader color="#36D7B7" size={50} />
+                        </div>
                     ) : error ? (
-                        <div>Error: {error}</div>
-                    ) : visibleCampers.length > 0 ? (
-                        <CardList campers={visibleCampers} />
+                        <ErrorComponent error={error} onRetry={handleRetry} />
                     ) : (
-                        <div>No campers available.</div>
+                        <CardList campers={visibleCampers} onShowMore={handleShowMoreClick} />
                     )}
-                    {visibleCampers.length > 0 && loadedCount < searchResults.length && !isLoading && !error && (
+                    {visibleCampers.length > 0 && loadedCount < filteredCampers.length && !isLoading && !error && (
                         <div className={css.containerLoadMore}>
                             <Button variant="default" size="small" onClick={handleLoadMore}>
                                 Load more

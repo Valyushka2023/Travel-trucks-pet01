@@ -1,7 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
+
   align-items: center;
   width: 1440px;
   min-height: 100vh;
@@ -22,8 +23,8 @@
 .containerText {
   display: flex;
   width: 1312px;
-  height: auto;
   /* height: 48px; */
+  height: auto;
   align-items: center;
   background-color: antiquewhite;
   margin-top: 28px;
@@ -36,13 +37,13 @@
 
 .tabc {
   display: flex;
-  flex-direction: column;
   width: 1312px;
   height: 48px;
-  background-color: rgb(51, 24, 190);
+  background-color: rgb(204, 175, 181);
   margin-top: 60px;
-  margin-bottom: 58px;
+  position: relative; /* Робимо контейнер відносним для позиціонування лінії */
 }
+
 
 .titlesTabs {
   display: flex;
@@ -57,50 +58,28 @@
   align-items: center; 
 }
 
-.textTitlesTabsFeatures {
-  display: flex;
-  align-items: center;
-  width: 85px;
-  height: 24px;
-  background-color: aqua;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
+.textTitlesTabsFeatures,
 .textTitlesTabsReviews {
   display: flex;
   align-items: center;
-  width: 81px;
+  width: 85px;
   height: 24px;
   background-color: aqua;
   font-size: 1.25rem;
   font-weight: 600;
 }
 
+.dividerWrapper {
+  position: absolute; /* Абсолютне позиціонування лінії */
+  bottom: 0; /* Розміщуємо лінію внизу контейнера */
+  left: 0; /* Розміщуємо лінію зліва */
+  width: 85px; /* Задаємо ширину лінії, щоб підкреслити "Features" */
+}
 
 .divider1 {
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 85px;
-  color: #db1919;
-  stroke-width: 1px;
-  margin-left: 0;
-  margin-top: 0;
+ height: 3px; /* Задаємо товщину лінії */
+  background-color: red; /* Задаємо колір лінії */
 }
-
-
-.blokReviews {
-display: flex;
-flex-direction: column;
-background-color: #0cb444;
-width: 631px;
-height: 340px;
-
-}
-
 
 
 .detailsForm {
@@ -109,28 +88,41 @@ height: 340px;
   width: 1312px;
   height: 588px;
   background-color: blue;
-  margin-top: 44px;
+  margin-top: 58px;
   justify-content: space-between; 
 }
 
-.containerReviews {
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 527px;
+  height: 500px;
+  padding: 44px 52px;
+  background-color: #ffaa00;
+}
+
+
+
+
+
+
+/* .containerReviews {
   display: flex;
   flex-direction: column;
   width: 631px;
   height: 340px;
   background-color: #e44884;
   gap: 44px;
-}
+} */
 
-.blok {
+/* .blok {
   display: flex;
   flex-direction: column;
   width: 631px;
   height: 148px;
   background-color: #007bff;
 }
-
-
 
 .person {
   display: flex;
@@ -195,7 +187,7 @@ height: 340px;
   letter-spacing: 0.4px; 
   color: #475467;
   margin-bottom: 0;
-}
+} */
 
 
 

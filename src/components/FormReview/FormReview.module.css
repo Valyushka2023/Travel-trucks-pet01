@@ -28,6 +28,7 @@
   height: 24px;
   background-color: #dbe72f;
   margin-bottom: 8px;
+  margin-top: 0;
 }
 
 .textForm {
@@ -128,6 +129,78 @@
   color: rgba(46, 47, 66, 0.4);
 }
 
-.elementSend {
+.elementSubmit {
   text-align: center;
 }
+
+.stars {
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.star.filled {
+  color: gold;
+}
+
+
+.errorMessage {
+  color: red;
+  margin-top: 10px;
+}
+
+/* варіант  2*/
+/* .formContainer {
+  background-color: #D8BFD8;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.formTitle {
+  text-align: center;
+}
+
+.formGroup {
+  margin-bottom: 10px;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.formTextarea {
+  resize: vertical; 
+  
+}
+
+.ratingInput {
+  width: 100%;
+}
+
+.ratingValue {
+  margin-top: 5px;
+}
+
+.submitButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+} */
