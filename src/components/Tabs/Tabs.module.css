@@ -4,7 +4,7 @@
   height: 48px;
   background-color: rgb(204, 175, 181);
   margin-top: 60px;
-  position: relative; /* Робимо контейнер відносним для позиціонування лінії */
+  position: relative; 
 }
 
 
@@ -13,7 +13,7 @@
   flex-direction: row;
   gap: 40px;
   width: 206px;
-  height: 24px;
+  height: 100%;
   margin-top: 0;
   margin-left: 0;
   margin-bottom: 24px;
@@ -24,22 +24,20 @@
 .textTitlesTabsFeatures,
 .textTitlesTabsReviews {
   display: flex;
-  align-items: center;
+  align-items: start;
   width: 85px;
-  height: 24px;
+  height: 100%;
   background-color: aqua;
   font-size: 1.25rem;
   font-weight: 600;
 }
 
+.active {
+  border-bottom: 4px solid red;
+}
 .dividerWrapper {
   position: absolute; /* Абсолютне позиціонування лінії */
   bottom: 0; /* Розміщуємо лінію внизу контейнера */
   left: 0; /* Розміщуємо лінію зліва */
   width: 85px; /* Задаємо ширину лінії, щоб підкреслити "Features" */
-}
-
-.divider1 {
- height: 3px; /* Задаємо товщину лінії */
-  background-color: red; /* Задаємо колір лінії */
 }

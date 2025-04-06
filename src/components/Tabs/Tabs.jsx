@@ -1,29 +1,38 @@
+
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import css from './Tabs.module.css'; // Створіть окремий файл стилів для Tabs
+import { useNavigate, useLocation } from 'react-router-dom';
+import css from './Tabs.module.css';
 
 function Tabs({ camper, activeTab }) {
+    const navigate = useNavigate();
     const location = useLocation();
-    const isFeaturesPage = location.pathname.includes('/features');
-    const isReviewsPage = location.pathname.includes('/reviews');
+
+
+    const handleBackToDetails = () => {
+        navigate(`/catalog/${camper._id}`, { state: { camper: camper } });
+    };
+    const handleBackToReviews = () => {
+        navigate(`/catalog/${camper._id}/reviews`, { state: { camper: camper } });
+    };
+
+  
 
     return (
         <div className={css.tabc}>
             <div className={css.titlesTabs}>
-                {!isFeaturesPage && (
-                    <Link to={`/catalog/${camper.id}?tab=features`} className={`${css.textTitlesTabsFeatures} ${activeTab === 'features' ? css.active : ''}`}>
-                        Features
-                    </Link>
-                )}
-
-                {!isReviewsPage && (
-                    <Link to={`/catalog/${camper.id}/reviews`} className={`${css.textTitlesTabsReviews} ${activeTab === 'reviews' ? css.active : ''}`}>
-                        Reviews
-                    </Link>
-                )}
-            </div>
-            <div className={css.dividerWrapper}>
-                <div className={css.divider1}></div> {/* Або divider2, залежно від дизайну */}
+                 <button
+                    onClick={handleBackToDetails}
+                    className={`${css.textTitlesTabsFeatures} ${activeTab !== 'reviews' ? css.active : ''}`}
+                >
+                    Features
+                </button>
+                <button
+                    onClick={handleBackToReviews}
+                    className={`${css.textTitlesTabsReviews} ${activeTab === 'reviews' ? css.active : ''}`}
+                >
+                    Reviews
+                </button>
+               
             </div>
         </div>
     );

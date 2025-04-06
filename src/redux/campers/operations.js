@@ -18,3 +18,4 @@ export const getCampers = createAsyncThunk('campers/getCampers', async (_, { rej
         return rejectWithValue(error.message);
     }
 });
+

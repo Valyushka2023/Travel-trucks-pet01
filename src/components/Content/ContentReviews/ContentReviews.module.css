@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  align-items: center;
+  width: 1440px;
+  min-height: 1468px;
+  background-color: #dbe72f;
+  margin: 0 auto;
+}
+.containerTitle {
+   display: flex;
+  flex-direction: column;
+  width: 1312px;
+  background-color: aqua;
+  min-height: 600px;
+  margin-top: 48px;
+  margin-right: 64px;
+  margin-bottom: 44px;
+  margin-left: 64px;
+}
+
+.containerText {
+  display: flex;
+  width: 1312px;
+  height: auto;
+  align-items: center;
+  background-color: antiquewhite;
+  margin-top: 28px;
+}
+
+.text {
+  letter-spacing: 0.02em;
+  color: #475467;
+}
+
+.reviewsForm {
+display: flex;
+flex-direction: row;
+width: 1312px;
+height: 588px;
+background-color: #ffaa00;
+margin-top: 60px;
+margin-bottom: 80px;
+ justify-content: space-between;
+} 
+
+
+.blokReviewsForm{
+  display: flex;
+  flex-direction: column;
+  width: 631px;
+  height: 340px;
+  background-color: blue;
+}
+
+  /* .averageRating {
+    visibility: hidden;
+
+} */
