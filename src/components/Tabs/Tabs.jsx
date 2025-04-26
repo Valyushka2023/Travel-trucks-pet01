@@ -7,15 +7,22 @@ function Tabs({ camper, activeTab }) {
     const navigate = useNavigate();
     const location = useLocation();
 
+   const camperId = camper?._id || camper?.id;
 
-    const handleBackToDetails = () => {
-        navigate(`/catalog/${camper._id}`, { state: { camper: camper } });
+  const handleBackToDetails = () => {
+        if (camperId) {
+            navigate(`/catalog/${camperId}`, { state: { camper } });
+        }
     };
+
     const handleBackToReviews = () => {
-        navigate(`/catalog/${camper._id}/reviews`, { state: { camper: camper } });
+        if (camperId) {
+            navigate(`/catalog/${camperId}/reviews`, { state: { camper } });
+        }
     };
-
-  
+     if (!camperId) {
+        return null;
+    }
 
     return (
         <div className={css.tabc}>
@@ -39,3 +46,4 @@ function Tabs({ camper, activeTab }) {
 }
 
 export default Tabs;
+

@@ -25,11 +25,13 @@
 .textTitlesTabsReviews {
   display: flex;
   align-items: start;
+  justify-content: center;
   width: 85px;
   height: 100%;
   background-color: aqua;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 600;
+
 }
 
 .active {

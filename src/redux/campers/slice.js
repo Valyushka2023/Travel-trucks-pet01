@@ -1,3 +1,6 @@
+
+
+
 import { createSlice } from '@reduxjs/toolkit';
 import { getCampers } from './operations';
 
@@ -19,14 +22,17 @@ const campersSlice = createSlice({
             .addCase(getCampers.pending, (state) => {
                 state.loading = true;
                 state.error = null;
+                console.log("Fetching campers..."); // Лог початку завантаження
             })
             .addCase(getCampers.fulfilled, (state, action) => {
                 state.loading = false;
                 state.items = action.payload;
+                console.log("Campers fetched successfully (slice):", action.payload); // Лог успішного отримання та оновлення стану
             })
             .addCase(getCampers.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
+                console.error("Error fetching campers (slice):", action.payload); // Лог помилки оновлення стану
             });
     },
 });
@@ -36,5 +42,3 @@ export const selectCampers = (state) => state.campers.items;
 export const selectCurrentCamper = (state) => state.campers.currentCamper; // Додаємо селектор для currentCamper
 
 export default campersSlice.reducer;
-
-

@@ -7,27 +7,34 @@ import PropTypes from "prop-types";
 import Card from "../Ui/Card/Card.jsx"; 
 import css from "./CardList.module.css";
 
+
 const CardList = ({ campers }) => {
-    console.log("CardList campers:", campers);
-    return (
-        <div className={css.cardList}>
-            {campers.map((camper) => (
-                <Card
-                    key={camper.id}
-                    _id={camper.id}
-                    name={camper.name}
-                    gallery={camper.gallery}
-                    price={camper.price}
-                    description={camper.description}
-                    reviews={camper.reviews}
-                    location={camper.location}
-                    features={camper.features}
-                    camper={camper}
-                />
-            ))}
-        </div>
-    );
+  console.log("CardList campers:", campers); // Логування пропсів
+  return (
+    <div className={css.cardList}>
+      {campers.length === 0 ? (
+        <div>No campers available.</div>
+      ) : (
+        campers.map((camper) => (
+          <Card
+            key={camper._id} // Враховуйте _id
+            _id={camper._id}
+            name={camper.name}
+            gallery={camper.gallery}
+            price={camper.price}
+            description={camper.description}
+            reviews={camper.reviews}
+            location={camper.location}
+            features={camper.features}
+            camper={camper}
+          />
+        ))
+      )}
+    </div>
+  );
 };
+
+
 
 CardList.propTypes = {
     campers: PropTypes.arrayOf(PropTypes.shape({

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import css from "./Avatar.module.css";
 
 const Avatar = ({ name }) => {
   // Отримуємо першу літеру імені
@@ -7,7 +8,7 @@ const Avatar = ({ name }) => {
 
   return (
     <div
-      className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-500 text-white font-bold"
+      className={css.avatar} // Застосовуємо клас .avatar через об'єкт css
       title={name} // Підказка при наведенні
     >
       {initial}

@@ -1,9 +1,10 @@
 
-import React, { useEffect, useState, useMemo } from "react";
+
+import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams, useNavigate, Outlet, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ClipLoader } from "react-spinners";
-import { selectCampers, selectCurrentCamper, setCamper } from "../../redux/campers/slice.js";
+import { selectCampers, setCamper } from "../../redux/campers/slice.js";
 import { fetchCampers } from "../../services/api.js";
 import css from "./PageDetails.module.css";
 
@@ -14,61 +15,58 @@ function PageDetails() {
 
     const dispatch = useDispatch();
     const campers = useSelector(selectCampers);
-    const reduxCamper = useSelector(selectCurrentCamper);
     const navigate = useNavigate();
-    const location = useLocation(); 
+    const location = useLocation();
 
     const [localCamper, setLocalCamper] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (location.state && location.state.camper) {
-            setLocalCamper(location.state.camper); 
-        } else {
-            if (!_id) {
-                setError("ID кемпера не заданий.");
-                return;
-            }
+        const fetchCamperDetails = async () => {
+            setIsLoading(true);
+            setError(null);
 
-            const fetchCamperDetails = async () => {
-                setIsLoading(true);
-                setError(null);
-
-                try {
-                    console.log("Fetching camper from API with id:", _id);
-                    const fetchedCampers = await fetchCampers({ id: _id });
-                    console.log("Campers fetched from API:", fetchedCampers);
-
-                    if (fetchedCampers?.length > 0) {
-                        const camper = fetchedCampers[0];
-                        setLocalCamper(camper);
-                        dispatch(setCamper(camper));
-                    } else {
-                        const reduxCamperData = campers.find(camper => camper._id === _id);
-                        if (reduxCamperData) {
-                            setLocalCamper(reduxCamperData);
-                            dispatch(setCamper(reduxCamperData));
-                        } else {
-                            setError("Camper not found");
-                        }
-                    }
-                } catch (err) {
-                    console.error("Error fetching camper from API:", err);
-                    setError(err.message);
-                } finally {
+            try {
+                const camperFromState = location.state?.camper;
+                if (camperFromState && camperFromState._id === _id) {
+                    setLocalCamper(camperFromState);
+                    dispatch(setCamper(camperFromState));
                     setIsLoading(false);
+                    return;
                 }
-            };
 
-            fetchCamperDetails();
-        }
-    }, [_id, dispatch, campers, location.state]); 
+                const camperFromRedux = campers.find(camper => camper._id === _id);
+                if (camperFromRedux) {
+                    setLocalCamper(camperFromRedux);
+                    dispatch(setCamper(camperFromRedux));
+                    setIsLoading(false);
+                    return;
+                }
 
-    const cachedCamper = useMemo(() => localCamper, [localCamper]);
+                if (!_id) {
+                    setError("ID кемпера не заданий.");
+                    setIsLoading(false);
+                    return;
+                }
 
-    console.log("Cached Camper:", cachedCamper);
-    console.log("Active Tab:", activeTab);
+                const fetchedCampers = await fetchCampers({ id: _id });
+                if (fetchedCampers?.length > 0) {
+                    const camper = fetchedCampers[0];
+                    setLocalCamper(camper);
+                    dispatch(setCamper(camper));
+                } else {
+                    setError("Camper not found");
+                }
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchCamperDetails();
+    }, [_id, dispatch, campers, location.state]);
 
     if (isLoading) {
         return (
@@ -82,16 +80,13 @@ function PageDetails() {
         return <div className={css.error}>Error: {error}</div>;
     }
 
-    if (!cachedCamper) {
+    if (!localCamper) {
         return <div className={css.error}>⚠️ Camper not found.</div>;
     }
 
-
-
     return (
         <div>
-            <Outlet context={{ camper: cachedCamper }} />
-         
+            <Outlet context={{ camper: localCamper, activeTab }} />
         </div>
     );
 }

@@ -1,7 +1,5 @@
 
 
-
-
 import React, { useState, useMemo } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from 'react-router-dom';
@@ -11,13 +9,20 @@ import FeatureIcon from "../../FeatureIcon/FeatureIcon.jsx";
 import { v4 as uuidv4 } from 'uuid';
 
 const Card = ({ _id, name, gallery, price, description, location, camper }) => {
-    console.log("Card props:", { _id, name, gallery, price, description, location, camper});
+    console.log("Властивості, передані в компонент Card:", { _id, name, gallery, price, description, location, camper});
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const navigate = useNavigate();
 
     let imageUrl = `${import.meta.env.BASE_URL}default_camper.jpg`;
+    console.log("Початкове значення imageUrl:", imageUrl);
+
     if (gallery && Array.isArray(gallery) && gallery.length > 0) {
-        imageUrl = gallery[0].thumb || gallery[0].original || `${import.meta.env.BASE_URL}default_camper.jpg`;
+        console.log("Масив gallery (галерея зображень):", gallery);
+        // Тепер ми просто беремо перший елемент масиву (URL-адресу)
+        imageUrl = gallery[0] || `${import.meta.env.BASE_URL}default_camper.jpg`;
+        console.log("Оновлене значення imageUrl:", imageUrl);
+    } else {
+        console.log("Масив gallery відсутній, не є масивом або є порожнім.");
     }
 
     const handleTextInfoClick = () => {
@@ -135,12 +140,7 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
 Card.propTypes = {
     _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    gallery: PropTypes.arrayOf(
-        PropTypes.shape({
-            thumb: PropTypes.string,
-            original: PropTypes.string,
-        })
-    ),
+    gallery: PropTypes.arrayOf(PropTypes.string), // Оновлено propTypes для gallery
     price: PropTypes.number.isRequired,
     description: PropTypes.string,
     location: PropTypes.string.isRequired,

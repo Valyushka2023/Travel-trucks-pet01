@@ -1,4 +1,5 @@
 
+
 import React, { useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCampers, selectIsLoading, selectError } from "../../redux/campers/selectors.js";
@@ -31,6 +32,12 @@ function PageCatalog() {
     useEffect(() => {
         dispatch(getCampers());
     }, [dispatch]);
+
+    console.log("Campers from useSelector (PageCatalog):", campers);
+    if (campers && campers.length > 0 && campers[0].gallery && campers[0].gallery.length > 0) {
+        console.log("Перший елемент галереї першого кемпера:", campers[0].gallery[0]);
+        console.log("Тип першого елемента галереї:", typeof campers[0].gallery[0]);
+    }
 
     const filteredCampers = useMemo(() => {
         if (!campers || campers.length === 0) {
@@ -103,53 +110,54 @@ function PageCatalog() {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
-return (
-    <div className={css.container}>
-      <Header />
-      <div className={css.containerCatalog}>
-        <div className={css.containerFilters}>
-          <FilterLocation
-            campers={campers}
-            setLocation={handleLocationChange}
-            location={filterLocation}
-          />
-          <h4 className={css.filterTitle}>Filters</h4>
-          <FilterVehicleEquipment onFilter={handleEquipmentFilterChange} />
-          <FilterVehicleType onFilter={handleTypeFilterChange} />
-          <Button variant="primary" size="medium" onClick={handleSearchClick}>
-            Search
-          </Button>
-        </div>
-        <div className={css.containerCards}>
-          {isLoading ? (
-            <div className={css.loaderContainer}>
-              <ClipLoader color="#36D7B7" size={50} />
+
+    return (
+        <div className={css.container}>
+            <Header />
+            <div className={css.containerCatalog}>
+                <div className={css.containerFilters}>
+                    <FilterLocation
+                        campers={campers}
+                        setLocation={handleLocationChange}
+                        location={filterLocation}
+                    />
+                    <h4 className={css.filterTitle}>Filters</h4>
+                    <FilterVehicleEquipment onFilter={handleEquipmentFilterChange} />
+                    <FilterVehicleType onFilter={handleTypeFilterChange} />
+                    <Button variant="primary" size="medium" onClick={handleSearchClick}>
+                        Search
+                    </Button>
+                </div>
+                <div className={css.containerCards}>
+                    {isLoading ? (
+                        <div className={css.loaderContainer}>
+                            <ClipLoader color="#36D7B7" size={50} />
+                        </div>
+                    ) : error ? (
+                        <ErrorComponent error={error} onRetry={handleRetry} />
+                    ) : visibleCampers.length > 0 ? (
+                        <CardList
+                            campers={visibleCampers} // Передаємо visibleCampers без змін gallery
+                        />
+                    ) : (
+                        <div>No campers available.</div>
+                    )}
+                    {visibleCampers.length > 0 && loadedCount < filteredCampers.length && !isLoading && !error && (
+                        <div className={css.containerLoadMore}>
+                            <Button variant="default" size="small" onClick={handleLoadMore}>
+                                Load more
+                            </Button>
+                        </div>
+                    )}
+                </div>
             </div>
-          ) : error ? (
-            <ErrorComponent error={error} onRetry={handleRetry} />
-          ) : visibleCampers.length > 0 ? (
-            <CardList campers={visibleCampers} />
-          ) : (
-            <div>No campers available.</div>
-          )}
-          {visibleCampers.length > 0 && loadedCount < filteredCampers.length && !isLoading && !error && (
-            <div className={css.containerLoadMore}>
-              <Button variant="default" size="small" onClick={handleLoadMore}>
-                Load more
-              </Button>
-            </div>
-          )}
+            {showScrollButton && (
+                <button className={css.scrollButton} onClick={scrollToTop}>
+                    Up
+                </button>
+            )}
         </div>
-      </div>
-      {showScrollButton && (
-        <button className={css.scrollButton} onClick={scrollToTop}>
-          Up
-        </button>
-      )}
-    </div>
-  );
+    );
 }
 
 export default PageCatalog;
-
-
