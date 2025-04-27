@@ -1,18 +1,15 @@
-
-
-
-
 import React, { useEffect, useState } from 'react';
-import { useParams, useOutletContext, useLocation } from 'react-router-dom';
+import { useParams, useOutletContext, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
 import { setCamper, selectCurrentCamper } from '../../redux/campers/slice.js';
 import ContentReviews from '../../components/Content/ContentReviews/Content.Reviews.jsx';
-import { fetchCampers } from '../../services/api.js';
+import { fetchCampers, sendReview } from '../../services/api.js'; // Переконайтеся, що sendReview експортовано
 import css from './PageReviews.module.css';
 
 function PageReviews() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { _id } = useParams();
     const location = useLocation();
     const context = useOutletContext();
@@ -65,8 +62,9 @@ function PageReviews() {
             const camperReviews = camper.reviews || [];
             setReviews(camperReviews);
             calculateAverageRating(camperReviews);
+            dispatch(setCamper(camper)); // Оновлюємо Redux store при завантаженні кемпера
         }
-    }, [camper]);
+    }, [camper, dispatch]);
 
     const calculateAverageRating = (reviewsData) => {
         if (!reviewsData || reviewsData.length === 0) {
@@ -74,23 +72,32 @@ function PageReviews() {
             return;
         }
 
-        const totalRating = reviewsData.reduce((sum, review) => sum + review.rating, 0); // Використовуйте review.rating
+        const totalRating = reviewsData.reduce((sum, review) => sum + review.reviewer_rating, 0);
         const average = totalRating / reviewsData.length;
         setAverageRating(average);
     };
 
-    const handleReviewAdded = (newReview) => {
+    const handleReviewAdded = async (newReviewData) => {
         try {
-            const updatedReviews = [...reviews, newReview];
-            setReviews(updatedReviews);
-            calculateAverageRating(updatedReviews);
+            setIsLoading(true);
+            setError(null);
 
-            const updatedCamper = { ...camper, reviews: updatedReviews };
-            setCamperState(updatedCamper);
-            dispatch(setCamper(updatedCamper));
-            localStorage.setItem(`camper_${_id}`, JSON.stringify(updatedCamper));
+            const response = await sendReview({ camperId: _id, ...newReviewData });
+
+            if (response?.camper) {
+                setReviews(response.camper.reviews); // Оновлюємо всі відгуки з відповіді
+                setAverageRating(response.camper.rating);
+                setCamperState(response.camper);
+                dispatch(setCamper(response.camper));
+                localStorage.setItem(`camper_${_id}`, JSON.stringify(response.camper));
+                navigate('/thank-you');
+            } else {
+                setError("Помилка при додаванні відгука та оновленні даних.");
+            }
         } catch (err) {
-            setError(err.message || "Помилка при додаванні відгуку.");
+            setError(err.message || "Помилка при відправці відгука.");
+        } finally {
+            setIsLoading(false);
         }
     };
 

@@ -1,5 +1,6 @@
 
 
+
 import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams, useNavigate, Outlet, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -67,6 +68,11 @@ function PageDetails() {
 
         fetchCamperDetails();
     }, [_id, dispatch, campers, location.state]);
+
+    // Додаємо useEffect для скидання прокрутки при зміні location.pathname або activeTab
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location.pathname, activeTab]);
 
     if (isLoading) {
         return (

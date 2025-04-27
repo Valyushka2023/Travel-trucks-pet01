@@ -138,6 +138,10 @@
     align-items: center;
     width: 100%;   
 }
+.supportingTextInfo:hover {
+    transform: scale(1.1);
+}
+
 
 .textInfo {
     color: #475467;
@@ -145,6 +149,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+
+
 
 .badgesContainer{
     display: flex;

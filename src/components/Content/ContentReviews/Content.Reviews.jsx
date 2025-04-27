@@ -4,7 +4,7 @@
 import React from 'react';
 import Header from '../../Header/Header.jsx';
 import HeroSection from '../../HeroSection/HeroSection.jsx';
-import ImageGallery from '../../ImageGallery/ImageGallery.jsx';
+import ImageGallery from '../../Gallery/ImageGallery/ImageGallery.jsx';
 import Tabs from '../../Tabs/Tabs.jsx';
 import Review from '../../Reviews/Review/Review.jsx';
 import FormReview from '../../Forms/FormReview/FormReview.jsx';
@@ -47,9 +47,9 @@ function ContentReviews({ camper, activeTab, averageRating, reviews, onReviewAdd
                 <FormReview camperId={camperId} onReviewAdded={onReviewAdded} />
             </div>
 
-            <div className={css.averageRating}>
+            {/* <div className={css.averageRating}>
                 Average Rating: {averageRating.toFixed(2)}
-            </div>
+            </div> */}
         </div>
     );
 }

@@ -21,6 +21,8 @@
   align-items: center; 
 }
 
+
+
 .textTitlesTabsFeatures,
 .textTitlesTabsReviews {
   display: flex;
@@ -34,9 +36,23 @@
 
 }
 
+/* Стиль для наведення курсора тільки на неактивні вкладки */
+.textTitlesTabsFeatures:not(.active):hover,
+.textTitlesTabsReviews:not(.active):hover {
+  color: blue; /* Змінюємо колір тексту при наведенні */
+}
+
+
+
 .active {
   border-bottom: 4px solid red;
+  color: #000; /* Колір тексту активної вкладки */
+  cursor: default; /* Змінюємо курсор на стандартний для активної вкладки */
+  transform: scale(1.1);
 }
+
+
+
 .dividerWrapper {
   position: absolute; /* Абсолютне позиціонування лінії */
   bottom: 0; /* Розміщуємо лінію внизу контейнера */

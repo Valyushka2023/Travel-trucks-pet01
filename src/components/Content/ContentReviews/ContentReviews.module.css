@@ -51,8 +51,12 @@ margin-bottom: 80px;
   display: flex;
   flex-direction: column;
   width: 631px;
-  height: 340px;
+  /* height: 588px; */
   background-color: blue;
+  max-height: 588px; /* Встановіть бажану максимальну висоту контейнера, наприклад, 300 пікселів */
+  overflow-y: auto; /* Додає вертикальний скролбар, коли вміст перевищує max-height */
+  overflow-x: hidden; /* Забороняє горизонтальний скролбар */
+  padding-right: 10px; /* Додайте трохи відступу праворуч, щоб скролбар не перекривав текст */
 }
 
   /* .averageRating {

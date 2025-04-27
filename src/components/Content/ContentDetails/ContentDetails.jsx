@@ -4,7 +4,7 @@ import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import Header from '../../Header/Header.jsx';
 import HeroSection from '../../HeroSection/HeroSection.jsx';
-import ImageGallery from '../../ImageGallery/ImageGallery.jsx';
+import ImageGallery from '../../Gallery/ImageGallery/ImageGallery.jsx';
 import Tabs from '../../Tabs/Tabs.jsx';
 import FeatureIcon from "../../FeatureIcon/FeatureIcon.jsx";
 import VehicleDetails from '../../VehicleDetails/VehicleDetails.jsx';

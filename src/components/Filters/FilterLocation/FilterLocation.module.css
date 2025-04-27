@@ -13,6 +13,7 @@
     background-color: #e5def3;
     display: flex;
     align-items: center;
+ 
 }
 
 .inputWrapper {
@@ -28,7 +29,7 @@
     top: 50%;
     transform: translateY(-50%);
     fill: #888;
-    cursor: pointer;
+   
 }
 
 .locationInput {
@@ -40,14 +41,36 @@
     font-size: 16px;
     padding-left: 48px;
     color: #504b4b;
+    cursor: pointer;  
+}
+
+.locationInput:hover {
+    transform: scale(1.1);
 }
 
 .locationInput:focus {
     border-color: #007bff;
-    outline: none;
+    /* outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+   */
 }
 
-.option {
+/* .option {
     padding: 8px;     
+} */
+.option {
+  padding: 8px;
+  font-size: 1em;
+  cursor: default; 
+  color: #333; /* Базовий колір тексту опції */
+  transition: color 0.2s ease, background-color 0.2s ease; /* Плавний перехід для кольору та фону */
+   
 }
+
+.option:hover {
+  cursor: pointer; /* Змінюємо курсор на pointer при наведенні */
+  color: blue; /* Змінюємо колір тексту при наведенні */
+  background-color: #f0f0f0; /* Додаємо легкий фон при наведенні для кращої помітності */
+}
+
+
