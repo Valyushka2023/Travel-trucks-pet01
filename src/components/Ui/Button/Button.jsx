@@ -1,45 +1,44 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import css from './Button.module.css';
 
 const Button = ({
-    variant = 'default',
-    onClick,
-    size = 'medium',
-    disabled = false,
-    children,
-    to,
+  variant = 'default',
+  onClick,
+  size = 'medium',
+  disabled = false,
+  children,
+  to,
 }) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleClick = e => {
-        if (onClick) {
-            onClick(e);
-        }
-        if (to) {
-            navigate(to);
-        }
-    };
+  const handleClick = e => {
+    if (onClick) {
+      onClick(e);
+    }
+    if (to) {
+      navigate(to);
+    }
+  };
 
-    return (
-        <button
-    className={`${css.button} ${css[variant]} ${css[size]} ${css.showMore}`} // Додано css.showMore
-    onClick={handleClick}
-    disabled={disabled}
->
-    {children}
-</button>
-    );
+  return (
+    <button
+      className={`${css.button} ${css[variant]} ${css[size]} ${css.showMore}`} // Додано css.showMore
+      onClick={handleClick}
+      disabled={disabled}
+    >
+      {children}
+    </button>
+  );
 };
 
 Button.propTypes = {
-    variant: PropTypes.oneOf(['default', 'primary', 'secondary']),
-    onClick: PropTypes.func,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-    disabled: PropTypes.bool,
-    children: PropTypes.node.isRequired,
-    to: PropTypes.string,
+  variant: PropTypes.oneOf(['default', 'primary', 'secondary']),
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  disabled: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  to: PropTypes.string,
 };
 
 export default Button;

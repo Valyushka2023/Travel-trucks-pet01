@@ -1,6 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import css from "./Avatar.module.css";
+import css from './Avatar.module.css';
 
 const Avatar = ({ name }) => {
   // Отримуємо першу літеру імені

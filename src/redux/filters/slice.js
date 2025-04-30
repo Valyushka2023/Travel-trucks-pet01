@@ -22,5 +22,6 @@ const filtersSlice = createSlice({
   },
 });
 
-export const { setLocation, setVehicleEquipment, setVehicleType } = filtersSlice.actions;
+export const { setLocation, setVehicleEquipment, setVehicleType } =
+  filtersSlice.actions;
 export default filtersSlice.reducer;

@@ -1,96 +1,95 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 1440px;
-    min-height: 100vh;
-    background-color: #dbe72f;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 1440px;
+  min-height: 100vh;
+  background-color: #dbe72f;
+  margin: 0 auto;
 }
 
 .containerCatalog {
-    display: flex;
-    width: 1312px;
-    background-color: aqua;
-    margin-bottom: 44px;
-    margin-top: 44px;
+  display: flex;
+  width: 1312px;
+  background-color: aqua;
+  margin-bottom: 44px;
+  margin-top: 44px;
 }
 
-.containerFilters { 
-    display: flex;
-    flex-direction: column;
-    width: 360px;
-    background-color: #c07410;
+.containerFilters {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  background-color: #c07410;
 }
-
 
 .filterTitle {
-    display: flex;
-    flex-direction: row;
-    width: 360px;
-    height: 24px;
-    line-height: normal;
-    color: #4c6747;
-    margin: 0;
-    margin-bottom: 32px;
-    background-color: #e78c8c;
+  display: flex;
+  flex-direction: row;
+  width: 360px;
+  height: 24px;
+  line-height: normal;
+  color: #4c6747;
+  margin: 0;
+  margin-bottom: 32px;
+  background-color: #e78c8c;
 }
 
 .containerCards {
-    display: flex;
-    flex-direction: column;
-    background-color: #8a97e4;
-    width: 888px;
-    margin-left: 64px;  
+  display: flex;
+  flex-direction: column;
+  background-color: #8a97e4;
+  width: 888px;
+  margin-left: 64px;
 }
 
 .containerLoadMore {
-    display: flex;
-    width: 888px;
-    height: 56px;
-    background-color: #2fe747;
-    justify-content: center;
-    margin-top: 40px;
+  display: flex;
+  width: 888px;
+  height: 56px;
+  background-color: #2fe747;
+  justify-content: center;
+  margin-top: 40px;
 }
 
 .scrollButton {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #e44848;
-    color: white;
-    border: none;
-    border-radius: 50%; /* Робимо кнопку овальною */
-    width: 50px; /* Задаємо ширину та висоту для овалу */
-    height: 50px;
-    display: flex; /* Використовуємо flexbox для центрування контенту */
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.3s ease, transform 0.2s ease; /* Додаємо transform для active стану */
-    z-index: 100;
-    font-size: 1.2rem; /* Змінюємо розмір шрифту */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #e44848;
+  color: white;
+  border: none;
+  border-radius: 50%; /* Робимо кнопку овальною */
+  width: 50px; /* Задаємо ширину та висоту для овалу */
+  height: 50px;
+  display: flex; /* Використовуємо flexbox для центрування контенту */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.8;
+  transition:
+    opacity 0.3s ease,
+    transform 0.2s ease; /* Додаємо transform для active стану */
+  z-index: 100;
+  font-size: 1.2rem; /* Змінюємо розмір шрифту */
 }
 
 .scrollButton:hover {
-    opacity: 1;
-    transform: scale(1.1); /* Збільшуємо розмір при наведенні */ 
-    background-color: #ffaa00;
+  opacity: 1;
+  transform: scale(1.1); /* Збільшуємо розмір при наведенні */
+  background-color: #ffaa00;
 }
 
 .scrollButton:active {
-    transform: scale(0.95); /* Зменшуємо розмір при натисканні */
-    opacity: 0.7; /* Змінюємо прозорість при натисканні */
-    background-color: #ee7008;
+  transform: scale(0.95); /* Зменшуємо розмір при натисканні */
+  opacity: 0.7; /* Змінюємо прозорість при натисканні */
+  background-color: #ee7008;
 }
 
 .loaderContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px; /* Або інша висота */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Або інша висота */
 }
-
-

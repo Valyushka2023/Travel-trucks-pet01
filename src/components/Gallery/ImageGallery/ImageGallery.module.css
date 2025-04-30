@@ -1,16 +1,27 @@
 .containerPictures {
   display: flex;
   flex-direction: row;
-  gap: 48px;
+  gap: 49px;
   width: 1312px;
   height: 312px;
   margin-top: 28px;
   background-color: chocolate;
 }
 
-.galleryImage {
+.galleryImageButton {
+  padding: 0; /* Прибираємо внутрішні відступи кнопки */
+  margin: 0; /* Прибираємо зовнішні відступи кнопки */
+  border: none; /* Прибираємо рамку кнопки */
+  background: none; /* Прибираємо фон кнопки */
+  outline: none; /* Прибираємо стандартну обводку фокусу (можна додати власну) */
+}
+
+.galleryImageButton:focus {
+  outline: 10px solid orange; /* Додайте видиму обводку фокусу для доступності */
+  border-radius: 5px; /* За бажанням */
+}
+.galleryItem {
   width: 100%;
   height: 312px;
   cursor: pointer;
 }
-

@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import routersCampers from './src/routers/routersCampers.js';
+import routersCampers from './src/routes/routersCampers.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

@@ -1,37 +1,37 @@
 module.exports = {
   root: true,
-  env: { 
-    browser: true, 
-    es2020: true 
+  env: {
+    browser: true,
+    es2020: true,
   },
   extends: [
-    "eslint:recommended",                // Базові правила ESLint
-    "plugin:react/recommended",          // Рекомендації для React
-    "plugin:react/jsx-runtime",          // Підтримка JSX Runtime
-    "plugin:react-hooks/recommended",    // Рекомендації для React-хуків
-    "prettier"                           // Вимкнення правил, що конфліктують з Prettier
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended" // <-- правильне підключення Prettier тут
   ],
   ignorePatterns: [
-    "dist", 
-    ".eslintrc.cjs"                      // Ігнорування певних папок/файлів
+    "dist",
+    ".eslintrc.cjs",
   ],
-  parserOptions: { 
-    ecmaVersion: "latest",               // Сучасна версія ECMAScript
-    sourceType: "module"                 // Використання модулів ES
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
-  settings: { 
-    react: { version: "18.3.1" }         // Вказуємо версію React (18.3.1)
+  settings: {
+    react: {
+      version: "detect" // <-- краще "detect", не вручну вказувати версію
+    }
   },
   plugins: [
-    "react-refresh"                      // Плагін для React Refresh
+    "react-refresh",
   ],
   rules: {
-    "react/prop-types": 0,               // Вимикаємо валідацію PropTypes
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true }
     ],
-    "prettier/prettier": "error"         // Додаємо правило для перевірки Prettier
+    "react/prop-types": "warn", // <-- постав "warn", щоб підсвічувало, але не ламало білд
   }
 };
-

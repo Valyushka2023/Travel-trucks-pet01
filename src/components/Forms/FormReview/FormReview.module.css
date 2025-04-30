@@ -133,7 +133,7 @@
   text-align: center;
 }
 
-.stars {
+/* .stars {
   display: flex;
   align-items: center;
 }
@@ -147,11 +147,33 @@
 
 .star.filled {
   color: gold;
+} */
+.stars {
+  display: flex; /* Для горизонтального розташування зірок */
+  gap: 5px; /* Відступ між зірками */
 }
 
+.star {
+  background: none; /* Видаляємо фон кнопки */
+  border: none; /* Видаляємо рамку кнопки */
+  padding: 0; /* Видаляємо внутрішні відступи кнопки */
+  margin: 0; /* Видаляємо зовнішні відступи кнопки */
+  font-size: 1.5em; /* Розмір зірки */
+  cursor: pointer; /* Вказівник миші при наведенні */
+  color: #ccc; /* Колір неактивних зірок */
+  outline: none; /* Видаляємо стандартну обводку при фокусі (можна додати власну для доступності) */
+}
 
+.star.filled {
+  color: gold; /* Колір заповнених зірок */
+}
+
+/* Додайте стилі для фокусу, щоб забезпечити доступність */
+.star:focus {
+  outline: 2px solid orange; /* Або інший стиль фокусу */
+  border-radius: 3px; /* Щоб обводка виглядала краще */
+}
 .errorMessage {
   color: red;
   margin-top: 10px;
 }
-

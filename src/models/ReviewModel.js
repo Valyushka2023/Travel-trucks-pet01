@@ -1,31 +1,28 @@
-
-
-
 // Якщо ти використовуєш тільки як субсхему — залишаємо тільки схему:
 import mongoose from 'mongoose';
 
 const reviewSchema = new mongoose.Schema({
-  camperId: { 
-    type: mongoose.Schema.Types.ObjectId, 
+  camperId: {
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Camper', // Вказуємо на модель Camper для зв'язку
-    required: true 
+    required: true,
   },
-  reviewer_name: { 
-    type: String, 
-    required: true 
+  reviewer_name: {
+    type: String,
+    required: true,
   },
-  reviewer_rating: { 
-    type: Number, 
-    required: true 
+  reviewer_rating: {
+    type: Number,
+    required: true,
   },
-  comment: { 
-    type: String, 
-    required: true 
+  comment: {
+    type: String,
+    required: true,
   },
   email: String,
-  createdAt: { 
-    type: Date, 
-    default: Date.now 
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 

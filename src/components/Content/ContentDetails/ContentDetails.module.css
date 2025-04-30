@@ -42,9 +42,8 @@
   height: 588px;
   background-color: blue;
   margin-top: 44px;
-  margin-bottom: 80px; 
+  margin-bottom: 80px;
   justify-content: space-between;
-  
 }
 
 .details {
@@ -56,7 +55,3 @@
   padding: 44px 52px;
   background-color: #ffaa00;
 }
-
-
-
-

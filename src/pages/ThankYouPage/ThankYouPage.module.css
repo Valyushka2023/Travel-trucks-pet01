@@ -8,14 +8,12 @@
   flex-direction: row;
   margin-bottom: 200px;
   justify-content: space-between;
-
-
 }
 
 .goBackLink {
   font-size: 24px;
   margin-top: 40px;
- 
+
   text-decoration: none;
   color: #333;
   transition: color 0.3s ease;
@@ -26,7 +24,7 @@
 }
 
 .closeButton {
-    position: absolute;
+  position: absolute;
   top: 20px; /* Відступ від верхнього краю */
   right: 20px; /* Відступ від правого краю */
   background: none;
@@ -42,8 +40,7 @@
   color: rgb(225, 0, 255);
 }
 
-
-.feedback{
+.feedback {
   display: flex;
   flex-direction: column;
   grid-column: 80px;
@@ -53,4 +50,4 @@
 
 .text {
   font-size: 36px;
-} 
+}

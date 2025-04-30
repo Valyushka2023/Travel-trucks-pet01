@@ -1,6 +1,6 @@
 import express from 'express';
 import { addReview } from '../controllers/campers.js';
-import Camper from '../models/Camper.js';
+import Camper from '../models/CamperModel.js';
 
 const router = express.Router();
 
@@ -8,10 +8,9 @@ const router = express.Router();
 router.get('/campers', async (req, res) => {
   try {
     const campers = await Camper.find(); // Отримуємо всі документи з колекції 'campers'
-    console.log('Отримані кемпери:', campers);
+
     res.json(campers);
-  } catch (error) {
-    console.error('Помилка в GET /campers:', error);
+  } catch {
     res.status(500).json({ message: 'Помилка сервера' });
   }
 });
@@ -24,8 +23,7 @@ router.get('/campers/:id', async (req, res) => {
       return res.status(404).json({ message: 'Кемпер не знайдений' });
     }
     res.json(camper);
-  } catch (error) {
-    console.error('Помилка отримання кемпера:', error);
+  } catch {
     res.status(500).json({ message: 'Помилка сервера' });
   }
 });

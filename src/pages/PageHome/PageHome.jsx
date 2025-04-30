@@ -1,5 +1,3 @@
-
-import React from 'react';
 import Header from '../../components/Header/Header.jsx';
 import Button from '../../components/Ui/Button/Button.jsx';
 import css from './PageHome.module.css';

@@ -1,13 +1,8 @@
-import React from 'react';
 import Button from '../../Ui/Button/Button.jsx';
 import css from './FormBooking.module.css';
 
-function FormBooking ({ camper }) {
-    console.log("BookingForm отримав camper:", camper);
-    
-    return (
-    
-       
+function FormBooking({}) {
+  return (
     <div className={css.form}>
       <div className={css.titleForm}>
         <h3 className={css.textTitleForm}>Book your campervan now</h3>
@@ -70,10 +65,6 @@ function FormBooking ({ camper }) {
       </div>
     </div>
   );
-
-    
 }
 
 export default FormBooking;
-
-

@@ -10,7 +10,7 @@
   margin: 0 auto;
 }
 .containerTitle {
-   display: flex;
+  display: flex;
   flex-direction: column;
   width: 1312px;
   background-color: aqua;
@@ -36,18 +36,17 @@
 }
 
 .reviewsForm {
-display: flex;
-flex-direction: row;
-width: 1312px;
-height: 588px;
-background-color: #ffaa00;
-margin-top: 60px;
-margin-bottom: 80px;
- justify-content: space-between;
-} 
+  display: flex;
+  flex-direction: row;
+  width: 1312px;
+  height: 588px;
+  background-color: #ffaa00;
+  margin-top: 60px;
+  margin-bottom: 80px;
+  justify-content: space-between;
+}
 
-
-.blokReviewsForm{
+.blokReviewsForm {
   display: flex;
   flex-direction: column;
   width: 631px;
@@ -59,7 +58,7 @@ margin-bottom: 80px;
   padding-right: 10px; /* Додайте трохи відступу праворуч, щоб скролбар не перекривав текст */
 }
 
-  /* .averageRating {
+/* .averageRating {
     visibility: hidden;
 
 } */

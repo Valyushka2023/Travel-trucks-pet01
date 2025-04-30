@@ -4,9 +4,8 @@
   height: 48px;
   background-color: rgb(204, 175, 181);
   margin-top: 60px;
-  position: relative; 
+  position: relative;
 }
-
 
 .titlesTabs {
   display: flex;
@@ -18,10 +17,8 @@
   margin-left: 0;
   margin-bottom: 24px;
   background-color: #ffaa00;
-  align-items: center; 
+  align-items: center;
 }
-
-
 
 .textTitlesTabsFeatures,
 .textTitlesTabsReviews {
@@ -33,7 +30,6 @@
   background-color: aqua;
   font-size: 1.2rem;
   font-weight: 600;
-
 }
 
 /* Стиль для наведення курсора тільки на неактивні вкладки */
@@ -42,16 +38,12 @@
   color: blue; /* Змінюємо колір тексту при наведенні */
 }
 
-
-
 .active {
   border-bottom: 4px solid red;
   color: #000; /* Колір тексту активної вкладки */
   cursor: default; /* Змінюємо курсор на стандартний для активної вкладки */
   transform: scale(1.1);
 }
-
-
 
 .dividerWrapper {
   position: absolute; /* Абсолютне позиціонування лінії */

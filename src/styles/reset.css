@@ -1,12 +1,21 @@
 /*Скидання стилів браузера*/
 
-
-body, h1, h2, h3, p, ul, ol, li, figure, blockquote {
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+li,
+figure,
+blockquote {
   margin: 0;
   padding: 0;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -15,6 +24,8 @@ img {
   display: block;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
