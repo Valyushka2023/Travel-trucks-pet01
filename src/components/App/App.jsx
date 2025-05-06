@@ -1,7 +1,8 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
-import ThankYouPage from '../../pages/ThankYouPage/ThankYouPage.jsx'; // Правильний імпорт ThankYouPage
+import ThankYouPage from '../../pages/ThankYouPage/ThankYouPage.jsx';
+import ThankYouBookingPage from '../../pages/ThankYouBookingPage/ThankYouBookingPage.jsx';
 
 const PageHome = lazy(() => import('../../pages/PageHome/PageHome.jsx'));
 const PageCatalog = lazy(
@@ -17,7 +18,7 @@ const ContentDetails = lazy(
   () => import('../Content/ContentDetails/ContentDetails.jsx')
 );
 const ContentReviews = lazy(
-  () => import('../Content/ContentReviews/Content.Reviews.jsx')
+  () => import('../Content/ContentReviews/ContentReviews.jsx')
 );
 
 function App() {
@@ -48,6 +49,11 @@ function App() {
           </Route>
           <Route path="/thank-you" element={<ThankYouPage />} />{' '}
           {/* Доданий маршрут для ThankYouPage */}
+          <Route
+            path="/booking-received"
+            element={<ThankYouBookingPage />}
+          />{' '}
+          {/* ✅ Новий маршрут */}
         </Routes>
       </Suspense>
     </Router>

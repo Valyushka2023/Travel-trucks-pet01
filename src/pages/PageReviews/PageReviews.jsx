@@ -8,7 +8,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
 import { setCamper } from '../../redux/campers/slice.js';
-import ContentReviews from '../../components/Content/ContentReviews/Content.Reviews.jsx';
+import ContentReviews from '../../components/Content/ContentReviews/ContentReviews.jsx';
 import { fetchCampers, sendReview } from '../../services/api.js'; // Переконайтеся, що sendReview експортовано
 import css from './PageReviews.module.css';
 
