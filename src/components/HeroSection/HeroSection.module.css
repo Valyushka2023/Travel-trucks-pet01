@@ -1,48 +1,47 @@
 .Title {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  width: 128px;
-  height: 32px;
-  background-color: burlywood;
-  margin-top: 0;
-  margin-bottom: 8px;
+  max-width: 128px;
+  width: 100%;
+  /* margin-top: 0; */
+  /* margin-bottom: 8px; */
 }
 
 .containerDetail {
   display: flex;
   flex-direction: column;
-  /* width: 267px; */
   width: 100%;
-  height: 72px;
-  background-color: brown;
+  /* background-color: brown; */
 }
 
 .reviewsLocation {
   display: flex;
   flex-direction: row;
   margin-bottom: 16px;
-  /* justify-content: space-between; */
-  /* width: 267px; */
-  width: auto;
-  height: 24px;
-  background-color: #bb99e2;
+  width: 100%;
+  max-height: 24px;
+  /* background-color: #bb99e2; */
 }
-
-.titleReviews {
+.titleReviews,
+.locationTitle {
   display: flex;
   align-items: center;
-  justify-items: flex-start;
-  width: 133px;
-  background-color: chartreuse;
-  margin-right: 16px;
+  justify-content: flex-start;
+  /* background-color: chartreuse; */
+  white-space: nowrap;
 }
 
-.iconStar {
+.locationTitle {
+  margin-left: 16px;
+}
+
+.iconStar,
+.iconMap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 4px;
-  vertical-align: middle;
-  svg {
-    display: inline-block;
-  }
 }
 
 .textReviewsTitle {
@@ -50,27 +49,19 @@
   text-decoration-skip-ink: none;
 }
 
-.locationTitle {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  /* width: 118px; */
-  width: 158px;
-  background-color: #ffaa00;
-}
-
-.iconMap {
-  margin-right: 4px;
-  vertical-align: middle;
-  svg {
-    display: inline-block;
-  }
+.textLocationTitle {
+  margin: 0;
 }
 
 .containerPrice {
   display: flex;
   align-items: center;
-  width: 118px;
-  height: 32px;
-  background-color: #dbe72f;
+  width: 100%;
+  max-height: 32px;
+  /* background-color: #d3d88f; */
+}
+
+.Price {
+  font-size: 1.5rem;
+  margin: 0;
 }

@@ -1,22 +1,55 @@
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { fetchCamperById } from '../../services/api';
+import { ClipLoader } from 'react-spinners';
 import css from './ThankYouPage.module.css';
 
 const ThankYouPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { camperId } = location.state || {};
+
+  const [loading, setLoading] = useState(false);
 
   const handleGoBack = () => {
-    navigate('/catalog'); // Шлях до вашої сторінки каталогу вже визначено у вашому App.js
+    navigate('/catalog');
   };
-  const handleClose = () => {
-    navigate('/'); // Перехід на домашню сторінку (замініть '/' на фактичний шлях до вашої домашньої сторінки, якщо він інший)
+
+  const handleClose = async () => {
+    setLoading(true);
+
+    if (camperId) {
+      try {
+        const freshCamper = await fetchCamperById(camperId);
+        if (freshCamper) {
+          navigate(`/catalog/${camperId}/reviews`, {
+            state: { camper: freshCamper },
+          });
+        } else {
+          navigate('/catalog');
+        }
+      } catch (error) {
+        console.error('Failed to fetch camper:', error);
+        navigate('/catalog');
+      }
+    } else {
+      navigate('/catalog');
+    }
+
+    setLoading(false);
   };
+
   return (
     <div className={css.container}>
       <div className={css.buttons}>
         <button onClick={handleGoBack} className={css.goBackLink}>
           &lt; Go back to catalog
         </button>
-        <button onClick={handleClose} className={css.closeButton}>
+        <button
+          onClick={handleClose}
+          className={css.closeButton}
+          disabled={loading}
+        >
           &times;
         </button>
       </div>
@@ -24,6 +57,7 @@ const ThankYouPage = () => {
       <div className={css.feedback}>
         <h1>Thank you for your feedback!</h1>
         <p className={css.text}>Your opinion is very important to us!</p>
+        {loading && <ClipLoader color="#187ff2" size={40} />}
       </div>
     </div>
   );

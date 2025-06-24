@@ -1,20 +1,30 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 1440px;
-  height: 100vh;
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
+  min-height: 100vh;
 }
 
-.heroImage {
-  display: flex;
-  width: 1440px;
-  height: 696px;
-  align-items: center;
+.heroSection {
   position: relative;
+  height: 696px;
   background-image:
     linear-gradient(rgba(46, 47, 66, 0.3), rgba(46, 47, 66, 0.3)),
     url('../images/Picture@1x.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.heroOverlay {
+  padding-left: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .title {
@@ -22,27 +32,18 @@
   flex-direction: column;
   gap: 40px;
   width: 571px;
-  height: 176px;
-  position: absolute;
-  top: 50%;
-  left: 64px;
-  transform: translateY(-50%);
 }
 
 .text {
   display: flex;
   flex-direction: column;
-  width: 571px;
-  height: 80px;
 }
 
 .heroTitle {
-  line-height: 0.66667;
-  color: #f7f7f7;
-  margin-top: auto;
+  line-height: 1.2;
+  color: #f5f3f3;
 }
 
 .heroContent {
-  color: #f7f7f7;
-  margin-top: auto;
+  color: #f5f3f3;
 }

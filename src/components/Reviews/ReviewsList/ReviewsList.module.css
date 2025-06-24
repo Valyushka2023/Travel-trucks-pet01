@@ -1,0 +1,33 @@
+.listContainer {
+  display: flex;
+  /* gap: 14px; */
+  flex-direction: column;
+  width: 100%;
+  /* max-width: 640px; */
+  height: auto;
+  /* margin-bottom: 24px; */
+  padding: 0;
+  margin: 0;
+  /* justify-content: center; */
+  /* background-color: #f7f7f7; */
+  box-sizing: border-box;
+  /* border: solid #777; */
+  box-sizing: border-box;
+  /* box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.15);box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
+  border-radius: 6px;
+}
+
+.reviewsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reviewItem {
+  background-color: #f7f7f7;
+
+  border-radius: 6px;
+  margin-bottom: 40px;
+
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
+}

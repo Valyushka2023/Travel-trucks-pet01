@@ -9,6 +9,8 @@ const Button = ({
   disabled = false,
   children,
   to,
+  className = '', // <-- Add className to the destructured props with a default empty string
+  ...rest // <-- Add ...rest to capture any other props
 }) => {
   const navigate = useNavigate();
 
@@ -23,7 +25,7 @@ const Button = ({
 
   return (
     <button
-      className={`${css.button} ${css[variant]} ${css[size]} ${css.showMore}`} // Додано css.showMore
+      className={`${css.button} ${css[variant]} ${css[size]} ${className}`}
       onClick={handleClick}
       disabled={disabled}
     >
@@ -39,6 +41,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   children: PropTypes.node.isRequired,
   to: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Button;

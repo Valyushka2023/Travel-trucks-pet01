@@ -1,0 +1,35 @@
+.footerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  width: 100%;
+  max-width: 1312px;
+  margin: 0 auto;
+  background-color: #2b2929;
+  padding: 0 64px;
+}
+
+.phone,
+.info,
+.socialNetworks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f1ebeb;
+  font-size: 18px;
+}
+
+.phoneIcon {
+  color: rgb(90, 230, 90);
+  margin-right: 12px;
+}
+
+.phoneNumber {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.phoneNumber:hover {
+  text-decoration: underline;
+}

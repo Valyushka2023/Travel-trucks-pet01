@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-const BASE_URL = '/campers'; // Твій поточний базовий URL для кемперів
-const BOOKINGS_ENDPOINT = '/bookings'; // Додамо endpoint для бронювань
+const BASE_URL = '/campers'; // Базовий URL для кемперів
+const BOOKINGS_ENDPOINT = '/bookings';
 const BACKEND_BASE_URL = 'http://localhost:5001';
-// const BACKEND_BASE_URL = 'http://your-backend-domain.com/api';
 
-// Функція fetchCampers отримує список кемперів.
+// ✅ Отримати список усіх кемперів (з optional фільтрами)
 export const fetchCampers = async (params = {}) => {
   try {
     const searchParams = new URLSearchParams(params).toString();
@@ -13,25 +12,37 @@ export const fetchCampers = async (params = {}) => {
 
     const response = await axios.get(url);
 
-    if (response.status !== 200) {
-      return [];
-    }
+    if (response.status !== 200) return [];
 
     const data = response.data;
 
-    if (Array.isArray(data)) {
-      return data;
-    } else if (data?.items && Array.isArray(data.items)) {
-      return data.items;
-    } else {
-      return [];
-    }
+    if (Array.isArray(data)) return data;
+    if (data?.items && Array.isArray(data.items)) return data.items;
+
+    return [];
   } catch {
-    // console.error('Error fetching campers:', error);
     return [];
   }
 };
 
+// ✅ Отримати одного кемпера за ID (нове!)
+export const fetchCamperById = async id => {
+  try {
+    if (!id) return null;
+
+    const response = await axios.get(`${BASE_URL}/${id}`);
+
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      return null;
+    }
+  } catch {
+    return null;
+  }
+};
+
+// ✅ Надіслати відгук
 export const sendReview = async reviewData => {
   try {
     const { camperId, ...reviewFields } = reviewData;
@@ -51,25 +62,30 @@ export const sendReview = async reviewData => {
     );
 
     if (response.status === 201) {
-      return response.data;
+      return response.data; // Очікується, що тут буде оновлений camper
     } else {
       return null;
     }
   } catch {
-    // console.error('Error sending review:', error);
     return null;
   }
 };
 
+// ✅ Надіслати запит на бронювання
 export const sendBookingRequest = async bookingData => {
   try {
     const response = await axios.post(
       `${BACKEND_BASE_URL}${BOOKINGS_ENDPOINT}`,
-      bookingData
+      bookingData,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
     );
-    return response.data; // Очікуємо, що backend поверне { success: boolean, message?: string }
+
+    return response.data;
   } catch (_error) {
-    // console.error('Error sending booking request:', error);
     return {
       success: false,
       message: _error.message || 'Failed to connect to the server.',

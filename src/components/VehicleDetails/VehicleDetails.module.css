@@ -1,43 +1,33 @@
 .vehicleContainer {
   display: flex;
   flex-direction: column;
-  width: 527px;
-  height: 296px;
-  background-color: #e72fa0;
-  margin-right: 52px;
-  margin-left: 52px;
+  max-width: 527px;
   margin-top: auto;
 }
 
 .textDetails {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 527px;
-  height: 24px;
-  background-color: #0cb444;
-  margin-top: 0;
-  margin-bottom: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  margin: 0;
 }
 
 .divider {
   display: flex;
   flex-direction: column;
-  width: 527px;
-  margin: 0;
-  margin-bottom: 24px;
-  stroke-width: 1px;
-  stroke: #dadde1;
+  background-color: #cacaca;
+  height: 5px;
+  width: 100%;
+  box-shadow: 0 1px 4px #9b9a9a;
 }
-
 .vehicleInfo {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 527px;
-  height: 224px;
-  background-color: #ffaa00;
-  margin-top: 0;
+  max-width: 527px;
+  height: 100%;
+  margin-top: 24px;
 }
 
 .texts {
@@ -46,6 +36,7 @@
   align-items: center;
   width: 527px;
   height: 24px;
-  background-color: lightgray;
+  background-color: #dddbdb;
   font-weight: 500;
+  color: #3f3f3f;
 }

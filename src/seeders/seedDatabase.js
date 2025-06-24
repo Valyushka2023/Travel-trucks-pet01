@@ -4,15 +4,16 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import Camper from '../../src/models/CamperModel.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 async function seedDatabase() {
   try {
-    await mongoose.connect(
-      'mongodb+srv://vvpto82023:mMkyLqZFngTzKMPc@cluster0.vxst1.mongodb.net/campers?retryWrites=true&w=majority&appName=Cluster0'
-    );
+    await mongoose.connect(process.env.MONGODB_URL);
 
     const filePath = path.join(__dirname, '../../src/db/campers.json');
     const data = await fs.readFile(filePath, 'utf8');

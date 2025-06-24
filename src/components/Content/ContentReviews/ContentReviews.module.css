@@ -2,22 +2,21 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   align-items: center;
   width: 1440px;
   min-height: 1468px;
-  background-color: #dbe72f;
+  background-color: #f7f7f7;
   margin: 0 auto;
 }
+
 .containerTitle {
   display: flex;
   flex-direction: column;
   width: 1312px;
-  background-color: aqua;
   min-height: 600px;
-  margin-top: 48px;
+  margin-top: 28px;
   margin-right: 64px;
-  margin-bottom: 44px;
+  /* margin-bottom: 44px; */
   margin-left: 64px;
 }
 
@@ -26,8 +25,7 @@
   width: 1312px;
   height: auto;
   align-items: center;
-  background-color: antiquewhite;
-  margin-top: 28px;
+  /* margin-top: 28px; */
 }
 
 .text {
@@ -35,12 +33,36 @@
   color: #475467;
 }
 
+.loader {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.noReviews {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1em;
+  color: #777;
+}
+
+.scrollTopBtn:hover {
+  background-color: #187ff2;
+  transform: scale(1.05);
+}
+
+.scrollTopBtn:active {
+  background-color: #fa2105;
+  transform: scale(0.95);
+}
+
 .reviewsForm {
   display: flex;
   flex-direction: row;
+  gap: 30px;
   width: 1312px;
-  height: 588px;
-  background-color: #ffaa00;
+  min-height: 588px;
   margin-top: 60px;
   margin-bottom: 80px;
   justify-content: space-between;
@@ -50,15 +72,60 @@
   display: flex;
   flex-direction: column;
   width: 631px;
-  /* height: 588px; */
-  background-color: blue;
-  max-height: 588px; /* Встановіть бажану максимальну висоту контейнера, наприклад, 300 пікселів */
-  overflow-y: auto; /* Додає вертикальний скролбар, коли вміст перевищує max-height */
-  overflow-x: hidden; /* Забороняє горизонтальний скролбар */
-  padding-right: 10px; /* Додайте трохи відступу праворуч, щоб скролбар не перекривав текст */
+  position: relative; /* Важливо для sticky loadMoreWrapper */
+  max-height: 588px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 6px; */
+  padding-right: 15px; /* Місце для скролбару */
 }
 
-/* .averageRating {
-    visibility: hidden;
+.blokReviewsFormScrollable {
+  overflow-y: auto;
+  padding-right: 15px;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+  scroll-behavior: smooth;
+}
 
-} */
+.reviewsContentWrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px; /* Забезпечує відступ від кнопки */
+}
+
+.loadMoreWrapper {
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  position: sticky; /* Дозволяє обгортці прилипати до низу скролу контейнера відгуків */
+  bottom: 0;
+  background-color: #f7f7f7;
+  padding: 10px 0;
+  z-index: 10;
+}
+
+.loadMoreBtn {
+  padding: 8px 16px;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* Стилі для ScrollToTopButton, коли вона використовується ВНУТРІШНЬО в loadMoreWrapper */
+.scrollTopBtn {
+  /* Тут НЕ повинно бути position: fixed. Вона повинна бути інлайн-блоком або блоком */
+  /* і позиціонуватися відповідно до потоку документа або sticky-позиції loadMoreWrapper */
+  display: inline-flex; /* Дозволяє центрувати та розміщувати в текстовому потоці */
+  justify-content: center;
+  align-items: center;
+  color: #f5f3f3;
+
+  margin-bottom: 30px; /* Відступ від низу обгортки */
+
+  /* Додаткові стилі, якщо хочете, щоб ця кнопка відрізнялася від глобальної */
+  /* наприклад, змінити колір або розмір, якщо потрібно */
+  /* background-color: #5cb85c; */
+}
+/* .scrollTopBtn не має мати власних :hover, :active, оскільки вони вже визначені в .baseScrollToTopButton */

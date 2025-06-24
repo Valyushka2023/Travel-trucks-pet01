@@ -1,0 +1,57 @@
+.contactContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  max-width: 996px;
+  width: 100%;
+  padding: 0, 16px;
+  margin: 0, auto;
+}
+
+.contactBlok {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #dddbdb;
+  border-radius: 16px;
+  min-height: 172px;
+  height: auto;
+  box-sizing: border-box;
+  padding: 0;
+
+  flex: 1 1 calc((100% - 48px) / 3);
+  max-width: 316px;
+}
+
+.city,
+.street,
+.phone,
+.email {
+  margin-bottom: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.city {
+  margin: 0, auto;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.street,
+.phone,
+.email {
+  font-size: 1.25rem;
+  color: #555;
+  line-height: 0.6;
+}
+
+.phone {
+  color: #187ff2;
+}
+.email {
+  white-space: normal;
+  margin-bottom: 0;
+}

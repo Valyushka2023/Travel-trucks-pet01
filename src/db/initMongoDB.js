@@ -1,21 +1,21 @@
+/* eslint-env node */
 import mongoose from 'mongoose';
-
-import { getEnvVar } from '../utils/getEnvVar.js';
+import { getEnvVar } from '../utils/getEnvVar.js'; // або просто process.env якщо без валідації
+import { start } from 'repl';
 
 export const initMongoDB = async () => {
   try {
-    const user = getEnvVar('MONGODB_USER');
-    const pwd = getEnvVar('MONGODB_PASSWORD');
-    const url = getEnvVar('MONGODB_URL');
-    const db = getEnvVar('MONGODB_DB');
+    const user = encodeURIComponent(getEnvVar('MONGODB_USER'));
+    const password = encodeURIComponent(getEnvVar('MONGODB_PASSWORD'));
+    const cluster = getEnvVar('MONGODB_CLUSTER');
+    const dbName = getEnvVar('MONGODB_DB');
 
-    await mongoose.connect(
-      `mongodb+srv://${user}:${pwd}@${url}/${db}?retryWrites=true&w=majority`
-    );
-    // } catch {
-    //   throw e;
-    // }
-  } catch {
-    // Обробка помилки
+    const mongoUri = `mongodb+srv://${user}:${password}@${cluster}/${dbName}?retryWrites=true&w=majority&appName=Cluster0`;
+
+    await mongoose.connect(mongoUri);
+    console.log('✅ MongoDB connected successfully');
+  } catch (error) {
+    console.error('❌ MongoDB connection error:', error.message);
+    process.exit(1);
   }
 };

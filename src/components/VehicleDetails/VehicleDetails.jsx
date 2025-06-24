@@ -2,18 +2,21 @@ import PropTypes from 'prop-types';
 import css from './VehicleDetails.module.css';
 
 function VehicleDetails({ camper }) {
-  // console.log('VehicleDetails отримав camper:', camper);
-
+  console.log('VehicleDetails отримує camper:', camper); // Додайте цей лог!
   if (!camper) {
+    console.log('Camper порожній, показуємо завантаження...');
     return (
       <div className={css.vehicleContainer}>Loading vehicle details...</div>
-    ); // Або індикатор завантаження
+    );
   }
 
   return (
     <div className={css.vehicleContainer}>
-      <h3 className={css.textDetails}>Vehicle details</h3>
-      <hr className={css.divider} />
+      <div className={css.textDetails}>
+        <h3>Vehicle details</h3>
+      </div>
+
+      <div className={css.divider}></div>
       <div className={css.vehicleInfo}>
         <div className={css.texts}>
           <p>Form</p>
@@ -47,12 +50,11 @@ function VehicleDetails({ camper }) {
 VehicleDetails.propTypes = {
   camper: PropTypes.shape({
     form: PropTypes.string,
-    length: PropTypes.string, // Тип даних - string
-    width: PropTypes.string, // Тип даних - string
-    height: PropTypes.string, // Тип даних - string
-    tank: PropTypes.string, // Тип даних - string
+    length: PropTypes.string,
+    width: PropTypes.string,
+    height: PropTypes.string,
+    tank: PropTypes.string,
     consumption: PropTypes.string,
-    // ... інші властивості camper, якщо потрібно
   }),
 };
 

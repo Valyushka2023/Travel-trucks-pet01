@@ -1,128 +1,100 @@
 .form {
   display: flex;
   flex-direction: column;
-  width: 641px;
-  height: 588px;
-  background-color: #991f1f;
-  margin-left: 49px;
+  align-items: center;
+  max-width: 641px;
+  max-height: 588px;
+  width: 100%;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  margin-left: 24px;
+  overflow: hidden;
+  padding: 40px 57px 40px 57px;
 }
 
 .titleForm {
   display: flex;
   flex-direction: column;
-  width: 527px;
-  height: 56px;
-  background-color: #e72fa0;
-  margin: 0;
-  margin-top: 44px;
-  margin-right: 52px;
-  margin-left: 52px;
+  width: 100%;
   margin-bottom: 24px;
 }
 
 .textTitleForm {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 527px;
-  height: 24px;
-  background-color: #dbe72f;
   margin-bottom: 8px;
   margin-top: 0;
 }
 
 .textForm {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 527px;
-  height: 24px;
   margin: 0;
-  background-color: #cad1db;
-  color: #6c717b;
+  color: #555;
 }
 
 .inputs {
-  display: flex;
-  flex-direction: column;
-  width: 527px;
-  height: 420px;
-  background-color: #0cb444;
-  margin-right: 52px;
-  margin-left: 52px;
+  width: 100%;
 }
 
 .inputForm {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  max-width: 527px;
-  height: 340px;
-  background-color: #cee299;
-  margin-bottom: 24px;
+  gap: 4px;
+  padding: 0;
 }
 
-.fieldForm {
+.inputAndErrorWrapper {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  max-width: 491px;
-  height: 60px;
-  background-color: #bb99e2;
-  align-items: center;
-  padding-left: 18px;
-  padding-right: 18px;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  position: relative;
 }
 
+.fieldForm,
 .fieldArea {
   display: flex;
   flex-direction: row;
-  width: 491px;
-  height: 118px;
-  background-color: #bb99e2;
-  align-items: start;
-  padding-top: 18px;
-  padding-left: 18px;
-  padding-right: 18px;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #dddbdb;
+  border-radius: 6px;
+}
+
+.fieldArea {
+  align-items: flex-start;
 }
 
 .label {
-  font-weight: 400;
-  color: #6c717b;
-  background-color: #9cac82;
-  margin-right: 18px;
+  color: #555;
+  font-size: 1rem;
+  min-width: 60px;
+  flex-shrink: 0;
 }
 
-.modalLabel:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-.modalInput {
+.modalInput,
+.modalTextArea {
   flex: 1;
-  width: 100%;
-  height: 24px;
-  background-color: #e72fa0;
+  padding: 4px 18px;
   font-weight: 400;
-  font-size: 16px;
-  color: #6c717b;
-  padding-left: 18px;
-}
-
-.modalInput:focus,
-.modalTextArea:focus {
-  border-color: #007bff;
+  font-size: 1rem;
+  color: #555;
+  border: 1px solid #f7f7f7;
+  border-radius: 6px;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  align-items: center;
 }
 
 .modalTextArea {
-  flex: 1;
-  width: 100%;
-  height: 82px;
-  background-color: #e72fa0;
-  font-weight: 400;
-  font-size: 16px;
-  color: #6c717b;
-  padding-left: 18px;
+  min-height: 82px;
+}
+
+.modalInput:hover,
+.modalTextArea:hover {
+  border: 1px solid #187ff2;
 }
 
 .modalTextArea::placeholder {
@@ -130,50 +102,80 @@
 }
 
 .elementSubmit {
+  margin-top: auto;
   text-align: center;
 }
 
-/* .stars {
-  display: flex;
-  align-items: center;
-}
-
 .star {
-  font-size: 24px;
-  color: #ccc;
-  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
   margin-right: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #555;
 }
 
 .star.filled {
   color: gold;
-} */
-.stars {
-  display: flex; /* Для горизонтального розташування зірок */
-  gap: 5px; /* Відступ між зірками */
+  font-size: 1rem;
 }
 
-.star {
-  background: none; /* Видаляємо фон кнопки */
-  border: none; /* Видаляємо рамку кнопки */
-  padding: 0; /* Видаляємо внутрішні відступи кнопки */
-  margin: 0; /* Видаляємо зовнішні відступи кнопки */
-  font-size: 1.5em; /* Розмір зірки */
-  cursor: pointer; /* Вказівник миші при наведенні */
-  color: #ccc; /* Колір неактивних зірок */
-  outline: none; /* Видаляємо стандартну обводку при фокусі (можна додати власну для доступності) */
-}
-
-.star.filled {
-  color: gold; /* Колір заповнених зірок */
-}
-
-/* Додайте стилі для фокусу, щоб забезпечити доступність */
 .star:focus {
-  outline: 2px solid orange; /* Або інший стиль фокусу */
-  border-radius: 3px; /* Щоб обводка виглядала краще */
+  outline: 1px solid #777;
+  border-radius: 3px;
 }
-.errorMessage {
-  color: red;
+
+.charCount {
+  font-size: 0.8em;
+  color: #888;
+  text-align: center;
+  margin-top: 5px;
+  padding-right: 5px;
+  transition: color 0.3s ease;
+}
+
+.charCountWarning {
+  color: #fa2105;
+  font-weight: bold;
+}
+.inputAndErrorWrapper {
+  position: relative;
+  width: 100%;
+}
+.errorPopup {
+  color: #dc3545; /* Червоний колір для помилок */
+  font-size: 0.9em;
+  margin-top: 5px;
+  /* Для спливаючого вікна */
+  position: absolute;
+  top: calc(100% + 4px); /* Розміщує його під полем */
+  left: 0;
+  background-color: #f5f3f3;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap; /* Щоб текст не переносився */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #fa2105;
+  z-index: 10;
+  margin: 0;
+}
+
+.generalErrorPopup {
+  text-align: center;
   margin-top: 10px;
+}
+
+.inputError {
+  border-color: #dc3545; /* Червона рамка для полів з помилками */
+}
+
+.errorPopup::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 10px;
+  border-width: 0 6px 6px 6px;
+  border-style: solid;
+  border-color: transparent transparent #fa2105 transparent;
 }

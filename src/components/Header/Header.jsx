@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import Logo from '../../components/Ui/Logo/Logo.jsx';
 import css from './Header.module.css';
 
 const Header = () => {
@@ -6,9 +7,12 @@ const Header = () => {
 
   return (
     <nav className={css.headerContainer}>
-      <div className={css.logo}>
-        Travel<span className={css.logoSecondary}>Trucks</span>
+      {/* Логотип ліворуч */}
+      <div className={css.logoHeader}>
+        <Logo />
       </div>
+
+      {/* Меню по центру */}
       <div className={css.menu}>
         <Link
           to="/"

@@ -52,40 +52,40 @@
   justify-content: center;
   margin-top: 40px;
 }
-
+/* 
 .scrollButton {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #e44848;
+  background: #ec4a4a;
   color: white;
   border: none;
-  border-radius: 50%; /* Робимо кнопку овальною */
-  width: 50px; /* Задаємо ширину та висоту для овалу */
-  height: 50px;
-  display: flex; /* Використовуємо flexbox для центрування контенту */
+  border-radius: 50%; 
+  width: 56px; 
+  height: 56px;
+  display: flex; 
   align-items: center;
   justify-content: center;
   cursor: pointer;
   opacity: 0.8;
   transition:
     opacity 0.3s ease,
-    transform 0.2s ease; /* Додаємо transform для active стану */
+    transform 0.2s ease; 
   z-index: 100;
-  font-size: 1.2rem; /* Змінюємо розмір шрифту */
+  font-size: 1.2rem; 
 }
 
 .scrollButton:hover {
   opacity: 1;
-  transform: scale(1.1); /* Збільшуємо розмір при наведенні */
-  background-color: #ffaa00;
+  transform: scale(1.1); 
+  background-color: #187ff2;
 }
 
 .scrollButton:active {
-  transform: scale(0.95); /* Зменшуємо розмір при натисканні */
-  opacity: 0.7; /* Змінюємо прозорість при натисканні */
-  background-color: #ee7008;
-}
+  transform: scale(0.95);
+  opacity: 0.7; 
+  background-color: #fa2105;
+} */
 
 .loaderContainer {
   display: flex;

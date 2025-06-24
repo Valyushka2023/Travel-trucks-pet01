@@ -1,0 +1,45 @@
+.baseScrollToTopButton {
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.8;
+  transition:
+    opacity 0.3s ease,
+    transform 0.2s ease,
+    background-color 0.3s ease;
+  z-index: 100;
+  font-size: 1.2rem;
+  background-color: #ec4a4a;
+  color: #f5f3f3;
+}
+
+.baseScrollToTopButton:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  background-color: #187ff2;
+}
+
+.baseScrollToTopButton:active {
+  transform: scale(0.95);
+  opacity: 0.7;
+  background-color: #fa2105;
+}
+
+.fixedPosition {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.scrollTopBtn {
+  position: relative;
+  margin-top: 16px;
+  background-color: #f51616;
+  font-size: 12px;
+}

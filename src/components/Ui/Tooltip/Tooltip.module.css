@@ -1,0 +1,20 @@
+.tooltipWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  visibility: visible;
+  background-color: red;
+  color: #fff;
+  text-align: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  transform: translateY(4px);
+  white-space: nowrap;
+  font-size: 12px;
+}

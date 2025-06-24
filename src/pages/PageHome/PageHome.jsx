@@ -1,20 +1,15 @@
 import Header from '../../components/Header/Header.jsx';
 import Button from '../../components/Ui/Button/Button.jsx';
+import Footer from '../../components/Footer/Footer.jsx';
 import css from './PageHome.module.css';
 
 function PageHome() {
   return (
     <div className={css.container}>
-      {/* Header */}
       <Header />
-      {/* Section */}
-      <div className={css.heroImage}>
-        <img
-          src="/path-to-your-image.jpg"
-          alt="Camper"
-          className={css.heroImage}
-        />
-        <div>
+
+      <section className={css.heroSection}>
+        <div className={css.heroOverlay}>
           <div className={css.title}>
             <div className={css.text}>
               <h1 className={css.heroTitle}>Campers of your dreams</h1>
@@ -27,9 +22,10 @@ function PageHome() {
             </Button>
           </div>
         </div>
-      </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }
-
 export default PageHome;

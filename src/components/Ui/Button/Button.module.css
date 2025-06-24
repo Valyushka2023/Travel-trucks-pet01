@@ -7,70 +7,58 @@
   white-space: nowrap;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.5;
   letter-spacing: -0.01em;
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
   cursor: pointer;
+}
+
+/* Стилі для різних розмірів */
+.small,
+.medium,
+.large {
+  height: 56px;
 }
 
 .small {
   width: 145px;
-  height: 56px;
 }
 
 .medium {
   width: 166px;
-  height: 56px;
 }
 
 .large {
   width: 176px;
-  height: 56px;
 }
 
+/* Стилі для різних варіантів (кольорова схема) */
 .default {
-  background: #f3ebeb;
+  background: #f5f3f3;
   color: #141313;
-}
-
-.default:hover {
-  background-color: #ffaa00;
-  transform: scale(1.1);
-}
-
-.default:active {
-  background-color: #ee7008;
-  transform: scale(0.95);
 }
 
 .primary {
-  background: #e44848;
-  color: #fff;
-}
-
-.primary:hover {
-  background-color: #ffaa00;
-  transform: scale(1.1);
-}
-
-.primary:active {
-  background-color: #ee7008;
-  transform: scale(0.95);
+  background: #ec4a4a;
+  color: #f5f3f3;
 }
 
 .secondary {
-  background: #e44848;
+  background: #c048e4;
   color: #141313;
 }
 
-.secondary:hover {
-  background-color: #ffaa00;
+/* Стилі для станів (hover, active, disabled) */
+.button:hover {
+  background-color: #187ff2;
   transform: scale(1.1);
 }
 
-.secondary:active {
-  background-color: #ee7008;
+.button:active {
+  background-color: #fa2105;
   transform: scale(0.95);
 }
 
@@ -78,36 +66,5 @@
   background: #ccc;
   color: #6c757d;
   cursor: not-allowed;
-}
-
-.scrollButton {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #e44848;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  z-index: 1000;
-  font-size: 24px;
-  line-height: 50px;
-}
-
-.scrollButton:hover {
-  transform: translateY(-5px);
-  background-color: #ffaa00;
-}
-
-.scrollButton:active {
-  transform: translateY(0);
-  background-color: #ee7008;
+  transform: none;
 }

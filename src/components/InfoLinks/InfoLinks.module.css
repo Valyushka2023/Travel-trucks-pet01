@@ -1,0 +1,22 @@
+.links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.links li button {
+  text-decoration: none;
+  color: #f5f3f3;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  font-size: 18px;
+}
+
+.links li button:hover {
+  color: #187ff2;
+}

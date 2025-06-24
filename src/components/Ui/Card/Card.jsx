@@ -7,26 +7,13 @@ import FeatureIcon from '../../FeatureIcon/FeatureIcon.jsx';
 import { v4 as uuidv4 } from 'uuid';
 
 const Card = ({ _id, name, gallery, price, description, location, camper }) => {
-  // console.log('Властивості, передані в компонент Card:', {
-  //   _id,
-  //   name,
-  //   gallery,
-  //   price,
-  //   description,
-  //   location,
-  //   camper,
-  // });
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const navigate = useNavigate();
 
   let imageUrl = `${import.meta.env.BASE_URL}default_camper.jpg`;
-  // console.log('Початкове значення imageUrl:', imageUrl);
 
   if (gallery && Array.isArray(gallery) && gallery.length > 0) {
-    // console.log('Масив gallery (галерея зображень):', gallery);
-    // Тепер ми просто беремо перший елемент масиву (URL-адресу)
     imageUrl = gallery[0] || `${import.meta.env.BASE_URL}default_camper.jpg`;
-    // console.log('Оновлене значення imageUrl:', imageUrl);
   } else {
     // Ігноруємо помилку, бо вона не критична
   }
@@ -39,8 +26,6 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
     event.stopPropagation();
     setIsPopupOpen(false);
   };
-
-  // console.log('Відгуки кемпера (Card):', camper?.reviews);
 
   const reviewsWithUniqueIds = useMemo(() => {
     if (camper?.reviews && Array.isArray(camper.reviews)) {
@@ -60,8 +45,6 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
     return [];
   }, [camper?.reviews]);
 
-  // console.log('Виправлені дублікати id в відгуках!', reviewsWithUniqueIds);
-
   let averageRating = 0;
   if (reviewsWithUniqueIds.length > 0) {
     averageRating =
@@ -70,13 +53,9 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
       }, 0) / reviewsWithUniqueIds.length;
   }
 
-  // console.log('Обчислений середній рейтинг (Card):', averageRating);
-
   const handleShowMoreClick = () => {
     navigate(`/catalog/${_id}`);
   };
-
-  // console.log('Інформація про кемпер (Card):', camper);
 
   return (
     <div className={css.card} data-id={_id}>
@@ -165,19 +144,7 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
               </div>
             )}
           </div>
-          {/* <div className={css.supportingTextInfo} onClick={handleTextInfoClick}>
-            <p className={css.textInfo}>{description}</p>
-            {isPopupOpen && (
-              <div className={css.popup}>
-                <div className={css.popupContent}>
-                  <span className={css.closeButton} onClick={handleClosePopup}>
-                    &times;
-                  </span>
-                  <p>{description}</p>
-                </div>
-              </div>
-            )}
-          </div> */}
+
           <div className={css.badgesContainerInfo}>
             <div className={css.row}>
               <div className={css.badgesContainer}>
@@ -203,7 +170,7 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
 Card.propTypes = {
   _id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  gallery: PropTypes.arrayOf(PropTypes.string), // Оновлено propTypes для gallery
+  gallery: PropTypes.arrayOf(PropTypes.string),
   price: PropTypes.number.isRequired,
   description: PropTypes.string,
   location: PropTypes.string.isRequired,

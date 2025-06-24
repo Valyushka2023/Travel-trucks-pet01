@@ -1,41 +1,48 @@
 .headerContainer {
   display: flex;
-  width: 1440px;
-  height: 72px;
   align-items: center;
-  background-color: #f7f7f7;
+  justify-content: space-between;
+  position: relative;
+
+  width: 100%;
+  max-width: 1312px;
+  height: 72px;
+  margin: 0 auto;
+  padding: 0 64px;
+  background-color: #dddbdb;
 }
 
-.logo {
-  font-size: 20px;
-  font-weight: 900;
-  color: #101828;
-  margin-left: 64px;
-  margin-right: 480px;
-}
-
-.logoSecondary {
-  color: grey;
+.logoHeader {
+  flex-shrink: 0;
 }
 
 .menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 32px;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .link {
   text-decoration: none;
   color: #333;
-  transition: color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .link:hover {
-  color: rgb(225, 0, 255);
+  color: #187ff2;
+  transform: scale(1.3);
 }
-
+.link:active {
+  color: #fa2105;
+  transform: scale(0.95);
+}
 .active {
   text-decoration: none;
-  color: red;
+  color: #ec4a4a;
 }

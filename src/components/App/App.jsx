@@ -43,7 +43,7 @@ function App() {
           <Route path="/catalog" element={<PageCatalog />} />
           <Route path="/catalog/:_id" element={<PageDetails />}>
             <Route index element={<ContentDetails />} />
-            <Route path="reviews" element={<PageReviews />}>
+            <Route path="/catalog/:_id/reviews" element={<PageReviews />}>
               <Route index element={<ContentReviews />} />
             </Route>
           </Route>

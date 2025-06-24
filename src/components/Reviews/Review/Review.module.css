@@ -1,81 +1,97 @@
-.review {
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  background-color: rgb(80, 150, 255);
-  margin-bottom: 44px;
+.noReview {
+  color: #c00;
+  font-style: italic;
+  text-align: center;
+  padding: 10px;
 }
 
-.reviewIconNameRating {
+.reviewContainer {
   display: flex;
-  flex-direction: row;
-  gap: 16px;
+  flex-direction: column;
+  width: 100%;
+  max-width: 640px;
+  padding: 0;
+  /* justify-content: center; */
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
+  border-radius: 6px;
+}
+
+.reviewHeader {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 12px;
+  width: 100%;
+  /* justify-content: center; */
+  justify-content: flex-start;
   align-items: center;
-  width: 172px;
-  height: 60px;
-  background-color: chartreuse;
-  margin-bottom: 16px;
+  padding: 0;
+  /* margin: 0;  */
+  margin-bottom: 8px;
+  border-radius: 6px;
 }
 
-.icon-user {
-  width: 60px;
-  height: 60px;
-}
 .reviewNameRating {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  width: 96px;
-  height: 44px;
-  background-color: rgb(155, 104, 202);
+
+  width: 100%;
+  max-width: 150px;
+  /* padding: 4px auto; */
+  padding: 4px 0;
+}
+
+.reviewerName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+  white-space: nowrap; /* Щоб ім'я не переносилося */
+  overflow: hidden; /* Обрізати, якщо довге */
+  text-overflow: ellipsis; /* Додати три крапки */
+}
+
+.reviewRating {
+  color: #ffd700;
+  font-size: 1rem;
+  display: flex;
+}
+
+.filledStar {
+  color: #fabf1f;
+  margin-right: 5px;
+}
+
+.emptyStar {
+  color: #555;
+  margin-right: 5px;
+}
+
+.reviewDate {
+  display: flex;
+  /* width: 100%; */
+  max-width: 368px;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #777;
+  white-space: nowrap;
+  /* margin-left: auto;  */
+  /* Відштовхує дату вправо, якщо попередні елементи мають flex-grow */
+  margin: 0 auto;
 }
 
 .reviewComment {
   display: flex;
   flex-wrap: wrap;
-  max-width: 634px;
-
+  /* max-width: 634px; */
+  max-width: 100%;
   height: auto;
-  background-color: darkkhaki;
-}
-
-.reviewerName {
-  display: flex;
-  align-items: center;
-}
-
-.reviewIconNameRating {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-/* Додаткові стилі для блоку з ім'ям та рейтингом */
-/* .reviewNameRating {
-    
-} */
-
-.icon-user {
-  width: 60px;
-  height: 60px;
-  /* Додаткові стилі для іконки користувача */
-}
-
-.initials {
-  font-size: 20px;
-  font-weight: bold;
-  fill: #e01313; /* Колір букви */
-}
-
-/* Додаткові стилі для коментаря */
-/* .reviewComment {
-    
-} */
-
-.filledStar {
-  color: gold;
-}
-
-.emptyStar {
-  color: rgb(196, 191, 164);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+  padding: 8px 0;
+  /* border-radius: 6px; */
+  word-break: break-word;
 }

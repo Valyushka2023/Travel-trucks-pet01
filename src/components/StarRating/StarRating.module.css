@@ -1,0 +1,38 @@
+.fieldForm {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.stars {
+  display: flex;
+  gap: 6px;
+}
+
+.star {
+  transition: color 0.2s;
+  outline: none;
+}
+
+.filled {
+  color: #ffc107;
+}
+
+.empty {
+  color: #e0e0e0;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
