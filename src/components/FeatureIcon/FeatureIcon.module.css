@@ -1,26 +1,28 @@
 .badgesContainer {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   width: 527px;
-
   height: auto;
 
   /* background-color: chartreuse; */
-  background-color: #dddbdb;
+
+  /* background-color: #dddbdb; */
   line-height: 1;
+  flex-wrap: wrap;
 }
 
 .featureIcon {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 0 14px;
-  background-color: #c9c9c9;
-  border-radius: 200px;
   gap: 6px;
-  height: 48px;
   width: auto;
+  height: 48px;
+  padding: 0 14px;
+
+  /* background-color: #c9c9c9; */
+  background-color: #dddbdb;
+  border-radius: 200px;
 }
 
 .icon {
@@ -31,24 +33,25 @@
 .text {
   font-size: 16px;
   font-weight: 500;
-  color: #333;
   text-transform: capitalize; /* Це дозволяє зробити першу букву великою */
+  color: #333;
 }
+
 /* Стилізуємо безпосередньо елементи <use> */
 .featureIcon use[href*='icon-icon-button-gas'] {
   fill: none; /* Видаляємо заливку */
-  stroke: currentColor; /* Колір контуру наслідується від кольору тексту */
+  stroke: currentcolor; /* Колір контуру наслідується від кольору тексту */
   stroke-width: 2; /* Задаємо товщину контуру (за необхідності) */
 }
 
 .featureIcon use[href*='icon-icon-button-water'] {
   fill: none; /* Видаляємо заливку */
-  stroke: currentColor; /* Колір контуру наслідується від кольору тексту */
+  stroke: currentcolor; /* Колір контуру наслідується від кольору тексту */
   stroke-width: 2; /* Задаємо товщину контуру (за необхідності) */
 }
 
 .featureIcon use[href*='icon-icon-button-microwave'] {
   fill: none; /* Видаляємо заливку */
-  stroke: currentColor; /* Колір контуру наслідується від кольору тексту */
+  stroke: currentcolor; /* Колір контуру наслідується від кольору тексту */
   stroke-width: 2; /* Задаємо товщину контуру (за необхідності) */
 }

@@ -1,8 +1,8 @@
 .noReview {
-  color: #c00;
+  padding: 10px;
   font-style: italic;
   text-align: center;
-  padding: 10px;
+  color: #c00;
 }
 
 .reviewContainer {
@@ -11,87 +11,94 @@
   width: 100%;
   max-width: 640px;
   padding: 0;
+  box-sizing: border-box;
+
   /* justify-content: center; */
   background-color: #f7f7f7;
-  box-sizing: border-box;
+
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
   border-radius: 6px;
 }
 
 .reviewHeader {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 12px;
-  width: 100%;
+
   /* justify-content: center; */
   justify-content: flex-start;
   align-items: center;
-  padding: 0;
+  gap: 12px;
+  width: 100%;
+
   /* margin: 0;  */
   margin-bottom: 8px;
+  padding: 0;
   border-radius: 6px;
+  flex-wrap: nowrap;
 }
 
 .reviewNameRating {
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
-
+  flex-grow: 1;
   width: 100%;
   max-width: 150px;
+
   /* padding: 4px auto; */
   padding: 4px 0;
 }
 
 .reviewerName {
+  overflow: hidden; /* Обрізати, якщо довге */
   font-size: 1rem;
   font-weight: 600;
-  color: #555;
   white-space: nowrap; /* Щоб ім'я не переносилося */
-  overflow: hidden; /* Обрізати, якщо довге */
+  color: #555;
   text-overflow: ellipsis; /* Додати три крапки */
 }
 
 .reviewRating {
-  color: #ffd700;
-  font-size: 1rem;
   display: flex;
+  font-size: 1rem;
+  color: #ffd700;
 }
 
 .filledStar {
-  color: #fabf1f;
   margin-right: 5px;
+  color: #fabf1f;
 }
 
 .emptyStar {
-  color: #555;
   margin-right: 5px;
+  color: #dbd7d7;
 }
 
 .reviewDate {
   display: flex;
+  justify-content: center;
+  align-items: center;
+
   /* width: 100%; */
   max-width: 368px;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  color: #777;
-  white-space: nowrap;
+
   /* margin-left: auto;  */
+
   /* Відштовхує дату вправо, якщо попередні елементи мають flex-grow */
   margin: 0 auto;
+  font-size: 1rem;
+  white-space: nowrap;
+  color: #777;
 }
 
 .reviewComment {
   display: flex;
-  flex-wrap: wrap;
+  height: auto;
+
   /* max-width: 634px; */
   max-width: 100%;
-  height: auto;
+  padding: 8px 0;
   font-size: 1rem;
   line-height: 1.5;
   color: #555;
-  padding: 8px 0;
-  /* border-radius: 6px; */
-  word-break: break-word;
+  flex-wrap: wrap;
+  word-break: break-all;
 }

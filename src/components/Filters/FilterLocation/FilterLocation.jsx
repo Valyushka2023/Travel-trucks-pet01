@@ -7,11 +7,10 @@ const FilterLocation = ({ campers, location, setLocation }) => {
 
   useEffect(() => {
     if (campers && campers.length > 0) {
-      const uniqueLocations = new Set();
-      campers.forEach(camper => {
-        uniqueLocations.add(camper.location);
-      });
-      setLocations(Array.from(uniqueLocations));
+      const uniqueLocations = Array.from(
+        new Set(campers.map(camper => camper.location))
+      );
+      setLocations(uniqueLocations);
     }
   }, [campers]);
 
@@ -19,27 +18,38 @@ const FilterLocation = ({ campers, location, setLocation }) => {
     setLocation(event.target.value);
   };
 
+  const isLocationSelected = location !== 'all';
+
   return (
     <div className={css.filterContainer}>
       <h5 className={css.filterTitle}>Location</h5>
       <div className={css.inputWrapper}>
-        <svg className={css.iconMap} width="20" height="20" viewBox="0 0 32 32">
-          <use href="/icons.svg#icon-map"></use>
-        </svg>
-        <select
-          value={location}
-          onChange={handleLocationChange}
-          className={css.locationInput}
+        <div
+          className={`${css.scaleWrapper} ${isLocationSelected ? css.selected : ''}`}
         >
-          <option value="all" className={css.option}>
-            All locations
-          </option>
-          {locations.map(loc => (
-            <option key={loc} value={loc} className={css.option}>
-              {loc}
-            </option>
-          ))}
-        </select>
+          {' '}
+          {/* Додаємо клас selected сюди */}
+          <svg
+            className={css.iconMap}
+            width="20"
+            height="20"
+            viewBox="0 0 32 32"
+          >
+            <use href="/icons.svg#icon-map"></use>
+          </svg>
+          <select
+            value={location}
+            onChange={handleLocationChange}
+            className={css.locationInput} // Клас 'selected' тепер не потрібен тут
+          >
+            <option value="all">All locations</option>
+            {locations.map(loc => (
+              <option key={loc} value={loc}>
+                {loc}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
   );

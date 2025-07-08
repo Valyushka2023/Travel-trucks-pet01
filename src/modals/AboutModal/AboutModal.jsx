@@ -1,4 +1,4 @@
-import Modal from '../Modal';
+import Modal from '../../components/Modal/Modal.jsx';
 import PropTypes from 'prop-types';
 import css from './AboutModal.module.css';
 
@@ -7,7 +7,7 @@ const AboutModal = ({
   title = 'About us',
   paragraphs = defaultParagraphs,
 }) => (
-  <Modal title={title} titleClassName={css.titleAboutModal} onClose={onClose}>
+  <Modal title={title} onClose={onClose}>
     <div className={css.textAboutModal}>
       {paragraphs.map((text, idx) => (
         <p key={idx}>{text}</p>

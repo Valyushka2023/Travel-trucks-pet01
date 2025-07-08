@@ -4,17 +4,17 @@
 }
 
 .tooltip {
-  visibility: visible;
-  background-color: red;
-  color: #fff;
-  text-align: center;
-  padding: 6px 8px;
-  border-radius: 6px;
   position: absolute;
-  z-index: 1;
   top: 100%;
   left: 0;
-  transform: translateY(4px);
-  white-space: nowrap;
+  z-index: 1;
+  padding: 6px 8px;
+  background-color: red;
+  border-radius: 6px;
   font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+  color: #fff;
+  transform: translateY(4px);
+  visibility: visible;
 }

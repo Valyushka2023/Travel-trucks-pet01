@@ -1,13 +1,12 @@
-/*Базові стилі всього додатка*/
+/* Базові стилі всього додатка */
 
 body {
-  font-family: 'Inter', sans-serif;
   /* margin: 0; */
   padding: 0;
-  line-height: 1.5;
-
-  color: #000;
   background-color: #fff;
+  font-family: Inter, sans-serif;
+  line-height: 1.5;
+  color: #000;
 }
 
 /* Посилання */
@@ -18,16 +17,16 @@ a {
 
 /* Кнопки */
 button {
-  cursor: pointer;
-  border: none;
   background: none;
+  border: none;
+  cursor: pointer;
 }
 
 /* Заголовки */
 h1 {
+  margin-bottom: 1rem;
   font-size: 3rem;
   font-weight: 600;
-  margin-bottom: 1rem;
 }
 
 h2 {
@@ -49,7 +48,7 @@ h5 {
   font-size: 1rem;
 }
 
-/*Текст */
+/* Текст */
 p {
   font-size: 1rem;
 }

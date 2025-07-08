@@ -5,6 +5,8 @@ import css from './Card.module.css';
 import Button from '../../Ui/Button/Button.jsx';
 import FeatureIcon from '../../FeatureIcon/FeatureIcon.jsx';
 import { v4 as uuidv4 } from 'uuid';
+// ✅ Імпортуємо новий компонент DescriptionPopup
+import DescriptionPopup from '../../../modals/DescriptionModal/DescriptionPopup.jsx';
 
 const Card = ({ _id, name, gallery, price, description, location, camper }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -22,8 +24,8 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
     setIsPopupOpen(true);
   };
 
-  const handleClosePopup = event => {
-    event.stopPropagation();
+  const handleClosePopup = () => {
+    // Прибираємо event, бо він не потрібен тут
     setIsPopupOpen(false);
   };
 
@@ -56,6 +58,16 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
   const handleShowMoreClick = () => {
     navigate(`/catalog/${_id}`);
   };
+
+  const MAX_WORDS = 20;
+  const shortDescription = useMemo(() => {
+    if (!description) return '';
+    const words = description.split(' ');
+    if (words.length <= MAX_WORDS) {
+      return description;
+    }
+    return words.slice(0, MAX_WORDS).join(' ') + '...';
+  }, [description]);
 
   return (
     <div className={css.card} data-id={_id}>
@@ -127,32 +139,22 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
               onClick={handleTextInfoClick}
             >
               <div className={css.textInfoContainer}>
-                <p className={css.textInfo}>{description}</p>
+                <p className={css.textInfo}>{shortDescription}</p>
               </div>
             </button>
+
             {isPopupOpen && (
-              <div className={css.popup}>
-                <div className={css.popupContent}>
-                  <button
-                    className={css.closeButton}
-                    onClick={handleClosePopup}
-                  >
-                    &times;
-                  </button>
-                  <p>{description}</p>
-                </div>
-              </div>
+              <DescriptionPopup
+                description={description}
+                onClose={handleClosePopup}
+              />
             )}
           </div>
 
-          <div className={css.badgesContainerInfo}>
-            <div className={css.row}>
-              <div className={css.badgesContainer}>
-                {camper && <FeatureIcon camper={camper} />}
-              </div>
-            </div>
+          <div className={css.badgesContainer}>
+            {camper && <FeatureIcon camper={camper} />}
           </div>
-          <div className={css.showMore}>
+          <div className={css.containerShowMore}>
             <Button
               onClick={handleShowMoreClick}
               variant="primary"

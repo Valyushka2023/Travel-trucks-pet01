@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
-import ThankYouPage from '../../pages/ThankYouPage/ThankYouPage.jsx';
+import ThankYouReviewPage from '../../pages/ThankYouReviewPage/ThankYouReviewPage.jsx';
 import ThankYouBookingPage from '../../pages/ThankYouBookingPage/ThankYouBookingPage.jsx';
 
 const PageHome = lazy(() => import('../../pages/PageHome/PageHome.jsx'));
@@ -47,8 +47,8 @@ function App() {
               <Route index element={<ContentReviews />} />
             </Route>
           </Route>
-          <Route path="/thank-you" element={<ThankYouPage />} />{' '}
-          {/* Доданий маршрут для ThankYouPage */}
+          <Route path="/thank-you" element={<ThankYouReviewPage />} />{' '}
+          {/* Доданий маршрут для ThankYouReviewPage */}
           <Route
             path="/booking-received"
             element={<ThankYouBookingPage />}

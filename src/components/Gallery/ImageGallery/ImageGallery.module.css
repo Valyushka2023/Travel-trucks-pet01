@@ -1,25 +1,25 @@
 .containerPictures {
   display: flex;
-  flex-wrap: nowrap;
   gap: 60px;
   width: 100%;
   max-width: 1312px;
   margin: 28px auto;
   padding: 0;
   box-sizing: border-box;
+  flex-wrap: nowrap;
 }
 
 .galleryImageButton {
-  padding: 0;
   margin: 0;
-  border: none;
+  padding: 0;
   background: none;
+  border: none;
   outline: none;
 }
 
 .galleryImageButton:hover {
-  outline: 8px solid #187ff2;
   border-radius: 6px;
+  outline: 8px solid #187ff2;
 }
 
 .galleryItem {

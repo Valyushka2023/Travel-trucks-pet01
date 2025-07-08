@@ -1,0 +1,121 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+.modal {
+  position: relative;
+  background-color: #f5f3f3;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 996px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  flex-shrink: 0;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: black;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.closeBtn:hover {
+  color: #187ff2;
+  transform: scale(1.2);
+}
+.closeBtn:active {
+  color: #fa2105;
+  transform: scale(0.95);
+}
+
+.modalTitle {
+  margin: 0;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: #fa2105;
+  flex-shrink: 0;
+}
+
+.modalBody {
+  padding: 0 24px;
+  flex-grow: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 95%; /* Модалка буде трохи ширшою на планшетах */
+    max-width: unset; /* Знімаємо max-width для кращої адаптивності на менших екранах */
+    max-height: 90vh; /* Більше місця по висоті */
+  }
+
+  .modalHeader {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .modalBody {
+    padding: 15px; /* Зменшуємо паддінг на малих екранах */
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    width: calc(100% - 20px); /* Відступ 10px з кожного боку */
+    max-height: 95vh; /* Ще більше місця по висоті на дуже малих екранах */
+  }
+  .modalHeader {
+    flex-wrap: wrap; /* Заголовок і кнопка можуть переноситися, якщо занадто вузько */
+    justify-content: center; /* Центруємо елементи */
+    gap: 10px; /* Додаємо невеликий проміжок */
+  }
+  .modalHeader .logo {
+    /* Якщо Logo є зображенням, можна зменшити його */
+    max-width: 100px; /* Приклад зменшення лого */
+    height: auto;
+  }
+  .closeBtn {
+    position: static; /* Кнопка повертається в потік */
+    margin-left: auto; /* Відсуває кнопку вправо, якщо Logo зліва */
+  }
+  .modalTitle {
+    font-size: 1.3rem; /* Менший заголовок */
+    padding: 10px 10px 15px 10px;
+  }
+  .modalBody {
+    padding: 10px; /* Дуже маленький паддінг */
+  }
+}

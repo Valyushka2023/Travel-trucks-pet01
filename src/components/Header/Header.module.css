@@ -1,15 +1,19 @@
-.headerContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-
+/* .headerWrapper {
   width: 100%;
-  max-width: 1312px;
+  background-color: #dddbdb;
+}
+.headerContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   height: 72px;
+
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 64px;
-  background-color: #dddbdb;
+  box-sizing: border-box;
 }
 
 .logoHeader {
@@ -19,11 +23,11 @@
 .menu {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
   display: flex;
   gap: 32px;
-  font-weight: 500;
   font-size: 20px;
+  font-weight: 500;
+  transform: translateX(-50%);
 }
 
 .link {
@@ -38,11 +42,306 @@
   color: #187ff2;
   transform: scale(1.3);
 }
+
 .link:active {
   color: #fa2105;
   transform: scale(0.95);
 }
+
 .active {
   text-decoration: none;
   color: #ec4a4a;
+  cursor: default;
+}
+
+
+@media (max-width: 1199px) {
+  .headerContainer {
+    padding: 0 40px; 
+    height: 60px; 
+  }
+
+  .menu {
+    gap: 24px; 
+    font-size: 18px; 
+  }
+}
+
+
+@media (max-width: 991px) {
+  .headerContainer {
+    padding: 0 24px; 
+    height: 56px;
+  }
+
+  .menu {
+    gap: 16px; 
+    font-size: 16px; 
+  }
+}
+
+@media (max-width: 767px) {
+  .headerContainer {
+   
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 50px;
+  }
+
+  .logoHeader {
+    
+    width: 80px; 
+    height: auto;
+  }
+
+  .menu {
+   
+   
+    position: static; 
+    transform: none; 
+    display: none; 
+    flex-direction: column; 
+    width: 100%; 
+    background-color: #fff; 
+  }
+
+
+  .menu.is-open {
+    display: flex;
+    position: absolute;
+    top: 50px; 
+    left: 0;
+    z-index: 100;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .link {
+    padding: 10px 0;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .link:hover {
+    transform: none;
+  }
+}
+
+
+@media (max-width: 479px) {
+  .headerContainer {
+    padding: 0 10px; 
+  }
+
+  .logoHeader {
+    width: 70px; 
+  }
+} */
+/*...............*/
+/* Базові стилі для хедера - діють за замовчуванням (для великих екранів) */
+.headerWrapper {
+  width: 100%;
+  background-color: #dddbdb; /* Світло-сірий фон для всього хедера */
+  /* Можна додати тінь або нижню межу для візуального відділення */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 100; /* Забезпечує, що хедер буде над іншим контентом */
+  position: relative; /* Для правильного позиціонування випадаючого меню */
+}
+
+.headerContainer {
+  position: relative; /* Важливо для позиціонування меню */
+  display: flex;
+  justify-content: space-between; /* Розносить логотип і праві елементи */
+  align-items: center; /* Центрує по вертикалі */
+  width: 100%;
+  height: 72px; /* Фіксована висота для десктопу */
+  max-width: 1440px; /* Максимальна ширина контейнера */
+  margin: 0 auto; /* Центрує контейнер по горизонталі */
+  padding: 0 64px; /* Горизонтальні відступи для десктопу */
+  box-sizing: border-box; /* Включає padding у загальну ширину */
+}
+
+.logoHeader {
+  flex-shrink: 0; /* Забороняє логотипу стискатися */
+  /* Приклад стилізації лого, якщо це SVG або зображення */
+  /* max-height: 40px; */ /* Додайте явні розміри, якщо Logo - це img або svg */
+  /* max-height: 40px; */
+  /* Приклад: щоб лого було 40px у висоту */
+  /* width: auto;  */
+  /* Зберігає пропорції */
+  /* display: flex; */
+  /* Якщо Logo сам по собі є flex-контейнером */
+  /* align-items: center;  */
+  /* Центрує вміст Logo, якщо це необхідно */
+  /* justify-content: center; */
+}
+
+/* Стилі для основного меню (десктопна версія) */
+.menu {
+  position: absolute; /* Позиціонування відносно .headerContainer */
+  left: 50%; /* Початок від центру */
+  transform: translateX(
+    -50%
+  ); /* Зміщення на половину своєї ширини назад, щоб центрувати */
+  display: flex; /* Flexbox для елементів меню */
+  gap: 32px; /* Проміжки між посиланнями */
+  font-size: 20px; /* Розмір шрифту меню */
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  /* Додатково: приховуємо меню на десктопі, якщо воно не відкрите?
+     Ні, це лише стилі десктопного меню. Мобільне приховано за замовчуванням через display: none. */
+}
+
+.link {
+  text-decoration: none;
+  color: #333; /* Базовий колір посилання */
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease; /* Плавний перехід при наведенні */
+  white-space: nowrap; /* Запобігає перенесенню тексту посилання */
+}
+
+.link:hover {
+  color: #187ff2; /* Колір при наведенні */
+  transform: scale(1.3); /* Збільшення при наведенні */
+}
+
+.link:active {
+  color: #fa2105; /* Колір при кліку */
+  transform: scale(0.95); /* Невелике зменшення при кліку */
+}
+
+.active {
+  text-decoration: none;
+  color: #ec4a4a; /* Колір для активного посилання */
+  cursor: default; /* Курсор за замовчуванням для активного посилання */
+  pointer-events: none; /* Запобігає клікам на активному посиланні */
+}
+
+/* Додатково: Кнопка-гамбургер. На десктопі її приховуємо. */
+.burgerButton {
+  display: none; /* Приховуємо кнопку на десктопі за замовчуванням */
+  /* Додайте стилі для самої кнопки: колір, розмір, курсор */
+  background: none;
+  border: none;
+  font-size: 2rem; /* Розмір іконки гамбургера */
+  cursor: pointer;
+  z-index: 101; /* Переконайтесь, що кнопка поверх інших елементів */
+  color: #333;
+  padding: 0;
+}
+
+/* --- Медіа-запити для адаптивності --- */
+
+/* Для екранів менших за 1200px (наприклад, великі планшети та менші ноутбуки) */
+@media (max-width: 1199px) {
+  .headerContainer {
+    padding: 0 40px; /* Зменшуємо горизонтальний padding */
+    height: 65px; /* Трохи зменшуємо висоту заголовка */
+  }
+
+  .menu {
+    gap: 24px; /* Зменшуємо відстань між елементами меню */
+    font-size: 18px; /* Трохи зменшуємо розмір шрифту */
+  }
+}
+
+/* Для екранів менших за 992px (наприклад, планшети) */
+@media (max-width: 991px) {
+  .headerContainer {
+    padding: 0 24px; /* Ще зменшуємо горизонтальний padding */
+    height: 60px;
+  }
+
+  .menu {
+    gap: 16px; /* Ще зменшуємо відстань */
+    font-size: 16px; /* Ще зменшуємо розмір шрифту */
+  }
+}
+
+/* Для екранів менших за 768px (наприклад, мобільні телефони в альбомній орієнтації) */
+/* Тут починається логіка "гамбургер-меню" */
+@media (max-width: 767px) {
+  .headerContainer {
+    justify-content: space-between; /* Зберігаємо розподіл між лого та кнопкою */
+    padding: 0 16px; /* Мінімальний padding */
+    height: 55px; /* Ще зменшуємо висоту */
+  }
+
+  .logoHeader {
+    /* Можливо, тут логотип треба зробити меншим на мобільних */
+    /* Якщо лого SVG або зображення, встановіть max-width */
+    max-width: 90px;
+    height: auto;
+  }
+
+  .menu {
+    /* Перевизначаємо позиціонування для мобільного меню */
+    position: absolute; /* Залишаємо absolute, але змінюємо left/transform */
+    top: 100%; /* Розміщуємо під хедером */
+    left: 0; /* Прилипає до лівого краю */
+    transform: none; /* Це КЛЮЧОВЕ: прибираємо горизонтальну трансформацію */
+    width: 100%; /* Займає всю ширину */
+    background-color: #f8f8f8; /* Світліший фон для випадаючого меню */
+    flex-direction: column; /* Елементи меню розташовуються стовпчиком */
+    align-items: center; /* Центруємо посилання по горизонталі всередині стовпчика */
+    padding: 20px 0; /* Вертикальні відступи для елементів меню */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-top: 1px solid rgba(0, 0, 0, 0.1); */
+    /* Приховані за замовчуванням, показуємо через is-open */
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+    z-index: 99;
+  }
+  /* Клас, який буде додаватися за допомогою JavaScript для показу меню */
+  .menu.is-open {
+    display: flex; /* Показуємо меню */
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .link {
+    padding: 12px 0; /* Більший клікабельний простір для посилань */
+    font-size: 18px; /* Більший розмір шрифту для читабельності */
+    width: 100%; /* Щоб посилання займали всю ширину */
+    text-align: center; /* Центруємо текст посилань */
+  }
+
+  .link:hover {
+    transform: none; /* Прибираємо трансформацію при наведенні на мобільних */
+    background-color: rgba(0, 0, 0, 0.05); /* Легкий фон при наведенні */
+  }
+
+  .burgerButton {
+    display: block; /* Показуємо кнопку-гамбургер на мобільних */
+  }
+}
+
+/* Для дуже маленьких екранів (наприклад, мобільні телефони в портретній орієнтації) */
+@media (max-width: 479px) {
+  .headerContainer {
+    padding: 0 10px; /* Ще менший padding */
+    height: 50px;
+  }
+
+  .logoHeader {
+    max-width: 80px; /* Ще менший логотип */
+  }
+
+  .burgerButton {
+    font-size: 1.8rem; /* Трохи менший розмір кнопки-гамбургера */
+  }
+
+  .menu.is-open {
+    top: 50px; /* Підлаштовуємо під нову висоту шапки */
+  }
+  .link {
+    font-size: 16px; /* Ще трохи зменшуємо шрифт у мобільному меню */
+  }
 }

@@ -1,4 +1,4 @@
-import Modal from '../Modal';
+import Modal from '../../components/Modal/Modal.jsx';
 import PropTypes from 'prop-types';
 import css from './PricesModal.module.css';
 
@@ -7,7 +7,14 @@ const PricesModal = ({
   title = 'Prices',
   paragraphs = defaultParagraphs,
 }) => (
-  <Modal title={title} titleClassName={css.PricesModal} onClose={onClose}>
+  // <Modal title={title} titleClassName={css.titlePricesModal} onClose={onClose}>
+  //   <div className={css.textPricesModal}>
+  //     {paragraphs.map((text, idx) => (
+  //       <p key={idx}>{text}</p>
+  //     ))}
+  //   </div>
+  // </Modal>
+  <Modal title={title} onClose={onClose}>
     <div className={css.textPricesModal}>
       {paragraphs.map((text, idx) => (
         <p key={idx}>{text}</p>

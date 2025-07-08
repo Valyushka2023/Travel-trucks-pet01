@@ -3,9 +3,8 @@
   flex-direction: column;
   width: 888px;
   height: 368px;
-  background-color: brown;
+  border: 1px solid #dddbdb;
   border-radius: 20px;
-  border: #696363;
 }
 
 .contentCard {
@@ -16,13 +15,13 @@
   margin-top: 24px;
   margin-bottom: 24px;
   margin-left: 24px;
-  background-color: #dadde1;
 }
 
 .containerPic img {
   display: flex;
   width: 100%;
   height: 100%;
+  border-radius: 12px;
   object-fit: cover;
 }
 
@@ -32,7 +31,6 @@
   width: 524px;
   height: 320px;
   margin-left: 24px;
-  background-color: burlywood;
 }
 
 .textContainerInfo {
@@ -40,28 +38,27 @@
   flex-direction: column;
   width: 524px;
   height: 64px;
-  background-color: rgb(248, 45, 167);
 }
 
 .titleInfo {
   display: flex;
+  align-items: center;
   width: 524px;
   height: 32px;
-  align-items: center;
-  background-color: #dbe72f;
   margin: 0;
   margin-bottom: 8px;
 }
+
 .textTitleInfo {
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .priceInfo {
   display: flex;
-  align-items: center;
   justify-content: flex-end;
+  align-items: center;
   width: 156px;
   margin-left: auto;
 }
@@ -72,9 +69,9 @@
 }
 
 .iconHeart {
-  fill: currentColor;
   margin-left: 12px;
   vertical-align: middle;
+  fill: currentcolor;
 }
 
 .iconHeart svg {
@@ -85,7 +82,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #15b5dd;
   width: 524px;
   height: 32px;
 }
@@ -95,7 +91,6 @@
   align-items: center;
   width: auto;
   height: 24px;
-  background-color: #2fe747;
   margin-right: 16px;
 }
 
@@ -113,7 +108,6 @@
   align-items: center;
   width: auto;
   height: 24px;
-  background-color: #ffaa00;
 }
 
 .iconMap {
@@ -126,104 +120,67 @@
 }
 
 .supportingTextInfo {
-  cursor: pointer;
   position: relative;
+
   display: flex;
   flex-direction: row;
-  height: 24px;
-  margin-top: 24px;
-  background-color: #2fe747;
+  justify-content: center;
   align-items: center;
   width: 100%;
-}
-.supportingTextInfo:hover {
-  transform: scale(1.1);
+  height: 24px;
+  margin-top: 24px;
+  cursor: pointer;
 }
 
 .textInfoContainer {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+
+  height: auto;
   max-width: 524px;
+  max-height: 48px;
+  overflow: hidden;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  text-overflow: ellipsis;
+  /* background-color: #176ff2; */
+}
+
+.textInfoContainer:hover {
+  transform: scale(1.05);
 }
 
 .textInfo {
+  margin: 0;
+  line-height: 1.5;
+  text-align: start;
   color: #475467;
-  /* overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; */
+}
+
+.textInfo:hover {
+  color: #176ff2;
+}
+
+.textInfo:active {
+  color: #fa2105;
+  transform: scale(0.95);
 }
 
 .badgesContainer {
   display: flex;
-  flex-wrap: wrap;
   gap: 6px;
   width: 524px;
   height: 104px;
-  background-color: rgb(80, 255, 197);
+  margin-top: 24px;
   line-height: 1;
-  margin-top: 24px;
+  flex-wrap: wrap;
 }
 
-.showMore {
+.containerShowMore {
   display: inline-flex;
-  width: 524px;
-  height: 96px;
-  background-color: #2fe747;
-  margin-top: 24px;
   align-items: end;
-}
-
-.popup {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  /* Обмежуємо ширину popup шириною .containerInfo */
-  max-width: 524px; /* або інша ширина .containerInfo */
-  width: 100%; /* Адаптивна ширина в межах max-width */
-  max-height: 200px;
-  overflow-y: auto;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 10px;
-  z-index: 1;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  box-sizing: border-box;
-  /* Дозволяємо перенос тексту */
-  white-space: normal; /* або break-spaces для збереження пробілів */
-}
-
-.popupContent {
-  box-sizing: border-box;
-  /* max-height: 180px; */
-}
-
-.closeButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.supportingTextInfo:hover .popup {
-  transform: scale(1.1);
-  display: block; /* Показуємо спливаюче вікно при наведенні */
-}
-
-.button {
-  margin-right: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.iconButton {
-  width: auto;
-  height: 32px;
-}
-
-.showMore {
-  text-align: center;
-  margin-top: 10px;
+  height: 96px;
 }

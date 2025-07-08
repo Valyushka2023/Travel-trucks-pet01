@@ -1,35 +1,151 @@
+/* .footerWrapper {
+  width: 100%;
+
+  background-color: #353434;
+}
 .footerContainer {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  height: 72px;
+  align-items: center;
   width: 100%;
-  max-width: 1312px;
+  height: 72px;
+  max-width: 1440px;
   margin: 0 auto;
-  background-color: #2b2929;
   padding: 0 64px;
+
+  box-sizing: border-box;
 }
 
 .phone,
 .info,
 .socialNetworks {
   display: flex;
-  align-items: center;
   justify-content: center;
-  color: #f1ebeb;
+  align-items: center;
   font-size: 18px;
+  color: #f1ebeb;
 }
 
 .phoneIcon {
-  color: rgb(90, 230, 90);
   margin-right: 12px;
+  color: rgb(90 230 90);
 }
 
 .phoneNumber {
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .phoneNumber:hover {
   text-decoration: underline;
+} */
+/* Базові стилі для футера - діють за замовчуванням (для великих екранів) */
+.footerWrapper {
+  width: 100%;
+  background-color: #353434; /* Темно-сірий фон футера */
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between; /* Розносить елементи по краях */
+  align-items: center; /* Центрує елементи по вертикалі */
+  width: 100%;
+  /* height: 72px; /* Уникайте фіксованої висоти для адаптивності */
+  min-height: 72px; /* Використовуйте min-height для гнучкості */
+  max-width: 1440px; /* Максимальна ширина контейнера */
+  margin: 0 auto; /* Центрує контейнер по горизонталі */
+  padding: 0 64px; /* Горизонтальні відступи для великих екранів */
+  box-sizing: border-box; /* Включає padding у загальну ширину */
+}
+
+.phone,
+.info,
+.socialNetworks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px; /* Базовий розмір шрифту */
+  color: #f1ebeb; /* Колір тексту */
+  flex-shrink: 1; /* Дозволяє елементам зменшуватися, якщо місця мало */
+  /* Додаємо flex-basis, щоб елементи краще розподілялись на більших екранах */
+  flex-basis: auto; /* Автоматичний базовий розмір */
+}
+
+.phoneIcon {
+  margin-right: 12px;
+  color: rgb(90 230 90); /* Зелений колір іконки */
+}
+
+.phoneNumber {
+  font-weight: bold;
+  color: inherit; /* Успадковує колір від батьківського .phone */
+  text-decoration: none;
+  white-space: nowrap; /* Забороняє перенесення номеру телефону */
+}
+
+.phoneNumber:hover {
+  text-decoration: underline;
+}
+
+/* --- */
+/* МЕДІА-ЗАПИТИ ДЛЯ АДАПТИВНОСТІ */
+/* --- */
+
+/* Планшети (Tablet) - від 769px до 1024px */
+@media (max-width: 1024px) {
+  .footerContainer {
+    padding: 0 40px; /* Зменшуємо горизонтальний відступ */
+    /* Можна змінити justify-content, якщо елементи починають тіснитися */
+    /* justify-content: space-around; */
+  }
+
+  .phone,
+  .info,
+  .socialNetworks {
+    font-size: 16px; /* Трохи зменшуємо шрифт */
+  }
+}
+
+/* Мобільні пристрої (Mobile) - від 481px до 768px */
+@media (max-width: 768px) {
+  .footerContainer {
+    flex-direction: column; /* Елементи розташовуються один під одним */
+    justify-content: center; /* Центруємо вміст по вертикалі */
+    align-items: center; /* Центруємо вміст по горизонталі */
+    min-height: auto; /* Висота адаптується під вміст */
+    padding: 20px; /* Збільшуємо вертикальний відступ, зменшуємо горизонтальний */
+    gap: 15px; /* Додаємо проміжок між елементами */
+  }
+
+  .phone,
+  .info,
+  .socialNetworks {
+    font-size: 15px; /* Ще трохи зменшуємо шрифт */
+    margin: 5px 0; /* Додаємо невеликий вертикальний відступ між блоками */
+    text-align: center; /* Центруємо текст всередині кожного блоку */
+  }
+
+  /* Якщо потрібно, щоб телефон був по центру на мобільних */
+  .phoneNumber {
+    white-space: normal; /* Дозволяє перенесення тексту, якщо потрібно */
+  }
+}
+
+/* Дуже маленькі мобільні пристрої (Small Mobile) - до 480px */
+@media (max-width: 480px) {
+  .footerContainer {
+    padding: 15px; /* Ще менші відступи */
+    gap: 10px; /* Менші проміжки */
+  }
+
+  .phone,
+  .info,
+  .socialNetworks {
+    font-size: 14px; /* Мінімальний розмір шрифту */
+    /* Можливо, для іконок потрібно окремі стилі, щоб вони не були занадто великими */
+  }
+
+  .phoneIcon {
+    margin-right: 8px; /* Зменшуємо відступ іконки */
+  }
 }

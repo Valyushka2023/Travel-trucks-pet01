@@ -1,4 +1,4 @@
-import Modal from '../Modal';
+import Modal from '../../components/Modal/Modal.jsx';
 import PropTypes from 'prop-types';
 import css from './ServicesModal.module.css';
 

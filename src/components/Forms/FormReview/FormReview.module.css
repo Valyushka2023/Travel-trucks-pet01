@@ -1,17 +1,17 @@
-.form {
+/* .form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   max-width: 641px;
   max-height: 588px;
-  width: 100%;
-  background-color: #f7f7f7;
-  box-sizing: border-box;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  border-radius: 6px;
   margin-left: 24px;
+  padding: 40px 57px;
+  box-sizing: border-box;
   overflow: hidden;
-  padding: 40px 57px 40px 57px;
+  background-color: #f7f7f7;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 15%);
 }
 
 .titleForm {
@@ -22,8 +22,8 @@
 }
 
 .textTitleForm {
-  margin-bottom: 8px;
   margin-top: 0;
+  margin-bottom: 8px;
 }
 
 .textForm {
@@ -43,23 +43,23 @@
 }
 
 .inputAndErrorWrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 4px;
   width: 100%;
-  position: relative;
 }
 
 .fieldForm,
 .fieldArea {
   display: flex;
   flex-direction: row;
-  gap: 18px;
   align-items: center;
-  padding: 18px;
+  gap: 18px;
   width: 100%;
+  padding: 18px;
   box-sizing: border-box;
-  background-color: #dddbdb;
+  background-color: #eceaea;
   border-radius: 6px;
 }
 
@@ -68,24 +68,24 @@
 }
 
 .label {
-  color: #555;
-  font-size: 1rem;
-  min-width: 60px;
   flex-shrink: 0;
+  min-width: 60px;
+  font-size: 1rem;
+  color: #555;
 }
 
 .modalInput,
 .modalTextArea {
   flex: 1;
+  align-items: center;
   padding: 4px 18px;
-  font-weight: 400;
-  font-size: 1rem;
-  color: #555;
+  background-color: #f7f7f7;
   border: 1px solid #f7f7f7;
   border-radius: 6px;
-  background-color: #f7f7f7;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #555;
   cursor: pointer;
-  align-items: center;
 }
 
 .modalTextArea {
@@ -98,7 +98,7 @@
 }
 
 .modalTextArea::placeholder {
-  color: rgba(46, 47, 66, 0.4);
+  color: rgb(46 47 66 / 40%);
 }
 
 .elementSubmit {
@@ -107,63 +107,293 @@
 }
 
 .star {
+  margin-right: 5px;
+  padding: 0;
   background: none;
   border: none;
-  padding: 0;
-  margin-right: 5px;
   font-size: 1rem;
+  color: #888;
   cursor: pointer;
-  color: #555;
 }
 
 .star.filled {
-  color: gold;
   font-size: 1rem;
+  color: gold;
 }
 
 .star:focus {
-  outline: 1px solid #777;
   border-radius: 3px;
+  outline: 1px solid #777;
 }
 
 .charCount {
-  font-size: 0.8em;
-  color: #888;
-  text-align: center;
   margin-top: 5px;
   padding-right: 5px;
+  font-size: 0.8em;
+  text-align: center;
+  color: #888;
   transition: color 0.3s ease;
 }
 
 .charCountWarning {
-  color: #fa2105;
   font-weight: bold;
+  color: #fa2105;
 }
-.inputAndErrorWrapper {
-  position: relative;
+
+.errorPopup {
+ 
+  position: absolute;
+  top: calc(100% + 4px); 
+  left: 0;
+  z-index: 10;
+  margin: 0;
+  margin-top: 5px;
+  padding: 4px 8px;
+  background-color: #f5f3f3;
+  border: 1px solid #fa2105;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  font-size: 0.9em;
+  white-space: nowrap; 
+  color: #dc3545; 
+}
+
+.generalErrorPopup {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.inputError {
+  border-color: #dc3545; 
+}
+
+.errorPopup::before {
+  position: absolute;
+  bottom: 100%;
+  left: 10px;
+  border-color: transparent transparent #fa2105;
+  border-style: solid;
+  border-width: 0 6px 6px;
+  content: '';
+} */
+
+/* FormReview.module.css */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 641px;
+  max-height: 588px;
+  margin-left: 24px;
+  padding: 40px 57px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #f7f7f7;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+}
+
+.titleForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.textTitleForm {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.textForm {
+  margin: 0;
+  color: #555;
+}
+
+.inputs {
   width: 100%;
 }
-.errorPopup {
-  color: #dc3545; /* Червоний колір для помилок */
-  font-size: 0.9em;
+
+.inputForm {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+}
+
+.inputAndErrorWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.fieldForm,
+.fieldArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  padding: 18px;
+  box-sizing: border-box;
+
+  /* background-color: #dddbdb;  */
+  background-color: #eceaea;
+  border-radius: 6px;
+}
+
+.fieldArea {
+  align-items: flex-start;
+}
+
+.label {
+  flex-shrink: 0;
+  min-width: 60px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.modalInput,
+.modalTextArea {
+  flex: 1;
+  align-items: center;
+  padding: 4px 18px;
+  background-color: #f7f7f7;
+  border: 1px solid #f7f7f7;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #555; /* Колір для введеного тексту */
+  cursor: pointer;
+}
+
+/* СТИЛІЗАЦІЯ ПЛЕЙСХОЛДЕРА ДЛЯ .modalInput */
+.modalInput::placeholder {
+  color: rgb(
+    46 47 66 / 40%
+  ); /* Використовуємо той самий колір, що у вас вже був для textarea */
+  opacity: 1; /* Забезпечуємо повну непрозорість у Firefox */
+  /* font-style: italic; */ /* Можна додати, якщо потрібен курсив */
+}
+.modalInput::-webkit-input-placeholder {
+  /* Для WebKit */
+  color: rgb(46 47 66 / 40%);
+  /* font-style: italic; */
+}
+.modalInput::-moz-placeholder {
+  /* Для Firefox */
+  color: rgb(46 47 66 / 40%);
+  opacity: 1;
+  /* font-style: italic; */
+}
+.modalInput:-ms-input-placeholder {
+  /* Для IE 10+ */
+  color: rgb(46 47 66 / 40%);
+  /* font-style: italic; */
+}
+.modalInput::-ms-input-placeholder {
+  /* Для Edge */
+  color: rgb(46 47 66 / 40%);
+  /* font-style: italic; */
+}
+
+.modalTextArea {
+  min-height: 82px;
+}
+
+/* СТИЛІЗАЦІЯ ПЛЕЙСХОЛДЕРА ДЛЯ .modalTextArea */
+.modalTextArea::placeholder {
+  color: rgb(46 47 66 / 40%);
+  opacity: 1;
+  /* font-style: italic; */
+}
+.modalTextArea::-webkit-input-placeholder {
+  color: rgb(46 47 66 / 40%);
+  /* font-style: italic; */
+}
+.modalTextArea::-moz-placeholder {
+  color: rgb(46 47 66 / 40%);
+  opacity: 1;
+  /* font-style: italic; */
+}
+.modalTextArea:-ms-input-placeholder {
+  color: rgb(46 47 66 / 40%);
+  /* font-style: italic; */
+}
+.modalTextArea::-ms-input-placeholder {
+  color: rgb(46 47 66 / 40%);
+  /* font-style: italic; */
+}
+
+.modalInput:hover,
+.modalTextArea:hover {
+  border: 1px solid #187ff2;
+}
+
+.elementSubmit {
+  margin-top: auto;
+  text-align: center;
+}
+
+.star {
+  margin-right: 5px;
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #888;
+  cursor: pointer;
+}
+
+.star.filled {
+  font-size: 1rem;
+  color: gold;
+}
+
+.star:focus {
+  border-radius: 3px;
+  outline: 1px solid #777;
+}
+
+.charCount {
   margin-top: 5px;
+  padding-right: 5px;
+  font-size: 0.8em;
+  text-align: center;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.charCountWarning {
+  font-weight: bold;
+  color: #fa2105;
+}
+
+.errorPopup {
   /* Для спливаючого вікна */
   position: absolute;
   top: calc(100% + 4px); /* Розміщує його під полем */
   left: 0;
-  background-color: #f5f3f3;
-  padding: 4px 8px;
-  border-radius: 6px;
-  white-space: nowrap; /* Щоб текст не переносився */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #fa2105;
   z-index: 10;
   margin: 0;
+  margin-top: 5px;
+  padding: 4px 8px;
+  background-color: #f5f3f3;
+  border: 1px solid #fa2105;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  font-size: 0.9em;
+  white-space: nowrap; /* Щоб текст не переносився */
+  color: #dc3545; /* Червоний колір для помилок */
 }
 
 .generalErrorPopup {
-  text-align: center;
   margin-top: 10px;
+  text-align: center;
 }
 
 .inputError {
@@ -171,11 +401,11 @@
 }
 
 .errorPopup::before {
-  content: '';
   position: absolute;
   bottom: 100%;
   left: 10px;
-  border-width: 0 6px 6px 6px;
+  border-color: transparent transparent #fa2105;
   border-style: solid;
-  border-color: transparent transparent #fa2105 transparent;
+  border-width: 0 6px 6px;
+  content: '';
 }

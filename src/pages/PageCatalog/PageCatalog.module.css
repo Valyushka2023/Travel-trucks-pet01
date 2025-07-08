@@ -4,92 +4,61 @@
   justify-content: flex-start;
   align-items: center;
   width: 1440px;
-  min-height: 100vh;
-  background-color: #dbe72f;
   margin: 0 auto;
+  background-color: #f7f7f7;
+
 }
 
 .containerCatalog {
   display: flex;
   width: 1312px;
-  background-color: aqua;
-  margin-bottom: 44px;
   margin-top: 44px;
+  margin-bottom: 44px;
+  scroll-margin-top: 72px;
 }
 
 .containerFilters {
   display: flex;
   flex-direction: column;
   width: 360px;
-  background-color: #c07410;
 }
 
 .filterTitle {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 360px;
   height: 24px;
+  margin: 0;
+  margin-top: 32px;
+  margin-bottom: 28px;
   line-height: normal;
   color: #4c6747;
-  margin: 0;
-  margin-bottom: 32px;
-  background-color: #e78c8c;
 }
 
 .containerCards {
   display: flex;
   flex-direction: column;
-  background-color: #8a97e4;
   width: 888px;
   margin-left: 64px;
+  scroll-margin-top: 72px;
 }
 
 .containerLoadMore {
   display: flex;
+  justify-content: center;
   width: 888px;
   height: 56px;
-  background-color: #2fe747;
-  justify-content: center;
   margin-top: 40px;
 }
-/* 
-.scrollButton {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #ec4a4a;
-  color: white;
-  border: none;
-  border-radius: 50%; 
-  width: 56px; 
-  height: 56px;
-  display: flex; 
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0.8;
-  transition:
-    opacity 0.3s ease,
-    transform 0.2s ease; 
-  z-index: 100;
-  font-size: 1.2rem; 
-}
-
-.scrollButton:hover {
-  opacity: 1;
-  transform: scale(1.1); 
-  background-color: #187ff2;
-}
-
-.scrollButton:active {
-  transform: scale(0.95);
-  opacity: 0.7; 
-  background-color: #fa2105;
-} */
 
 .loaderContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px; /* Або інша висота */
+  height: 200px; 
+}
+
+.filterButtonsContainer {
+  display: flex;
+  justify-content: space-between;
 }

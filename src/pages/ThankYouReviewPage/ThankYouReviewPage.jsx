@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { fetchCamperById } from '../../services/api';
 import { ClipLoader } from 'react-spinners';
-import css from './ThankYouPage.module.css';
+import css from './ThankYouReviewPage.module.css';
 
-const ThankYouPage = () => {
+const ThankYouReviewPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { camperId } = location.state || {};
@@ -63,4 +63,4 @@ const ThankYouPage = () => {
   );
 };
 
-export default ThankYouPage;
+export default ThankYouReviewPage;

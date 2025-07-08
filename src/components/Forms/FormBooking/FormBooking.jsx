@@ -240,6 +240,7 @@ function FormBooking({ camper }) {
                 value={formData.phone}
                 onChange={handleInputChange}
                 required
+                placeholder="+380XXXXXXXXX"
               />
               {hasAttemptedSubmit && errors.phone && (
                 <p className={css.errorPopup}>{errors.phone}</p>

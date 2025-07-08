@@ -2,48 +2,150 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
+  max-width: 1440px; /* Забезпечує, що загальний макет не стане занадто широким */
   min-height: 100vh;
+  margin: 0 auto;
+  /* Додайте загальний горизонтальний padding до .container, якщо він не вказаний в Header/Footer */
+  /* АБО краще переконатися, що Header і Footer мають свої адаптивні padding */
 }
 
 .heroSection {
   position: relative;
-  height: 696px;
-  background-image:
-    linear-gradient(rgba(46, 47, 66, 0.3), rgba(46, 47, 66, 0.3)),
-    url('../images/Picture@1x.jpg');
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: center;
+  height: 696px; /* Базова висота для десктопу */
+  background-image:
+    linear-gradient(rgb(46 47 66 / 30%), rgb(46 47 66 / 30%)),
+    url('../images/Picture@1x.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; /* Додано, щоб уникнути повторів зображення */
+  /* Зображення зазвичай починається з лівого краю, але якщо воно не 100% ширини,
+     це може викликати скрол. background-size: cover допомагає, але все одно перевірте.*/
+  overflow: hidden; /* Додано, щоб приховати будь-який вміст, що виходить за межі секції */
 }
 
 .heroOverlay {
-  padding-left: 64px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  width: 100%; /* Забезпечуємо, що overlay займає всю доступну ширину */
+  /* max-width: 1312px;  */
+  max-width: 1440px;
+
+  margin: 0 auto; /* Центруємо overlay в heroSection */
+  padding: 0 64px; /* Горизонтальний відступ для десктопу */
+  box-sizing: border-box; /* Важливо! Включає padding у загальну ширину */
 }
 
 .title {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  width: 571px;
+  /* gap: 40px; */
+  width: 100%; /* ЗМІНЕНО: тепер займає 100% доступної ширини */
+  max-width: 571px; /* ОБМЕЖУЄ максимальну ширину блоку тексту */
+  /* Це дозволить йому стискатися, але не бути ширшим ніж 571px */
+  margin-right: auto; /* Щоб вирівняти його ліворуч, якщо heroOverlay має достатньо місця */
 }
 
 .text {
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
 }
 
 .heroTitle {
   line-height: 1.2;
   color: #f5f3f3;
+  font-size: 48px; /* Приклад, якщо не вказано */
+  margin: 0;
 }
 
 .heroContent {
   color: #f5f3f3;
+  font-size: 24px;
+  margin: 0;
+}
+
+/* --- Медіа-запити для PageHome --- */
+
+/* Для екранів менших за 1200px (великі планшети, невеликі ноутбуки) */
+@media (max-width: 1199px) {
+  .heroSection {
+    height: 550px; /* Зменшуємо висоту секції */
+  }
+  .heroOverlay {
+    padding: 0 40px; /* Зменшуємо горизонтальний padding */
+  }
+  .title {
+    max-width: 450px; /* Зменшуємо максимальну ширину текстового блоку */
+  }
+  .heroTitle {
+    font-size: 48px; /* Адаптуємо розмір шрифту */
+  }
+  .heroContent {
+    font-size: 18px; /* Адаптуємо розмір шрифту */
+  }
+}
+
+/* Для екранів менших за 992px (планшети) */
+@media (max-width: 991px) {
+  .heroSection {
+    height: 450px; /* Ще зменшуємо висоту */
+  }
+  .heroOverlay {
+    padding: 0 24px; /* Ще зменшуємо горизонтальний padding */
+  }
+  .title {
+    max-width: 350px; /* Ще зменшуємо максимальну ширину */
+    gap: 24px;
+  }
+  .heroTitle {
+    font-size: 36px;
+  }
+  .heroContent {
+    font-size: 16px;
+  }
+}
+
+/* Для екранів менших за 768px (мобільні в альбомній орієнтації, невеликі планшети) */
+@media (max-width: 767px) {
+  .heroSection {
+    height: 350px; /* Зменшуємо висоту для мобільних */
+    /* text-align: center; Якщо хочете центрувати вміст */
+  }
+  .heroOverlay {
+    padding: 0 16px; /* Мінімальний padding */
+    /* justify-content: center; Якщо хочете центрувати вміст по вертикалі */
+    /* align-items: center; Якщо хочете центрувати вміст по горизонталі */
+  }
+  .title {
+    width: 100%; /* Займаємо всю доступну ширину */
+    max-width: none; /* Прибираємо обмеження ширини */
+    gap: 16px; /* Зменшуємо gap */
+    /* text-align: center; Якщо хочете центрувати текст */
+  }
+  .heroTitle {
+    font-size: 28px;
+  }
+  .heroContent {
+    font-size: 14px;
+  }
+}
+
+/* Для дуже маленьких екранів (мобільні в портретній орієнтації) */
+@media (max-width: 479px) {
+  .heroSection {
+    height: 280px;
+  }
+  .heroOverlay {
+    padding: 0 10px;
+  }
+  .heroTitle {
+    font-size: 24px;
+  }
+  .heroContent {
+    font-size: 12px;
+  }
 }

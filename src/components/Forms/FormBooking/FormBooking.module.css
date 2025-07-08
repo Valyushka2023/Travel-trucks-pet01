@@ -1,17 +1,16 @@
-.form {
+/* .form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   max-width: 641px;
   max-height: 588px;
-  width: 100%;
-  background-color: #f7f7f7;
-  box-sizing: border-box;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  border-radius: 6px;
   margin-left: 49px;
-
   padding: 44px 57px;
+  box-sizing: border-box;
+  background-color: #f7f7f7;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 15%);
 }
 
 .titleForm {
@@ -31,43 +30,37 @@
   color: #555;
 }
 
-/* .inputs {
-  width: 100%;
-  
-} */
 .inputs {
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  /* background-color: aqua; */
+  width: 100%;
 }
 
 .inputForm {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  /* padding: 0; */
 }
 
 .inputAndErrorWrapper {
-  display: flex; /* Зробимо його флекс-контейнером */
-  flex-direction: column; /* Елементи всередині (поле та помилка) розташовуються стовпцем */
-  gap: 4px; /* Простір між полем та помилкою */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   width: 100%;
-  position: relative; /* !!! КЛЮЧОВЕ: це робить його батьком для абсолютно позиціонованих помилок !!! */
 }
 
 .fieldForm,
 .fieldArea {
   display: flex;
   flex-direction: row;
-  gap: 18px;
   align-items: center;
-  padding: 8px;
+  gap: 18px;
   width: 100%;
+  padding: 8px;
   box-sizing: border-box;
-  background-color: #dddbdb;
+  background-color: #eceaea;
   border-radius: 6px;
 }
 
@@ -76,24 +69,24 @@
 }
 
 .label {
-  color: #555;
-  font-size: 1rem;
-  min-width: 40px;
   flex-shrink: 0;
+  min-width: 40px;
+  font-size: 1rem;
+  color: #555;
 }
 
 .modalInput,
 .modalTextArea {
   flex: 1;
+  align-items: center;
   padding: 2px 18px;
-  font-weight: 400;
-  font-size: 1rem;
-  color: #555;
+  background-color: #f7f7f7;
   border: 1px solid #f7f7f7;
   border-radius: 6px;
-  background-color: #f7f7f7;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #555;
   cursor: pointer;
-  align-items: center;
 }
 
 .modalTextArea {
@@ -106,86 +99,285 @@
 }
 
 .modalTextArea::placeholder {
-  color: rgba(46, 47, 66, 0.4);
+  color: rgb(46 47 66 / 40%);
 }
 
-/* .elementSend {
-  margin-top: auto;
-  text-align: center;
-} */
-
-/* Новий блок для контейнера кнопки відправки */
 .elementSend {
-  margin-top: 24px; /* Відступ зверху для елементів відправки, якщо вони йдуть після полів */
-  width: 100%; /* Забезпечуємо повну ширину */
-  text-align: center; /* Центруємо кнопку та загальну помилку */
-}
-.charCount {
-  font-size: 0.8em;
-  color: #888;
+  width: 100%;
+  margin-top: 24px;
   text-align: center;
+}
+
+.charCount {
   margin-top: 5px;
   padding-right: 5px;
+  font-size: 0.8em;
+  text-align: center;
+  color: #888;
   transition: color 0.3s ease;
 }
 
 .charCountWarning {
-  color: #fa2105;
   font-weight: bold;
+  color: #fa2105;
+}
+
+.errorPopup {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 10;
+  margin: 0;
+  padding: 4px 8px;
+  background-color: #f5f3f3;
+  border: 1px solid #fa2105;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  font-size: 0.9em;
+  white-space: nowrap;
+  color: #dc3545;
+}
+
+.generalErrorPopup {
+  margin-top: 10px;
+  padding: 4px 8px;
+  background-color: #f5f3f3;
+  border: 1px solid #fa2105;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  font-size: 0.9em;
+  color: #dc3545;
+}
+
+.errorPopup::before {
+  position: absolute;
+  bottom: 100%;
+  left: 10px;
+  border-color: transparent transparent #fa2105;
+  border-style: solid;
+  border-width: 0 6px 6px;
+  content: '';
+}
+
+.inputError {
+  border-color: #dc3545 !important;
+} */
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 641px;
+  max-height: 588px;
+  margin-left: 49px;
+  padding: 44px 57px;
+  box-sizing: border-box;
+  background-color: #f7f7f7;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+}
+
+.titleForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+.textTitleForm {
+  margin: 0;
+}
+
+.textForm {
+  margin: 0;
+  color: #555;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.inputForm {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .inputAndErrorWrapper {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   width: 100%;
 }
-.commentLabelWrapper {
-  /* display: flex;
-  flex-direction: column;  */
-  /* align-items: flex-start;  */
-  /* min-width: 60px; 
-  flex-shrink: 0; */
+
+.fieldForm,
+.fieldArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  background-color: #eceaea;
+  border-radius: 6px;
+}
+
+.fieldArea {
+  align-items: flex-start;
+}
+
+.label {
+  flex-shrink: 0;
+  min-width: 40px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.modalInput,
+.modalTextArea {
+  flex: 1;
+  align-items: center;
+  padding: 2px 18px;
+  background-color: #f7f7f7;
+  border: 1px solid #f7f7f7;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #555; /* Колір для введеного тексту */
+  cursor: pointer;
+}
+
+/* СТИЛІЗАЦІЯ ПЛЕЙСХОЛДЕРА ДЛЯ .modalInput */
+.modalInput::placeholder {
+  color: rgb(
+    46 47 66 / 40%
+  ); /* Використовуємо той самий колір, що і для textarea, або оберіть свій */
+  opacity: 1; /* Забезпечуємо повну непрозорість у Firefox */
+  /* font-style: italic; */ /* Можна додати, якщо потрібен курсив */
+}
+.modalInput::-webkit-input-placeholder {
+  /* Для WebKit */
+  color: rgb(46 47 66 / 40%);
+  /* font-style: italic; */
+}
+.modalInput::-moz-placeholder {
+  /* Для Firefox */
+  color: rgb(46 47 66 / 40%);
+  opacity: 1;
+  /* font-style: italic; */
+}
+.modalInput:-ms-input-placeholder {
+  /* Для IE 10+ */
+  color: rgb(46 47 66 / 40%);
+  /* font-style: italic; */
+}
+.modalInput::-ms-input-placeholder {
+  /* Для Edge */
+  color: rgb(46 47 66 / 40%);
+  /* font-style: italic; */
+}
+
+.modalTextArea {
+  min-height: 82px;
+}
+
+/* СТИЛІЗАЦІЯ ПЛЕЙСХОЛДЕРА ДЛЯ .modalTextArea */
+/* Цей блок у вас вже був, я його трохи розширив для кросбраузерності */
+.modalTextArea::placeholder {
+  color: rgb(46 47 66 / 40%);
+  opacity: 1; /* Забезпечуємо повну непрозорість у Firefox */
+  /* font-style: italic; */
+}
+.modalTextArea::-webkit-input-placeholder {
+  /* Для WebKit */
+  color: rgb(46 47 66 / 40%);
+  /* font-style: italic; */
+}
+.modalTextArea::-moz-placeholder {
+  /* Для Firefox */
+  color: rgb(46 47 66 / 40%);
+  opacity: 1;
+  /* font-style: italic; */
+}
+.modalTextArea:-ms-input-placeholder {
+  /* Для IE 10+ */
+  color: rgb(46 47 66 / 40%);
+  /* font-style: italic; */
+}
+.modalTextArea::-ms-input-placeholder {
+  /* Для Edge */
+  color: rgb(46 47 66 / 40%);
+  /* font-style: italic; */
+}
+
+.modalInput:hover,
+.modalTextArea:hover {
+  border: 1px solid #187ff2;
+}
+
+.elementSend {
+  width: 100%;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.charCount {
+  margin-top: 5px;
+  padding-right: 5px;
+  font-size: 0.8em;
+  text-align: center;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.charCountWarning {
+  font-weight: bold;
+  color: #fa2105;
 }
 
 .errorPopup {
-  color: #dc3545;
-  font-size: 0.9em;
-
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
-  background-color: #f5f3f3;
-  padding: 4px 8px;
-  border-radius: 6px;
-  white-space: nowrap;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #fa2105;
   z-index: 10;
   margin: 0;
+  padding: 4px 8px;
+  background-color: #f5f3f3;
+  border: 1px solid #fa2105;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  font-size: 0.9em;
+  white-space: nowrap;
+  color: #dc3545;
 }
 
 .generalErrorPopup {
-  /* text-align: center; */ /* Це вже в батьківському .elementSend */
   margin-top: 10px;
-  /* Також застосуємо стилі popup, але без абсолютного позиціонування */
-  color: #dc3545;
-  font-size: 0.9em;
-  background-color: #f5f3f3;
   padding: 4px 8px;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f5f3f3;
   border: 1px solid #fa2105;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  font-size: 0.9em;
+  color: #dc3545;
 }
 
 .errorPopup::before {
-  content: '';
   position: absolute;
-  bottom: 100%; /* Вгору від popup */
-  left: 10px; /* Відступ від лівого краю */
-  border-width: 0 6px 6px 6px;
+  bottom: 100%;
+  left: 10px;
+  border-color: transparent transparent #fa2105;
   border-style: solid;
-  border-color: transparent transparent #fa2105 transparent; /* Створює трикутник */
+  border-width: 0 6px 6px;
+  content: '';
 }
 
 .inputError {
-  border-color: #dc3545 !important; /* Червона рамка для полів з помилками, !important може допомогти, якщо є конфлікти */
+  border-color: #dc3545 !important;
 }

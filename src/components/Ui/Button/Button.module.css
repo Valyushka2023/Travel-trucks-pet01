@@ -1,15 +1,15 @@
 .button {
-  border-radius: 200px;
-  padding: 16px 60px;
   display: inline-flex;
-  align-items: center;
   justify-content: center;
-  white-space: nowrap;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  align-items: center;
+  padding: 16px 60px;
+  border-radius: 200px;
+  font-family: Inter, sans-serif;
   font-size: 20px;
+  font-weight: 500;
   line-height: 1.5;
   letter-spacing: -0.01em;
+  white-space: nowrap;
   transition:
     background-color 0.3s ease,
     transform 0.3s ease;
@@ -25,6 +25,9 @@
 
 .small {
   width: 145px;
+  border: 2px solid #dddbdb;
+
+  /* background-color: transparent; */
 }
 
 .medium {
@@ -59,12 +62,27 @@
 
 .button:active {
   background-color: #fa2105;
-  transform: scale(0.95);
+  transform: scale(1);
 }
 
+/* стиль кнопки у стані disabled (вимкнена) */
 .button:disabled {
   background: #ccc;
   color: #6c757d;
-  cursor: not-allowed;
   transform: none;
+  cursor: not-allowed;
+}
+
+/* Ховер-ефект для кнопки .small: змінюється лише колір бордера та масштабування */
+.small:hover {
+  background-color: transparent; /* Фон залишається прозорим, щоб не змінювався */
+  border-color: #187ff2; /* Синій бордер */
+  transform: scale(1.1); /* Масштабування */
+}
+
+/* Active-ефект для кнопки .small */
+.small:active {
+  background-color: transparent; /* Фон залишається прозорим */
+  border-color: #fa2105; /* Червоний бордер */
+  transform: scale(0.95); /* Масштабування при натисканні, якщо потрібно */
 }
