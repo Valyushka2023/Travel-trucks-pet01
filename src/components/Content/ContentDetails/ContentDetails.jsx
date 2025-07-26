@@ -7,7 +7,6 @@ import FeatureIcon from '../../FeatureIcon/FeatureIcon.jsx';
 import VehicleDetails from '../../VehicleDetails/VehicleDetails.jsx';
 import FormBooking from '../../Forms/FormBooking/FormBooking.jsx';
 import css from './ContentDetails.module.css';
-// import ReviewsList from "../../Reviews/ReviewsList/ReviewsList.jsx";
 
 function ContentDetails() {
   const { camper, activeTab } = useOutletContext();
@@ -26,14 +25,18 @@ function ContentDetails() {
           <p className={css.text}>{camper.description}</p>
         </div>
       </div>
+      <div className={css.containerTabs}>
+        <Tabs camper={camper} activeTab={activeTab} />
+      </div>
 
-      <Tabs camper={camper} activeTab={activeTab} />
       <div className={css.detailsForm}>
         <div className={css.details}>
           <FeatureIcon camper={camper} />
           <VehicleDetails camper={camper} />
         </div>
-        <FormBooking camper={camper} />
+        <div className={css.containerFormBooking}>
+          <FormBooking camper={camper} />
+        </div>
       </div>
     </div>
   );

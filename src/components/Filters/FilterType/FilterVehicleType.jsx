@@ -3,13 +3,25 @@ import PropTypes from 'prop-types';
 import css from './FilterVehicleType.module.css';
 
 const filterButtons = [
-  { icon: 'van', label: 'Van', ariaLabel: 'Фургон' },
+  { icon: 'van', label: 'Van', ariaLabel: 'Фургон', isMultiLine: false },
   {
     icon: 'fullyIntegrated',
-    label: 'Fully Integrated',
+    label: (
+      <>
+        Fully
+        <br />
+        Integrated
+      </>
+    ),
     ariaLabel: 'Повністю інтегрований',
+    isMultiLine: true,
   },
-  { icon: 'alcove', label: 'Alcove', ariaLabel: 'Альтанка' },
+  {
+    icon: 'alcove',
+    label: 'Alcove',
+    ariaLabel: 'Альтанка',
+    isMultiLine: false,
+  },
 ];
 
 const FilterVehicleType = ({ onFilter, currentFilters }) => {
@@ -49,7 +61,7 @@ const FilterVehicleType = ({ onFilter, currentFilters }) => {
         {filterButtons.map(button => (
           <button
             key={button.icon}
-            className={`${css.rawIcon} ${button.label.includes(' ') ? css.multiLine : ''} ${
+            className={`${css.rawIcon} ${button.isMultiLine ? css.multiLine : ''} ${
               currentFilters[button.icon] ? css.active : ''
             }`}
             /* Використовуємо currentFilters для активного стану */

@@ -1,0 +1,28 @@
+.baseCloseButton {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  /* color: #fa2105; */
+  color: #000;
+  font-weight: 900;
+  padding: 0;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.baseCloseButton:hover {
+  color: #187ff2;
+  transform: scale(1.2);
+}
+
+.baseCloseButton:active {
+  color: #ec4a4a;
+  transform: scale(0.95);
+}

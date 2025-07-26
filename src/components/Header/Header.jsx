@@ -1,63 +1,78 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Logo from '../../components/Ui/Logo/Logo.jsx';
 import css from './Header.module.css';
-import { useState, useEffect } from 'react';
+import MenuToggleButton from '../../components/Ui/Button/MenuToggleButton.jsx';
+import CloseButton from '../../components/Ui/Button/CloseButton.jsx';
 
 const Header = () => {
   const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Стан для керування видимістю меню
-  // Функція для перемикання стану меню
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(prev => !prev);
   };
 
-  // Закриття меню при зміні маршруту (переході на іншу сторінку)
-
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
   return (
     <div className={css.headerWrapper}>
       <nav className={css.headerContainer}>
-        {/* Логотип ліворуч */}
         <div className={css.logoHeader}>
           <Logo />
         </div>
-        {/* Кнопка-гамбургер (відображається лише на мобільних) */}
-        {/* Додаємо саму кнопку і обробник кліку */}
-        <button
-          type="button"
-          className={css.burgerButton}
+        {/* Кнопка-гамбургер (видима тільки на мобільних) */}
+        <MenuToggleButton
+          isOpen={isMenuOpen}
           onClick={toggleMenu}
-          aria-expanded={isMenuOpen} // Для доступності: вказує стан меню
-          aria-label="Toggle navigation menu" // Для доступності
-        >
-          {/* Можна використовувати іконку з бібліотеки або простий символ */}
-          {isMenuOpen ? '✕' : '☰'} {/* Змінюємо іконку залежно від стану */}
-        </button>
+          ariaLabel="Відкрити навігаційне меню"
+          // className={css.desktopHidden}
+        />
 
-        {/* Меню по центру (на десктопі) або випадаюче (на мобільних) */}
-        {/* Додаємо клас is-open, якщо меню відкрите */}
-        {/* Меню по центру */}
+        {/* Меню */}
         <div className={`${css.menu} ${isMenuOpen ? css['is-open'] : ''}`}>
+          {/* Кнопка "хрестик" (відображається, коли меню ВІДКРИТЕ) */}
+          <CloseButton
+            onClick={toggleMenu}
+            ariaLabel="Закрити навігаційне меню"
+            className={css.closeButtonInsideMenu}
+          />
           <Link
             to="/"
             className={location.pathname === '/' ? css.active : css.link}
-            onClick={() => setIsMenuOpen(false)} // Закриваємо меню при кліку на посилання
+            onClick={() => setIsMenuOpen(false)}
           >
             Home
           </Link>
           <Link
             to="/catalog"
             className={location.pathname === '/catalog' ? css.active : css.link}
-            onClick={() => setIsMenuOpen(false)} // Закриваємо меню при кліку на посилання
+            onClick={() => setIsMenuOpen(false)}
           >
             Catalog
           </Link>
         </div>
       </nav>
+
+      {/* Backdrop */}
+      <div
+        className={`${css.menuBackdrop} ${isMenuOpen ? css['is-visible'] : ''}`}
+        onClick={toggleMenu}
+      ></div>
     </div>
   );
 };

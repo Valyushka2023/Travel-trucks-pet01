@@ -5,7 +5,6 @@ import css from './Card.module.css';
 import Button from '../../Ui/Button/Button.jsx';
 import FeatureIcon from '../../FeatureIcon/FeatureIcon.jsx';
 import { v4 as uuidv4 } from 'uuid';
-// ✅ Імпортуємо новий компонент DescriptionPopup
 import DescriptionPopup from '../../../modals/DescriptionModal/DescriptionPopup.jsx';
 
 const Card = ({ _id, name, gallery, price, description, location, camper }) => {
@@ -25,7 +24,6 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
   };
 
   const handleClosePopup = () => {
-    // Прибираємо event, бо він не потрібен тут
     setIsPopupOpen(false);
   };
 
@@ -72,85 +70,70 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
   return (
     <div className={css.card} data-id={_id}>
       <div className={css.contentCard}>
-        <div className={css.containerPic}>
-          <img src={imageUrl} alt={name} />
-        </div>
+        <img className={css.image} src={imageUrl} alt={name} />
+
         <div className={css.containerInfo}>
-          <div className={css.textContainerInfo}>
-            <div className={css.titleInfo}>
-              <h2 className={css.textTitleInfo}>{name}</h2>
-              <div className={css.priceInfo}>
-                <h2 className={css.textPriceInfo}>
-                  ${price}
-                  <svg
-                    className={css.iconHeart}
-                    width="26"
-                    height="24"
-                    viewBox="0 0 32 32"
-                  >
-                    <use
-                      href={`${import.meta.env.BASE_URL}icons.svg#icon-heart`}
-                    ></use>
-                  </svg>
-                </h2>
-              </div>
-            </div>
-            <div className={css.detailsInfo}>
-              <div className={css.reviewsInfo}>
-                <svg
-                  className={css.iconStar}
-                  width="16"
-                  height="16"
-                  viewBox="0 0 32 32"
-                >
-                  <use
-                    href={`${import.meta.env.BASE_URL}icons.svg#icon-star`}
-                  ></use>
-                </svg>
-                <p className={css.textReviewsInfo}>
-                  {reviewsWithUniqueIds.length > 0 ? (
-                    <span>
-                      {averageRating.toFixed(1)} ({reviewsWithUniqueIds.length}{' '}
-                      Reviews)
-                    </span>
-                  ) : (
-                    '0 (0 відгуків)'
-                  )}
-                </p>
-              </div>
-              <div className={css.locationInfo}>
-                <svg
-                  className={css.iconMap}
-                  width="16"
-                  height="16"
-                  viewBox="0 0 32 32"
-                >
-                  <use
-                    href={`${import.meta.env.BASE_URL}icons.svg#icon-map`}
-                  ></use>
-                </svg>
-                <p className={css.textLocation}>{location}</p>
-              </div>
+          {/* Весь існуючий вміст containerInfo */}
+          <div className={css.titleInfo}>
+            <h2>{name}</h2>
+            <div className={css.priceInfo}>
+              <h2 className={css.textPriceInfo}>${price}</h2>
+              <svg
+                className={css.iconHeart}
+                width="26"
+                height="24"
+                viewBox="0 0 32 32"
+              >
+                <use
+                  href={`${import.meta.env.BASE_URL}icons.svg#icon-heart`}
+                ></use>
+              </svg>
             </div>
           </div>
+
+          <div className={css.detailsInfo}>
+            <div className={css.reviewsInfo}>
+              <svg
+                className={css.iconStar}
+                width="16"
+                height="16"
+                viewBox="0 0 32 32"
+              >
+                <use
+                  href={`${import.meta.env.BASE_URL}icons.svg#icon-star`}
+                ></use>
+              </svg>
+              <p>
+                {reviewsWithUniqueIds.length > 0 ? (
+                  <span>
+                    {averageRating.toFixed(1)} ({reviewsWithUniqueIds.length}{' '}
+                    Reviews)
+                  </span>
+                ) : (
+                  '0 (0 відгуків)'
+                )}
+              </p>
+            </div>
+            <div className={css.locationInfo}>
+              <svg
+                className={css.iconMap}
+                width="16"
+                height="16"
+                viewBox="0 0 32 32"
+              >
+                <use
+                  href={`${import.meta.env.BASE_URL}icons.svg#icon-map`}
+                ></use>
+              </svg>
+              <p>{location}</p>
+            </div>
+          </div>
+
           <div className={css.supportingTextInfo}>
-            <button
-              className={css.descriptionButton}
-              onClick={handleTextInfoClick}
-            >
-              <div className={css.textInfoContainer}>
-                <p className={css.textInfo}>{shortDescription}</p>
-              </div>
+            <button className={css.textButton} onClick={handleTextInfoClick}>
+              <p className={css.textInfo}>{shortDescription}</p>
             </button>
-
-            {isPopupOpen && (
-              <DescriptionPopup
-                description={description}
-                onClose={handleClosePopup}
-              />
-            )}
           </div>
-
           <div className={css.badgesContainer}>
             {camper && <FeatureIcon camper={camper} />}
           </div>
@@ -163,6 +146,14 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
               Show More
             </Button>
           </div>
+
+          {/* ✅ ПЕРЕМІЩЕНО: DescriptionPopup тепер рендериться безпосередньо всередині containerInfo */}
+          {isPopupOpen && (
+            <DescriptionPopup
+              description={description}
+              onClose={handleClosePopup}
+            />
+          )}
         </div>
       </div>
     </div>

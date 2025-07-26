@@ -1,12 +1,22 @@
 /* Базові стилі всього додатка */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Важливо для стабільності розмірів */
+}
 
 body {
-  /* margin: 0; */
+  margin: 0;
   padding: 0;
   background-color: #fff;
   font-family: Inter, sans-serif;
   line-height: 1.5;
   color: #000;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
 }
 
 /* Посилання */

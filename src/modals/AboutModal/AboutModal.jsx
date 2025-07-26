@@ -17,12 +17,12 @@ const AboutModal = ({
 );
 
 const defaultParagraphs = [
-  'We are TravelTrucks, a company specializing in renting modern campers for comfortable travel around Ukraine.',
-  'The company was founded in 2024.',
-  'The company’s fleet includes 24 cars from Economy to Premium class...',
-  'Our locations: Kyiv, Odesa, Kharkiv, Sumy, Poltava, Dnipro, Lviv.',
-  'The TravelTrucks team is made up of young, active people...',
-  'Renting the car you want is easy! Call us or leave a request...',
+  'We are TravelTrucks — a company specializing in modern camper rentals for comfortable travel across Ukraine.',
+  'TravelTrucks was founded in 2024.',
+  'Our fleet includes 24 campers ranging from Economy to Premium class.',
+  'We operate in Kyiv, Odesa, Kharkiv, Sumy, Poltava, Dnipro, and Lviv.',
+  'The TravelTrucks team consists of young, energetic individuals.',
+  'Booking the camper you want is easy — just give us a call or leave a request on our website!',
 ];
 
 AboutModal.propTypes = {

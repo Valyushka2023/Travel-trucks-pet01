@@ -130,3 +130,47 @@
   line-height: 1;
   margin-bottom: 100px;
 } */
+
+.pageDetailsWrapper {
+  width: 100%;
+  /* align-items: center; */
+}
+
+.loaderContainer,
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-size: 1.2rem;
+  color: #e74c3c;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 991px) {
+  .pageDetailsWrapper {
+  }
+
+  .loaderContainer,
+  .error {
+    font-size: 1.1rem;
+    min-height: 150px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pageDetailsWrapper {
+  }
+
+  .loaderContainer,
+  .error {
+    font-size: 1rem;
+    min-height: 100px;
+  }
+}
+
+@media (max-width: 479px) {
+  .pageDetailsWrapper {
+  }
+}

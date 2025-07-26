@@ -1,19 +1,3 @@
-.filterContainer {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
-}
-
-.filterTitle {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 24px;
-  margin-top: 0;
-  margin-bottom: 8px;
-  color: #6c717b;
-}
-
 .inputWrapper {
   position: relative;
   width: 100%;
@@ -24,14 +8,26 @@
   display: flex;
   align-items: center;
   width: 100%;
-  transition: transform 0.3s ease; /* Зберігаємо масштабування всього об'єкту */
+  height: 56px; /* Задаємо фіксовану висоту для вирівнювання */
+  padding: 10px 10px 10px 48px; /* Adjusted padding-left for icon */
+  background-color: #dddbdb;
+  border: 1px solid #dddbdb;
+  border-radius: 12px;
+  cursor: pointer; /* Вказуємо, що це клікабельний елемент */
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* Ховер для scaleWrapper: масштабуємо весь блок, якщо він НЕ вибраний */
 .scaleWrapper:not(.selected):hover {
-  transform: scale(
-    1.1
-  ); /* Трохи менше масштабування, щоб не було дуже агресивно */
+  transform: scale(1.1);
+  border-color: #187fff; /* Додано ховер бордер */
+}
+
+/* Вибраний стан для scaleWrapper: червоний бордер */
+.scaleWrapper.selected {
+  border-color: #fa2105;
 }
 
 .iconMap {
@@ -39,39 +35,171 @@
   top: 50%;
   left: 20px;
   z-index: 1;
-  transition: fill 0.3s ease; /* Анімація кольору іконки */
+  transition: fill 0.3s ease;
   transform: translateY(-50%);
-  pointer-events: none;
+  pointer-events: none; /* Важливо, щоб кліки проходили крізь іконку */
   fill: #555;
+  width: 20px;
+  height: 20px;
 }
 
-.locationInput {
-  width: 100%;
-  height: 56px;
-  padding: 10px 10px 10px 40px;
-  padding-left: 48px;
-  background-color: #dddbdb;
-  border: 1px solid #dddbdb;
-  border-radius: 12px;
-  font-size: 16px;
+/* Стилі для відображення обраної локації */
+.locationDisplay {
+  font-size: 16px; /* Базовий розмір шрифту */
   color: #555;
-  transition: border-color 0.3s ease; /* Тільки для бордера */
+  white-space: nowrap; /* Запобігає переносу тексту */
+  overflow: hidden; /* Обрізає зайвий текст */
+  text-overflow: ellipsis; /* Додає три крапки */
+  flex-grow: 1; /* Дозволяє займати весь доступний простір */
+  line-height: 1.2; /* Для кращого вирівнювання тексту */
+}
+
+/* --- Стилі для кастомного випадаючого списку --- */
+.dropdownList {
+  position: absolute;
+  top: 100%; /* Розміщуємо під інпутом */
+  left: 0;
+  width: 100%;
+  max-height: 190px; /* Обмежте висоту, якщо список дуже довгий */
+  overflow-y: auto; /* Додаємо скрол, якщо список перевищує max-height */
+  background-color: #fff; /* Білий фон для списку */
+  border: 1px solid #f7f7f7;
+  border-radius: 8px;
+  z-index: 100; /* Переконайтеся, що список знаходиться над іншими елементами */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 4px; /* Невеликий відступ від інпуту */
+}
+
+.dropdownItem {
+  padding: 10px 15px; /* <--- Тут встановлюємо padding для елементів списку */
+  font-size: 16px; /* <--- Базовий розмір шрифту для елементів списку */
+  color: #333;
   cursor: pointer;
-  appearance: none;
+  transition: background-color 0.2s ease;
 }
 
-/* Вибраний стан для locationInput всередині selected scaleWrapper: червоний бордер */
-.scaleWrapper.selected .locationInput {
-  border-color: #fa2105;
+.dropdownItem:hover {
+  background-color: #f0f0f0;
 }
 
-/* Ховер для locationInput всередині НЕ вибраного scaleWrapper: синій бордер */
-.scaleWrapper:not(.selected):hover .locationInput {
-  border-color: #187fff;
+.dropdownItem.selectedItem {
+  background-color: #e0e0e0; /* Підсвічування обраного елемента */
+  font-weight: bold;
 }
 
-/* Вибраний стан для iconMap всередині selected scaleWrapper: червона іконка */
+/* --- Адаптивні налаштування --- */
 
-/* .scaleWrapper.selected .iconMap {
-  fill: #fa2105;
-} */
+@media (max-width: 1199px) {
+  .filterContainer {
+    margin-bottom: 30px;
+  }
+  .filterTitle {
+    justify-content: center;
+  }
+  .inputWrapper {
+    max-width: 360px;
+  }
+  .scaleWrapper {
+    height: 50px; /* Зменшення висоти wrapper */
+    padding-left: 45px;
+  }
+  .iconMap {
+    left: 15px;
+    width: 18px;
+    height: 18px;
+  }
+  .locationDisplay {
+    /* font-size: 15px; */
+  }
+  .dropdownList {
+    /* padding: 8px 12px; */
+    max-height: 170px;
+  }
+}
+
+@media (max-width: 991px) {
+  .filterContainer {
+    margin-bottom: 25px;
+  }
+  .scaleWrapper {
+    height: 48px;
+    padding-left: 40px;
+  }
+  .iconMap {
+    left: 12px;
+    width: 16px;
+    height: 16px;
+  }
+  .locationDisplay {
+    /* font-size: 14px; */
+  }
+  .dropdownList {
+    /* padding: 8px 10px; */
+    max-height: 150px;
+  }
+
+  .filterTitle {
+    /* font-size: 15px; */
+  }
+}
+
+@media (max-width: 767px) {
+  .filterContainer {
+    margin-bottom: 20px;
+  }
+  .scaleWrapper {
+    height: 45px;
+    padding-left: 35px;
+  }
+  .iconMap {
+    left: 10px;
+    width: 14px;
+    height: 14px;
+  }
+  .locationDisplay {
+    /* font-size: 13px; */
+  }
+  .dropdownList {
+    max-height: 135px; /* Обмежте висоту, якщо список дуже довгий */
+  }
+
+  .dropdownItem {
+  }
+  .filterTitle {
+    /* font-size: 14px; */
+  }
+  .scaleWrapper:not(.selected):hover {
+    transform: scale(1.05);
+  }
+}
+
+/* mobileSmMax: '479px' */
+@media (max-width: 479px) {
+  .filterContainer {
+    margin-bottom: 15px;
+  }
+  .scaleWrapper {
+    height: 40px; /* Зменшуємо висоту wrapper */
+    padding-left: 32px; /* Корегуємо padding-left */
+  }
+  .iconMap {
+    left: 10px; /* Корегуємо позицію іконки */
+    width: 14px;
+    height: 14px;
+  }
+  .locationDisplay {
+    /* font-size: 16px;  */
+    /* <--- Шрифт для відображеного значення */
+  }
+  .dropdownList {
+    max-height: 125px; /* Обмежте висоту, якщо список дуже довгий */
+  }
+  .dropdownItem {
+  }
+  .filterTitle {
+    /* font-size: 13px; */
+  }
+  .scaleWrapper:not(.selected):hover {
+    transform: none;
+  }
+}

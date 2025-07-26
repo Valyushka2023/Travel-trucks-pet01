@@ -94,7 +94,7 @@ function PageDetails() {
   }
 
   return (
-    <div>
+    <div className={css.pageDetailsWrapper}>
       <Outlet context={{ camper: localCamper, activeTab }} />
       <ScrollToTopButton
         visible={visible}

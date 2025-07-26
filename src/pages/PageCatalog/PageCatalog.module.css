@@ -3,50 +3,60 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 100vh;
   margin: 0 auto;
   background-color: #f7f7f7;
-
 }
 
 .containerCatalog {
   display: flex;
-  width: 1312px;
-  margin-top: 44px;
-  margin-bottom: 44px;
+  width: 100%;
+  max-width: 1312px;
+  margin: 44px 0;
   scroll-margin-top: 72px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 57px;
 }
 
 .containerFilters {
   display: flex;
   flex-direction: column;
-  width: 360px;
+  width: 100%;
+  max-width: 360px;
+  flex-shrink: 0;
 }
-
+.locationTitle {
+  margin-top: 0;
+  color: #4c6747;
+  margin-bottom: 10px;
+}
 .filterTitle {
-  display: flex;
-  flex-direction: column;
-  width: 360px;
-  height: 24px;
-  margin: 0;
-  margin-top: 32px;
-  margin-bottom: 28px;
-  line-height: normal;
+  margin-top: 68px;
+  margin-bottom: 24px;
   color: #4c6747;
 }
 
 .containerCards {
   display: flex;
+  flex-grow: 1;
+  flex-basis: 0;
   flex-direction: column;
-  width: 888px;
-  margin-left: 64px;
+  width: 100%;
+  max-width: 888px;
+  min-width: 280px;
+  margin-left: 0;
   scroll-margin-top: 72px;
+  flex-shrink: 1;
 }
 
 .containerLoadMore {
   display: flex;
   justify-content: center;
-  width: 888px;
+  width: 100%;
+  max-width: 888px;
   height: 56px;
   margin-top: 40px;
 }
@@ -55,10 +65,104 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px; 
+  height: 200px;
+  width: 100%;
 }
 
 .filterButtonsContainer {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* --- Медіа-запити для адаптивності --- */
+
+/* Планшети (горизонтальна орієнтація) та менші десктопи */
+@media (max-width: 1199px) {
+  .layout {
+    flex-direction: column; /* або grid with grid-template-rows */
+  }
+  .containerCatalog {
+    /* width: 95%;  */
+    /* 
+    Трохи більші відступи */
+    /*flex-direction: column; 
+    * Фільтри та картки стають один під одним */
+    /*gap: 40px; */
+    /* Більший простір між секціями */
+    /* flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; */
+    display: flex;
+    width: 100%;
+    max-width: 1199px;
+    margin: 24px 0;
+
+    /* scroll-margin-top: 72px; */
+
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .containerFilters {
+    margin-right: 0; /* Прибираємо відступ справа */
+    max-width: 100%; /* Фільтри займають всю доступну ширину */
+    align-items: center; /* Центруємо вміст фільтрів */
+  }
+
+  .filterTitle {
+    text-align: center; /* Центруємо заголовок фільтрів */
+  }
+
+  .containerCards {
+    margin-left: 0; /* Прибираємо відступ зліва */
+    max-width: 100%; /* Картки займають всю доступну ширину */
+    align-items: center; /* Центруємо картки в колонці */
+  }
+
+  .filterButtonsContainer {
+    flex-direction: row; /* Кнопки знову в рядок */
+    justify-content: center; /* Центруємо кнопки */
+    width: 100%;
+  }
+}
+
+/* Мобільні телефони (вертикальна орієнтація) */
+@media (max-width: 768px) {
+  .containerCatalog {
+    width: 98%; /* Ще менші відступи */
+    padding: 0 10px; /* Невеликий внутрішній відступ */
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .containerFilters,
+  .containerCards {
+    min-width: unset; /* Дозволяємо зменшуватися більше */
+    width: 100%; /* Займає всю доступну ширину */
+  }
+
+  .filterButtonsContainer {
+    flex-direction: column; /* Кнопки знову в стовпець */
+
+    gap: 10px; /* Менший простір між кнопками */
+    align-items: center;
+  }
+}
+
+/* Дуже маленькі екрани */
+@media (max-width: 480px) {
+  .containerCatalog {
+    width: 100%;
+    padding: 0 5px; /* Мінімальні відступи */
+    margin-top: 20px; /* Зменшуємо верхній відступ */
+    margin-bottom: 20px; /* Зменшуємо нижній відступ */
+  }
+
+  .filterTitle {
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
 }

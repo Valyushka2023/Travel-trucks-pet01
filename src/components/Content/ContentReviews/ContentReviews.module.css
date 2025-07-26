@@ -45,24 +45,13 @@
   color: #777;
 }
 
-.scrollTopBtn {
+.reviewsScrollToTopButton {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
   color: #f5f3f3;
 }
-
-.scrollTopBtn:hover {
-  background-color: #187ff2;
-  transform: scale(1.05);
-}
-
-.scrollTopBtn:active {
-  background-color: #fa2105;
-  transform: scale(0.95);
-}
-
 .reviewsForm {
   display: flex;
   flex-direction: row;

@@ -7,3 +7,30 @@
   text-indent: 1em;
   color: #000;
 }
+@media (max-width: 1199px) {
+  .textAboutModal p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 991px) {
+  .textAboutModal p {
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 767px) {
+  .textAboutModal p {
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 479px) {
+  .textAboutModal p {
+    font-size: 0.9rem;
+    line-height: 1;
+  }
+}

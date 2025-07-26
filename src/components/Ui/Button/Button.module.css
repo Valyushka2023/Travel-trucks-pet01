@@ -45,7 +45,7 @@
 }
 
 .primary {
-  background: #ec4a4a;
+  background: #fa2105;
   color: #f5f3f3;
 }
 
@@ -57,12 +57,12 @@
 /* Стилі для станів (hover, active, disabled) */
 .button:hover {
   background-color: #187ff2;
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .button:active {
-  background-color: #fa2105;
-  transform: scale(1);
+  background-color: #ec4a4a;
+  transform: scale(0.95);
 }
 
 /* стиль кнопки у стані disabled (вимкнена) */
@@ -77,12 +77,12 @@
 .small:hover {
   background-color: transparent; /* Фон залишається прозорим, щоб не змінювався */
   border-color: #187ff2; /* Синій бордер */
-  transform: scale(1.1); /* Масштабування */
+  transform: scale(1.2); /* Масштабування */
 }
 
 /* Active-ефект для кнопки .small */
 .small:active {
   background-color: transparent; /* Фон залишається прозорим */
-  border-color: #fa2105; /* Червоний бордер */
+  border-color: #ec4a4a; /* Червоний бордер */
   transform: scale(0.95); /* Масштабування при натисканні, якщо потрібно */
 }

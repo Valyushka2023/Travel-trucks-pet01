@@ -123,12 +123,12 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
                   </Button>
                 ) : showScrollTop ? (
                   <ScrollToTopButton
-                    visible={showScrollTop}
+                    visible={showScrollTop} // Видимість кнопки
                     onClick={() => {
-                      scrollToTop();
-                      setTimeout(() => setVisibleCount(3), 500);
+                      scrollToTop(); // Функція прокрутки, яка є частиною useContainerScrollToTopButton
+                      setTimeout(() => setVisibleCount(3), 500); // Додаткова логіка після прокрутки
                     }}
-                    className={css.scrollTopBtn}
+                    className={css.reviewsScrollToTopButton} // Застосування класу для фіксованого позиціонування
                     label="▲"
                   />
                 ) : null}

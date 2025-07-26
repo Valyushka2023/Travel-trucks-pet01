@@ -24,3 +24,7 @@
   color: #187ff2;
   transform: scale(1.2);
 }
+.links li button:active {
+  color: #f72b2b;
+  transform: scale(0.95);
+}

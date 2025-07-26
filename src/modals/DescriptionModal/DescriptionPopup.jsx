@@ -1,25 +1,22 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import css from './DescriptionPopup.module.css'; // Створіть окремий CSS для нього
+import CloseButton from '../../components/Ui/Button/CloseButton.jsx';
+import css from './DescriptionPopup.module.css';
 
 const DescriptionPopup = ({ description, onClose }) => {
-  // Функція для зупинки поширення кліку на вмісті модалки
-  // Щоб клік на тексті опису не закривав вікно
   const handleContentClick = e => {
     e.stopPropagation();
   };
 
   return (
-    // Backdrop - фон, що перекриває сторінку. Клік на ньому не закриває.
-
-    <div className={css.popupContent} onClick={handleContentClick}>
-      <button
-        className={css.closeButton}
-        onClick={onClose} // onClose викликається лише при кліку на "хрестик"
-      >
-        &times;
-      </button>
-      <p className={css.descriptionText}>{description}</p>
+    <div className={css.backdropInCard} onClick={onClose}>
+      <div className={css.popupContent} onClick={handleContentClick}>
+        <CloseButton
+          onClick={onClose}
+          className={css.popupCloseButton}
+          ariaLabel="Закрити опис"
+        />
+        <p className={css.descriptionText}>{description}</p>
+      </div>
     </div>
   );
 };

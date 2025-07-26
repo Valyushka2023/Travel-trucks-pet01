@@ -1,44 +1,3 @@
-/* .footerWrapper {
-  width: 100%;
-
-  background-color: #353434;
-}
-.footerContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 72px;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 64px;
-
-  box-sizing: border-box;
-}
-
-.phone,
-.info,
-.socialNetworks {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  color: #f1ebeb;
-}
-
-.phoneIcon {
-  margin-right: 12px;
-  color: rgb(90 230 90);
-}
-
-.phoneNumber {
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.phoneNumber:hover {
-  text-decoration: underline;
-} */
 /* Базові стилі для футера - діють за замовчуванням (для великих екранів) */
 .footerWrapper {
   width: 100%;
@@ -87,12 +46,9 @@
   text-decoration: underline;
 }
 
-/* --- */
 /* МЕДІА-ЗАПИТИ ДЛЯ АДАПТИВНОСТІ */
-/* --- */
 
-/* Планшети (Tablet) - від 769px до 1024px */
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .footerContainer {
     padding: 0 40px; /* Зменшуємо горизонтальний відступ */
     /* Можна змінити justify-content, якщо елементи починають тіснитися */
@@ -105,9 +61,20 @@
     font-size: 16px; /* Трохи зменшуємо шрифт */
   }
 }
+@media (max-width: 991px) {
+  .footerContainer {
+    padding: 0 30px; /* Зменшити ще більше */
+    justify-content: space-around; /* Наприклад, змінити розподіл */
+  }
+  .phone,
+  .info,
+  .socialNetworks {
+    font-size: 15px; /* Ще трохи зменшити */
+  }
+}
 
 /* Мобільні пристрої (Mobile) - від 481px до 768px */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .footerContainer {
     flex-direction: column; /* Елементи розташовуються один під одним */
     justify-content: center; /* Центруємо вміст по вертикалі */
@@ -132,7 +99,7 @@
 }
 
 /* Дуже маленькі мобільні пристрої (Small Mobile) - до 480px */
-@media (max-width: 480px) {
+@media (max-width: 479px) {
   .footerContainer {
     padding: 15px; /* Ще менші відступи */
     gap: 10px; /* Менші проміжки */

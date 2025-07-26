@@ -3,19 +3,21 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 641px;
-  max-height: 588px;
-  margin-left: 49px;
+  max-width: 644px;
+  min-height: 588px;
+
   padding: 44px 57px;
   box-sizing: border-box;
   background-color: #f7f7f7;
   border-radius: 6px;
   box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+  margin: 0;
 }
 
 .titleForm {
   display: flex;
   flex-direction: column;
+
   width: 100%;
   margin: 0;
   margin-bottom: 30px;
@@ -33,7 +35,7 @@
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   width: 100%;
 }
 
@@ -48,7 +50,9 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  flex-grow: 1;
   width: 100%;
+  background-color: #0d6efd;
 }
 
 .fieldForm,
@@ -61,6 +65,7 @@
   padding: 8px;
   box-sizing: border-box;
   background-color: #eceaea;
+  background-color: chocolate;
   border-radius: 6px;
 }
 
@@ -78,28 +83,47 @@
 .modalInput,
 .modalTextArea {
   flex: 1;
-  align-items: center;
-  padding: 2px 18px;
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 0 18px;
+  min-height: 24px;
+  line-height: 1;
+
+  color: #555;
   background-color: #f7f7f7;
+  background-color: #dc3545;
   border: 1px solid #f7f7f7;
   border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 400;
-  color: #555;
   cursor: pointer;
 }
 
+.modalInput,
+.modalTextArea,
+.modalInput::placeholder,
+.modalTextArea::placeholder,
+.modalInput::-webkit-input-placeholder,
+.modalTextArea::-webkit-input-placeholder,
+.modalInput::-moz-placeholder,
+.modalTextArea::-moz-placeholder,
+.modalInput:-ms-input-placeholder,
+.modalTextArea:-ms-input-placeholder {
+  /* color: #888; */
+/*color: rgb(46 47 66 / 40%);
+  opacity: 1;
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
 .modalTextArea {
-  min-height: 82px;
+  min-height: 84px;
+  line-height: 1.1;
 }
 
 .modalInput:hover,
 .modalTextArea:hover {
   border: 1px solid #187ff2;
-}
-
-.modalTextArea::placeholder {
-  color: rgb(46 47 66 / 40%);
 }
 
 .elementSend {
@@ -161,20 +185,101 @@
 
 .inputError {
   border-color: #dc3545 !important;
+}
+
+.modalInput {
+  cursor: pointer;
+}
+
+.datepickerWrapper {
+  position: relative;
+}
+
+.react-datepicker-popper {
+  z-index: 20;
+}
+
+.react-datepicker {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.react-datepicker__header {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: #333;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range {
+  background-color: #187ff2;
+  color: #fff;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.react-datepicker__day:hover {
+  background-color: #e0e0e0;
+}
+
+.react-datepicker__time-container {
+  border-left: 1px solid #ddd;
+}
+
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item--selected {
+  background-color: #187ff2;
+  color: #fff;
+}
+
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item:hover {
+  background-color: #e0e0e0;
+}
+
+.react-datepicker__input-container {
+  position: relative;
+}
+
+.react-datepicker__calendar-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+
+  z-index: 2;
 } */
+
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 641px;
-  max-height: 588px;
-  margin-left: 49px;
+  max-width: 628px;
+  min-height: 588px;
   padding: 44px 57px;
   box-sizing: border-box;
   background-color: #f7f7f7;
   border-radius: 6px;
   box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+  margin: 0;
 }
 
 .titleForm {
@@ -197,7 +302,7 @@
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   width: 100%;
 }
 
@@ -212,7 +317,10 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  flex-grow: 1;
   width: 100%;
+  /* Виправлення: Синій фон має бути прозорим, якщо не використовується для візуального відділення */
+  background-color: transparent; /* Раніше був #0d6efd */
 }
 
 .fieldForm,
@@ -224,12 +332,13 @@
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
-  background-color: #eceaea;
+  background-color: #eceaea; /* Виправлення: Повернено на бажаний світло-сірий фон */
+  /* background-color: chocolate; /* Закоментовано, оскільки це був тимчасовий колір */
   border-radius: 6px;
 }
 
 .fieldArea {
-  align-items: flex-start;
+  align-items: flex-start; /* Для textarea, щоб текст починався зверху */
 }
 
 .label {
@@ -239,83 +348,56 @@
   color: #555;
 }
 
+/* ОСНОВНІ СТИЛІ ДЛЯ ВСІХ ПОЛІВ ВВЕДЕННЯ (input та textarea) */
 .modalInput,
 .modalTextArea {
   flex: 1;
-  align-items: center;
-  padding: 2px 18px;
-  background-color: #f7f7f7;
-  border: 1px solid #f7f7f7;
-  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 0 18px;
+  min-height: 24px;
+  line-height: 1;
+
   font-size: 1rem;
   font-weight: 400;
-  color: #555; /* Колір для введеного тексту */
+  color: #555;
+  font-family: inherit; /* Успадкування шрифту від батьківського елемента */
+
+  /* Стилі фону та рамки */
+  background-color: #f7f7f7; /* Основний колір фону інпутів */
+  border: 1px solid #f7f7f7; /* Основний колір рамки */
+  border-radius: 6px;
   cursor: pointer;
+
+  /* display: flex; /* Забрано, оскільки може конфліктувати з внутрішнім вирівнюванням тексту інпутів */
+  /* align-items: center; /* Забрано, оскільки може конфліктувати з внутрішнім вирівнюванням тексту інпутів */
 }
 
-/* СТИЛІЗАЦІЯ ПЛЕЙСХОЛДЕРА ДЛЯ .modalInput */
-.modalInput::placeholder {
-  color: rgb(
-    46 47 66 / 40%
-  ); /* Використовуємо той самий колір, що і для textarea, або оберіть свій */
-  opacity: 1; /* Забезпечуємо повну непрозорість у Firefox */
-  /* font-style: italic; */ /* Можна додати, якщо потрібен курсив */
-}
-.modalInput::-webkit-input-placeholder {
-  /* Для WebKit */
-  color: rgb(46 47 66 / 40%);
-  /* font-style: italic; */
-}
-.modalInput::-moz-placeholder {
-  /* Для Firefox */
-  color: rgb(46 47 66 / 40%);
-  opacity: 1;
-  /* font-style: italic; */
-}
-.modalInput:-ms-input-placeholder {
-  /* Для IE 10+ */
-  color: rgb(46 47 66 / 40%);
-  /* font-style: italic; */
-}
-.modalInput::-ms-input-placeholder {
-  /* Для Edge */
-  color: rgb(46 47 66 / 40%);
-  /* font-style: italic; */
-}
-
-.modalTextArea {
-  min-height: 82px;
-}
-
-/* СТИЛІЗАЦІЯ ПЛЕЙСХОЛДЕРА ДЛЯ .modalTextArea */
-/* Цей блок у вас вже був, я його трохи розширив для кросбраузерності */
-.modalTextArea::placeholder {
-  color: rgb(46 47 66 / 40%);
-  opacity: 1; /* Забезпечуємо повну непрозорість у Firefox */
-  /* font-style: italic; */
-}
-.modalTextArea::-webkit-input-placeholder {
-  /* Для WebKit */
-  color: rgb(46 47 66 / 40%);
-  /* font-style: italic; */
-}
-.modalTextArea::-moz-placeholder {
-  /* Для Firefox */
-  color: rgb(46 47 66 / 40%);
-  opacity: 1;
-  /* font-style: italic; */
-}
+/* СТИЛІ ДЛЯ ПЛЕЙСХОЛДЕРІВ (мають відповідати основним стилям шрифту, але мати інший колір) */
+/* Цей блок має бути ПІСЛЯ `.modalInput, .modalTextArea` для правильного застосування */
+.modalInput::placeholder,
+.modalTextArea::placeholder,
+.modalInput::-webkit-input-placeholder,
+.modalTextArea::-webkit-input-placeholder,
+.modalInput::-moz-placeholder,
+.modalTextArea::-moz-placeholder,
+.modalInput:-ms-input-placeholder,
 .modalTextArea:-ms-input-placeholder {
-  /* Для IE 10+ */
   color: rgb(46 47 66 / 40%);
-  /* font-style: italic; */
-}
-.modalTextArea::-ms-input-placeholder {
-  /* Для Edge */
-  color: rgb(46 47 66 / 40%);
-  /* font-style: italic; */
+  opacity: 1;
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: inherit;
 }
 
+/* СПЕЦИФІЧНІ СТИЛІ ДЛЯ TEXTAREA (Comment) */
+.modalTextArea {
+  min-height: 84px;
+  line-height: 1.5;
+}
+
+/* СТИЛІ ПРИ НАВЕДЕННІ */
 .modalInput:hover,
 .modalTextArea:hover {
   border: 1px solid #187ff2;
@@ -323,7 +405,7 @@
 
 .elementSend {
   width: 100%;
-  margin-top: 24px;
+  margin-top: 28px;
   text-align: center;
 }
 
@@ -341,6 +423,7 @@
   color: #fa2105;
 }
 
+/* СТИЛІ ДЛЯ ПОПЕРЕДЖЕНЬ ПРО ПОМИЛКИ */
 .errorPopup {
   position: absolute;
   top: calc(100% + 4px);
@@ -378,6 +461,148 @@
   content: '';
 }
 
+/* СТИЛІ ДЛЯ ПОЛЯ ВВЕДЕННЯ У СТАНІ ПОМИЛКИ */
 .inputError {
   border-color: #dc3545 !important;
+  background-color: #fdd !important;
+}
+
+/* ДОДАТКОВІ СТИЛІ, ЯКІ БУЛИ В КОДІ */
+.modalInput {
+  cursor: pointer;
+}
+
+.datepickerWrapper {
+  position: relative;
+}
+
+.react-datepicker-popper {
+  z-index: 20;
+}
+
+.react-datepicker {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.react-datepicker__header {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: #333;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range {
+  background-color: #187ff2;
+  color: #fff;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.react-datepicker__day:hover {
+  background-color: #e0e0e0;
+}
+
+.react-datepicker__time-container {
+  border-left: 1px solid #ddd;
+}
+
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item--selected {
+  background-color: #187ff2;
+  color: #fff;
+}
+
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item:hover {
+  background-color: #e0e0e0;
+}
+
+.react-datepicker__input-container {
+  position: relative;
+}
+
+.react-datepicker__calendar-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+@media (max-width: 1199px) {
+  .form {
+    max-width: 533px;
+    padding: 44px;
+
+    background-color: chocolate;
+  }
+  .titleForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 991px) {
+  .form {
+    max-width: 459px;
+    /* padding: 24px 30px;  */
+    padding: 44px 24px;
+    background-color: chocolate;
+  }
+  .titleForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 30px;
+  }
+  /* .label {
+    flex-shrink: 0;
+    min-width: 40px;
+    font-size: 0.9rem;
+    color: #555;
+  } */
+}
+@media (max-width: 767px) {
+  .form {
+    padding: 24px;
+  }
+  .label {
+    flex-shrink: 0;
+    min-width: 40px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+}
+@media (max-width: 479px) {
+  .form {
+    padding: 40px 24px;
+  }
+  .label {
+    flex-shrink: 0;
+    min-width: 40px;
+    font-size: 0.8rem;
+    color: #555;
+  }
 }

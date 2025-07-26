@@ -1,18 +1,29 @@
 .container {
   display: flex;
   flex-direction: column;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+
+  width: 100%;
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
 }
 
-.buttons {
+.buttonsContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 250px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 150px;
 }
 
 .goBackLink {
-  margin-top: 20px;
-  margin-left: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
   font-size: 24px;
   text-decoration: none;
   color: #333;
@@ -21,12 +32,14 @@
     color 0.3s ease,
     text-decoration 0.3s ease;
   cursor: pointer;
+  white-space: nowrap;
+  z-index: 10;
 }
 
 .goBackLink:hover {
   text-decoration: underline;
   color: #187ff2;
-  transform: translateY(-5px) scale(1.1);
+  transform: translateY(-5px) scale(1.05);
 }
 
 .goBackLink:active {
@@ -35,43 +48,142 @@
   transform: translateY(0) scale(0.95);
 }
 
-.closeButton {
+.pageCloseButton {
   position: absolute;
-  top: 20px; /* Відступ від верхнього краю */
-  right: 20px; /* Відступ від правого краю */
-  background: none;
-  border: none;
-  font-size: 32px;
-  color: #555; /* Колір хрестика */
-
-  /* padding: 0;
-  line-height: 1; Вирівнювання по вертикалі */
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
-  cursor: pointer;
+  top: 20px; /* Початкове значення, як і для goBackLink */
+  right: 20px;
+  font-size: 24px;
+  z-index: 10;
+  transform: translateY(-2px);
 }
 
-.closeButton:hover {
-  color: #187ff2;
-  transform: translateY(-5px) scale(1.1);
-}
-
-.closeButton:active {
-  color: #fa2105;
-  transform: translateY(0) scale(0.95);
+.loaderOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  border-radius: 8px;
 }
 
 .feedback {
   display: flex;
   flex-direction: column;
-
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
+  /* flex-grow: 1; */
+  text-align: center;
+  padding-bottom: 50px;
+}
 
-  /* grid-column: 80px; */
+.feedback h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .text {
   font-size: 36px;
+  max-width: 800px;
+  line-height: 1.5;
+  color: #666;
+}
+
+@media (max-width: 1199px) {
+  .goBackLink {
+    font-size: 22px;
+    left: 18px;
+    top: 18px;
+  }
+  .pageCloseButton {
+    font-size: 22px;
+    top: 18px;
+    right: 18px;
+    transform: translateY(-1px);
+  }
+  .buttonsContainer {
+    margin-bottom: 120px;
+  }
+  .feedback h1 {
+    font-size: 44px;
+  }
+  .text {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 991px) {
+  .goBackLink {
+    font-size: 20px;
+    left: 15px;
+    top: 15px;
+  }
+  .pageCloseButton {
+    font-size: 20px;
+    top: 15px;
+    right: 15px;
+    transform: translateY(-1px);
+  }
+  .buttonsContainer {
+    margin-bottom: 80px;
+  }
+  .feedback h1 {
+    font-size: 40px;
+  }
+  .text {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .buttonsContainer {
+    margin-bottom: 50px; /* Значно зменшуємо для mobileMdMax */
+    /* Важливо: тут ви раніше змінювали flex-direction на column для buttonsContainer.
+     Оскільки кнопки тепер absolute, buttonsContainer може залишатися row або ви можете видалити його,
+     або використати для інших цілей. Головне - зменшити margin-bottom. */
+  }
+  .goBackLink {
+    left: 10px;
+    top: 10px;
+    font-size: 18px;
+  }
+
+  .pageCloseButton {
+    font-size: 18px;
+    top: 10px;
+    right: 10px;
+    transform: translateY(-1px);
+  }
+
+  .feedback h1 {
+    font-size: 32px;
+  }
+  .text {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 479px) {
+  .buttonsContainer {
+    margin-bottom: 30px; /* Максимально зменшуємо для mobileSmMax */
+  }
+  .goBackLink {
+    top: 5px;
+    left: 5px;
+    font-size: 16px;
+  }
+  .pageCloseButton {
+    font-size: 16px;
+    top: 5px;
+    right: 5px;
+    transform: translateY(-1px);
+  }
+  .feedback h1 {
+    font-size: 28px;
+  }
+  .text {
+    font-size: 20px;
+  }
 }

@@ -196,6 +196,7 @@ function PageCatalog() {
         <Header />
         <div className={css.containerCatalog}>
           <div className={css.containerFilters}>
+            <h4 className={css.locationTitle}>Location</h4>
             <FilterLocation
               campers={campers}
               setLocation={handleLocationChange}

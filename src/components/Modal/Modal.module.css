@@ -8,19 +8,20 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  padding: 10px;
+  /* padding: 10px; */
   background: rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
 }
 
 .modal {
   position: relative;
-  background-color: #f5f3f3;
+  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   width: 90%;
   max-width: 996px;
-  max-height: 90vh;
+  /* max-height: 90vh; */
+  max-height: calc(100vh - 40px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -37,34 +38,13 @@
   flex-shrink: 0;
 }
 
-.closeBtn {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: black;
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
-  cursor: pointer;
-  padding: 5px;
-}
-
-.closeBtn:hover {
-  color: #187ff2;
-  transform: scale(1.2);
-}
-.closeBtn:active {
-  color: #fa2105;
-  transform: scale(0.95);
-}
-
 .modalTitle {
   margin: 0;
-
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   text-align: center;
-  color: #fa2105;
+  /* color: #fa2105; */
+  color: #000;
   flex-shrink: 0;
 }
 
@@ -75,47 +55,57 @@
   -webkit-overflow-scrolling: touch;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1199px) {
   .modal {
-    width: 95%; /* Модалка буде трохи ширшою на планшетах */
-    max-width: unset; /* Знімаємо max-width для кращої адаптивності на менших екранах */
-    max-height: 90vh; /* Більше місця по висоті */
-  }
-
-  .modalHeader {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  .modalBody {
-    padding: 15px; /* Зменшуємо паддінг на малих екранах */
+    max-width: 80%;
+    /* max-height: calc(100vh - 40px); */
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 991px) {
+  /* .modal {
+    max-width: 80%;
+    max-height: 80%;
+  } */
+}
+
+@media (max-width: 767px) {
+  /* .modal {
+    max-width: 80%;
+    max-height: 80%;
+  } */
+  .modalHeader {
+    /* padding-left: 15px;
+    padding-right: 15px; */
+  }
+
+  .modalBody {
+    /* padding: 15px; */
+  }
+}
+
+@media (max-width: 479px) {
   .modal {
-    width: calc(100% - 20px); /* Відступ 10px з кожного боку */
-    max-height: 95vh; /* Ще більше місця по висоті на дуже малих екранах */
+    /* max-width: 80%;
+    max-height: 80%; */
   }
   .modalHeader {
-    flex-wrap: wrap; /* Заголовок і кнопка можуть переноситися, якщо занадто вузько */
-    justify-content: center; /* Центруємо елементи */
-    gap: 10px; /* Додаємо невеликий проміжок */
+    /* flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-between;
+    gap: 10px; */
   }
   .modalHeader .logo {
-    /* Якщо Logo є зображенням, можна зменшити його */
-    max-width: 100px; /* Приклад зменшення лого */
-    height: auto;
+    /* max-width: 100px;
+    height: auto; */
   }
-  .closeBtn {
-    position: static; /* Кнопка повертається в потік */
-    margin-left: auto; /* Відсуває кнопку вправо, якщо Logo зліва */
-  }
+
   .modalTitle {
-    font-size: 1.3rem; /* Менший заголовок */
-    padding: 10px 10px 15px 10px;
+    /* font-size: 1.3rem; */
+    /* padding: 10px 10px 15px 10px; */
   }
   .modalBody {
-    padding: 10px; /* Дуже маленький паддінг */
+    /* font-size: 0.9rem; */
+    /* padding: 10px; */
   }
 }

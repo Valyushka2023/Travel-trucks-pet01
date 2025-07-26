@@ -137,9 +137,72 @@
 // };
 
 // export default ThankYouBookingPage;
+// import { useState } from 'react';
+// import { useNavigate, useLocation } from 'react-router-dom';
+// import { ClipLoader } from 'react-spinners';
+// import css from './ThankYouBookingPage.module.css';
+
+// const ThankYouBookingPage = () => {
+//   const navigate = useNavigate();
+//   const location = useLocation();
+
+//   const { camperId, camper } = location.state || {};
+//   const [loading, setLoading] = useState(false);
+
+//   const handleGoBack = () => {
+//     navigate('/catalog');
+//   };
+
+//   const handleClose = () => {
+//     setLoading(true);
+
+//     if (camperId && camper) {
+//       navigate(`/catalog/${camperId}`, {
+//         state: { camper },
+//       });
+//     } else {
+//       // Якщо camper не передано, повертаємось на каталог
+//       navigate('/catalog');
+//     }
+
+//     setLoading(false);
+//   };
+
+//   return (
+//     <div className={css.container}>
+//       <div className={css.buttons}>
+//         <button onClick={handleGoBack} className={css.goBackLink}>
+//           &lt; Повернутись до каталогу
+//         </button>
+//         <button
+//           onClick={handleClose}
+//           className={css.closeButton}
+//           disabled={loading}
+//         >
+//           {loading ? <ClipLoader color="#ffffff" size={15} /> : <> &times; </>}
+//         </button>
+//       </div>
+
+//       <div className={css.feedback}>
+//         <h1>Ваш запит на бронювання отримано!</h1>
+//         <p className={css.text}>
+//           Наша команда зв'яжеться з вами найближчим часом, щоб підтвердити
+//           деталі бронювання.
+//         </p>
+//         {loading && <ClipLoader color="#187ff2" size={40} />}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ThankYouBookingPage;
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
+
+// Імпортуємо новий компонент CloseButton
+import CloseButton from '../../components/Ui/Button/CloseButton.jsx';
+
 import css from './ThankYouBookingPage.module.css';
 
 const ThankYouBookingPage = () => {
@@ -153,7 +216,8 @@ const ThankYouBookingPage = () => {
     navigate('/catalog');
   };
 
-  const handleClose = () => {
+  const handleClose = async () => {
+    // Зробимо асинхронною, якщо потрібно для loading
     setLoading(true);
 
     if (camperId && camper) {
@@ -170,17 +234,36 @@ const ThankYouBookingPage = () => {
 
   return (
     <div className={css.container}>
-      <div className={css.buttons}>
+      <div className={css.buttonsContainer}>
+        {' '}
+        {/* Перейменував клас для ясності */}
         <button onClick={handleGoBack} className={css.goBackLink}>
           &lt; Повернутись до каталогу
         </button>
-        <button
+        {/* Використовуємо компонент CloseButton */}
+        <CloseButton
           onClick={handleClose}
-          className={css.closeButton}
-          disabled={loading}
+          className={css.pageCloseButton}
+          ariaLabel="Закрити сторінку"
+          // Якщо потрібен індикатор завантаження всередині кнопки,
+          // доведеться додати пропс для рендерингу ClipLoader
+          // або стилізувати ClipLoader окремо. Для простоти, залишимо його зовні.
         >
-          {loading ? <ClipLoader color="#ffffff" size={15} /> : <> &times; </>}
-        </button>
+          {/* ClipLoader буде відображатися всередині CloseButton,
+              якщо ви модифікуєте CloseButton для прийому children.
+              Якщо ні, то логіку з loading потрібно буде обробляти окремо,
+              або просто приховувати кнопку під час завантаження.
+              Для даного варіанту я залишу ClipLoader за межами CloseButton, 
+              якщо кнопка не модифікована для відображення children.
+              Ваша поточна CloseButton не приймає children, тому так. */}
+        </CloseButton>
+        {loading && (
+          <div className={css.loaderOverlay}>
+            {' '}
+            {/* Додамо оверлей для спіннера */}
+            <ClipLoader color="#187ff2" size={40} />
+          </div>
+        )}
       </div>
 
       <div className={css.feedback}>
@@ -189,7 +272,6 @@ const ThankYouBookingPage = () => {
           Наша команда зв'яжеться з вами найближчим часом, щоб підтвердити
           деталі бронювання.
         </p>
-        {loading && <ClipLoader color="#187ff2" size={40} />}
       </div>
     </div>
   );

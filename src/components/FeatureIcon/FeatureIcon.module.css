@@ -1,14 +1,15 @@
 .badgesContainer {
   display: flex;
   gap: 6px;
-  width: 527px;
+  width: 100%;
   height: auto;
-
-  /* background-color: chartreuse; */
-
-  /* background-color: #dddbdb; */
   line-height: 1;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 0;
+  background-color: aqua;
+  /* margin-bottom: 50px; */
 }
 
 .featureIcon {
@@ -19,8 +20,6 @@
   width: auto;
   height: 48px;
   padding: 0 14px;
-
-  /* background-color: #c9c9c9; */
   background-color: #dddbdb;
   border-radius: 200px;
 }
@@ -33,25 +32,39 @@
 .text {
   font-size: 16px;
   font-weight: 500;
-  text-transform: capitalize; /* Це дозволяє зробити першу букву великою */
+  text-transform: capitalize;
   color: #333;
 }
 
 /* Стилізуємо безпосередньо елементи <use> */
 .featureIcon use[href*='icon-icon-button-gas'] {
-  fill: none; /* Видаляємо заливку */
-  stroke: currentcolor; /* Колір контуру наслідується від кольору тексту */
-  stroke-width: 2; /* Задаємо товщину контуру (за необхідності) */
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2;
 }
 
 .featureIcon use[href*='icon-icon-button-water'] {
-  fill: none; /* Видаляємо заливку */
-  stroke: currentcolor; /* Колір контуру наслідується від кольору тексту */
-  stroke-width: 2; /* Задаємо товщину контуру (за необхідності) */
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2;
 }
 
 .featureIcon use[href*='icon-icon-button-microwave'] {
-  fill: none; /* Видаляємо заливку */
-  stroke: currentcolor; /* Колір контуру наслідується від кольору тексту */
-  stroke-width: 2; /* Задаємо товщину контуру (за необхідності) */
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2;
+}
+
+@media (max-width: 1199px) {
+}
+@media (max-width: 991px) {
+}
+
+@media (max-width: 767px) {
+}
+
+@media (max-width: 479px) {
+  .badgesContainer {
+    justify-content: center;
+  }
 }

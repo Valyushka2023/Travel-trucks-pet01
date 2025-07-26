@@ -1,4 +1,4 @@
-// import Modal from '../Modal';
+// import Modal from '../../components/Modal/Modal.jsx';
 // import PropTypes from 'prop-types';
 // import css from './ContactsModal.module.css';
 
@@ -13,11 +13,7 @@
 // ];
 
 // const ContactsModal = ({ onClose, title = 'Contacts' }) => (
-//   <Modal
-//     title={title}
-//     titleClassName={css.titleContactsModal}
-//     onClose={onClose}
-//   >
+//   <Modal title={title} onClose={onClose}>
 //     <div className={css.contactContainer}>
 //       {contacts.map(({ city, street, phone }, index) => (
 //         <div className={css.contactBlok} key={index}>
@@ -54,14 +50,31 @@ const contacts = [
 const ContactsModal = ({ onClose, title = 'Contacts' }) => (
   <Modal title={title} onClose={onClose}>
     <div className={css.contactContainer}>
-      {contacts.map(({ city, street, phone }, index) => (
-        <div className={css.contactBlok} key={index}>
-          <h3 className={css.city}>{city}</h3>
-          <p className={css.street}>{street}</p>
-          <p className={css.phone}>Tel: {phone}</p>
-          <p className={css.email}>Email: info@traveltrucks.com</p>
-        </div>
-      ))}
+      <ul className={css.contactList}>
+        {contacts.map(({ city, street, phone }, index) => (
+          <li className={css.contactItem} key={index}>
+            {/* Групуємо адресу для легкого контролю на всіх брейкпоінтах */}
+            <span className={css.addressInfo}>
+              <strong>{city}:</strong> {street},&nbsp;
+            </span>
+
+            {/* Групуємо телефон та email для їх розташування на різних брейкпоінтах */}
+            <span className={css.contactInfo}>
+              Tel:&nbsp;
+              <a href={`tel:${phone}`} className={css.contactLink}>
+                {phone}
+              </a>
+              ,&nbsp; Email:&nbsp;
+              <a
+                href="mailto:info@traveltrucks.com"
+                className={css.contactLink}
+              >
+                info@traveltrucks.com
+              </a>
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   </Modal>
 );
