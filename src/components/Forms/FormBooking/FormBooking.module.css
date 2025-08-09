@@ -1,26 +1,48 @@
-/* .form {
+:root {
+  /* --primary-bg-color: #f7f7f7;
+  --box-shadow: : 0 2px 10px rgba(0, 0, 0, 0.15); */
+  --input-bg-color: #f7f7f7;
+  --input-border-color: #f7f7f7;
+  --input-border-color-hover: #187ff2;
+  --input-error-border-color: #dc3545;
+  --input-error-bg-color: #fdd;
+  --error-color: #dc3545;
+  --warning-color: #fa2105;
+  /* --text-color: #475467; */
+  --placeholder-color: rgb(46 47 66 / 40%);
+  /* --secondary-bg-color: #eceaea; */
+  --form-max-width-desktop: 624px;
+  --form-max-width-1199: 539px;
+  --form-max-width-991: 459px;
+  --spacing-small: 4px;
+  --spacing-medium: 6px;
+  --spacing-large: 18px;
+  --padding-desktop: 64px;
+  --padding-1199: 40px;
+  --padding-991: 44px 24px;
+  --padding-767: 44px 20px;
+  --padding-479: 44px 15px;
+}
+
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 644px;
+  max-width: var(--form-max-width-desktop);
   min-height: 588px;
-
-  padding: 44px 57px;
+  padding: var(--padding-desktop);
   box-sizing: border-box;
-  background-color: #f7f7f7;
+  background-color: var(--body-primary-bg-color);
   border-radius: 6px;
-  box-shadow: 0 0 10px rgb(0 0 0 / 15%);
-  margin: 0;
+  box-shadow: var(--box-shadow);
 }
 
 .titleForm {
   display: flex;
   flex-direction: column;
-
   width: 100%;
-  margin: 0;
-  margin-bottom: 30px;
+  margin: 0 0 30px;
 }
 
 .textTitleForm {
@@ -29,30 +51,23 @@
 
 .textForm {
   margin: 0;
-  color: #555;
+  color: var(--body-text-color);
 }
 
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--spacing-medium);
   width: 100%;
-}
-
-.inputForm {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
 }
 
 .inputAndErrorWrapper {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--spacing-small);
   flex-grow: 1;
   width: 100%;
-  background-color: #0d6efd;
 }
 
 .fieldForm,
@@ -60,12 +75,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 18px;
+  gap: var(--spacing-large);
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
-  background-color: #eceaea;
-  background-color: chocolate;
+  background-color: var(--body-secondary-bg-color);
   border-radius: 6px;
 }
 
@@ -77,7 +91,7 @@
   flex-shrink: 0;
   min-width: 40px;
   font-size: 1rem;
-  color: #555;
+  color: var(--body-text-color);
 }
 
 .modalInput,
@@ -85,21 +99,19 @@
   flex: 1;
   width: 100%;
   box-sizing: border-box;
-
   padding: 0 18px;
   min-height: 24px;
   line-height: 1;
-
-  color: #555;
-  background-color: #f7f7f7;
-  background-color: #dc3545;
-  border: 1px solid #f7f7f7;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--body-text-color);
+  font-family: inherit;
+  background-color: var(--input-bg-color);
+  border: 1px solid var(--input-border-color);
   border-radius: 6px;
   cursor: pointer;
 }
 
-.modalInput,
-.modalTextArea,
 .modalInput::placeholder,
 .modalTextArea::placeholder,
 .modalInput::-webkit-input-placeholder,
@@ -108,304 +120,26 @@
 .modalTextArea::-moz-placeholder,
 .modalInput:-ms-input-placeholder,
 .modalTextArea:-ms-input-placeholder {
-  /* color: #888; */
-/*color: rgb(46 47 66 / 40%);
+  color: var(--placeholder-color);
   opacity: 1;
   font-weight: 400;
   font-size: 1rem;
   font-family: inherit;
 }
 
-.modalTextArea {
-  min-height: 84px;
-  line-height: 1.1;
-}
-
-.modalInput:hover,
-.modalTextArea:hover {
-  border: 1px solid #187ff2;
-}
-
-.elementSend {
-  width: 100%;
-  margin-top: 24px;
-  text-align: center;
-}
-
-.charCount {
-  margin-top: 5px;
-  padding-right: 5px;
-  font-size: 0.8em;
-  text-align: center;
-  color: #888;
-  transition: color 0.3s ease;
-}
-
-.charCountWarning {
-  font-weight: bold;
-  color: #fa2105;
-}
-
-.errorPopup {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  z-index: 10;
-  margin: 0;
-  padding: 4px 8px;
-  background-color: #f5f3f3;
-  border: 1px solid #fa2105;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-  font-size: 0.9em;
-  white-space: nowrap;
-  color: #dc3545;
-}
-
-.generalErrorPopup {
-  margin-top: 10px;
-  padding: 4px 8px;
-  background-color: #f5f3f3;
-  border: 1px solid #fa2105;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-  font-size: 0.9em;
-  color: #dc3545;
-}
-
-.errorPopup::before {
-  position: absolute;
-  bottom: 100%;
-  left: 10px;
-  border-color: transparent transparent #fa2105;
-  border-style: solid;
-  border-width: 0 6px 6px;
-  content: '';
-}
-
-.inputError {
-  border-color: #dc3545 !important;
-}
-
-.modalInput {
-  cursor: pointer;
-}
-
-.datepickerWrapper {
-  position: relative;
-}
-
-.react-datepicker-popper {
-  z-index: 20;
-}
-
-.react-datepicker {
-  font-family: Arial, sans-serif;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.react-datepicker__header {
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #ddd;
-}
-
-.react-datepicker__current-month,
-.react-datepicker__day-name {
-  color: #333;
-}
-
-.react-datepicker__day--selected,
-.react-datepicker__day--in-selecting-range,
-.react-datepicker__day--in-range {
-  background-color: #187ff2;
-  color: #fff;
-}
-
-.react-datepicker__day--keyboard-selected {
-  background-color: #0d6efd;
-  color: #fff;
-}
-
-.react-datepicker__day:hover {
-  background-color: #e0e0e0;
-}
-
-.react-datepicker__time-container {
-  border-left: 1px solid #ddd;
-}
-
-.react-datepicker__time-container
-  .react-datepicker__time
-  .react-datepicker__time-box
-  ul.react-datepicker__time-list
-  li.react-datepicker__time-list-item--selected {
-  background-color: #187ff2;
-  color: #fff;
-}
-
-.react-datepicker__time-container
-  .react-datepicker__time
-  .react-datepicker__time-box
-  ul.react-datepicker__time-list
-  li.react-datepicker__time-list-item:hover {
-  background-color: #e0e0e0;
-}
-
-.react-datepicker__input-container {
-  position: relative;
-}
-
-.react-datepicker__calendar-icon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-
-  z-index: 2;
-} */
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 628px;
-  min-height: 588px;
-  padding: 44px 57px;
-  box-sizing: border-box;
-  background-color: #f7f7f7;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgb(0 0 0 / 15%);
-  margin: 0;
-}
-
-.titleForm {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: 0;
-  margin-bottom: 30px;
-}
-
-.textTitleForm {
-  margin: 0;
-}
-
-.textForm {
-  margin: 0;
-  color: #555;
-}
-
-.inputs {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  width: 100%;
-}
-
-.inputForm {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.inputAndErrorWrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex-grow: 1;
-  width: 100%;
-  /* Виправлення: Синій фон має бути прозорим, якщо не використовується для візуального відділення */
-  background-color: transparent; /* Раніше був #0d6efd */
-}
-
-.fieldForm,
-.fieldArea {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 18px;
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  background-color: #eceaea; /* Виправлення: Повернено на бажаний світло-сірий фон */
-  /* background-color: chocolate; /* Закоментовано, оскільки це був тимчасовий колір */
-  border-radius: 6px;
-}
-
-.fieldArea {
-  align-items: flex-start; /* Для textarea, щоб текст починався зверху */
-}
-
-.label {
-  flex-shrink: 0;
-  min-width: 40px;
-  font-size: 1rem;
-  color: #555;
-}
-
-/* ОСНОВНІ СТИЛІ ДЛЯ ВСІХ ПОЛІВ ВВЕДЕННЯ (input та textarea) */
-.modalInput,
-.modalTextArea {
-  flex: 1;
-  width: 100%;
-  box-sizing: border-box;
-
-  padding: 0 18px;
-  min-height: 24px;
-  line-height: 1;
-
-  font-size: 1rem;
-  font-weight: 400;
-  color: #555;
-  font-family: inherit; /* Успадкування шрифту від батьківського елемента */
-
-  /* Стилі фону та рамки */
-  background-color: #f7f7f7; /* Основний колір фону інпутів */
-  border: 1px solid #f7f7f7; /* Основний колір рамки */
-  border-radius: 6px;
-  cursor: pointer;
-
-  /* display: flex; /* Забрано, оскільки може конфліктувати з внутрішнім вирівнюванням тексту інпутів */
-  /* align-items: center; /* Забрано, оскільки може конфліктувати з внутрішнім вирівнюванням тексту інпутів */
-}
-
-/* СТИЛІ ДЛЯ ПЛЕЙСХОЛДЕРІВ (мають відповідати основним стилям шрифту, але мати інший колір) */
-/* Цей блок має бути ПІСЛЯ `.modalInput, .modalTextArea` для правильного застосування */
-.modalInput::placeholder,
-.modalTextArea::placeholder,
-.modalInput::-webkit-input-placeholder,
-.modalTextArea::-webkit-input-placeholder,
-.modalInput::-moz-placeholder,
-.modalTextArea::-moz-placeholder,
-.modalInput:-ms-input-placeholder,
-.modalTextArea:-ms-input-placeholder {
-  color: rgb(46 47 66 / 40%);
-  opacity: 1;
-  font-weight: 400;
-  font-size: 1rem;
-  font-family: inherit;
-}
-
-/* СПЕЦИФІЧНІ СТИЛІ ДЛЯ TEXTAREA (Comment) */
 .modalTextArea {
   min-height: 84px;
   line-height: 1.5;
 }
 
-/* СТИЛІ ПРИ НАВЕДЕННІ */
 .modalInput:hover,
 .modalTextArea:hover {
-  border: 1px solid #187ff2;
+  border: 1px solid var(--input-border-color-hover);
 }
 
 .elementSend {
   width: 100%;
-  margin-top: 28px;
+  margin-top: 38px;
   text-align: center;
 }
 
@@ -420,11 +154,11 @@
 
 .charCountWarning {
   font-weight: bold;
-  color: #fa2105;
+  color: var(--warning-color);
 }
 
-/* СТИЛІ ДЛЯ ПОПЕРЕДЖЕНЬ ПРО ПОМИЛКИ */
-.errorPopup {
+.errorPopup,
+.generalErrorPopup {
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
@@ -432,177 +166,70 @@
   margin: 0;
   padding: 4px 8px;
   background-color: #f5f3f3;
-  border: 1px solid #fa2105;
+  border: 1px solid var(--input-error-border-color);
   border-radius: 6px;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 0.9em;
   white-space: nowrap;
-  color: #dc3545;
+  color: var(--error-color);
 }
 
 .generalErrorPopup {
   margin-top: 10px;
-  padding: 4px 8px;
-  background-color: #f5f3f3;
-  border: 1px solid #fa2105;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-  font-size: 0.9em;
-  color: #dc3545;
+  position: static;
+  white-space: normal;
 }
 
 .errorPopup::before {
   position: absolute;
   bottom: 100%;
   left: 10px;
-  border-color: transparent transparent #fa2105;
+  border-color: transparent transparent var(--input-error-border-color);
   border-style: solid;
   border-width: 0 6px 6px;
   content: '';
 }
 
-/* СТИЛІ ДЛЯ ПОЛЯ ВВЕДЕННЯ У СТАНІ ПОМИЛКИ */
 .inputError {
-  border-color: #dc3545 !important;
-  background-color: #fdd !important;
-}
-
-/* ДОДАТКОВІ СТИЛІ, ЯКІ БУЛИ В КОДІ */
-.modalInput {
-  cursor: pointer;
+  border-color: var(--input-error-border-color) !important;
+  background-color: var(--input-error-bg-color) !important;
 }
 
 .datepickerWrapper {
   position: relative;
 }
 
-.react-datepicker-popper {
-  z-index: 20;
-}
-
-.react-datepicker {
-  font-family: Arial, sans-serif;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.react-datepicker__header {
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #ddd;
-}
-
-.react-datepicker__current-month,
-.react-datepicker__day-name {
-  color: #333;
-}
-
-.react-datepicker__day--selected,
-.react-datepicker__day--in-selecting-range,
-.react-datepicker__day--in-range {
-  background-color: #187ff2;
-  color: #fff;
-}
-
-.react-datepicker__day--keyboard-selected {
-  background-color: #0d6efd;
-  color: #fff;
-}
-
-.react-datepicker__day:hover {
-  background-color: #e0e0e0;
-}
-
-.react-datepicker__time-container {
-  border-left: 1px solid #ddd;
-}
-
-.react-datepicker__time-container
-  .react-datepicker__time
-  .react-datepicker__time-box
-  ul.react-datepicker__time-list
-  li.react-datepicker__time-list-item--selected {
-  background-color: #187ff2;
-  color: #fff;
-}
-
-.react-datepicker__time-container
-  .react-datepicker__time
-  .react-datepicker__time-box
-  ul.react-datepicker__time-list
-  li.react-datepicker__time-list-item:hover {
-  background-color: #e0e0e0;
-}
-
 .react-datepicker__input-container {
-  position: relative;
+  width: 100%;
 }
 
-.react-datepicker__calendar-icon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  z-index: 2;
+.react-datepicker__input-container .modalInput {
+  width: 100%;
+  height: 24px;
 }
 
 @media (max-width: 1199px) {
   .form {
-    max-width: 533px;
-    padding: 44px;
-
-    background-color: chocolate;
-  }
-  .titleForm {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0;
-    margin-bottom: 30px;
+    max-width: var(--form-max-width-1199);
+    padding: var(--padding-1199);
   }
 }
 
 @media (max-width: 991px) {
   .form {
-    max-width: 459px;
-    /* padding: 24px 30px;  */
-    padding: 44px 24px;
-    background-color: chocolate;
+    max-width: var(--form-max-width-991);
+    padding: var(--padding-991);
   }
-  .titleForm {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0;
-    margin-bottom: 30px;
-  }
-  /* .label {
-    flex-shrink: 0;
-    min-width: 40px;
-    font-size: 0.9rem;
-    color: #555;
-  } */
 }
+
 @media (max-width: 767px) {
   .form {
-    padding: 24px;
-  }
-  .label {
-    flex-shrink: 0;
-    min-width: 40px;
-    font-size: 0.9rem;
-    color: #555;
+    padding: var(--padding-767);
   }
 }
+
 @media (max-width: 479px) {
   .form {
-    padding: 40px 24px;
-  }
-  .label {
-    flex-shrink: 0;
-    min-width: 40px;
-    font-size: 0.8rem;
-    color: #555;
+    padding: var(--padding-479);
   }
 }

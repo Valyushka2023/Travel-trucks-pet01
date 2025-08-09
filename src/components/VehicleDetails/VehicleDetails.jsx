@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import css from './VehicleDetails.module.css';
 
 function VehicleDetails({ camper }) {
-  console.log('VehicleDetails отримує camper:', camper); // Додайте цей лог!
+  // console.log('VehicleDetails отримує camper:', camper);
   if (!camper) {
-    console.log('Camper порожній, показуємо завантаження...');
+    // console.log('Camper порожній, показуємо завантаження...');
     return (
       <div className={css.vehicleContainer}>Loading vehicle details...</div>
     );
@@ -12,9 +12,7 @@ function VehicleDetails({ camper }) {
 
   return (
     <div className={css.vehicleContainer}>
-      <div className={css.textDetails}>
-        <h3>Vehicle details</h3>
-      </div>
+      <h3>Vehicle details</h3>
 
       <div className={css.divider}></div>
       <div className={css.vehicleInfo}>

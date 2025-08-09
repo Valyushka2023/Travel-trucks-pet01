@@ -1,24 +1,24 @@
-/* .containerPictures {
-  display: flex;
-  gap: 60px;
-  width: 100%;
-  max-width: 1312px;
-  margin: 28px auto;
-  padding: 0;
-  box-sizing: border-box;
-  flex-wrap: nowrap;
+/* :root {
+  --grid-gap-desktop: 64px;
+  --grid-gap-1199: 44px;
+  --grid-gap-991: 24px;
+  --grid-gap-767: 20px;
+  --grid-gap-479: 15px;
+  --highlight-color: #187ff2;
+  --border-radius-size: 6px;
+  --image-min-height: 312px;
 } */
 
 .containerPictures {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 рівні колонки */
-  gap: 60px; /* рівномірні проміжки між фото */
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--grid-gap-desktop);
   width: 100%;
   max-width: 1312px;
-  margin: 28px auto;
-  /* padding: 0 20px;  */
+  margin: 0 auto;
   padding: 0;
-  box-sizing: border-box;
+  margin-top: 28px;
+  margin-bottom: 28px;
 }
 
 .galleryImageButton {
@@ -27,50 +27,47 @@
   background: none;
   border: none;
   outline: none;
+  cursor: pointer;
+  transition: outline 0.2s ease-in-out;
 }
 
-.galleryImageButton:hover {
-  border-radius: 6px;
-  outline: 8px solid #187ff2;
+.galleryImageButton:hover,
+.galleryImageButton:focus {
+  /* Додано :focus */
+  border-radius: var(--border-radius-size);
+  outline: 8px solid var(--highlight-color);
 }
 
-/* .galleryItem {
-  display: block;
-  width: 100%;
-  min-height: 312px;
-  border-radius: 6px;
-} */
 .galleryItem {
   display: block;
   width: 100%;
   height: auto;
-  min-height: 312px;
+  min-height: var(--image-min-height);
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: var(--border-radius-size);
 }
+
 @media (max-width: 1199px) {
   .containerPictures {
-    gap: 44px;
+    gap: var(--grid-gap-1199);
   }
 }
 
 @media (max-width: 991px) {
   .containerPictures {
-    gap: 24px;
+    gap: var(--grid-gap-991);
   }
 }
 
 @media (max-width: 767px) {
-  /* .containerPictures {
-    grid-template-columns: repeat(2, 1fr);
-  } */
   .containerPictures {
+    gap: var(--grid-gap-767);
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 479px) {
   .containerPictures {
-    grid-template-columns: 1fr;
+    gap: var(--grid-gap-479);
   }
 }

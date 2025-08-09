@@ -23,7 +23,7 @@ function Tabs({ camper, activeTab }) {
   }
 
   return (
-    <div className={css.tabc}>
+    <div className={css.tabs}>
       <div className={css.titlesTabs}>
         <button
           onClick={handleBackToDetails}

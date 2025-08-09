@@ -1,7 +1,8 @@
 /* Базові стилі для футера - діють за замовчуванням (для великих екранів) */
 .footerWrapper {
   width: 100%;
-  background-color: #353434; /* Темно-сірий фон футера */
+  /* background-color: #4d4c4c;   */
+  background-color: var(--footer-bg-color);
 }
 
 .footerContainer {
@@ -24,7 +25,8 @@
   justify-content: center;
   align-items: center;
   font-size: 18px; /* Базовий розмір шрифту */
-  color: #f1ebeb; /* Колір тексту */
+  /* color: #f1ebeb;  */
+  color: var(--footer-text-color);
   flex-shrink: 1; /* Дозволяє елементам зменшуватися, якщо місця мало */
   /* Додаємо flex-basis, щоб елементи краще розподілялись на більших екранах */
   flex-basis: auto; /* Автоматичний базовий розмір */
@@ -32,10 +34,11 @@
 
 .phoneIcon {
   margin-right: 12px;
-  color: rgb(90 230 90); /* Зелений колір іконки */
+  color: rgb(5, 163, 5); /* Зелений колір іконки */
 }
 
 .phoneNumber {
+  font-size: 18px;
   font-weight: bold;
   color: inherit; /* Успадковує колір від батьківського .phone */
   text-decoration: none;
@@ -63,7 +66,7 @@
 }
 @media (max-width: 991px) {
   .footerContainer {
-    padding: 0 30px; /* Зменшити ще більше */
+    padding: 0 24px; /* Зменшити ще більше */
     justify-content: space-around; /* Наприклад, змінити розподіл */
   }
   .phone,

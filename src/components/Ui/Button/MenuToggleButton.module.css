@@ -10,6 +10,7 @@
   cursor: pointer;
   z-index: 1001;
   color: #333;
+  color: var(--menuToggleButton-color);
   padding: 0;
   margin: 0;
 

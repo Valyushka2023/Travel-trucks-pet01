@@ -1,7 +1,6 @@
 .badgesContainer {
   display: flex;
   gap: 6px;
-  width: 100%;
   height: auto;
   line-height: 1;
   flex-wrap: wrap;
@@ -9,7 +8,7 @@
   box-sizing: border-box;
   padding: 0;
   background-color: aqua;
-  /* margin-bottom: 50px; */
+  margin: 0;
 }
 
 .featureIcon {
@@ -30,37 +29,18 @@
 }
 
 .text {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: capitalize;
   color: #333;
 }
 
-/* Стилізуємо безпосередньо елементи <use> */
-.featureIcon use[href*='icon-icon-button-gas'] {
-  fill: none;
-  stroke: currentcolor;
-  stroke-width: 2;
-}
-
-.featureIcon use[href*='icon-icon-button-water'] {
-  fill: none;
-  stroke: currentcolor;
-  stroke-width: 2;
-}
-
+.featureIcon use[href*='icon-icon-button-gas'],
+.featureIcon use[href*='icon-icon-button-water'],
 .featureIcon use[href*='icon-icon-button-microwave'] {
   fill: none;
   stroke: currentcolor;
   stroke-width: 2;
-}
-
-@media (max-width: 1199px) {
-}
-@media (max-width: 991px) {
-}
-
-@media (max-width: 767px) {
 }
 
 @media (max-width: 479px) {

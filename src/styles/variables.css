@@ -1,9 +1,20 @@
 /* CSS-змінні для теми та спільних стилів */
 
-/* :root {
-  --primary-color: #3498db;
+:root {
+  /* --primary-color: #3498db;
   --secondary-color: #2ecc71;
   --font-size-base: 16px;
   --spacing: 1rem;
-  --border-radius: 4px;
-} */
+  --border-radius: 4px; */
+  --primary-bg-color: #f7f7f7;
+  --secondary-bg-color: #eceaea;
+  --text-color: #475467;
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+.dark-theme {
+  /* Чорно-біла тема */
+  --primary-bg-color: #1a1a1a;
+  --secondary-bg-color: #333333;
+  --text-color: #f7f7f7;
+  --box-shadow: 0 2px 10px rgba(255, 255, 255, 0.15);
+}

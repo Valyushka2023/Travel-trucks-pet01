@@ -11,7 +11,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  color: var(--social-icon-color, #f5f3f3);
+  color: var(--footer-social-icon-color, #f5f3f3);
   transition:
     transform 0.3s ease,
     color 0.3s ease;
@@ -19,6 +19,6 @@
 }
 
 .socialIcon:hover {
-  color: var(--social-icon-hover-color, #1877f2);
+  color: var(--footer-social-icon-hover-color, #1877f2);
   transform: scale(1.2);
 }

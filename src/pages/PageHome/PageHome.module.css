@@ -102,7 +102,7 @@
     height: 350px;
   }
   .heroOverlay {
-    padding: 0 16px;
+    padding: 0 20px;
     justify-content: center;
     align-items: center;
   }
@@ -126,7 +126,7 @@
     height: 280px;
   }
   .heroOverlay {
-    padding: 0 10px;
+    padding: 0 15px;
   }
   .title {
     align-items: center;

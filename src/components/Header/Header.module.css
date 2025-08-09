@@ -1,6 +1,7 @@
 .headerWrapper {
   width: 100%;
-  background-color: #dddbdb;
+  /* background-color: #dddbdb;   */
+  background-color: var(--header-bg-color);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   z-index: 100;
@@ -12,7 +13,7 @@
   align-items: center;
   min-height: 72px;
   max-width: 1440px;
-  margin: 0 auto;
+  margin-inline: auto;
   padding: 0 64px;
   justify-content: center;
 }
@@ -23,10 +24,16 @@
   padding: 0;
   margin-right: auto;
 }
+/* Базовий стиль для іконки, який буде використовуватися в світлій темі */
+.themeIcon {
+  color: #000; /* Чорний колір для іконки */
+}
 
-/* .hamburgerOutsideMenu {
-} */
-
+/* Коли батьківський елемент має клас .dark-theme,
+   змінюємо колір іконки на білий */
+.dark-theme .themeIcon {
+  color: #fff; /* Білий колір для іконки */
+}
 .menu {
   display: flex;
   gap: 32px;
@@ -43,13 +50,17 @@
   display: none;
 }
 
-.link {
+.link,
+.active {
   text-decoration: none;
-  color: #333;
+  white-space: nowrap;
   transition:
     color 0.3s ease,
     transform 0.3s ease;
-  white-space: nowrap;
+}
+
+.link {
+  color: #333;
 }
 
 .link:hover {
@@ -63,7 +74,6 @@
 }
 
 .active {
-  text-decoration: none;
   color: #fa2105;
   cursor: default;
   pointer-events: none;
@@ -76,7 +86,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 99;
+  z-index: 999;
   display: none;
   cursor: pointer;
   opacity: 0;
@@ -95,7 +105,6 @@
   }
 
   .menu {
-    font-size: 20px;
     gap: 20px;
   }
 }
@@ -107,70 +116,61 @@
     justify-content: space-between;
   }
 
-  .logoHeader {
-    margin-right: 0;
-  }
-
   .menu {
-    font-size: 18px;
-    gap: 18px;
-    margin-left: auto;
     position: static;
-    transform: none;
     left: auto;
+    transform: none;
+    margin-left: auto;
   }
 }
 
 @media (max-width: 767px) {
   .headerContainer {
-    justify-content: space-between;
-    padding: 0 16px;
+    padding: 0 20px;
     min-height: 55px;
   }
 
   .logoHeader {
     max-width: 90px;
     height: auto;
-    margin: 0;
-    padding: 0;
-    margin-right: 0;
-  }
-
-  .hamburgerOutsideMenu {
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    align-self: center;
   }
 
   .menu {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
-    right: -250px;
+    right: 0;
+    transform: translateX(100%);
     width: 250px;
     height: 100%;
     background-color: #fff;
     flex-direction: column;
     align-items: center;
-    padding: 80px 0 20px 0;
-    gap: 24px;
+    padding: 80px 0;
     opacity: 0;
     visibility: hidden;
     transition:
-      right 0.3s ease-in-out,
+      transform 0.3s ease,
       opacity 0.3s ease,
       visibility 0.3s ease;
     z-index: 1002;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-    margin: 0;
+    text-align: center;
   }
 
   .menu.is-open {
-    display: flex;
-    right: 0;
+    transform: translateX(0);
     opacity: 1;
     visibility: visible;
+  }
+
+  .link,
+  .active {
+    padding: 12px 0;
+    margin: 12px 0;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
   }
 
   .closeButtonInsideMenu {
@@ -181,27 +181,11 @@
     font-size: 1.3rem;
     z-index: 1003;
   }
-
-  .link {
-    padding: 12px 0;
-    font-size: 18px;
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-  }
-
-  .link:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-
-  .active {
-    margin-top: 30px;
-  }
 }
 
 @media (max-width: 479px) {
   .headerContainer {
-    padding: 0 10px;
+    padding: 0 15px;
     min-height: 50px;
   }
 
@@ -210,16 +194,12 @@
   }
 
   .closeButtonInsideMenu {
-    font-size: 1.2rem;
-    top: 15px;
     right: 15px;
+    font-size: 1.2rem;
   }
 
   .link {
     font-size: 16px;
-    margin-top: 20px;
-  }
-  .active {
     margin-top: 20px;
   }
 }

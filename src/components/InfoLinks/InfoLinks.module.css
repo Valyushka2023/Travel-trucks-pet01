@@ -14,7 +14,8 @@
   font-size: 18px;
   font-weight: 500;
   text-decoration: none;
-  color: #f5f3f3;
+  /* color: #f5f3f3;   */
+  color: var(--footer-text-color);
   transition:
     color 0.3s ease,
     transform 0.3s ease;
