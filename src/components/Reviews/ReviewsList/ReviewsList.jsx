@@ -5,19 +5,21 @@ import css from './ReviewsList.module.css';
 
 const ReviewsList = forwardRef(({ reviews }, ref) => {
   return (
-    <div className={css.listContainer}>
-      <ul className={css.reviewsList}>
-        {reviews.map((review, index) => (
+    <ul className={css.reviewsList}>
+      {reviews.map((review, index) => {
+        const isLastItem = index === reviews.length - 1;
+
+        return (
           <li
             key={review.id || review._id}
-            className={css.reviewItem}
-            ref={index === reviews.length - 1 ? ref : null}
+            className={`${css.reviewItem} ${!isLastItem ? css.withBorder : ''}`}
+            ref={isLastItem ? ref : null}
           >
             <Review review={review} />
           </li>
-        ))}
-      </ul>
-    </div>
+        );
+      })}
+    </ul>
   );
 });
 

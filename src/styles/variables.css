@@ -1,20 +1,267 @@
-/* CSS-змінні для теми та спільних стилів */
+/* CSS-змінні */
 
 :root {
-  /* --primary-color: #3498db;
-  --secondary-color: #2ecc71;
-  --font-size-base: 16px;
-  --spacing: 1rem;
-  --border-radius: 4px; */
-  --primary-bg-color: #f7f7f7;
-  --secondary-bg-color: #eceaea;
-  --text-color: #475467;
-  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  /***************************************************/
+  /*Розміри*/
+  /***************************************************/
+  /* padding*/
+  --padding-xl: 0 4rem; /* max-width: 1440px, padding-desktop */
+  --padding-lg: 0 2.5rem; /* max-width: 1199px, padding-laptop */
+  --padding-md: 0 1.5rem; /* max-width: 991px, padding-tablet */
+  --padding-sm: 0 1.25rem; /* max-width: 767px, padding-mobile */
+  --padding-xs: 0 1rem; /* max-width: 479px, padding-mobile */
+
+  /* padding form*/
+  --padding-form-xl: 4rem; /*64px*/
+  --padding-form-lg: 2.5rem; /*40px*/
+  --padding-form-md: 1.5rem; /*32px*/
+  --padding-form-sm: 1.25rem; /*20px*/
+  --padding-form-xs: 0.9375rem; /*15px*/
+
+  /*spacing*/
+  --spacing-sm: 0.25rem; /*4px*/
+  --spacing-md: 0.375rem; /*6px*/
+  --spacing-lg: 1.125rem; /*18px*/
+
+  /*gap*/
+  --gap-xl: 4rem; /*64px*/
+  --gap-lg: 2.5rem; /*40px*/
+  --gap-md: 1.5rem; /*24x*/
+  --gap-sm: 1.25rem; /*20x*/
+  --gap-xs: 1rem; /*16x*/
+
+  /*border*/
+  --radius-sm: 0.375rem; /*6px*/
+  --radius-md: 0.75rem; /*12px*/
+  --radius-lg: 1.25rem; /*20px*/
+  --radius-full: 9999px;
+
+  /* image*/
+  --image-min-height: 19.5rem; /*312px*/
+
+  /* form */
+  --form-max-width-xl: 39rem; /*624px*/
+  --form-max-width-lg: 33.6875rem; /*539px*/
+  --form-max-width-md: 28.6875rem; /*459px*/
+
+  /*******************************************************/
+  /* Палітра кольорів*/
+  /******************************************************/
+  /* Основні кольори */
+  --color-black: #000000; /*чорний колір*/
+  --color-white: #ffffff; /*білий колір*/
+  --color-gray: #6c7178; /*сірий  колір*/
+  --color-red: #ff0000; /*червоний колір*/
+  --color-blue: #007bff; /*синій  колір*/
+
+  /* Спеціальні кольори */
+  --color-yellow: #ffc107; /*помаранчевий колір*/
+  /* --color-lilas: #c048e4;  */
+
+  /* Відтінки сірого */
+  --color-dark-gray: #3f3b3f;
+  --color-light-gray: #f2f4f7;
+  --color-light-gray-2: #dadbdc;
+  --color-light-gray-3: #9ea0a0;
+  --color-light-gray-4: #948f8fff;
+
+  /* Відтінки червоного */
+  --color-dark-red: #d84343;
+
+  /* Відтінки  білого */
+  --color-off-white: #f7f7f7;
+
+  /* Відтінки  чорного */
+  --color-soft-black: #121212;
+  --color-gunmetal-black: #2a2a2a;
+
+  /**************************************/
+  /*Елементи кольори яких  не змінюються в світло-темній темі*/
+  /*****************************************/
+  /*unchanging bg*/
+  --hover-bg-color: var(
+    --color-blue
+  ); /* синій незмінний колір для фону виділених елементів*/
+  --active-bg-color: var(
+    --color-red
+  ); /*червоний незмінний колір для фону  активних елементів*/
+  --button-primary-bg-color: var(
+    --color-red
+  ); /*червоний незмінний колір для  фону кнопок основних*/
+  --button-secondary-bg-color: var(
+    --color-lilas
+  ); /* бузковий незмінний колір для фону другорядних кнопок*/
+  --button-disabled-bg-color: var(
+    --color-light-gray
+  ); /*світло-сірий незмінний колір для фону відключеної кнопки*/
+
+  /*unchanging  color*/
+  --hover-color: var(
+    --color-blue
+  ); /*незмінний синій колір, який вказує, що елемент виділено*/
+  --active-color: var(
+    --color-red
+  ); /*незмінний червоний колір,  який вказує, що елемент є активним */
+  --input-color: var(
+    --color-blue
+  ); /*незмінний синій колір,  який виділяє інпут*/
+  --highlight-color: var(--color-blue); /*незмінний синій колір виділення*/
+  --error-color: var(
+    --color-red
+  ); /* незмінний червоний колір,  який вказує на текст, що сигналізує помилку*/
+  --warning-color: var(
+    --color-red
+  ); /*незмінний червоний колір,  який вказує на текст, що сигналізує попередження*/
+  --avatar-color: var(
+    --color-red
+  ); /* незмінний червоний колір елемента аватара*/
+  --star-gold-color: var(
+    --color-yellow
+  ); /*незмінний жовтий колір активної  зірки*/
+  --star-empty-color: var(
+    --color-light-gray-4
+  ); /*незмінний світло-сірий колір неактивної зірки*/
+  --shapes-color: var(--color-white); /*незмінний брудно-білий колір фігури*/
+  --button-primary-text-color: var(
+    --color-white
+  ); /* незмінний білий колір тексту головної кнопки*/
+  --button-secondary-text-color: var(
+    --color-dark-gray
+  ); /*незмінний темно-сірий колір тексту другорядної  кнопки*/
+  --button-disabled-text-color: var(
+    --color-dark-gray
+  ); /*незмінний темно-сірий колір відключеної кнопки*/
+
+  /***********************************************/
+  /*світло-темна тема*/
+  /********************************************/
+
+  /*light theme*/
+
+  /* bg color */
+  --header-bg-color: var(
+    --color-light-gray-2
+  ); /*колір фону header у світлій темі*/
+  --body-bg-color: var(--color-off-white); /*колір фону  body  у світлій темі */
+  --footer-bg-color: var(--color-gray); /*колір фону footer у світлій темі*/
+  --avatar-bg-color: var(
+    --color-light-gray-2
+  ); /*колір фону аватара у світлій темі*/
+  --blok-details-bg-color: var(
+    --color-light-gray
+  ); /*колір фону блоку деталей у світлій темі*/
+  --blok-featureIcon-bg-color: var(
+    --color-light-gray-2
+  ); /*колір фону блоку іконки особливостей у світлій темі */
+  --blok-location-bg-color: var(
+    --color-light-gray-2
+  ); /*колір блоку локацій у світлій темі*/
+  --blok-field-form-bg-color: var(
+    --color-light-gray-2
+  ); /* колір блоку поля форми у світлій темі*/
+
+  /* text color */
+  --primary-color: var(
+    --color-black
+  ); /* головний чорний  колір тексту в світлій темі*/
+  --primary-color-1: var(
+    --color-white
+  ); /* головний білий колір тексту в світлій темі*/
+  --secondary-color: var(
+    --color-soft-black
+  ); /* другорядний чорний  колір  тексту в світлій темі*/
+  --tertiary-color: var(
+    --color-dark-gray
+  ); /* третинний темно-світлий колір тексту в світлій темі*/
+  --tertiary-color-2: var(
+    --color-light-gray
+  ); /*третинний світло-сірий колір тексту в світлій темі*/
+  --button-default-text-color: var(
+    --color-dark-gray
+  ); /* темно-сірий колір тексту в кнопках за замовуванням  в світлій темі*/
+
+  /* logo color */
+  --logo-primary-color: var(
+    --color-dark-gray
+  ); /*темно-сірий колір першої тексту лого в світлій темі */
+  --logo-secondary-color: var(
+    --color-gray
+  ); /*сірий колір другої частини лого в світлій темі*/
+
+  /* button color */
+  --toggle-theme-icon-color: var(
+    --color-dark-gray
+  ); /*темно-сірий колір іконки перемикача в світлій темі*/
+  --button-burger-icon-color: var(
+    --color-dark-gray
+  ); /*темно-сірий колір іконки бургер в світлій темі*/
+  --button-close-icon-color: var(
+    --color-dark-gray
+  ); /*темн-сірий колір іконки хрестик в світлій темі*/
+
+  /* icon color */
+  --social-icon-color: var(
+    --color-white
+  ); /*білий колір іконок соцмереж в світлій темі*/
+  --icon-primary-color: var(
+    --color-dark-gray
+  ); /* головний темно-сірий колір  іконок в світлій темі*/
+  --star-icon-filled-color: var(
+    --color-light-gray-2
+  ); /*світло-сірий колір заповнення іконки зірка в світлій темі*/
+
+  /* boorder color */
+  --border-color: var(
+    --color-light-gray-2
+  ); /*світло-сірий колір бордера в світлій темі*/
+  --border-secondary-color: var(
+    --color-gray
+  ); /* другорядний сірий колір бордера в світлій темі*/
+
+  /* box-shadow color */
+  --box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.15); /*тінь в світлій темі*/
 }
+
 .dark-theme {
-  /* Чорно-біла тема */
-  --primary-bg-color: #1a1a1a;
-  --secondary-bg-color: #333333;
-  --text-color: #f7f7f7;
-  --box-shadow: 0 2px 10px rgba(255, 255, 255, 0.15);
+  /***********************************/
+  /*Перевизначення змінних в темній темі*/
+  /**********************************/
+  /* bg color */
+  --header-bg-color: var(--color-gray);
+  --body-bg-color: var(--color-soft-black);
+  --footer-bg-color: var(--color-light-gray-2);
+  --avatar-bg-color: var(--color-gray);
+  --blok-details-bg-color: var(--color-gunmetal-black);
+  --blok-featureIcon-bg-color: var(--color-dark-gray);
+  --blok-location-bg-color: var(--color-dark-gray);
+  --blok-field-form-bg-color: var(--color-dark-gray);
+
+  /* text color */
+  --primary-color: var(--color-white);
+  --primary-color-1: var(--color-black);
+  --secondary-color: var(--color-off-white);
+  --tertiary-color: var(--color-light-gray);
+  --tretiary-color-2: var(--color-dark-gray);
+  --button-default-text-color: var(--color-white);
+
+  /* logo color */
+  --logo-primary-color: var(--color-white);
+  --logo-secondary-color: var(--color-light-gray-2);
+
+  /* button color */
+  --toggle-theme-icon-color: var(--color-white);
+  --button-burger-icon-color: var(--color-white);
+  --button-close-icon-color: var(--color-white);
+
+  /* icon color */
+  --social-icon-color: var(--color-black);
+  --icon-primary-color: var(--color-light-gray);
+  --star-icon-filled-color: var(--color-gray);
+
+  /* border color */
+  --border-color: var(--color-gray);
+  --border-secondary-color: var(--color-light-gray-2);
+
+  /* box-shadow color */
+  --box-shadow: 0 0.125rem 0.625rem rgba(255, 255, 255, 0.15);
 }

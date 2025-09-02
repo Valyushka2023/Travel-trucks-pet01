@@ -1,173 +1,153 @@
-import { useRef, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
+import { useRef, useState } from 'react';
+import { useReviewsPagination } from '../../../hooks/useReviewsPagination.js';
 import Header from '../../Header/Header.jsx';
 import HeroSection from '../../HeroSection/HeroSection.jsx';
 import ImageGallery from '../../Gallery/ImageGallery/ImageGallery.jsx';
 import Tabs from '../../Tabs/Tabs.jsx';
 import ReviewsList from '../../Reviews/ReviewsList/ReviewsList.jsx';
 import FormReview from '../../Forms/FormReview/FormReview.jsx';
-import Button from '../../Ui/Button/Button.jsx';
-import ScrollToTopButton from '../../Ui/Button/ScrollToTopButton.jsx';
-import { useContainerScrollToTopButton } from '../../../hooks/useContainerScrollToTopButton';
-
+import Button from '../../Ui/Buttons/BaseButton/Button.jsx';
 import css from './ContentReviews.module.css';
 
 function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
+  const camperId = camper._id || camper.id;
+
   const reviewsContainerRef = useRef(null);
   const lastReviewRef = useRef(null);
 
-  const [visibleCount, setVisibleCount] = useState(3);
-  const REVIEWS_STEP = 3;
+  const {
+    visibleReviews,
+    hasMore,
+    handleLoadMore,
+    sortedReviews,
+    resetPagination,
+  } = useReviewsPagination(reviews, camperId);
 
-  const camperId = camper._id || camper.id;
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
 
-  useEffect(() => {
-    if (reviewsContainerRef.current) {
-      reviewsContainerRef.current.scrollTop = 0;
-    }
-    setVisibleCount(3);
-  }, [camperId]);
-
-  const reviewsWithGuaranteedIds = (reviews || []).map(review => ({
-    ...review,
-    id: review.id || review._id || uuidv4(),
-    rating: typeof review.rating === 'number' ? review.rating : 0,
-  }));
-
-  const sortedReviews = [...reviewsWithGuaranteedIds].sort(
-    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-  );
-
-  const visibleReviews = sortedReviews.slice(0, visibleCount);
-  const hasMore = visibleCount < sortedReviews.length;
-
-  const { visible: showScrollTop, scrollToTop } = useContainerScrollToTopButton(
-    reviewsContainerRef,
-    100
-  );
-
-  const isElementFullyVisible = (container, element) => {
-    const containerRect = container.getBoundingClientRect();
-    const elementRect = element.getBoundingClientRect();
-    return (
-      elementRect.top >= containerRect.top &&
-      elementRect.bottom <= containerRect.bottom
-    );
-  };
-
-  const handleReviewAdded = newReview => {
-    onReviewAdded(newReview);
-
+  // Функція прокрутки до останнього відгуку після додавання нового
+  const scrollToLastReview = () => {
     setTimeout(() => {
       if (
         reviewsContainerRef.current &&
         lastReviewRef.current &&
-        !isElementFullyVisible(
-          reviewsContainerRef.current,
-          lastReviewRef.current
-        )
+        lastReviewRef.current.offsetTop >
+          reviewsContainerRef.current.offsetHeight
       ) {
-        lastReviewRef.current.scrollIntoView({
+        reviewsContainerRef.current.scrollTo({
+          top: reviewsContainerRef.current.scrollHeight,
           behavior: 'smooth',
-          block: 'end',
         });
       }
     }, 100);
   };
 
-  const handleLoadMore = () => {
-    setVisibleCount(prev => prev + REVIEWS_STEP);
-  };
-
   const reviewsContainerClasses = [css.blokReviewsForm];
-  if (sortedReviews.length > 3 && visibleCount > 3) {
+  if (sortedReviews.length > 3) {
     reviewsContainerClasses.push(css.blokReviewsFormScrollable);
   }
 
+  const handleReviewAdded = newReview => {
+    onReviewAdded(newReview);
+    scrollToLastReview();
+  };
+
+  // Оновлена логіка для кнопки "Load more" з авто-прокруткою
+  const handleLoadMoreClick = () => {
+    const container = reviewsContainerRef.current;
+
+    if (container) {
+      // Запам'ятовуємо поточну висоту контейнера перед додаванням нових відгуків
+      const prevScrollHeight = container.scrollHeight;
+
+      // Додаємо наступні 3 відгуки
+      handleLoadMore();
+
+      // Чекаємо оновлення DOM і прокручуємо контейнер
+      setTimeout(() => {
+        const newScrollHeight = container.scrollHeight;
+
+        container.scrollTo({
+          top: container.scrollTop + (newScrollHeight - prevScrollHeight),
+          behavior: 'smooth',
+        });
+
+        // Показуємо кнопку "підняти вгору"
+        setShowScrollToTop(true);
+      }, 100);
+    }
+  };
+
+  const handleScrollToTop = () => {
+    if (reviewsContainerRef.current) {
+      reviewsContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+      setShowScrollToTop(false);
+      resetPagination();
+    }
+  };
+
   return (
     <div className={css.container}>
-      <div className={css.containerHeader}>
-        <Header />
-        <div className={css.containerTitle}>
-          <HeroSection camper={camper} />
-          <ImageGallery gallery={camper.gallery} />
-          <div className={css.containerText}>
-            <p className={css.text}>{camper.description}</p>
+      <Header />
+      <div className={css.containerContentReviews}>
+        <HeroSection camper={camper} />
+        <ImageGallery gallery={camper.gallery} />
+
+        <div className={css.containerText}>
+          <p className={css.text}>{camper.description}</p>
+        </div>
+
+        <Tabs camper={camper} activeTab={activeTab} />
+
+        <div className={css.listReviewsFormReview}>
+          <div className={css.listReviews}>
+            <div className={reviewsContainerClasses.join(' ')}>
+              {reviews && reviews.length > 0 ? (
+                <div className={css.blokListButton}>
+                  <div
+                    className={css.reviewsContentWrapper}
+                    ref={reviewsContainerRef}
+                  >
+                    <ReviewsList reviews={visibleReviews} ref={lastReviewRef} />
+                  </div>
+
+                  {hasMore && (
+                    <div className={css.buttonsWrapper}>
+                      <Button
+                        variant="primary"
+                        size="medium"
+                        onClick={handleLoadMoreClick}
+                        className={css.loadMoreBtn}
+                      >
+                        Load more
+                      </Button>
+                    </div>
+                  )}
+
+                  {showScrollToTop && (
+                    <div className={css.buttonsWrapper}>
+                      <div
+                        onClick={handleScrollToTop}
+                        className={`${css.scrollToTopBtn} ${css.visible}`}
+                      >
+                        <div className={css.triangle}></div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <p className={css.noReviews}>No reviews yet</p>
+              )}
+            </div>
+          </div>
+
+          <div className={css.containerFormReview}>
+            <FormReview camperId={camperId} onReviewAdded={handleReviewAdded} />
           </div>
         </div>
-      </div>
-
-      <Tabs camper={camper} activeTab={activeTab} />
-
-      <div className={css.reviewsForm}>
-        <div
-          className={reviewsContainerClasses.join(' ')}
-          ref={reviewsContainerRef}
-        >
-          {reviews && reviews.length > 0 ? (
-            <>
-              <div className={css.reviewsContentWrapper}>
-                <ReviewsList reviews={visibleReviews} ref={lastReviewRef} />
-              </div>
-
-              <div className={css.loadMoreWrapper}>
-                {hasMore ? (
-                  <Button
-                    variant="primary"
-                    size="medium"
-                    onClick={handleLoadMore}
-                    className={css.loadMoreBtn}
-                  >
-                    Load more
-                  </Button>
-                ) : showScrollTop ? (
-                  <ScrollToTopButton
-                    visible={showScrollTop} // Видимість кнопки
-                    onClick={() => {
-                      scrollToTop(); // Функція прокрутки, яка є частиною useContainerScrollToTopButton
-                      setTimeout(() => setVisibleCount(3), 500); // Додаткова логіка після прокрутки
-                    }}
-                    className={css.reviewsScrollToTopButton} // Застосування класу для фіксованого позиціонування
-                    label="▲"
-                  />
-                ) : null}
-              </div>
-            </>
-          ) : (
-            <p className={css.noReviews}>No reviews yet.</p>
-          )}
-        </div>
-
-        <FormReview camperId={camperId} onReviewAdded={handleReviewAdded} />
       </div>
     </div>
   );
 }
-
-ContentReviews.propTypes = {
-  camper: PropTypes.shape({
-    _id: PropTypes.string,
-    id: PropTypes.string,
-    gallery: PropTypes.arrayOf(PropTypes.string),
-    description: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    rating: PropTypes.number,
-    location: PropTypes.string,
-  }).isRequired,
-  activeTab: PropTypes.string.isRequired,
-  reviews: PropTypes.arrayOf(
-    PropTypes.shape({
-      _id: PropTypes.string,
-      id: PropTypes.string,
-      reviewer_name: PropTypes.string.isRequired,
-      rating: PropTypes.number,
-      comment: PropTypes.string.isRequired,
-      createdAt: PropTypes.string,
-    })
-  ),
-  onReviewAdded: PropTypes.func.isRequired,
-};
 
 export default ContentReviews;

@@ -1,411 +1,243 @@
-/* .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 641px;
-  max-height: 588px;
-  margin-left: 24px;
-  padding: 40px 57px;
-  box-sizing: border-box;
-  overflow: hidden;
-  background-color: #f7f7f7;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgb(0 0 0 / 15%);
-}
-
-.titleForm {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 24px;
-}
-
-.textTitleForm {
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.textForm {
-  margin: 0;
-  color: #555;
-}
-
-.inputs {
-  width: 100%;
-}
-
-.inputForm {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 0;
-}
-
-.inputAndErrorWrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  width: 100%;
-}
-
-.fieldForm,
-.fieldArea {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 18px;
-  width: 100%;
-  padding: 18px;
-  box-sizing: border-box;
-  background-color: #eceaea;
-  border-radius: 6px;
-}
-
-.fieldArea {
-  align-items: flex-start;
-}
-
-.label {
-  flex-shrink: 0;
-  min-width: 60px;
-  font-size: 1rem;
-  color: #555;
-}
-
-.modalInput,
-.modalTextArea {
-  flex: 1;
-  align-items: center;
-  padding: 4px 18px;
-  background-color: #f7f7f7;
-  border: 1px solid #f7f7f7;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 400;
-  color: #555;
-  cursor: pointer;
-}
-
-.modalTextArea {
-  min-height: 82px;
-}
-
-.modalInput:hover,
-.modalTextArea:hover {
-  border: 1px solid #187ff2;
-}
-
-.modalTextArea::placeholder {
-  color: rgb(46 47 66 / 40%);
-}
-
-.elementSubmit {
-  margin-top: auto;
-  text-align: center;
-}
-
-.star {
-  margin-right: 5px;
-  padding: 0;
-  background: none;
-  border: none;
-  font-size: 1rem;
-  color: #888;
-  cursor: pointer;
-}
-
-.star.filled {
-  font-size: 1rem;
-  color: gold;
-}
-
-.star:focus {
-  border-radius: 3px;
-  outline: 1px solid #777;
-}
-
-.charCount {
-  margin-top: 5px;
-  padding-right: 5px;
-  font-size: 0.8em;
-  text-align: center;
-  color: #888;
-  transition: color 0.3s ease;
-}
-
-.charCountWarning {
-  font-weight: bold;
-  color: #fa2105;
-}
-
-.errorPopup {
- 
-  position: absolute;
-  top: calc(100% + 4px); 
-  left: 0;
-  z-index: 10;
-  margin: 0;
-  margin-top: 5px;
-  padding: 4px 8px;
-  background-color: #f5f3f3;
-  border: 1px solid #fa2105;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-  font-size: 0.9em;
-  white-space: nowrap; 
-  color: #dc3545; 
-}
-
-.generalErrorPopup {
-  margin-top: 10px;
-  text-align: center;
-}
-
-.inputError {
-  border-color: #dc3545; 
-}
-
-.errorPopup::before {
-  position: absolute;
-  bottom: 100%;
-  left: 10px;
-  border-color: transparent transparent #fa2105;
-  border-style: solid;
-  border-width: 0 6px 6px;
-  content: '';
-} */
-
-/* FormReview.module.css */
-
 .form {
   display: flex;
   flex-direction: column;
+  gap: 1.875rem;
   align-items: center;
   width: 100%;
-  max-width: 641px;
-  max-height: 588px;
-  margin-left: 24px;
-  padding: 40px 57px;
+  max-width: var(--form-max-width-xl);
+  height: 100%;
+  padding: var(--padding-form-xl);
   box-sizing: border-box;
-  overflow: hidden;
-  background-color: #f7f7f7;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+  background-color: var(--body-bg-color);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--box-shadow);
+  border: 0.0125rem solid var(--border-color);
 }
 
 .titleForm {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 24px;
+  margin: 0;
 }
 
 .textTitleForm {
-  margin-top: 0;
-  margin-bottom: 8px;
+  margin: 0;
+  color: var(--primary-color);
 }
 
 .textForm {
   margin: 0;
-  color: #555;
+  color: var(--secondary-color);
 }
 
-.inputs {
+.inputsArea {
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
-.inputForm {
+.inputs {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 0;
+  width: 100%;
+  gap: var(--spacing-lg);
 }
 
 .inputAndErrorWrapper {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--spacing-sm);
+  flex-grow: 1;
   width: 100%;
+  background-color: var(--primary-bg-color);
 }
 
-.fieldForm,
+/* Існуючий fieldForm */
+.fieldForm {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background-color: var(--blok-field-form-bg-color);
+  border-radius: var(--radius-sm);
+}
+
+/* НОВИЙ КЛАС для компонента StarRating */
+.ratingField {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background-color: #fa2105;
+  border-radius: var(--radius-sm);
+}
+
 .fieldArea {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 18px;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
   width: 100%;
-  padding: 18px;
+  padding: 0.5rem;
   box-sizing: border-box;
-
-  /* background-color: #dddbdb;  */
-  background-color: #eceaea;
-  border-radius: 6px;
+  background-color: var(--blok-field-form-bg-color);
+  border-radius: var(--radius-sm);
 }
 
-.fieldArea {
-  align-items: flex-start;
+.commentAndCounterWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  min-width: 5rem;
 }
 
 .label {
   flex-shrink: 0;
-  min-width: 60px;
+  min-width: 2.5rem;
   font-size: 1rem;
-  color: #555;
+  color: var(--tertiary-color);
+}
+
+.labelComment {
+  flex-shrink: 0;
+  min-width: 2.5rem;
+  font-size: 1rem;
+  color: var(--tertiary-color);
+  margin-top: 0.09375rem;
 }
 
 .modalInput,
 .modalTextArea {
   flex: 1;
-  align-items: center;
-  padding: 4px 18px;
-  background-color: #f7f7f7;
-  border: 1px solid #f7f7f7;
-  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 1.5rem;
+  line-height: 1;
   font-size: 1rem;
   font-weight: 400;
-  color: #555; /* Колір для введеного тексту */
+  color: var(--secondary-color);
+  font-family: inherit;
+  border: 0.0625rem solid var(--border-color);
+  border-radius: var(--radius-sm);
   cursor: pointer;
+  background-color: var(--body-bg-color);
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
+  padding: 0 1.125rem;
 }
 
-/* СТИЛІЗАЦІЯ ПЛЕЙСХОЛДЕРА ДЛЯ .modalInput */
-.modalInput::placeholder {
-  color: rgb(
-    46 47 66 / 40%
-  ); /* Використовуємо той самий колір, що у вас вже був для textarea */
-  opacity: 1; /* Забезпечуємо повну непрозорість у Firefox */
-  /* font-style: italic; */ /* Можна додати, якщо потрібен курсив */
-}
-.modalInput::-webkit-input-placeholder {
-  /* Для WebKit */
-  color: rgb(46 47 66 / 40%);
-  /* font-style: italic; */
-}
-.modalInput::-moz-placeholder {
-  /* Для Firefox */
-  color: rgb(46 47 66 / 40%);
+.modalInput::placeholder,
+.modalTextArea::placeholder,
+.modalInput::-webkit-input-placeholder,
+.modalTextArea::-webkit-input-placeholder,
+.modalInput::-moz-placeholder,
+.modalTextArea::-moz-placeholder,
+.modalInput:-ms-input-placeholder,
+.modalTextArea:-ms-input-placeholder {
   opacity: 1;
-  /* font-style: italic; */
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: inherit;
 }
-.modalInput:-ms-input-placeholder {
-  /* Для IE 10+ */
-  color: rgb(46 47 66 / 40%);
-  /* font-style: italic; */
-}
-.modalInput::-ms-input-placeholder {
-  /* Для Edge */
-  color: rgb(46 47 66 / 40%);
-  /* font-style: italic; */
+
+.modalInput {
+  min-height: 2.25rem;
 }
 
 .modalTextArea {
-  min-height: 82px;
+  min-height: 5.125rem;
 }
-
-/* СТИЛІЗАЦІЯ ПЛЕЙСХОЛДЕРА ДЛЯ .modalTextArea */
-.modalTextArea::placeholder {
-  color: rgb(46 47 66 / 40%);
-  opacity: 1;
-  /* font-style: italic; */
-}
-.modalTextArea::-webkit-input-placeholder {
-  color: rgb(46 47 66 / 40%);
-  /* font-style: italic; */
-}
-.modalTextArea::-moz-placeholder {
-  color: rgb(46 47 66 / 40%);
-  opacity: 1;
-  /* font-style: italic; */
-}
-.modalTextArea:-ms-input-placeholder {
-  color: rgb(46 47 66 / 40%);
-  /* font-style: italic; */
-}
-.modalTextArea::-ms-input-placeholder {
-  color: rgb(46 47 66 / 40%);
-  /* font-style: italic; */
+.modalInput:hover,
+.modalTextArea:hover {
+  line-height: 1.5;
+  padding: 0 1.125rem;
 }
 
 .modalInput:hover,
 .modalTextArea:hover {
-  border: 1px solid #187ff2;
+  border: 0.0625rem solid var(--hover-color);
 }
 
 .elementSubmit {
+  width: 100%;
   margin-top: auto;
   text-align: center;
 }
 
-.star {
-  margin-right: 5px;
-  padding: 0;
-  background: none;
-  border: none;
-  font-size: 1rem;
-  color: #888;
-  cursor: pointer;
-}
-
-.star.filled {
-  font-size: 1rem;
-  color: gold;
-}
-
-.star:focus {
-  border-radius: 3px;
-  outline: 1px solid #777;
-}
-
 .charCount {
-  margin-top: 5px;
-  padding-right: 5px;
+  margin: 0;
+  padding: 0;
   font-size: 0.8em;
   text-align: center;
-  color: #888;
+  color: var(--secondary-color);
   transition: color 0.3s ease;
 }
 
 .charCountWarning {
   font-weight: bold;
-  color: #fa2105;
+  color: var(--warning-color);
 }
 
-.errorPopup {
-  /* Для спливаючого вікна */
+.errorPopup,
+.generalErrorPopup {
   position: absolute;
-  top: calc(100% + 4px); /* Розміщує його під полем */
+  top: calc(100% + 0.25rem);
   left: 0;
   z-index: 10;
   margin: 0;
-  margin-top: 5px;
-  padding: 4px 8px;
-  background-color: #f5f3f3;
-  border: 1px solid #fa2105;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  padding: 0.25rem 0.5rem;
+  background-color: var(--primary-bg-color);
+  border: 0.0625rem solid var(--error-color);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--box-shadow);
   font-size: 0.9em;
-  white-space: nowrap; /* Щоб текст не переносився */
-  color: #dc3545; /* Червоний колір для помилок */
+  white-space: nowrap;
+  color: var(--error-color);
 }
 
 .generalErrorPopup {
-  margin-top: 10px;
-  text-align: center;
+  margin-top: 0.625rem;
+  position: static;
+  white-space: normal;
 }
 
 .inputError {
-  border-color: #dc3545; /* Червона рамка для полів з помилками */
+  border-color: var(--error-color) !important;
 }
 
 .errorPopup::before {
   position: absolute;
   bottom: 100%;
-  left: 10px;
-  border-color: transparent transparent #fa2105;
+  left: 0.625rem;
+  border-color: transparent transparent var(--error-color);
   border-style: solid;
-  border-width: 0 6px 6px;
+  border-width: 0 0.375rem 0.375rem;
   content: '';
+}
+
+@media (max-width: 74.9375rem) {
+  .form {
+    padding: var(--padding-form-lg);
+  }
+}
+@media (max-width: 61.9375rem) {
+  .form {
+    padding: var(--padding-form-md);
+  }
+}
+@media (max-width: 47.9375rem) {
+  .form {
+    padding: var(--padding-form-sm);
+  }
+}
+@media (max-width: 29.9375rem) {
+  .form {
+    padding: var(--padding-form-xs);
+  }
 }

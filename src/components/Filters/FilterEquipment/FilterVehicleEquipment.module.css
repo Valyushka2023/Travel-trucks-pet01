@@ -24,6 +24,7 @@
   height: 24px;
   margin: 0;
   line-height: normal;
+  color: var(--primary-color);
 }
 
 .divider {
@@ -31,8 +32,9 @@
   flex-direction: column;
   max-width: 357px;
   margin: 24px 0;
-  border: 1px solid #dddbdb;
-  border-radius: 12px;
+  /* border: 1px solid #dddbdb;  */
+  border: 0.0625rem solid var(--border-color);
+  /* border-radius: 12px; */
 }
 
 .equipmentContainer {
@@ -51,8 +53,8 @@
   height: 96px;
   padding: 0;
   box-sizing: border-box;
-  border: 2px solid #dddbdb;
-  border-radius: 12px;
+  border: 0.125rem solid var(--border-color);
+  border-radius: var(--radius-md);
   transition:
     transform 0.2s,
     box-shadow 0.2s;
@@ -60,12 +62,12 @@
 }
 
 .rawIcon:hover:not(.active) {
-  border: 2px solid #187ff2;
+  border: 0.125rem solid var(--hover-color);
   transform: scale(1.1);
 }
 
 .rawIcon.active {
-  border: 2px solid #fa2105;
+  border: 0.125rem solid var(--active-color);
 
   /* transform: scale(1); */
 }
@@ -74,12 +76,12 @@
   width: 48px;
   height: 48px;
   margin-top: 16px;
-  fill: #333;
+  fill: var(--icon-primary-color);
 }
 
 .iconText {
   margin-top: 8px;
   margin-bottom: 16px;
   font-size: 16px;
-  color: #333;
+  color: var(--tertiary-color);
 }

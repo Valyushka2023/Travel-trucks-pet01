@@ -1,38 +1,98 @@
 .fieldForm {
-  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background-color: var(--blok-field-form-bg-color);
+  border-radius: var(--radius-sm);
+  border: 0.0625rem solid transparent;
 }
 
 .label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
+  flex-shrink: 0;
+  min-width: 2.5rem;
+  font-size: 1rem;
+  color: var(--tertiary-color);
 }
 
-.inputWrapper {
+.inputAndErrorWrapper {
+  position: relative;
   display: flex;
   align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  gap: 0.3125rem;
+  min-height: 2.25rem;
+  padding: 0 1.125rem;
+  border: 0.0625rem solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--body-bg-color);
+  line-height: 1.5;
+}
+
+.inputAndErrorWrapper.inputError {
+  border-color: var(--error-color) !important;
+}
+
+.inputAndErrorWrapper:hover {
+  border: 0.0625rem solid var(--hover-color);
 }
 
 .stars {
   display: flex;
-  gap: 6px;
+  align-items: center;
 }
 
 .star {
-  outline: none;
-  transition: color 0.2s;
+  margin-right: 0.3125rem;
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .filled {
-  color: #ffc107;
+  color: var(--active-star-color, var(--color-yellow));
 }
 
 .empty {
-  color: #e0e0e0;
+  color: var(--inactive-star-color, var(--color-light-gray-4));
 }
 
-.errorMessage {
-  margin-top: 5px;
-  font-size: 14px;
-  color: red;
+.star:focus {
+  border-radius: 0.1875rem;
+  outline: 0.0625rem solid var(--secondary-color);
+}
+
+.errorPopup {
+  position: absolute;
+  top: calc(100% + 0.25rem); /* Розміщує вікно під батьківським елементом */
+  left: 0;
+  z-index: 10;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--primary-bg-color);
+  border: 0.0625rem solid var(--error-color);
+  border-radius: var(--border-radius-small);
+  box-shadow: var(--box-shadow);
+  font-size: 0.9em;
+  white-space: nowrap;
+  color: var(--error-color);
+}
+
+.errorPopup::before {
+  content: '';
+  position: absolute;
+  bottom: 100%; /* Розміщує трикутник над вікном */
+  left: 0.625rem;
+  border-color: transparent transparent var(--error-color);
+  border-style: solid;
+  border-width: 0 0.375rem 0.375rem;
 }

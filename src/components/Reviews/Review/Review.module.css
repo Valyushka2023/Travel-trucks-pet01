@@ -1,38 +1,31 @@
 .noReview {
-  padding: 10px;
+  padding: 0.625rem;
   font-style: italic;
   text-align: center;
-  color: #c00;
+  color: var(--warning-color);
 }
 
 .reviewContainer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 640px;
+  max-width: 40rem;
+  min-height: 110px;
   padding: 0;
   box-sizing: border-box;
-
-  /* justify-content: center; */
-  background-color: #f7f7f7;
-
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
-  border-radius: 6px;
+  /* background-color: var(--body-bg-color); */
 }
 
 .reviewHeader {
   display: flex;
-
-  /* justify-content: center; */
   justify-content: flex-start;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
   width: 100%;
+  margin-bottom: 0.75rem;
 
-  /* margin: 0;  */
-  margin-bottom: 8px;
   padding: 0;
-  border-radius: 6px;
+
   flex-wrap: nowrap;
 }
 
@@ -41,64 +34,60 @@
   flex-direction: column;
   flex-grow: 1;
   width: 100%;
-  max-width: 150px;
-
-  /* padding: 4px auto; */
-  padding: 4px 0;
+  max-width: 9.375rem;
+  padding: 0.25rem 0;
 }
 
 .reviewerName {
-  overflow: hidden; /* Обрізати, якщо довге */
+  overflow: hidden;
   font-size: 1rem;
   font-weight: 600;
-  white-space: nowrap; /* Щоб ім'я не переносилося */
+  white-space: nowrap;
   color: #555;
-  text-overflow: ellipsis; /* Додати три крапки */
+  color: var(--primary-color);
+  text-overflow: ellipsis;
 }
 
 .reviewRating {
   display: flex;
-  font-size: 1rem;
-  color: #ffd700;
+  font-size: 1.5rem;
 }
 
 .filledStar {
-  margin-right: 5px;
-  color: #fabf1f;
+  margin-right: 0.3125rem;
+  color: var(--star-gold-color);
 }
 
 .emptyStar {
-  margin-right: 5px;
-  color: #dbd7d7;
+  margin-right: 0.3125rem;
+  color: var(--star-empty-color);
 }
 
 .reviewDate {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* width: 100%; */
-  max-width: 368px;
-
-  /* margin-left: auto;  */
-
-  /* Відштовхує дату вправо, якщо попередні елементи мають flex-grow */
-  margin: 0 auto;
+  max-width: 23rem;
+  margin-left: auto;
   font-size: 1rem;
   white-space: nowrap;
-  color: #777;
+
+  color: var(--secondary-color);
+  margin-right: 1.25rem;
 }
 
 .reviewComment {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
   display: flex;
   height: auto;
-
-  /* max-width: 634px; */
   max-width: 100%;
-  padding: 8px 0;
+  padding: 0;
   font-size: 1rem;
   line-height: 1.5;
-  color: #555;
+  color: var(--secondary-color);
   flex-wrap: wrap;
-  word-break: break-all;
+  margin-right: 1.25rem;
+  text-align: justify;
 }

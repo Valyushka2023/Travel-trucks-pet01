@@ -1,8 +1,7 @@
-import React from 'react';
+import useWindowWidth from '../../../../hooks/useWindowWiidth.js'; // ✅ Імпортуємо хук
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import css from './MenuToggleButton.module.css';
-import useWindowWidth from '../../../hooks/useWindowWiidth.jsx'; // ✅ Імпортуємо хук
 
 const MenuToggleButton = ({
   isOpen,

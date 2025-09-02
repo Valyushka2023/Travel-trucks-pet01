@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 import css from './StarRating.module.css';
 
 const StarRating = ({
@@ -8,8 +8,8 @@ const StarRating = ({
   name = 'rating',
   totalStars = 5,
   size = 24,
-  colorActive = '#FFC107',
-  colorInactive = '#E0E0E0',
+  colorActive = '#ffc107',
+  colorInactive = '#948f8fff',
   error,
   accessible = true,
   readOnly = false,
@@ -30,31 +30,44 @@ const StarRating = ({
         Rating*
       </label>
 
-      <div className={css.inputWrapper}>
-        <div
-          className={css.stars}
-          role={accessible ? 'radiogroup' : undefined}
-          aria-label={accessible ? 'Rating' : undefined}
-          tabIndex={accessible ? 0 : undefined}
-          onKeyDown={accessible ? handleKeyDown : undefined}
-        >
+      <div
+        id={name}
+        className={clsx(css.inputAndErrorWrapper, {
+          [css.inputError]: error,
+        })}
+        role={accessible ? 'radiogroup' : undefined}
+        aria-label={accessible ? 'Rating' : undefined}
+        tabIndex={accessible ? 0 : undefined}
+        onKeyDown={accessible ? handleKeyDown : undefined}
+        style={{
+          '--active-star-color': colorActive,
+          '--inactive-star-color': colorInactive,
+        }}
+      >
+        <div className={css.stars}>
           {[...Array(totalStars)].map((_, i) => {
             const starValue = i + 1;
             return (
               <span
                 key={starValue}
-                className={`${css.star} ${
-                  starValue <= value ? css.filled : css.empty
-                }`}
+                className={clsx(css.star, {
+                  [css.filled]: starValue <= value,
+                  [css.empty]: starValue > value,
+                })}
                 style={{
                   fontSize: `${size}px`,
-                  color: starValue <= value ? colorActive : colorInactive,
+
                   cursor: readOnly ? 'default' : 'pointer',
                 }}
                 role={accessible ? 'radio' : undefined}
                 aria-checked={accessible ? starValue === value : undefined}
                 tabIndex={accessible ? 0 : undefined}
-                onClick={() => !readOnly && onChange(starValue)}
+                // onClick={() => !readOnly && onChange(starValue)}
+                onClick={() => {
+                  if (!readOnly) {
+                    onChange(value === starValue ? 0 : starValue);
+                  }
+                }}
                 onKeyDown={e => {
                   if (accessible && (e.key === 'Enter' || e.key === ' ')) {
                     e.preventDefault();
@@ -68,11 +81,10 @@ const StarRating = ({
           })}
         </div>
 
-        {/* Hidden input to store value in form */}
         {!readOnly && <input type="hidden" name={name} value={value} />}
-      </div>
 
-      {error && <p className={css.errorMessage}>{error}</p>}
+        {error && <p className={css.errorPopup}>{error}</p>}
+      </div>
     </div>
   );
 };

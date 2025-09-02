@@ -5,23 +5,23 @@
   line-height: 1.6;
   text-align: justify;
   text-indent: 1em;
-  color: #000;
+  color: var(--primary-color);
 }
-@media (max-width: 1199px) {
+@media (max-width: 74.9375rem) {
   .textAboutModal p {
     font-size: 1.5rem;
     line-height: 1.6;
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 47.9375rem) {
   .textAboutModal p {
     font-size: 1.3rem;
     line-height: 1.4;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 29.9375rem) {
   .textAboutModal p {
     font-size: 1.1rem;
     line-height: 1.2;

@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import css from './InfoLinks.module.css';
+
 import AboutModal from '../../modals/AboutModal/AboutModal.jsx';
 import ServicesModal from '../../modals/ServicesModal/ServicesModal.jsx';
 import PricingModal from '../../modals/PricesModal/PricesModal.jsx';
 import ContactsModal from '../../modals/ContactsModal/ContactsModal.jsx';
+
+import css from './InfoLinks.module.css';
 
 function InfoLinks() {
   const [active, setActive] = useState(null);

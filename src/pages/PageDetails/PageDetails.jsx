@@ -6,12 +6,13 @@ import {
   useLocation,
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useWindowScrollToTopButton } from '../../hooks/useWindowScrollToTopButton.js';
 import { ClipLoader } from 'react-spinners';
 import { selectCampers, setCamper } from '../../redux/campers/slice.js';
 import { fetchCamperById } from '../../services/api.js'; // ← уточнена функція
-import ScrollToTopButton from '../../components/Ui/Button/ScrollToTopButton.jsx';
-import { useWindowScrollToTopButton } from '../../hooks/useWindowScrollToTopButton.jsx';
-import scrollToTopButtonCss from '../../components/Ui/Button/ScrollToTopButton.module.css';
+import ScrollToTopButton from '../../components/Ui/Buttons/ScrollToTopButton/ScrollToTopButton.jsx';
+
+import scrollToTopButtonCss from '../../components/Ui/Buttons/ScrollToTopButton/ScrollToTopButton.module.css';
 import css from './PageDetails.module.css';
 
 function PageDetails() {

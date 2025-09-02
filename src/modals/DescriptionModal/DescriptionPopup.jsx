@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import CloseButton from '../../components/Ui/Button/CloseButton.jsx';
+import CloseButton from '../../components/Ui/Buttons/CloseButton/CloseButton.jsx';
 import css from './DescriptionPopup.module.css';
 
 const DescriptionPopup = ({ description, onClose }) => {

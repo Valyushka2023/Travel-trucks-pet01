@@ -1,0 +1,88 @@
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 3.75rem;
+  border-radius: 12.5rem;
+  font-family: Inter, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Стилі для різних розмірів */
+.small,
+.medium,
+.large {
+  height: 3.5rem;
+}
+
+.small {
+  width: 9.0625rem;
+  border: 0.125rem solid var(--border-color);
+}
+
+.medium {
+  width: 10.375rem;
+}
+
+.large {
+  width: 11rem;
+}
+
+/* Стилі для різних варіантів (кольорова схема) */
+.default {
+  background: var(--button-default-bg-color);
+  color: var(--button-default-text-color);
+}
+
+.primary {
+  background-color: var(--button-primary-bg-color);
+  color: var(--button-primary-text-color);
+}
+
+.secondary {
+  background: var(--button-secondary-bg-color);
+  color: var(--button-secondary-text-color);
+}
+
+/* Стилі для станів (hover, active, disabled) */
+.button:hover {
+  transform: scale(1.05);
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+.button:hover:not(.small) {
+  background-color: var(--hover-bg-color);
+}
+
+.button:active:not(.small) {
+  background-color: var(--active-bg-color);
+}
+
+/* стиль кнопки у стані disabled (вимкнена) */
+.button:disabled {
+  background: var(--button-disabled-bg-color);
+  color: var(--button-disabled-text-color);
+  transform: none;
+  cursor: not-allowed;
+}
+
+.small:hover {
+  background-color: transparent;
+  border-color: var(--hover-color);
+}
+
+.small:active {
+  background-color: transparent;
+  border-color: var(--active-color);
+}

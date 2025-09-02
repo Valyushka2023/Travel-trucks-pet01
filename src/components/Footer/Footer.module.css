@@ -1,121 +1,127 @@
-/* Базові стилі для футера - діють за замовчуванням (для великих екранів) */
 .footerWrapper {
   width: 100%;
-  /* background-color: #4d4c4c;   */
   background-color: var(--footer-bg-color);
 }
 
 .footerContainer {
   display: flex;
-  justify-content: space-between; /* Розносить елементи по краях */
-  align-items: center; /* Центрує елементи по вертикалі */
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  /* height: 72px; /* Уникайте фіксованої висоти для адаптивності */
-  min-height: 72px; /* Використовуйте min-height для гнучкості */
-  max-width: 1440px; /* Максимальна ширина контейнера */
-  margin: 0 auto; /* Центрує контейнер по горизонталі */
-  padding: 0 64px; /* Горизонтальні відступи для великих екранів */
-  box-sizing: border-box; /* Включає padding у загальну ширину */
+  min-height: 4.5rem;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: var(--padding-xl);
+  box-sizing: border-box;
+}
+
+.contactGroup {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .phone,
-.info,
 .socialNetworks {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px; /* Базовий розмір шрифту */
-  /* color: #f1ebeb;  */
-  color: var(--footer-text-color);
-  flex-shrink: 1; /* Дозволяє елементам зменшуватися, якщо місця мало */
-  /* Додаємо flex-basis, щоб елементи краще розподілялись на більших екранах */
-  flex-basis: auto; /* Автоматичний базовий розмір */
+  font-size: 1.125rem;
+  color: var(--primary-color-1);
+  flex-shrink: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125rem;
+  color: var(--primary-color-1);
+  flex-shrink: 1;
+  margin: 0;
+  padding: 0;
 }
 
 .phoneIcon {
-  margin-right: 12px;
-  color: rgb(5, 163, 5); /* Зелений колір іконки */
+  margin-right: 0.75rem;
+  color: #66ff00;
 }
 
 .phoneNumber {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: bold;
-  color: inherit; /* Успадковує колір від батьківського .phone */
+  color: inherit;
   text-decoration: none;
-  white-space: nowrap; /* Забороняє перенесення номеру телефону */
+  white-space: nowrap;
+  margin-right: 2rem;
 }
 
 .phoneNumber:hover {
   text-decoration: underline;
 }
 
-/* МЕДІА-ЗАПИТИ ДЛЯ АДАПТИВНОСТІ */
-
-@media (max-width: 1199px) {
+@media (max-width: 74.9375rem) {
   .footerContainer {
-    padding: 0 40px; /* Зменшуємо горизонтальний відступ */
-    /* Можна змінити justify-content, якщо елементи починають тіснитися */
-    /* justify-content: space-around; */
-  }
-
-  .phone,
-  .info,
-  .socialNetworks {
-    font-size: 16px; /* Трохи зменшуємо шрифт */
+    padding: var(--padding-lg);
+    min-height: 4rem;
   }
 }
-@media (max-width: 991px) {
+@media (max-width: 61.9375rem) {
   .footerContainer {
-    padding: 0 24px; /* Зменшити ще більше */
-    justify-content: space-around; /* Наприклад, змінити розподіл */
-  }
-  .phone,
-  .info,
-  .socialNetworks {
-    font-size: 15px; /* Ще трохи зменшити */
+    padding: var(--padding-md);
+    min-height: 3.75rem;
   }
 }
 
-/* Мобільні пристрої (Mobile) - від 481px до 768px */
-@media (max-width: 767px) {
+/* Зміни для екранів 767px та менше */
+@media (max-width: 47.9375rem) {
   .footerContainer {
-    flex-direction: column; /* Елементи розташовуються один під одним */
-    justify-content: center; /* Центруємо вміст по вертикалі */
-    align-items: center; /* Центруємо вміст по горизонталі */
-    min-height: auto; /* Висота адаптується під вміст */
-    padding: 20px; /* Збільшуємо вертикальний відступ, зменшуємо горизонтальний */
-    gap: 15px; /* Додаємо проміжок між елементами */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: auto;
+    padding: var(--padding-sm);
+    gap: 0;
+  }
+
+  .contactGroup {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 0.1875rem;
+  }
+
+  .info {
+    order: 2;
+    padding-bottom: 0.1875rem;
   }
 
   .phone,
-  .info,
   .socialNetworks {
-    font-size: 15px; /* Ще трохи зменшуємо шрифт */
-    margin: 5px 0; /* Додаємо невеликий вертикальний відступ між блоками */
-    text-align: center; /* Центруємо текст всередині кожного блоку */
+    font-size: 0.9375rem;
   }
 
-  /* Якщо потрібно, щоб телефон був по центру на мобільних */
   .phoneNumber {
-    white-space: normal; /* Дозволяє перенесення тексту, якщо потрібно */
+    white-space: normal;
   }
 }
 
-/* Дуже маленькі мобільні пристрої (Small Mobile) - до 480px */
-@media (max-width: 479px) {
+@media (max-width: 29.9375rem) {
   .footerContainer {
-    padding: 15px; /* Ще менші відступи */
-    gap: 10px; /* Менші проміжки */
+    padding: var(--padding-xs);
+    /* gap: 0.625rem; */
   }
 
   .phone,
   .info,
   .socialNetworks {
-    font-size: 14px; /* Мінімальний розмір шрифту */
-    /* Можливо, для іконок потрібно окремі стилі, щоб вони не були занадто великими */
+    font-size: 0.875rem;
   }
 
   .phoneIcon {
-    margin-right: 8px; /* Зменшуємо відступ іконки */
+    margin-right: 0.5rem;
   }
 }

@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
-  padding: 8px 0;
+  gap: 1rem;
+  padding: 0;
   flex-wrap: wrap;
 }
 
@@ -11,7 +11,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  color: var(--footer-social-icon-color, #f5f3f3);
+  color: var(--opposite-text-color);
   transition:
     transform 0.3s ease,
     color 0.3s ease;
@@ -19,6 +19,10 @@
 }
 
 .socialIcon:hover {
-  color: var(--footer-social-icon-hover-color, #1877f2);
+  color: var(--hover-color);
   transform: scale(1.2);
+}
+.socialIcon:active {
+  color: var(--active-color);
+  transform: scale(0.95);
 }

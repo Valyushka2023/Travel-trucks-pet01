@@ -1,41 +1,53 @@
 .backdrop {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  min-height: 52.5rem;
   z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  /* padding: 10px; */
   background: rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .modal {
   position: relative;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: var(--body-bg-color);
+  border: 0.0125rem solid var(--border-color);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--box-shadom);
+  box-shadow: none;
+
+  /* These values will ensure the modal scales within the backdrop */
   width: 90%;
-  max-width: 996px;
-  /* max-height: 90vh; */
-  max-height: calc(100vh - 40px);
+  max-width: 100%;
+  max-height: 100%;
+
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 0;
-  box-sizing: border-box;
+  animation: scaleUp 0.3s ease-in-out;
 }
 
 .modalHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 0.625rem 1.25rem;
+  border-bottom: 0.0625rem solid var(--border-color);
+  background-color: var(--header-bg-color);
   flex-shrink: 0;
+}
+
+.logoInModal {
+  color: var(--logo-primary-color);
+}
+
+.closeBtn {
+  color: var(--primary-color);
 }
 
 .modalTitle {
@@ -43,69 +55,62 @@
   font-size: 1.3rem;
   font-weight: 600;
   text-align: center;
-  /* color: #fa2105; */
-  color: #000;
-  flex-shrink: 0;
+  padding: 0.75rem;
+  color: var(--primary-color);
 }
 
 .modalBody {
-  padding: 0 24px;
+  padding: var(--padding-form-xs);
   flex-grow: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-@media (max-width: 1199px) {
+/* Анімації */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Адаптивність */
+
+@media (max-width: 74.9375rem) {
+  .backdrop {
+    min-height: 42.375rem;
+  }
+}
+@media (max-width: 61.9375rem) {
+  .backdrop {
+    min-height: 35.625rem;
+  }
+}
+@media (max-width: 47.9375rem) {
+  .backdrop {
+    min-height: 28.75rem;
+  }
   .modal {
-    max-width: 80%;
-    /* max-height: calc(100vh - 40px); */
+    width: 95%;
+    height: 90%; /* Змінено з auto на 90% */
+    max-height: 90%; /* Змінено з 80% на 90% */
   }
 }
-
-@media (max-width: 991px) {
-  /* .modal {
-    max-width: 80%;
-    max-height: 80%;
-  } */
-}
-
-@media (max-width: 767px) {
-  /* .modal {
-    max-width: 80%;
-    max-height: 80%;
-  } */
-  .modalHeader {
-    /* padding-left: 15px;
-    padding-right: 15px; */
-  }
-
-  .modalBody {
-    /* padding: 15px; */
-  }
-}
-
-@media (max-width: 479px) {
-  .modal {
-    /* max-width: 80%;
-    max-height: 80%; */
-  }
-  .modalHeader {
-    /* flex-wrap: wrap;
-    justify-content: center;
-    justify-content: space-between;
-    gap: 10px; */
-  }
-  .modalHeader .logo {
-    /* max-width: 100px;
-    height: auto; */
-  }
-
-  .modalTitle {
-    /* font-size: 1.3rem; */
-    /* padding: 10px 10px 15px 10px; */
-  }
-  .modalBody {
-    /* font-size: 0.9rem; */
-    /* padding: 10px; */
+@media (max-width: 29.9375rem) {
+  .backdrop {
+    min-height: 23.75rem;
   }
 }

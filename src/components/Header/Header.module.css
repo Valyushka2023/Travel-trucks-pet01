@@ -1,9 +1,7 @@
 .headerWrapper {
   width: 100%;
-  /* background-color: #dddbdb;   */
   background-color: var(--header-bg-color);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-bottom: 0.125rem solid var(--border-color);
   z-index: 100;
   position: relative;
 }
@@ -11,33 +9,29 @@
 .headerContainer {
   display: flex;
   align-items: center;
-  min-height: 72px;
-  max-width: 1440px;
+  min-height: 4.5rem;
+  max-width: 90rem;
   margin-inline: auto;
-  padding: 0 64px;
-  justify-content: center;
+  padding: var(--padding-xl);
+  justify-content: space-between;
 }
 
 .logoHeader {
   flex-shrink: 0;
-  margin: 0;
-  padding: 0;
   margin-right: auto;
 }
-/* Базовий стиль для іконки, який буде використовуватися в світлій темі */
-.themeIcon {
-  color: #000; /* Чорний колір для іконки */
+
+.toggleIcons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
-/* Коли батьківський елемент має клас .dark-theme,
-   змінюємо колір іконки на білий */
-.dark-theme .themeIcon {
-  color: #fff; /* Білий колір для іконки */
-}
 .menu {
   display: flex;
-  gap: 32px;
-  font-size: 20px;
+  gap: 2rem;
+  font-size: 1.2rem;
   font-weight: 500;
   padding: 0;
   margin: 0;
@@ -60,21 +54,21 @@
 }
 
 .link {
-  color: #333;
+  color: var(--primary-color);
 }
 
 .link:hover {
-  color: #187ff2;
-  transform: scale(1.3);
+  color: var(--hover-color);
+  transform: scale(1.05);
 }
 
 .link:active {
-  color: #ec4a4a;
+  color: var(--active-color);
   transform: scale(0.95);
 }
 
 .active {
-  color: #fa2105;
+  color: var(--active-color);
   cursor: default;
   pointer-events: none;
 }
@@ -98,22 +92,21 @@
   opacity: 1;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 74.9375rem) {
   .headerContainer {
-    padding: 0 40px;
-    min-height: 65px;
+    padding: var(--padding-lg);
+    min-height: 4rem;
   }
 
   .menu {
-    gap: 20px;
+    gap: 1.25rem;
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 61.9375rem) {
   .headerContainer {
-    padding: 0 24px;
-    min-height: 60px;
-    justify-content: space-between;
+    padding: var(--padding-md);
+    min-height: 3.75rem;
   }
 
   .menu {
@@ -124,14 +117,14 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .headerContainer {
-    padding: 0 20px;
-    min-height: 55px;
+    padding: var(--padding-sm);
+    min-height: 3.4375rem;
   }
 
   .logoHeader {
-    max-width: 90px;
+    max-width: 5.625rem;
     height: auto;
   }
 
@@ -141,12 +134,12 @@
     top: 0;
     right: 0;
     transform: translateX(100%);
-    width: 250px;
+    width: 15.625rem;
     height: 100%;
-    background-color: #fff;
+    background-color: var(--light-bg-color);
     flex-direction: column;
     align-items: center;
-    padding: 80px 0;
+    padding: 5rem 0;
     opacity: 0;
     visibility: hidden;
     transition:
@@ -154,7 +147,7 @@
       opacity 0.3s ease,
       visibility 0.3s ease;
     z-index: 1002;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: -0.125rem 0 0.625rem rgba(0, 0, 0, 0.2);
     text-align: center;
   }
 
@@ -164,42 +157,55 @@
     visibility: visible;
   }
 
-  .link,
-  .active {
-    padding: 12px 0;
-    margin: 12px 0;
-    font-size: 18px;
+  .menu .link,
+  .menu .active {
+    color: var(--dark-color);
+    padding: 0.75rem 0;
+    margin: 0.75rem 0;
+    font-size: 1.125rem;
     width: 100%;
     text-align: center;
+    pointer-events: auto;
+  }
+
+  .menu .link:hover {
+    color: var(--hover-color);
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+
+  .menu .active {
+    color: var(--active-color);
+    cursor: default;
+    pointer-events: auto;
   }
 
   .closeButtonInsideMenu {
     display: block;
     position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 1.3rem;
+    top: 0.9375rem;
+    right: 1.25rem;
     z-index: 1003;
+    color: var(--dark-color);
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 29.9375rem) {
   .headerContainer {
-    padding: 0 15px;
-    min-height: 50px;
+    padding: var(--padding-xs);
+    min-height: 3.125rem;
   }
 
   .logoHeader {
-    max-width: 80px;
+    max-width: 5rem;
   }
 
   .closeButtonInsideMenu {
-    right: 15px;
+    right: 0.9375rem;
     font-size: 1.2rem;
   }
 
   .link {
-    font-size: 16px;
-    margin-top: 20px;
+    margin-top: 1.25rem;
   }
 }

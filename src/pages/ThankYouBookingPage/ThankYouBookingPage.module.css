@@ -2,31 +2,28 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 20px;
+  padding: 1.25rem;
   box-sizing: border-box;
-
   width: 100%;
-  max-width: 1440px;
-  min-height: 100vh;
+  max-width: 90rem;
+  max-height: 100vh;
   margin: 0 auto;
+  background-color: var(--primary-bg-color);
 }
 
 .buttonsContainer {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin-bottom: 150px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 .goBackLink {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 24px;
+  font-size: 1.25rem;
   text-decoration: none;
-  color: #333;
+  color: var(--primary-color);
   transition:
     transform 0.3s ease,
     color 0.3s ease,
@@ -34,27 +31,36 @@
   cursor: pointer;
   white-space: nowrap;
   z-index: 10;
+  padding: 0;
+  margin: 0;
 }
 
 .goBackLink:hover {
   text-decoration: underline;
   color: #187ff2;
-  transform: translateY(-5px) scale(1.05);
+  transform: scale(1.05);
 }
 
 .goBackLink:active {
   text-decoration: underline;
   color: #fa2105;
-  transform: translateY(0) scale(0.95);
+  transform: scale(0.95);
 }
 
 .pageCloseButton {
-  position: absolute;
-  top: 20px; /* Початкове значення, як і для goBackLink */
-  right: 20px;
-  font-size: 24px;
+  font-size: 1.25rem;
   z-index: 10;
-  transform: translateY(-2px);
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: var(--button-close-icon-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.pageCloseButton:hover {
+  color: #fa2105;
 }
 
 .loaderOverlay {
@@ -64,126 +70,88 @@
   transform: translate(-50%, -50%);
   z-index: 100;
   background: rgba(255, 255, 255, 0.7);
-  padding: 15px;
-  border-radius: 8px;
+  padding: 0.9735rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .feedback {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  /* flex-grow: 1; */
+  flex-grow: 1;
   text-align: center;
-  padding-bottom: 50px;
+  padding: 0;
+  margin: 9.375rem 0;
 }
 
 .feedback h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-  color: #333;
+  font-size: 3rem;
+  margin: 0;
+  margin-bottom: 3.125rem;
+  color: var(--primary-color);
 }
 
 .text {
-  font-size: 36px;
-  max-width: 800px;
+  font-size: 2.25rem;
+  max-width: 50rem;
   line-height: 1.5;
-  color: #666;
+  color: var(--secondary-color);
 }
 
-@media (max-width: 1199px) {
-  .goBackLink {
-    font-size: 22px;
-    left: 18px;
-    top: 18px;
-  }
-  .pageCloseButton {
-    font-size: 22px;
-    top: 18px;
-    right: 18px;
-    transform: translateY(-1px);
-  }
-  .buttonsContainer {
-    margin-bottom: 120px;
-  }
+@media (max-width: 74.9375rem) {
   .feedback h1 {
-    font-size: 44px;
+    font-size: 2.75rem;
   }
   .text {
-    font-size: 32px;
+    font-size: 2rem;
   }
 }
 
-@media (max-width: 991px) {
-  .goBackLink {
-    font-size: 20px;
-    left: 15px;
-    top: 15px;
-  }
+@media (max-width: 61.9375rem) {
+  .goBackLink,
   .pageCloseButton {
-    font-size: 20px;
-    top: 15px;
-    right: 15px;
-    transform: translateY(-1px);
-  }
-  .buttonsContainer {
-    margin-bottom: 80px;
+    font-size: 1.125rem;
   }
   .feedback h1 {
-    font-size: 40px;
+    font-size: 2.5rem;
   }
   .text {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
-@media (max-width: 767px) {
-  .buttonsContainer {
-    margin-bottom: 50px; /* Значно зменшуємо для mobileMdMax */
-    /* Важливо: тут ви раніше змінювали flex-direction на column для buttonsContainer.
-     Оскільки кнопки тепер absolute, buttonsContainer може залишатися row або ви можете видалити його,
-     або використати для інших цілей. Головне - зменшити margin-bottom. */
-  }
-  .goBackLink {
-    left: 10px;
-    top: 10px;
-    font-size: 18px;
-  }
-
+@media (max-width: 47.9375rem) {
+  .goBackLink,
   .pageCloseButton {
-    font-size: 18px;
-    top: 10px;
-    right: 10px;
-    transform: translateY(-1px);
+    font-size: 1rem;
   }
-
   .feedback h1 {
-    font-size: 32px;
+    font-size: 2rem;
   }
   .text {
-    font-size: 24px;
+    font-size: 1.5rem;
+  }
+  .feedback {
+    margin: 6.25rem 0;
   }
 }
 
-@media (max-width: 479px) {
-  .buttonsContainer {
-    margin-bottom: 30px; /* Максимально зменшуємо для mobileSmMax */
-  }
-  .goBackLink {
-    top: 5px;
-    left: 5px;
-    font-size: 16px;
-  }
+@media (max-width: 29.9375rem) {
+  .goBackLink,
   .pageCloseButton {
-    font-size: 16px;
-    top: 5px;
-    right: 5px;
-    transform: translateY(-1px);
+    font-size: 0.875rem;
   }
   .feedback h1 {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
   .text {
-    font-size: 20px;
+    font-size: 1.25rem;
+  }
+  .feedback {
+    margin: 5rem 0;
   }
 }

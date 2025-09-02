@@ -1,5 +1,6 @@
 import { useEffect, useState, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useWindowScrollToTopButton } from '../../hooks/useWindowScrollToTopButton.js';
 import {
   selectCampers,
   selectIsLoading,
@@ -8,11 +9,10 @@ import {
 import { getCampers } from '../../redux/campers/operations.js';
 
 import Header from '../../components/Header/Header.jsx';
-import Button from '../../components/Ui/Button/Button.jsx';
-import ScrollToTopButton from '../../components/Ui/Button/ScrollToTopButton.jsx';
-import { useWindowScrollToTopButton } from '../../hooks/useWindowScrollToTopButton.jsx';
+import Button from '../../components/Ui/Buttons/BaseButton/Button.jsx';
+import ScrollToTopButton from '../../components/Ui/Buttons/ScrollToTopButton/ScrollToTopButton.jsx';
 
-import scrollToTopButtonCss from '../../components/Ui/Button/ScrollToTopButton.module.css';
+import scrollToTopButtonCss from '../../components/Ui/Buttons/ScrollToTopButton/ScrollToTopButton.module.css';
 import FilterLocation from '../../components/Filters/FilterLocation/FilterLocation.jsx';
 import FilterVehicleEquipment from '../../components/Filters/FilterEquipment/FilterVehicleEquipment.jsx';
 import FilterVehicleType from '../../components/Filters/FilterType/FilterVehicleType.jsx';

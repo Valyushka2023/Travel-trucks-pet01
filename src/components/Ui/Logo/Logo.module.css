@@ -1,11 +1,13 @@
 .logo {
-  font-size: 20px;
-  font-weight: 900;
-  /* color: #000; */
-  color: var(--logo-color);
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--logo-primary-color);
 }
 
 .logoSecondary {
-  /* color: #777; */
-  color: var(--logoSecondary-color);
+  display: flex;
+  align-items: center;
+  color: var(--modal-logo-secondary-color, var(--logo-secondary-color));
 }

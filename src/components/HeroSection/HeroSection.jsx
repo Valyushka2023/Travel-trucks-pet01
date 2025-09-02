@@ -30,6 +30,9 @@ function HeroSection({ camper }) {
             width="16"
             height="16"
             viewBox="0 0 32 32"
+            // style={{
+            //   '--color1': '#28a745',
+            // }}
           >
             <use href="/icons.svg#icon-star"></use>
           </svg>

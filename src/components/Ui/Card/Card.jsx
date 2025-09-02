@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import css from './Card.module.css';
-import Button from '../../Ui/Button/Button.jsx';
+import Button from '../../Ui/Buttons/BaseButton/Button.jsx';
 import FeatureIcon from '../../FeatureIcon/FeatureIcon.jsx';
 import { v4 as uuidv4 } from 'uuid';
 import DescriptionPopup from '../../../modals/DescriptionModal/DescriptionPopup.jsx';

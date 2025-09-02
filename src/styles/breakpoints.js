@@ -1,19 +1,21 @@
+// export const BREAKPOINTS = {
+//   mobileLgMax: '1199px',
+//   tabletMax: '991px',
+//   mobileMdMax: '767px',
+//   mobileSmMax: '479px',
+// };
 export const BREAKPOINTS = {
-  // desktopLg: '1200px',
-  // Для @media (min-width: 1200px)
-  // desktopMd: '992px',
-  // Для @media (min-width: 992px)
-  // tabletLg: '768px',
-  // Для @media (min-width: 768px)
-  // tabletSm: '576px',
-  // Для @media (min-width: 576px)
-  mobileLgMax: '1199px', // Для @media (max-width: 1199px)
-  tabletMax: '991px', // Для @media (max-width: 991px)
-  mobileMdMax: '767px', // Для @media (max-width: 767px)
-  mobileSmMax: '479px', // Для @media (max-width: 479px)
+  // mobileLgMax: '1199px' -> 1199 / 16 = 74.9375rem
+  mobileLgMax: '74.9375rem',
+  // tabletMax: '991px' -> 991 / 16 = 61.9375rem
+  tabletMax: '61.9375rem',
+  // mobileMdMax: '767px' -> 767 / 16 = 47.9375rem
+  mobileMdMax: '47.9375rem',
+  // mobileSmMax: '479px' -> 479 / 16 = 29.9375rem
+  mobileSmMax: '29.9375rem',
 };
 
-/* Tablet layout (1199px and below): фільтр над списком, картка ще горизонтальна */
-/* Mobile layout (991px and below): картка вертикальна */
-/* Small screens (≤767px) */
-/* Extra small (≤479px) */
+// @media(max-width: 74.9375rem)
+// @media(max-width: 61.9375rem)
+// @media(max-width: 47.9375rem)
+// @media (max-width: 29.9375rem)

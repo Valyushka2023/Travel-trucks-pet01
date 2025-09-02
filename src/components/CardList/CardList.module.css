@@ -1,37 +1,33 @@
 .cardList {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 2rem;
 }
 
-/* mobileLgMa24x: '1199px' */
-@media (max-width: 1199px) {
+@media (max-width: 74.9375rem) {
   .cardList {
-    margin-top: 24px;
-    gap: 24px;
+    margin-top: 1.5rem;
+    gap: 1.5rem;
   }
 }
 
-/* tabletMax: '991px' */
-@media (max-width: 991px) {
+@media (max-width: 61.9375rem) {
   .cardList {
-    margin-top: 20px;
-    gap: 20px;
+    margin-top: 1.25rem;
+    gap: 1.25rem;
   }
 }
 
-/* mobileMdMax: '767px' */
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .cardList {
-    margin-top: 16px;
-    gap: 16px;
+    margin-top: 1rem;
+    gap: 1rem;
   }
 }
 
-/* mobileMdMax: '479px' */
-@media (max-width: 479px) {
+@media (max-width: 29.9375rem) {
   .cardList {
-    margin-top: 12px;
-    gap: 12px;
+    margin-top: 0.75rem;
+    gap: 0.75rem;
   }
 }

@@ -1,18 +1,9 @@
-/* :root {
-  --grid-gap-desktop: 64px;
-  --grid-gap-1199: 44px;
-  --grid-gap-991: 24px;
-  --grid-gap-767: 20px;
-  --grid-gap-479: 15px;
-  --highlight-color: #187ff2;
-  --border-radius-size: 6px;
-  --image-min-height: 312px;
-} */
-
 .containerPictures {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--grid-gap-desktop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-xl);
+
   width: 100%;
   max-width: 1312px;
   margin: 0 auto;
@@ -33,8 +24,7 @@
 
 .galleryImageButton:hover,
 .galleryImageButton:focus {
-  /* Додано :focus */
-  border-radius: var(--border-radius-size);
+  border-radius: var(--radius-sm);
   outline: 8px solid var(--highlight-color);
 }
 
@@ -44,30 +34,31 @@
   height: auto;
   min-height: var(--image-min-height);
   object-fit: cover;
-  border-radius: var(--border-radius-size);
+  border-radius: var(--radius-sm);
 }
 
 @media (max-width: 1199px) {
   .containerPictures {
-    gap: var(--grid-gap-1199);
+    gap: var(--gap-lg);
   }
 }
 
 @media (max-width: 991px) {
   .containerPictures {
-    gap: var(--grid-gap-991);
+    gap: var(--gap-md);
   }
 }
 
 @media (max-width: 767px) {
   .containerPictures {
-    gap: var(--grid-gap-767);
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm);
   }
 }
 
 @media (max-width: 479px) {
   .containerPictures {
-    gap: var(--grid-gap-479);
+    gap: var(--gap-xs);
   }
 }

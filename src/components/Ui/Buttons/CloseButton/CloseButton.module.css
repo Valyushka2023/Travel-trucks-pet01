@@ -3,11 +3,9 @@
   border: none;
   font-size: 1.3rem;
   cursor: pointer;
-  /* color: #fa2105; */
-  color: #000;
+  color: var(--dark-color);
   font-weight: 900;
   padding: 0;
-
   transition:
     color 0.2s ease,
     transform 0.2s ease;
@@ -18,11 +16,11 @@
 }
 
 .baseCloseButton:hover {
-  color: #187ff2;
-  transform: scale(1.2);
+  color: var(--hover-color);
+  transform: scale(1.05);
 }
 
 .baseCloseButton:active {
-  color: #ec4a4a;
+  color: var(--active-color);
   transform: scale(0.95);
 }

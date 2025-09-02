@@ -1,23 +1,12 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import css from './Tabs.module.css';
 
 function Tabs({ camper, activeTab }) {
-  const navigate = useNavigate();
+  const location = useLocation();
 
   const camperId = camper?._id || camper?.id;
 
-  const handleBackToDetails = () => {
-    if (camperId) {
-      navigate(`/catalog/${camperId}`, { state: { camper } });
-    }
-  };
-
-  const handleBackToReviews = () => {
-    if (camperId) {
-      navigate(`/catalog/${camperId}/reviews`, { state: { camper } });
-    }
-  };
   if (!camperId) {
     return null;
   }
@@ -25,18 +14,31 @@ function Tabs({ camper, activeTab }) {
   return (
     <div className={css.tabs}>
       <div className={css.titlesTabs}>
-        <button
-          onClick={handleBackToDetails}
-          className={`${css.textTitlesTabsFeatures} ${activeTab !== 'reviews' ? css.active : ''}`}
+        <Link
+          to={`/catalog/${camperId}`}
+          state={{ camper }}
+          className={`${css.textTitlesTabsFeatures} ${
+            location.pathname === `/catalog/${camperId}` &&
+            activeTab !== 'reviews'
+              ? css.active
+              : ''
+          }`}
         >
           Features
-        </button>
-        <button
-          onClick={handleBackToReviews}
-          className={`${css.textTitlesTabsReviews} ${activeTab === 'reviews' ? css.active : ''}`}
+        </Link>
+
+        <Link
+          to={`/catalog/${camperId}/reviews`}
+          state={{ camper }}
+          className={`${css.textTitlesTabsReviews} ${
+            location.pathname === `/catalog/${camperId}/reviews` &&
+            activeTab === 'reviews'
+              ? css.active
+              : ''
+          }`}
         >
           Reviews
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -1,383 +1,33 @@
-/* .card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 888px;
-  min-height: 368px;
-  border: 1px solid #dddbdb;
-  border-radius: 20px;
-  box-sizing: border-box;
-  overflow: hidden;
-  position: relative;
-}
-
-.contentCard {
-  display: flex;
-  flex-direction: row;
-  width: calc(100% - 48px);
-  gap: 24px;
-  margin: 24px;
-  box-sizing: border-box;
-  flex-wrap: nowrap;
-}
-
-.image {
-  width: 290px;
-  max-width: 100%;
-  height: 320px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 12px;
-  display: block;
-}
-.containerInfo {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  width: auto;
-  position: relative;
-  background-color: #ffc531;
-}
-.titleInfo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 6px;
-  position: relative;
-  box-sizing: border-box;
-}
-
-h2 {
-  margin: 0;
-}
-
-.priceInfo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  white-space: nowrap;
-  margin-left: auto;
-  background-color: transparent;
-  padding: 0;
-}
-
-.textPriceInfo {
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.iconHeart {
-  margin-left: 12px;
-  fill: none;
-  stroke: #101828;
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-
-.detailsInfo {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 24px;
-  margin: 0;
-  gap: 24px;
-}
-
-.reviewsInfo,
-.locationInfo {
-  display: flex;
-  align-items: center;
-}
-
-p {
-  margin: 0;
-}
-.iconStar {
-  fill: #ffc531;
-}
-.iconStar,
-.iconMap {
-  margin-right: 4px;
-  vertical-align: middle;
-  width: 16px;
-  height: 16px;
-}
-
-.textInfoContainer:active {
-  transform: scale(0.95);
-}
-
-.supportingTextInfo {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin: 0;
-  margin-top: 24px;
-  cursor: pointer;
-}
-
-.textButton {
-  all: unset;
-  width: 100%;
-  display: block;
-}
-
-.textInfo {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin: 0;
-  line-height: 1.5;
-  text-align: start;
-  color: #475467;
-  font-size: 16px;
-  transition:
-    transform 0.2s ease,
-    color 0.2s ease;
-}
-
-.textButton:active .textInfo {
-  transform: scale(0.95);
-  color: #fa2105;
-}
-
-.badgesContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  width: 100%;
-  margin-top: 24px;
-}
-
-.containerShowMore {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 24px;
-}
-
-@media (min-width: 768px) {
-  .textInfoContainer {
-    transition: transform 0.3s ease;
-  }
-  .textInfoContainer:hover {
-    transform: scale(1.05);
-  }
-  .textInfo:hover {
-    color: #176ff2;
-  }
-}
-
-@media (max-width: 1199px) {
-  .card {
-    border-radius: 18px;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  .textPriceInfo {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 991px) {
-  .card {
-    border-radius: 16px;
-  }
-  .contentCard {
-    flex-direction: column;
-    gap: 16px;
-  }
-  .containerInfo {
-    width: 100%; 
-  }
-  .image {
-    width: 100%;
-
-    border-radius: 8px;
-    height: 300px;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-  .textPriceInfo {
-    font-size: 1.5rem;
-  }
-
-  .iconStar,
-  .iconMap {
-    width: 14px;
-    height: 14px;
-  }
-
-  .supportingTextInfo {
-    margin-top: 12px;
-  }
-
-  .badgesContainer {
-    margin-top: 12px;
-  }
-
-  .containerShowMore {
-    margin-top: 12px;
-  }
-
-  .textInfo {
-    line-height: 1.4;
-    font-size: 14px;
-  }
-}
-@media (max-width: 767px) {
-  .card {
-    border-radius: 14px;
-  }
-  .contentCard {
-    gap: 14px;
-  }
-
-  .image {
-    height: 270px;
-  }
-  h2 {
-    font-size: 1.2rem;
-  }
-  .textPriceInfo {
-    font-size: 1.2rem;
-  }
-
-  .textPriceInfo {
-    font-size: 20px;
-  }
-  .iconHeart {
-    width: 16px;
-    height: 16px;
-    margin-left: 8px;
-  }
-
-  .supportingTextInfo {
-    margin-top: 10px;
-  }
-
-  .badgesContainer {
-    margin-top: 10px;
-  }
-
-  .containerShowMore {
-    margin-top: 12px;
-  }
-}
-
-/* Extra small (≤479px) */
-/* @media (max-width: 479px) {
-  .card {
-    border-radius: 12px;
-  }
-  .contentCard {
-    gap: 12px;
-    margin: 16px;
-    width: calc(100% - 32px);
-    align-items: center;
-  }
-  .containerInfo {
-    align-items: center;
-  }
-
-  .image {
-    height: 240px;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  .textPriceInfo {
-    font-size: 1.2rem;
-  }
-
-  .titleInfo {
-    margin-bottom: 0;
-  }
-
-  .detailsInfo {
-    justify-content: center;
-    height: auto;
-    margin-top: 4px;
-  }
-
-  .supportingTextInfo {
-    margin-top: 8px;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 0 16px;
-  }
-
-  .textInfo {
-    font-size: 13px;
-    text-align: center;
-    line-clamp: 3;
-    white-space: normal;
-  }
-
-  .textInfoContainer {
-    max-height: none;
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-  }
-
-  .badgesContainer {
-    justify-content: center;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 16px;
-  }
-
-  .containerShowMore {
-    justify-content: center;
-    margin-top: 10px;
-    width: 100%;
-  }
-}  */
 .card {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 888px;
-  min-height: 368px;
-  border: 1px solid #dddbdb;
-  border-radius: 20px;
+  max-width: 55.5rem;
+  min-height: 23rem;
+  border: 0.0625rem solid var(--border-color);
+  border-radius: var(--radius-lg);
   box-sizing: border-box;
   overflow: hidden;
-  position: relative; /* Для коректного позиціонування .contentCard */
+  position: relative;
 }
 
 .contentCard {
   display: flex;
   flex-direction: row;
-  width: calc(100% - 48px);
-  gap: 24px;
-  margin: 24px;
+  width: calc(100% - 3rem);
+  gap: 1.5rem;
+  margin: 1.5rem;
   box-sizing: border-box;
   flex-wrap: nowrap;
-  /* Якщо потрібно, також position: relative; для contentCard, але зазвичай не потрібно */
 }
 
 .image {
-  width: 290px;
+  width: 18.125rem;
   max-width: 100%;
-  height: 320px;
+  height: 20rem;
   object-fit: cover;
   object-position: center;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   display: block;
 }
 
@@ -386,11 +36,9 @@ p {
   flex-direction: column;
   flex-grow: 1;
   width: auto;
-  position: relative; /* ✅ ОБОВ'ЯЗКОВО: Для коректного позиціонування absolute дочірніх елементів (бедропа) */
-  /* background-color: #ffffff; */
-  /* Змінив колір, щоб був помітний бекдроп */
-  border-radius: 12px; /* Якщо containerInfo має свої border-radius */
-  overflow: hidden; /* ✅ ДОДАНО: Щоб бедроп обрізався по краях containerInfo */
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
 .titleInfo {
@@ -398,13 +46,15 @@ p {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 6px;
-  position: relative; /* Якщо є елементи, що позиціонуються всередині */
+  margin-bottom: 0.375rem;
+  position: relative;
   box-sizing: border-box;
 }
 
 h2 {
   margin: 0;
+  color: var(--primary-color);
+  font-size: 1.4375rem;
 }
 
 .priceInfo {
@@ -418,7 +68,7 @@ h2 {
 }
 
 .textPriceInfo {
-  font-size: 1.5rem;
+  font-size: 1.4375rem;
   font-weight: 600;
   line-height: 1;
   margin: 0;
@@ -426,11 +76,10 @@ h2 {
 }
 
 .iconHeart {
-  margin-left: 12px;
-  fill: none;
-  stroke: #101828;
-  width: 20px;
-  height: 20px;
+  margin-left: 0.75rem;
+  fill: var(--icon-primary-color);
+  width: 1.25rem;
+  height: 1.25rem;
   flex-shrink: 0;
 }
 
@@ -438,9 +87,9 @@ h2 {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 24px;
+  height: 1.5rem;
   margin: 0;
-  gap: 24px;
+  gap: 1.5rem;
 }
 
 .reviewsInfo,
@@ -448,35 +97,42 @@ h2 {
   display: flex;
   align-items: center;
 }
+
 .reviewsInfo {
   text-decoration: underline;
-  cursor: pointer;
+  text-decoration-color: var(--tertiary-color);
 }
 
 p {
   margin: 0;
+  color: var(--tertiary-color);
 }
 
 .iconStar {
-  fill: #ffc531;
+  fill: var(--star-gold-color);
+}
+
+.iconMap {
+  fill: var(--icon-primary-color);
 }
 
 .iconStar,
 .iconMap {
-  margin-right: 4px;
+  margin-right: 0.375rem;
   vertical-align: middle;
-  width: 16px;
-  height: 16px;
+  width: 1.2rem;
+  height: 1rem;
 }
 
 .supportingTextInfo {
-  position: relative; /* Залишаємо, якщо є внутрішні абсолютні елементи */
+  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
   margin: 0;
-  margin-top: 24px;
+  margin-top: 1.5rem;
   cursor: pointer;
+  color: var(--secondary-color);
 }
 
 .textButton {
@@ -494,8 +150,8 @@ p {
   margin: 0;
   line-height: 1.5;
   text-align: start;
-  color: #475467;
-  font-size: 16px;
+  color: var(--secondary-color);
+  font-size: 1rem;
   transition:
     transform 0.2s ease,
     color 0.2s ease;
@@ -503,26 +159,24 @@ p {
 
 .textButton:active .textInfo {
   transform: scale(0.95);
-  color: #fa2105;
+  color: var(--active-color);
 }
 
 .badgesContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 80.5rem;
   width: 100%;
-  margin-top: 24px;
+  margin-top: 1.5rem;
 }
 
 .containerShowMore {
   display: inline-flex;
   align-items: center;
-  margin-top: 24px;
+  margin-top: 1.5rem;
 }
 
-/* --- Адаптивність для Card --- */
-
-@media (min-width: 768px) {
+@media (min-width: 47.9375rem) {
   .textInfoContainer {
     transition: transform 0.3s ease;
   }
@@ -530,13 +184,13 @@ p {
     transform: scale(1.05);
   }
   .textInfo:hover {
-    color: #176ff2;
+    color: var(--hover-color);
   }
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 74.9375rem) {
   .card {
-    border-radius: 18px;
+    border-radius: var(--radius-lg);
   }
   h2 {
     font-size: 1.5rem;
@@ -546,18 +200,18 @@ p {
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 61.9375rem) {
   .card {
-    border-radius: 16px;
+    border-radius: var(--radius-md);
   }
   .contentCard {
     flex-direction: column;
-    gap: 16px;
+    gap: var(--gap-xs);
   }
   .image {
     width: 100%;
-    border-radius: 8px;
-    height: 300px;
+    border-radius: var(--radius-md);
+    height: 18.75rem;
   }
   h2 {
     font-size: 1.5rem;
@@ -567,36 +221,35 @@ p {
   }
   .iconStar,
   .iconMap {
-    width: 14px;
-    height: 14px;
+    width: 0.875rem;
+    height: 0.875rem;
   }
   .supportingTextInfo {
-    margin-top: 12px;
+    margin-top: 0.75rem;
   }
   .badgesContainer {
-    margin-top: 12px;
+    margin-top: 0.75rem;
   }
   .containerShowMore {
-    margin-top: 12px;
+    margin-top: 0.75rem;
   }
   .textInfo {
     line-height: 1.4;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .containerInfo {
-    width: 100%; /* containerInfo займає всю ширину картки на мобільних */
+    width: 100%;
   }
 }
-
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .card {
-    border-radius: 14px;
+    border-radius: var(radius-md);
   }
   .contentCard {
-    gap: 14px;
+    gap: 0.875rem;
   }
   .image {
-    height: 270px;
+    height: 16.875rem;
   }
   h2 {
     font-size: 1.2rem;
@@ -605,38 +258,37 @@ p {
     font-size: 1.2rem;
   }
   .iconHeart {
-    width: 16px;
-    height: 16px;
-    margin-left: 8px;
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.5rem;
   }
   .supportingTextInfo {
-    margin-top: 10px;
+    margin-top: 0.625rem;
   }
   .badgesContainer {
-    margin-top: 10px;
+    margin-top: 0.625rem;
   }
   .containerShowMore {
-    margin-top: 12px;
+    margin-top: 0.75rem;
   }
 }
 
-/* Extra small (≤479px) */
-@media (max-width: 479px) {
+@media (max-width: 29.9375rem) {
   .card {
-    border-radius: 12px;
+    border-radius: var(radius-md);
   }
   .contentCard {
-    gap: 12px;
-    margin: 16px;
-    width: calc(100% - 32px);
+    gap: 0.75rem;
+    margin: 1rem;
+    width: calc(100% - 2rem);
     align-items: center;
   }
   .containerInfo {
-    align-items: center; /* Центрування вмісту всередині containerInfo */
-    padding: 0 16px; /* Додайте, якщо потрібно */
+    align-items: center;
+    padding: 0 1rem;
   }
   .image {
-    height: 240px;
+    height: 15rem;
   }
   h2 {
     font-size: 1.2rem;
@@ -650,16 +302,16 @@ p {
   .detailsInfo {
     justify-content: center;
     height: auto;
-    margin-top: 4px;
+    margin-top: 0.25rem;
   }
   .supportingTextInfo {
-    margin-top: 8px;
+    margin-top: 0.5rem;
     justify-content: center;
     box-sizing: border-box;
-    padding: 0 16px;
+    padding: 0 1rem;
   }
   .textInfo {
-    font-size: 13px;
+    font-size: 0.8125rem;
     text-align: center;
     line-clamp: 3;
     white-space: normal;
@@ -668,11 +320,11 @@ p {
     justify-content: center;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 16px;
+    padding: 0 1rem;
   }
   .containerShowMore {
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 0.625rem;
     width: 100%;
   }
 }

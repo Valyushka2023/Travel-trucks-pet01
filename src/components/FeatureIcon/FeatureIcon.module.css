@@ -7,7 +7,7 @@
   justify-content: flex-start;
   box-sizing: border-box;
   padding: 0;
-  background-color: aqua;
+  /* background-color: aqua; */
   margin: 0;
 }
 
@@ -19,28 +19,38 @@
   width: auto;
   height: 48px;
   padding: 0 14px;
-  background-color: #dddbdb;
+  background-color: var(--blok-featureIcon-bg-color);
   border-radius: 200px;
 }
 
 .icon {
   width: 24px;
   height: 24px;
+  color: var(--icon-primary-color);
 }
 
 .text {
   font-size: 1rem;
   font-weight: 500;
   text-transform: capitalize;
-  color: #333;
+  /* color: #333; */
+  /* color: var(--featureIcon-text-color); */
+  color: var(--tertiary-color);
 }
-
+.featureIcon use[href*='icon-icon-button-AC'],
+.featureIcon use[href*='icon-icon-button-bathroom'],
+.featureIcon use[href*='icon-icon-button-TV'],
+.featureIcon use[href*='icon-icon-button-radio'],
+.featureIcon use[href*='icon-icon-button-kitchen'],
+.featureIcon use[href*='icon-icon-button-refrigerator'],
 .featureIcon use[href*='icon-icon-button-gas'],
 .featureIcon use[href*='icon-icon-button-water'],
 .featureIcon use[href*='icon-icon-button-microwave'] {
   fill: none;
   stroke: currentcolor;
   stroke-width: 2;
+  /* color: var(--featureIcon-color); */
+  color: var(--tertiary-color);
 }
 
 @media (max-width: 479px) {

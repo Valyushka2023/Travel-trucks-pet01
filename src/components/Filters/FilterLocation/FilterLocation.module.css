@@ -8,24 +8,23 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: 56px; /* Задаємо фіксовану висоту для вирівнювання */
-  padding: 10px 10px 10px 48px; /* Adjusted padding-left for icon */
-  background-color: #dddbdb;
-  border: 1px solid #dddbdb;
+  height: 56px;
+  padding: 10px 10px 10px 48px;
+  background-color: var(--blok-location-bg-color);
+
+  border: 1px solid var(--border-color);
   border-radius: 12px;
-  cursor: pointer; /* Вказуємо, що це клікабельний елемент */
+  cursor: pointer;
   transition:
     transform 0.3s ease,
     border-color 0.3s ease;
 }
 
-/* Ховер для scaleWrapper: масштабуємо весь блок, якщо він НЕ вибраний */
 .scaleWrapper:not(.selected):hover {
   transform: scale(1.1);
-  border-color: #187fff; /* Додано ховер бордер */
+  border-color: #187fff;
 }
 
-/* Вибраний стан для scaleWrapper: червоний бордер */
 .scaleWrapper.selected {
   border-color: #fa2105;
 }
@@ -37,57 +36,54 @@
   z-index: 1;
   transition: fill 0.3s ease;
   transform: translateY(-50%);
-  pointer-events: none; /* Важливо, щоб кліки проходили крізь іконку */
-  fill: #555;
+  pointer-events: none;
+  fill: var(--icon-primary-color);
   width: 20px;
   height: 20px;
 }
 
-/* Стилі для відображення обраної локації */
 .locationDisplay {
-  font-size: 16px; /* Базовий розмір шрифту */
-  color: #555;
-  white-space: nowrap; /* Запобігає переносу тексту */
-  overflow: hidden; /* Обрізає зайвий текст */
-  text-overflow: ellipsis; /* Додає три крапки */
-  flex-grow: 1; /* Дозволяє займати весь доступний простір */
-  line-height: 1.2; /* Для кращого вирівнювання тексту */
+  font-size: 16px;
+  color: var(--primary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  line-height: 1.2;
 }
 
-/* --- Стилі для кастомного випадаючого списку --- */
 .dropdownList {
   position: absolute;
-  top: 100%; /* Розміщуємо під інпутом */
+  top: 100%;
   left: 0;
   width: 100%;
-  max-height: 190px; /* Обмежте висоту, якщо список дуже довгий */
-  overflow-y: auto; /* Додаємо скрол, якщо список перевищує max-height */
-  background-color: #fff; /* Білий фон для списку */
-  border: 1px solid #f7f7f7;
-  border-radius: 8px;
-  z-index: 100; /* Переконайтеся, що список знаходиться над іншими елементами */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 4px; /* Невеликий відступ від інпуту */
-}
+  max-height: 190px;
+  overflow-y: auto;
+  background-color: var(--body-bg-color);
 
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 4px;
+}
 .dropdownItem {
-  padding: 10px 15px; /* <--- Тут встановлюємо padding для елементів списку */
-  font-size: 16px; /* <--- Базовий розмір шрифту для елементів списку */
-  color: #333;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: var(--primary-color);
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .dropdownItem:hover {
-  background-color: #f0f0f0;
+  background-color: var(--blok-location-bg-color);
 }
 
 .dropdownItem.selectedItem {
-  background-color: #e0e0e0; /* Підсвічування обраного елемента */
+  background-color: var(--blok-location-bg-color);
+
   font-weight: bold;
 }
-
-/* --- Адаптивні налаштування --- */
 
 @media (max-width: 1199px) {
   .filterContainer {
@@ -100,7 +96,7 @@
     max-width: 360px;
   }
   .scaleWrapper {
-    height: 50px; /* Зменшення висоти wrapper */
+    height: 50px;
     padding-left: 45px;
   }
   .iconMap {
@@ -108,11 +104,8 @@
     width: 18px;
     height: 18px;
   }
-  .locationDisplay {
-    /* font-size: 15px; */
-  }
+
   .dropdownList {
-    /* padding: 8px 12px; */
     max-height: 170px;
   }
 }
@@ -130,16 +123,10 @@
     width: 16px;
     height: 16px;
   }
-  .locationDisplay {
-    /* font-size: 14px; */
-  }
+
   .dropdownList {
     /* padding: 8px 10px; */
     max-height: 150px;
-  }
-
-  .filterTitle {
-    /* font-size: 15px; */
   }
 }
 
@@ -156,49 +143,34 @@
     width: 14px;
     height: 14px;
   }
-  .locationDisplay {
-    /* font-size: 13px; */
-  }
+
   .dropdownList {
-    max-height: 135px; /* Обмежте висоту, якщо список дуже довгий */
+    max-height: 135px;
   }
 
-  .dropdownItem {
-  }
-  .filterTitle {
-    /* font-size: 14px; */
-  }
   .scaleWrapper:not(.selected):hover {
     transform: scale(1.05);
   }
 }
 
-/* mobileSmMax: '479px' */
 @media (max-width: 479px) {
   .filterContainer {
     margin-bottom: 15px;
   }
   .scaleWrapper {
-    height: 40px; /* Зменшуємо висоту wrapper */
-    padding-left: 32px; /* Корегуємо padding-left */
+    height: 40px;
+    padding-left: 32px;
   }
   .iconMap {
-    left: 10px; /* Корегуємо позицію іконки */
+    left: 10px;
     width: 14px;
     height: 14px;
   }
-  .locationDisplay {
-    /* font-size: 16px;  */
-    /* <--- Шрифт для відображеного значення */
-  }
+
   .dropdownList {
-    max-height: 125px; /* Обмежте висоту, якщо список дуже довгий */
+    max-height: 125px;
   }
-  .dropdownItem {
-  }
-  .filterTitle {
-    /* font-size: 13px; */
-  }
+
   .scaleWrapper:not(.selected):hover {
     transform: none;
   }

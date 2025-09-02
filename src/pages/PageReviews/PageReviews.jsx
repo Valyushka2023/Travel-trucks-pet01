@@ -6,16 +6,13 @@ import {
   useNavigate,
 } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useWindowScrollToTopButton } from '../../hooks/useWindowScrollToTopButton.js';
 import { ClipLoader } from 'react-spinners';
-
 import { setCamper } from '../../redux/campers/slice.js';
 import { fetchCampers, sendReview } from '../../services/api.js';
-
 import ContentReviews from '../../components/Content/ContentReviews/ContentReviews.jsx';
-import ScrollToTopButton from '../../components/Ui/Button/ScrollToTopButton.jsx';
-import { useWindowScrollToTopButton } from '../../hooks/useWindowScrollToTopButton.jsx';
-
-import scrollToTopButtonCss from '../../components/Ui/Button/ScrollToTopButton.module.css';
+import ScrollToTopButton from '../../components/Ui/Buttons/ScrollToTopButton/ScrollToTopButton.jsx';
+import scrollToTopButtonCss from '../../components/Ui/Buttons/ScrollToTopButton/ScrollToTopButton.module.css';
 import css from './PageReviews.module.css';
 
 function PageReviews() {

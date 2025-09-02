@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Logo from '../Ui/Logo/Logo.jsx';
-import CloseButton from '../Ui/Button/CloseButton.jsx';
+import CloseButton from '../Ui/Buttons/CloseButton/CloseButton.jsx';
 import css from './Modal.module.css';
 
 function Modal({ title, titleClassName, children, onClose }) {
@@ -31,7 +31,7 @@ function Modal({ title, titleClassName, children, onClose }) {
     <div className={css.backdrop} onClick={onClose}>
       <div className={css.modal} onClick={handleModalContentClick}>
         <div className={css.modalHeader}>
-          <Logo />
+          <Logo className={css.logoInModal} />
           <CloseButton
             onClick={onClose}
             className={css.closeBtn}

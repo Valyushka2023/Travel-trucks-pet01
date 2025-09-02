@@ -4,10 +4,10 @@
   align-items: center;
   width: clamp(30px, 10vw, 60px);
   height: clamp(30px, 10vw, 60px);
-  background-color: #eceaea;
+  background-color: var(--avatar-bg-color);
   border-radius: 50%;
   font-size: clamp(16px, 4vw, 24px);
   font-weight: bold;
-  color: #fa2105;
+  color: var(--avatar-color);
   aspect-ratio: 1 / 1;
 }
