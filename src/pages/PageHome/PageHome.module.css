@@ -1,4 +1,4 @@
-.container {
+/* .container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -7,7 +7,7 @@
   margin: 0 auto;
 }
 .heroSection {
-  position: relative; /* This is the key */
+  position: relative; 
   display: flex;
   align-items: center;
   height: 43.5rem;
@@ -69,6 +69,164 @@
   color: var(--color-white);
   font-size: 1.5rem;
   margin: 0;
+}
+
+@media (max-width: 74.9375rem) {
+  .heroSection {
+    height: 34.375rem;
+  }
+  .heroOverlay {
+    padding: var(--padding-lg);
+  }
+  .title {
+    max-width: 28.125rem;
+  }
+  .heroTitle {
+    font-size: 3rem;
+  }
+  .heroContent {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 61.9375rem) {
+  .heroSection {
+    height: 28.125rem;
+  }
+  .heroOverlay {
+    padding: var(--padding-md);
+  }
+  .title {
+    max-width: 21.875rem;
+    gap: 1.5rem;
+  }
+  .heroTitle {
+    font-size: 2.25rem;
+  }
+  .heroContent {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .heroSection {
+    height: 21.875rem;
+  }
+  .heroOverlay {
+    padding: var(--padding-sm);
+    justify-content: center;
+    align-items: center;
+  }
+  .title {
+    width: 100%;
+    max-width: none;
+    gap: 1rem;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .heroTitle {
+    font-size: 1.75rem;
+  }
+  .heroContent {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .heroSection {
+    height: 17.5rem;
+  }
+  .heroOverlay {
+    padding: var(--padding-xs);
+  }
+
+  .heroTitle {
+    font-size: 1.5rem;
+  }
+  .heroContent {
+    font-size: 0.75rem;
+  }
+} */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 90rem;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.heroSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 43.5rem;
+  background-image:
+    linear-gradient(rgb(46 47 66 / 30%), rgb(46 47 66 / 30%)),
+    url('../images/Picture@1x.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.heroOverlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: var(--padding-xl);
+  box-sizing: border-box;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 35.6875rem;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5rem;
+}
+
+.heroTitle {
+  line-height: 1.2;
+  color: var(--color-white);
+  font-size: 3rem;
+  margin: 0;
+}
+
+.heroContent {
+  color: var(--color-white);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Стилі для посилання <Link>, щоб воно виглядало як кнопка.
+  Клас .viewButton додано для стилізації <Link>, який огортає компонент <Button>.
+*/
+.viewButton {
+  text-decoration: none;
 }
 
 @media (max-width: 74.9375rem) {

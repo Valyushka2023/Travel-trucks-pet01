@@ -1,63 +1,56 @@
-.contactContainer {
-  width: 100%;
-  max-width: 90%;
-  margin: 0 auto;
-  padding: 24px 16px;
-  box-sizing: border-box;
-  background-color: var(--body-bg-color);
-  font-family: Arial, sans-serif;
-  align-items: center;
-  justify-content: center;
-}
-
-contactList {
+.contactList {
   display: flex;
-  flex-wrap: wrap; /* Дозволяє елементам переходити на новий рядок */
-  /* justify-content: center;  */
-  width: calc((100% - 3 * 24px) / 4);
-  /* gap: 40px;  */
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   list-style-type: none;
-  padding-left: 0;
+  padding: 0;
   margin: 0;
   color: var(--primary-color);
+  background-color: var(--body-bg-color);
 }
 
 .contactItem {
-  /* Ширина для трьох елементів в рядку, враховуючи відступи */
-  width: calc(
-    33.33% - 27px
-  ); /* Обчислення ширини для трьох стовпців з урахуванням відступу */
-  /* або можна використати більш гнучкий підхід: */
-  /* flex-basis: 300px; */
-  /* flex-grow: 1; */
-
-  padding: 12px 16px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  font-size: 1.3rem;
-  line-height: 1.4;
-}
-
-/* Стилі для елементів всередині блоку */
-.addressInfo {
-  font-weight: bold;
-  margin: 0 0 8px; /* Відступ знизу */
-}
-
-.contactDetails {
-  display: flex; /* Розташовуємо телефон та email один під одним */
+  display: flex;
   flex-direction: column;
-  gap: 4px; /* Невеликий відступ між рядками */
+  align-items: center;
+  justify-content: center;
+  max-width: 19.375rem;
+  max-height: 8.75rem;
+  padding: 0.75rem;
+  border: 0.0625rem solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--box-shadom);
+  background-color: var(--blok-field-form-bg-color);
 }
 
-.contactInfoPhone,
-.contactInfoEmail {
-  margin: 0; /* Прибираємо стандартні відступи у тегів <p> */
+.addressInfo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 0.75rem;
 }
 
+.addressInfo strong {
+  padding-right: var(--spacing-md);
+}
+.contactInfoPhone {
+  font-size: 1.25rem;
+  margin: 0;
+  margin-bottom: 0.25rem;
+}
 .contactLink {
-  color: #187ff2;
+  margin-left: var(--spacing-md);
+}
+
+.contactInfoEmail {
+  font-size: 1.25rem;
+  margin: 0;
+}
+.contactLink {
+  color: var(--color-blue);
   text-decoration: none;
   cursor: pointer;
 }
@@ -66,29 +59,44 @@ contactList {
   text-decoration: underline;
 }
 
-/* Адаптивність */
-@media (max-width: 991px) {
+@media (max-width: 61.9375rem) {
+  .contactList {
+    gap: 1.25rem;
+    padding: 0 1rem;
+  }
+
   .contactItem {
-    width: calc(50% - 20px); /* 2 елементи в рядку на планшетах */
-    font-size: 1rem;
+    width: 16.25rem;
+    height: 6.875rem;
+  }
+
+  .addressInfo {
+    font-size: 1.1rem;
+  }
+  .contactInfoPhone {
+    font-size: 1.1rem;
+  }
+
+  .contactInfoEmail {
+    font-size: 1.1rem;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .contactContainer {
-    padding: 16px;
+    padding: 1rem;
   }
   .contactItem {
     width: 100%;
     font-size: 1rem;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 0.625rem;
+    /* margin-bottom: 0.625rem; */
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 29.9375rem) {
   .contactContainer {
-    padding: 12px;
+    padding: 0.75rem;
   }
   .contactItem {
     font-size: 0.9rem;

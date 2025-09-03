@@ -36,7 +36,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.625rem 1.25rem;
+  /* padding: 0.625rem 1.25rem; */
+  padding: var(--padding-form-xs);
   border-bottom: 0.0625rem solid var(--border-color);
   background-color: var(--header-bg-color);
   flex-shrink: 0;
@@ -51,16 +52,18 @@
 }
 
 .modalTitle {
-  margin: 0;
+  margin-top: 8px;
   font-size: 1.3rem;
   font-weight: 600;
   text-align: center;
-  padding: 0.75rem;
+  padding: var(--padding-xs);
   color: var(--primary-color);
 }
 
 .modalBody {
-  padding: var(--padding-form-xs);
+  margin-top: 8px;
+  margin-bottom: 24px;
+  padding: var(--padding-xs);
   flex-grow: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -97,6 +100,10 @@
 @media (max-width: 61.9375rem) {
   .backdrop {
     min-height: 35.625rem;
+  }
+
+  .modalBody {
+    margin-bottom: 24px;
   }
 }
 @media (max-width: 47.9375rem) {
