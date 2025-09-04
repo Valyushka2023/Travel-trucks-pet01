@@ -164,7 +164,7 @@
   height: 43.5rem;
   background-image:
     linear-gradient(rgb(46 47 66 / 30%), rgb(46 47 66 / 30%)),
-    url('../images/Picture@1x.jpg');
+    url('/images/Picture@1x.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
