@@ -1,4 +1,3 @@
-// тзь игшд
 import axios from 'axios';
 
 const BASE_URL = '/campers'; // Ця змінна більше не використовується для запитів API
