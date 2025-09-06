@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-const BASE_URL = '/campers'; // Базовий URL для кемперів
+const BASE_URL = 'api/campers';
+
 const BOOKINGS_ENDPOINT = '/bookings';
-// const BACKEND_BASE_URL = 'http://localhost:5001';
+
 const BACKEND_BASE_URL = import.meta.env.VITE_API_URL;
 
 // ✅ Отримати список усіх кемперів (з optional фільтрами)
@@ -11,7 +12,14 @@ export const fetchCampers = async (params = {}) => {
     const searchParams = new URLSearchParams(params).toString();
     const url = searchParams ? `${BASE_URL}?${searchParams}` : BASE_URL;
 
+    // --- Логування перед запитом ---
+    console.log(`Sending GET request to: ${url}`);
+
     const response = await axios.get(url);
+
+    // --- Логування після успішного запиту ---
+    console.log(`GET request to ${url} succeeded. Status: ${response.status}`);
+    console.log('Response data:', response.data);
 
     if (response.status !== 200) return [];
 
@@ -21,7 +29,14 @@ export const fetchCampers = async (params = {}) => {
     if (data?.items && Array.isArray(data.items)) return data.items;
 
     return [];
-  } catch {
+  } catch (error) {
+    // --- Логування помилки ---
+    console.error(`Error fetching campers: ${error.message}`);
+    if (error.response) {
+      console.error('Status:', error.response.status);
+      console.error('Data:', error.response.data);
+      console.error('Headers:', error.response.headers);
+    }
     return [];
   }
 };
@@ -31,14 +46,28 @@ export const fetchCamperById = async id => {
   try {
     if (!id) return null;
 
-    const response = await axios.get(`${BASE_URL}/${id}`);
+    const url = `${BASE_URL}/${id}`;
+    // --- Логування перед запитом ---
+    console.log(`Sending GET request to: ${url}`);
+
+    const response = await axios.get(url);
+
+    // --- Логування після успішного запиту ---
+    console.log(`GET request to ${url} succeeded. Status: ${response.status}`);
+    console.log('Response data:', response.data);
 
     if (response.status === 200) {
       return response.data;
     } else {
       return null;
     }
-  } catch {
+  } catch (error) {
+    // --- Логування помилки ---
+    console.error(`Error fetching camper by ID: ${error.message}`);
+    if (error.response) {
+      console.error('Status:', error.response.status);
+      console.error('Data:', error.response.data);
+    }
     return null;
   }
 };
@@ -63,7 +92,7 @@ export const sendReview = async reviewData => {
     );
 
     if (response.status === 201) {
-      return response.data; // Очікується, що тут буде оновлений camper
+      return response.data;
     } else {
       return null;
     }
