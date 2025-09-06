@@ -133,9 +133,9 @@ export const fetchCampers = async (params = {}) => {
     const url = searchParams
       ? `${BACKEND_BASE_URL}/campers?${searchParams}`
       : `${BACKEND_BASE_URL}/campers`;
+
     const response = await axios.get(url);
 
-    // --- Логування після успішного запиту ---
     console.log(`GET request to ${url} succeeded. Status: ${response.status}`);
     console.log('Response data:', response.data);
 
@@ -143,17 +143,16 @@ export const fetchCampers = async (params = {}) => {
 
     const data = response.data;
 
+    // Повертаємо масив кемперів
     if (Array.isArray(data)) return data;
     if (data?.items && Array.isArray(data.items)) return data.items;
 
     return [];
   } catch (error) {
-    // --- Логування помилки ---
     console.error(`Error fetching campers: ${error.message}`);
     if (error.response) {
       console.error('Status:', error.response.status);
       console.error('Data:', error.response.data);
-      console.error('Headers:', error.response.headers);
     }
     return [];
   }
@@ -166,12 +165,10 @@ export const fetchCamperById = async id => {
 
     const url = `${BACKEND_BASE_URL}/campers/${id}`;
 
-    // --- Логування перед запитом ---
     console.log(`Sending GET request to: ${url}`);
 
     const response = await axios.get(url);
 
-    // --- Логування після успішного запиту ---
     console.log(`GET request to ${url} succeeded. Status: ${response.status}`);
     console.log('Response data:', response.data);
 
@@ -181,7 +178,6 @@ export const fetchCamperById = async id => {
       return null;
     }
   } catch (error) {
-    // --- Логування помилки ---
     console.error(`Error fetching camper by ID: ${error.message}`);
     if (error.response) {
       console.error('Status:', error.response.status);
@@ -196,26 +192,27 @@ export const sendReview = async reviewData => {
   try {
     const { camperId, ...reviewFields } = reviewData;
 
-    if (!camperId) {
-      return null;
-    }
+    if (!camperId) return null;
 
-    const response = await axios.post(
-      `${BACKEND_BASE_URL}/campers/${camperId}/reviews`,
-      JSON.stringify(reviewFields),
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    );
+    const url = `${BACKEND_BASE_URL}/campers/${camperId}/reviews`;
+
+    const response = await axios.post(url, reviewFields, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
     if (response.status === 201) {
       return response.data;
     } else {
       return null;
     }
-  } catch {
+  } catch (error) {
+    console.error(`Error sending review: ${error.message}`);
+    if (error.response) {
+      console.error('Status:', error.response.status);
+      console.error('Data:', error.response.data);
+    }
     return null;
   }
 };
@@ -223,21 +220,20 @@ export const sendReview = async reviewData => {
 // ✅ Надіслати запит на бронювання
 export const sendBookingRequest = async bookingData => {
   try {
-    const response = await axios.post(
-      `${BACKEND_BASE_URL}${BOOKINGS_ENDPOINT}`,
-      bookingData,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    );
+    const url = `${BACKEND_BASE_URL}${BOOKINGS_ENDPOINT}`;
+
+    const response = await axios.post(url, bookingData, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
     return response.data;
-  } catch (_error) {
+  } catch (error) {
+    console.error(`Error sending booking request: ${error.message}`);
     return {
       success: false,
-      message: _error.message || 'Failed to connect to the server.',
+      message: error.message || 'Failed to connect to the server.',
     };
   }
 };
