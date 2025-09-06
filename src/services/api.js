@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = '/campers'; // Ця змінна більше не використовується для запитів API
+// const BASE_URL = '/campers';
 const BOOKINGS_ENDPOINT = '/bookings';
 const BACKEND_BASE_URL = import.meta.env.VITE_API_URL;
 
