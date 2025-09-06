@@ -10,10 +10,10 @@ const BACKEND_BASE_URL = import.meta.env.VITE_API_URL;
 export const fetchCampers = async (params = {}) => {
   try {
     const searchParams = new URLSearchParams(params).toString();
-    const url = searchParams ? `${BASE_URL}?${searchParams}` : BASE_URL;
-
-    // --- Логування перед запитом ---
-    console.log(`Sending GET request to: ${url}`);
+    // Використовуємо BACKEND_BASE_URL
+    const url = searchParams
+      ? `${BACKEND_BASE_URL}/campers?${searchParams}`
+      : `${BACKEND_BASE_URL}/campers`;
 
     const response = await axios.get(url);
 
