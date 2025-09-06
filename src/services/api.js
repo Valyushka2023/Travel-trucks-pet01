@@ -1,9 +1,8 @@
+// тзь игшд
 import axios from 'axios';
 
-const BASE_URL = '/campers';
-
+const BASE_URL = '/campers'; // Ця змінна більше не використовується для запитів API
 const BOOKINGS_ENDPOINT = '/bookings';
-
 const BACKEND_BASE_URL = import.meta.env.VITE_API_URL;
 
 // ✅ Отримати список усіх кемперів (з optional фільтрами)
@@ -39,12 +38,14 @@ export const fetchCampers = async (params = {}) => {
   }
 };
 
-// ✅ Отримати одного кемпера за ID (нове!)
+// ✅ Отримати одного кемпера за ID
 export const fetchCamperById = async id => {
   try {
     if (!id) return null;
 
-    const url = `${BASE_URL}/${id}`;
+    // Виправлено: використовується повний шлях з BACKEND_BASE_URL
+    const url = `${BACKEND_BASE_URL}/campers/${id}`;
+
     // --- Логування перед запитом ---
     console.log(`Sending GET request to: ${url}`);
 
@@ -79,8 +80,9 @@ export const sendReview = async reviewData => {
       return null;
     }
 
+    // Виправлено: використовується повний шлях з BACKEND_BASE_URL
     const response = await axios.post(
-      `${BASE_URL}/${camperId}/reviews`,
+      `${BACKEND_BASE_URL}/campers/${camperId}/reviews`,
       JSON.stringify(reviewFields),
       {
         headers: {
