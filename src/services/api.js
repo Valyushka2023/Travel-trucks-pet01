@@ -12,8 +12,8 @@ export const fetchCampers = async (params = {}) => {
     const searchParams = new URLSearchParams(params).toString();
     // Використовуємо BACKEND_BASE_URL
     const url = searchParams
-      ? `${BACKEND_BASE_URL}/campers?${searchParams}`
-      : `${BACKEND_BASE_URL}/campers`;
+      ? `${BACKEND_BASE_URL}/api/campers?${searchParams}`
+      : `${BACKEND_BASE_URL}/api/campers`;
 
     const response = await axios.get(url);
 
