@@ -8,7 +8,7 @@
   max-width: 90rem;
   max-height: 100vh;
   margin: 0 auto;
-  background-color: var(--primary-bg-color);
+  background-color: var(--body-bg-color);
 }
 
 .buttonsContainer {
@@ -37,13 +37,13 @@
 
 .goBackLink:hover {
   text-decoration: underline;
-  color: #187ff2;
+  color: var(--hover-color);
   transform: scale(1.05);
 }
 
 .goBackLink:active {
   text-decoration: underline;
-  color: #fa2105;
+  color: var(--active-color);
   transform: scale(0.95);
 }
 
@@ -60,10 +60,12 @@
 }
 
 .pageCloseButton:hover {
-  color: #fa2105;
+  color: var(--hover-color);
 }
-
-.loaderOverlay {
+.pageCloseButton:active {
+  color: var(--active-color);
+}
+/* .loaderOverlay {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -75,7 +77,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .feedback {
   display: flex;

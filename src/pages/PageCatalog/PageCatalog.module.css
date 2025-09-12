@@ -61,13 +61,13 @@
   margin-top: 2.5rem;
 }
 
-.loaderContainer {
+/* .loaderContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 12.5rem;
   width: 100%;
-}
+} */
 
 .filterButtonsContainer {
   display: flex;

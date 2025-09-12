@@ -67,16 +67,17 @@
 }
 
 /* НОВИЙ КЛАС для компонента StarRating */
-.ratingField {
+/* .ratingField {
   display: flex;
   align-items: center;
   gap: var(--spacing-lg);
   width: 100%;
   padding: 0.5rem;
   box-sizing: border-box;
-  background-color: #fa2105;
+  background-color: #664b92;
+  color: aqua;
   border-radius: var(--radius-sm);
-}
+} */
 
 .fieldArea {
   display: flex;
@@ -119,6 +120,7 @@
   min-height: 1.5rem;
   line-height: 1;
   font-size: 1rem;
+  letter-spacing: 0.05625rem;
   font-weight: 400;
   color: var(--secondary-color);
   font-family: inherit;
@@ -192,11 +194,12 @@
   z-index: 10;
   margin: 0;
   padding: 0.25rem 0.5rem;
-  background-color: var(--primary-bg-color);
+  background-color: var(--body-bg-color);
   border: 0.0625rem solid var(--error-color);
   border-radius: var(--radius-sm);
   box-shadow: var(--box-shadow);
   font-size: 0.9em;
+  letter-spacing: 0.05625rem;
   white-space: nowrap;
   color: var(--error-color);
 }

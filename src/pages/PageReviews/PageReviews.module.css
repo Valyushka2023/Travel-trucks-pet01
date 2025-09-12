@@ -1,14 +1,13 @@
-.loaderContainer {
-  position: fixed; /* Використовуємо fixed, щоб контейнер займав весь екран */
-  top: 0;
-  left: 0;
+/* .loaderContainer {
+  position: fixed;
+  left: 0; */
 
-  /* Додаємо фон, щоб закрити вміст сторінки (опціонально) */
-  z-index: 9999; /* Переконаємося, що loader відображається поверх усього (опціонально) */
+/* Додаємо фон, щоб закрити вміст сторінки (опціонально) */
+/* z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh; /* vh означає viewport height, тобто висоту екрана */
+  height: 100vh;
   background-color: rgb(255 255 255 / 80%);
-}
+} */

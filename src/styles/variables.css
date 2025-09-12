@@ -57,6 +57,7 @@
 
   /* Спеціальні кольори */
   --color-yellow: #ffc107; /*помаранчевий колір*/
+
   /* --color-lilas: #c048e4;  */
 
   /* Відтінки сірого */
@@ -157,6 +158,9 @@
   --blok-location-bg-color: var(
     --color-light-gray-2
   ); /*колір блоку локацій у світлій темі*/
+  --blok-description-bg-color: var(
+    --color-light-gray-2
+  ); /*колір блоку локацій у світлій темі*/
   --blok-field-form-bg-color: var(
     --color-light-gray-2
   ); /* колір блоку поля форми у світлій темі*/
@@ -235,6 +239,7 @@
   --blok-details-bg-color: var(--color-gunmetal-black);
   --blok-featureIcon-bg-color: var(--color-dark-gray);
   --blok-location-bg-color: var(--color-dark-gray);
+  --blok-description-bg-color: var(--color-dark-gray);
   --blok-field-form-bg-color: var(--color-dark-gray);
 
   /* text color */

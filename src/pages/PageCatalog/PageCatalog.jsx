@@ -17,8 +17,10 @@ import FilterLocation from '../../components/Filters/FilterLocation/FilterLocati
 import FilterVehicleEquipment from '../../components/Filters/FilterEquipment/FilterVehicleEquipment.jsx';
 import FilterVehicleType from '../../components/Filters/FilterType/FilterVehicleType.jsx';
 import CardList from '../../components/CardList/CardList.jsx';
-import { ClipLoader } from 'react-spinners';
+// import { ClipLoader } from 'react-spinners';
+// import Loader from '../../components/Ui/Loader/Loader.jsx';
 import ErrorComponent from '../../components/ErrorComponent/ErrorComponent.jsx';
+import Loader from '../../components/Ui/Loader/Loader.jsx';
 
 import css from './PageCatalog.module.css';
 
@@ -240,9 +242,7 @@ function PageCatalog() {
 
           <div className={css.containerCards}>
             {isLoading ? (
-              <div className={css.loaderContainer}>
-                <ClipLoader color="#36D7B7" size={50} />
-              </div>
+              <Loader type="container" />
             ) : error ? (
               <ErrorComponent error={error} onRetry={handleRetry} />
             ) : visibleCampers.length > 0 ? (

@@ -1,5 +1,6 @@
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import CloseButton from '../../components/Ui/Buttons/CloseButton/CloseButton.jsx';
+import Loader from '../../components/Ui/Loader/Loader.jsx';
 import css from './ThankYouBookingPage.module.css';
 
 const ThankYouBookingPage = () => {
@@ -7,7 +8,6 @@ const ThankYouBookingPage = () => {
   const location = useLocation();
 
   const { camperId, camper } = location.state || {};
-  // const [loading, setLoading] = useState(false);
 
   const handleClose = () => {
     if (camperId && camper) {
@@ -38,11 +38,7 @@ const ThankYouBookingPage = () => {
         </p>
       </div>
 
-      {/* {loading && (
-        <div className={css.loaderOverlay}>
-          <ClipLoader color="#187ff2" size={40} />
-        </div>
-      )} */}
+      {loading && <Loader type="overlay" />}
     </div>
   );
 };

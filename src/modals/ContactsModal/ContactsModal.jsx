@@ -14,32 +14,32 @@ const contacts = [
 
 const ContactsModal = ({ onClose, title = 'Contacts' }) => (
   <Modal title={title} onClose={onClose}>
-    {/* <div className={css.contactContainer}> */}
-    <ul className={css.contactList}>
-      {contacts.map(({ city, street, phone }, index) => (
-        // Кожен елемент списку тепер є окремим блоком-карткою
-        <li className={css.contactItem} key={index}>
-          <p className={css.addressInfo}>
-            <strong>{city}:</strong> {street}
-          </p>
-          {/* <div className={css.contactDetails}> */}
-          <p className={css.contactInfoPhone}>
-            Tel:&nbsp;
-            <a href={`tel:${phone}`} className={css.contactLink}>
-              {phone}
-            </a>
-          </p>
-          <p className={css.contactInfoEmail}>
-            Email:&nbsp;
-            <a href="mailto:info@traveltrucks.com" className={css.contactLink}>
-              info@traveltrucks.com
-            </a>
-          </p>
-          {/* </div> */}
-        </li>
-      ))}
-    </ul>
-    {/* </div> */}
+    <div className={css.contactContainer}>
+      <ul className={css.contactList}>
+        {contacts.map(({ city, street, phone }, index) => (
+          <li className={css.contactItem} key={index}>
+            <p className={css.addressInfo}>
+              <strong>{city}:</strong> {street}
+            </p>
+            <p className={css.contactInfoPhone}>
+              Tel:&nbsp;
+              <a href={`tel:${phone}`} className={css.contactLink}>
+                {phone}
+              </a>
+            </p>
+            <p className={css.contactInfoEmail}>
+              Email:&nbsp;
+              <a
+                href="mailto:info@traveltrucks.com"
+                className={css.contactLink}
+              >
+                info@traveltrucks.com
+              </a>
+            </p>
+          </li>
+        ))}
+      </ul>
+    </div>
   </Modal>
 );
 

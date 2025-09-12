@@ -7,12 +7,12 @@ import {
 } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useWindowScrollToTopButton } from '../../hooks/useWindowScrollToTopButton.js';
-import { ClipLoader } from 'react-spinners';
 import { setCamper } from '../../redux/campers/slice.js';
 import { fetchCampers, sendReview } from '../../services/api.js';
 import ContentReviews from '../../components/Content/ContentReviews/ContentReviews.jsx';
 import ScrollToTopButton from '../../components/Ui/Buttons/ScrollToTopButton/ScrollToTopButton.jsx';
 import scrollToTopButtonCss from '../../components/Ui/Buttons/ScrollToTopButton/ScrollToTopButton.module.css';
+import Loader from '../../components/Ui/Loader/Loader.jsx';
 import css from './PageReviews.module.css';
 
 function PageReviews() {
@@ -118,12 +118,9 @@ function PageReviews() {
     }
   };
 
+  // Використовуємо універсальний компонент Loader
   if (isLoading) {
-    return (
-      <div className={css.loaderContainer}>
-        <ClipLoader color="#36D7B7" size={50} />
-      </div>
-    );
+    return <Loader type="container" />;
   }
 
   if (error) {

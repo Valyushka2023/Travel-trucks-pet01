@@ -78,11 +78,12 @@
   z-index: 10;
   margin: 0;
   padding: 0.25rem 0.5rem;
-  background-color: var(--primary-bg-color);
+  background-color: var(--body-bg-color);
   border: 0.0625rem solid var(--error-color);
   border-radius: var(--border-radius-small);
   box-shadow: var(--box-shadow);
   font-size: 0.9em;
+  letter-spacing: 0.05625rem;
   white-space: nowrap;
   color: var(--error-color);
 }

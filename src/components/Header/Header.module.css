@@ -39,6 +39,15 @@
   left: 50%;
   transform: translateX(-50%);
 }
+.menu.is-open {
+  display: flex;
+  background-color: var(--body-bg-color);
+  color: var(--primary-color);
+  box-sizing: border-box;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--box-shadow);
+  border: 0.0125rem solid var(--border-color);
+}
 
 .closeButtonInsideMenu {
   display: none;

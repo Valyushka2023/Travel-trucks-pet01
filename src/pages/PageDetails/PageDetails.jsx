@@ -7,11 +7,11 @@ import {
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useWindowScrollToTopButton } from '../../hooks/useWindowScrollToTopButton.js';
-import { ClipLoader } from 'react-spinners';
+// import { ClipLoader } from 'react-spinners';
+import Loader from '../../components/Ui/Loader/Loader.jsx';
 import { selectCampers, setCamper } from '../../redux/campers/slice.js';
 import { fetchCamperById } from '../../services/api.js'; // ← уточнена функція
 import ScrollToTopButton from '../../components/Ui/Buttons/ScrollToTopButton/ScrollToTopButton.jsx';
-
 import scrollToTopButtonCss from '../../components/Ui/Buttons/ScrollToTopButton/ScrollToTopButton.module.css';
 import css from './PageDetails.module.css';
 
@@ -81,7 +81,7 @@ function PageDetails() {
   if (isLoading) {
     return (
       <div className={css.loaderContainer}>
-        <ClipLoader color="#36D7B7" size={50} />
+        <Loader type="container" />
       </div>
     );
   }
