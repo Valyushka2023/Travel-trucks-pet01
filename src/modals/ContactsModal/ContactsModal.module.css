@@ -287,7 +287,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-height: 100vh;
+  max-height: 50vh;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -346,6 +346,17 @@
 }
 
 @media (max-width: 74.9375rem) {
+  .addressInfo {
+    font-size: 1.15rem;
+    margin-bottom: 0.65rem;
+  }
+  .contactInfoPhone {
+    font-size: 1.15rem;
+    margin-bottom: 0.2rem;
+  }
+  .contactInfoEmail {
+    font-size: 1.15rem;
+  }
 }
 
 @media (max-width: 61.9375rem) {
@@ -363,17 +374,17 @@
     font-size: 1.1rem;
     font-weight: bold;
     margin: 0;
-    margin-bottom: 0.625rem;
+    margin-bottom: 0.6rem;
   }
 
   .contactInfoPhone {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin: 0;
-    margin-bottom: 0.625rem;
+    margin-bottom: 0.15rem;
   }
 
   .contactInfoEmail {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin: 0;
   }
 }
@@ -393,6 +404,17 @@
     padding: 0.625rem;
     flex-shrink: 0;
   }
+  .addressInfo {
+    font-size: 1rem;
+    margin-bottom: 0.55rem;
+  }
+  .contactInfoPhone {
+    font-size: 1rem;
+    margin-bottom: 0.1rem;
+  }
+  .contactInfoEmail {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 29.9375rem) {
@@ -406,5 +428,16 @@
   .contactItem {
     font-size: 0.9rem;
     height: auto;
+  }
+  .addressInfo {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  .contactInfoPhone {
+    font-size: 0.9rem;
+    margin-bottom: 0.05rem;
+  }
+  .contactInfoEmail {
+    font-size: 0.9rem;
   }
 }

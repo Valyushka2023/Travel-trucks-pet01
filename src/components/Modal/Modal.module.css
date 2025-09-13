@@ -180,6 +180,7 @@
 
 .modalTitle {
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
@@ -188,8 +189,8 @@
 }
 
 .modalBody {
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
+  /* margin-top: 0.5rem; */
+  margin-bottom: 1rem;
   padding: var(--padding-xs);
   flex-grow: 1;
   overflow-y: auto;
@@ -254,6 +255,6 @@
     max-width: 27.9375rem;
   }
   .modalTitle {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
 }
