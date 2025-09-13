@@ -1,6 +1,6 @@
 .textAboutModal p {
   margin: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-size: 1.5rem;
   line-height: 1.6;
   text-align: justify;
@@ -8,27 +8,25 @@
   color: var(--primary-color);
 }
 @media (max-width: 74.9375rem) {
-  .textAboutModal p {
+  /* .textAboutModal p {
     font-size: 1.5rem;
-    line-height: 1.6;
-  }
+    line-height: 1.4;
+  } */
 }
-
-@media (max-width: 47.9375rem) {
+@media (max-width: 61.9375rem) {
   .textAboutModal p {
     font-size: 1.3rem;
     line-height: 1.4;
   }
 }
-
-@media (max-width: 29.9375rem) {
+@media (max-width: 47.9375rem) {
   .textAboutModal p {
     font-size: 1.1rem;
     line-height: 1.2;
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 29.9375rem) {
   .textAboutModal p {
     font-size: 0.9rem;
     line-height: 1;

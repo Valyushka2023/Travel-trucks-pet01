@@ -1,4 +1,4 @@
-.backdrop {
+/* .backdrop {
   position: absolute;
   top: 0;
   left: 0;
@@ -14,22 +14,20 @@
 }
 
 .modal {
-  position: relative;
-  background-color: var(--body-bg-color);
-  border: 0.0125rem solid var(--border-color);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--box-shadom);
-  box-shadow: none;
-
-  /* width: 90%; */
-
-  max-width: 100%;
-  max-height: 100%;
-
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+
+  overflow: visible;
   animation: scaleUp 0.3s ease-in-out;
+  position: relative;
+  background-color: var(--body-bg-color);
+
+  border: 0.0125rem solid var(--border-color);
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+  max-width: 82rem;
+
+  max-height: 90%;
 }
 
 .modalHeader {
@@ -52,8 +50,8 @@
 }
 
 .modalTitle {
-  margin-top: 8px;
-  font-size: 1.3rem;
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
   padding: var(--padding-xs);
@@ -61,8 +59,8 @@
 }
 
 .modalBody {
-  margin-top: 8px;
-  margin-bottom: 24px;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
   padding: var(--padding-xs);
   flex-grow: 1;
   overflow-y: auto;
@@ -93,28 +91,168 @@
   .backdrop {
     min-height: 42.375rem;
   }
+  .modal {
+    max-width: 69.9375rem;
+  }
+ 
 }
 @media (max-width: 61.9375rem) {
   .backdrop {
     min-height: 35.625rem;
   }
-
-  .modalBody {
-    margin-bottom: 24px;
+  .modal {
+    max-width: 58.9375rem;
+  }
+  .modalTitle {
+    font-size: 1.3rem;
   }
 }
 @media (max-width: 47.9375rem) {
   .backdrop {
-    min-height: 28.75rem;
+    min-height: 29.75rem;
   }
   .modal {
-    width: 95%;
-    height: 90%;
-    max-height: 90%; /* Змінено з 80% на 90% */
+    max-width: 45.4375rem;
+  }
+  .modalTitle {
+    font-size: 1.1rem;
   }
 }
 @media (max-width: 29.9375rem) {
   .backdrop {
-    min-height: 23.75rem;
+    min-height: 25rem;
+  }
+  .modal {
+    max-width: 27.9375rem;
+  }
+  .modalTitle {
+    font-size: 0.9rem;
+  }
+} */
+/**************************/
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 52.5rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  animation: scaleUp 0.3s ease-in-out;
+  position: relative;
+  background-color: var(--body-bg-color);
+  border: 0.0125rem solid var(--border-color);
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+  max-width: 82rem;
+  max-height: 90%;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--padding-form-xs);
+  border-bottom: 0.0625rem solid var(--border-color);
+  background-color: var(--header-bg-color);
+  flex-shrink: 0;
+}
+
+.logoInModal {
+  color: var(--logo-primary-color);
+}
+
+.closeBtn {
+  color: var(--primary-color);
+}
+
+.modalTitle {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  padding: var(--padding-xs);
+  color: var(--primary-color);
+}
+
+.modalBody {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: var(--padding-xs);
+  flex-grow: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 74.9375rem) {
+  .backdrop {
+    min-height: 42.375rem;
+  }
+  .modal {
+    max-width: 69.9375rem;
+  }
+}
+@media (max-width: 61.9375rem) {
+  .backdrop {
+    min-height: 35.625rem;
+  }
+  .modal {
+    max-width: 58.9375rem;
+  }
+  .modalTitle {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 47.9375rem) {
+  .backdrop {
+    min-height: 29.75rem;
+  }
+  .modal {
+    max-width: 45.4375rem;
+  }
+  .modalTitle {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 29.9375rem) {
+  .backdrop {
+    min-height: 25rem;
+  }
+  .modal {
+    max-width: 27.9375rem;
+  }
+  .modalTitle {
+    font-size: 0.9rem;
   }
 }

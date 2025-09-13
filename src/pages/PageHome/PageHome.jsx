@@ -11,7 +11,7 @@ function PageHome() {
     <div className={css.container}>
       <Header />
 
-      <section className={css.heroSection}>
+      <section className={`${css.heroSection} ${css.mainContent}`}>
         <div className={css.heroOverlay}>
           <div className={css.title}>
             <div className={css.text}>
