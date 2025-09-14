@@ -1,296 +1,25 @@
-/* .backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 52.5rem;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5);
-  box-sizing: border-box;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.modal {
-  display: flex;
-  flex-direction: column;
-
-  overflow: visible;
-  animation: scaleUp 0.3s ease-in-out;
-  position: relative;
-  background-color: var(--body-bg-color);
-
-  border: 0.0125rem solid var(--border-color);
-  border-radius: var(--radius-sm);
-  box-shadow: none;
-  max-width: 82rem;
-
-  max-height: 90%;
-}
-
-.modalHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: var(--padding-form-xs);
-  border-bottom: 0.0625rem solid var(--border-color);
-  background-color: var(--header-bg-color);
-  flex-shrink: 0;
-}
-
-.logoInModal {
-  color: var(--logo-primary-color);
-}
-
-.closeBtn {
-  color: var(--primary-color);
-}
-
-.modalTitle {
-  margin-top: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-align: center;
-  padding: var(--padding-xs);
-  color: var(--primary-color);
-}
-
-.modalBody {
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
-  padding: var(--padding-xs);
-  flex-grow: 1;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scaleUp {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@media (max-width: 74.9375rem) {
-  .backdrop {
-    min-height: 42.375rem;
-  }
-  .modal {
-    max-width: 69.9375rem;
-  }
- 
-}
-@media (max-width: 61.9375rem) {
-  .backdrop {
-    min-height: 35.625rem;
-  }
-  .modal {
-    max-width: 58.9375rem;
-  }
-  .modalTitle {
-    font-size: 1.3rem;
-  }
-}
-@media (max-width: 47.9375rem) {
-  .backdrop {
-    min-height: 29.75rem;
-  }
-  .modal {
-    max-width: 45.4375rem;
-  }
-  .modalTitle {
-    font-size: 1.1rem;
-  }
-}
-@media (max-width: 29.9375rem) {
-  .backdrop {
-    min-height: 25rem;
-  }
-  .modal {
-    max-width: 27.9375rem;
-  }
-  .modalTitle {
-    font-size: 0.9rem;
-  }
-} */
-/**************************/
-/* .backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 52.5rem; 
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5);
-  box-sizing: border-box;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.modal {
-  display: flex;
-  flex-direction: column;
-
-  overflow-y: visible;
-  animation: scaleUp 0.3s ease-in-out;
-  position: relative;
-  background-color: var(--body-bg-color);
-  border: 0.0125rem solid var(--border-color);
-  border-radius: var(--radius-sm);
-  box-shadow: none;
-  max-width: 100%;
-  min-height: 100%;
-}
-
-.modalHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--padding-form-xs);
-  border-bottom: 0.0625rem solid var(--border-color);
-  background-color: var(--header-bg-color);
-  flex-shrink: 0;
-}
-
-.logoInModal {
-  color: var(--logo-primary-color);
-}
-
-.closeBtn {
-  color: var(--primary-color);
-}
-
-.modalTitle {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-align: center;
-  padding: var(--padding-xs);
-  color: var(--primary-color);
-}
-
-.modalBody {
-
-  margin-bottom: 1rem;
-  padding: var(--padding-xs);
-  flex-grow: 1;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scaleUp {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@media (max-width: 74.9375rem) {
-  .backdrop {
-    min-height: 42.375rem;
-  }
-  .modal {
-    max-width: 69.9375rem;
-  }
-}
-@media (max-width: 61.9375rem) {
-  .backdrop {
-    min-height: 35.625rem;
-  }
-  .modal {
-    max-width: 58.9375rem;
-  }
-  .modalTitle {
-    font-size: 1.3rem;
-  }
-}
-@media (max-width: 47.9375rem) {
-  .backdrop {
-    min-height: 29.75rem;
-  }
-  .modal {
-    max-width: 45.4375rem;
-  }
-  .modalTitle {
-    font-size: 1.1rem;
-  }
-}
-@media (max-width: 29.9375rem) {
-  .backdrop {
-    min-height: 25rem;
-  }
-  .modal {
-    max-width: 27.9375rem;
-    max-height: 90vh; 
-    overflow-y: auto; 
-  }
-  .modalTitle {
-    font-size: 0.9rem;
-  }
-}
-/*******************************************/
 .backdrop {
-  position: absolute; /* Закріплюємо на екрані */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   max-height: 52.5rem;
-  height: 100vh; /* Висота завжди 100% від висоти вікна перегляду */
+  height: 100vh;
   z-index: 1000;
-
-  /* Центрування вмісту */
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* Фон та анімація */
   background: rgba(0, 0, 0, 0.5);
   animation: fadeIn 0.3s ease-in-out;
 }
 
 .modal {
-  position: relative; /* Позиціонуємо всередині батьківського flex-контейнера */
+  position: relative;
   max-width: 90%;
-  max-height: 90vh; /* Обмежуємо висоту для адаптивності */
-
-  /* Вміст та скролінг */
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Додаємо скролбар для вмісту */
-
-  /* Стилі та анімація */
+  overflow-y: auto;
   background-color: var(--body-bg-color);
   border: 0.0125rem solid var(--border-color);
   border-radius: var(--radius-sm);
@@ -311,7 +40,8 @@ body.modal-open {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--padding-form-xs);
+  /* padding: var(--padding-form-xs); */
+  padding: var(--padding-form-md);
   border-bottom: 0.0625rem solid var(--border-color);
   background-color: var(--header-bg-color);
   flex-shrink: 0;
@@ -323,25 +53,20 @@ body.modal-open {
 
 .closeBtn {
   color: var(--primary-color);
+  /* position: absolute;
+  top: 1.5rem;
+  right: 1.5rem; */
 }
 
 .modalTitle {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   text-align: center;
   padding: var(--padding-xs);
   color: var(--primary-color);
 }
-
-/* .modalBody {
-  margin-bottom: 1rem;
-  padding: var(--padding-xs);
-  flex-grow: 1;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-} */
 
 @keyframes fadeIn {
   from {
@@ -358,41 +83,41 @@ body.modal-open {
     opacity: 0;
   }
   to {
-    transform: scale(1);
+    transform: scale(1.05);
     opacity: 1;
   }
 }
 
-/* Медіа-запити для адаптивності, але без фіксованих висот */
-
-/* Загальні стилі для екранів менше 1200px */
 @media (max-width: 74.9375rem) {
   .modal {
-    max-width: 90%;
-  }
-}
-/* Загальні стилі для екранів менше 991px */
-@media (max-width: 61.9375rem) {
-  .modal {
-    max-width: 90%;
+    /* max-width: 90%; */
   }
   .modalTitle {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }
-/* Загальні стилі для екранів менше 767px */
-@media (max-width: 47.9375rem) {
+
+@media (max-width: 61.9375rem) {
   .modal {
-    max-width: 90%;
+    /* max-width: 90%; */
   }
   .modalTitle {
     font-size: 1.1rem;
   }
 }
-/* Загальні стилі для смартфонів (менше 480px) */
+
+@media (max-width: 47.9375rem) {
+  .modal {
+    /* max-width: 90%; */
+  }
+  .modalTitle {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 29.9375rem) {
   .modal {
-    max-width: 95%; /* Трохи більше простору на маленьких екранах */
+    max-width: 95%;
     max-height: 95vh;
   }
   .modalTitle {

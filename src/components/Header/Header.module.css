@@ -31,7 +31,7 @@
 .menu {
   display: flex;
   gap: 2rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 500;
   padding: 0;
   margin: 0;
@@ -109,6 +109,7 @@
 
   .menu {
     gap: 1.25rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -123,6 +124,7 @@
     left: auto;
     transform: none;
     margin-left: auto;
+    font-size: 1.1rem;
   }
 }
 
@@ -138,26 +140,32 @@
   }
 
   .menu {
+    /*Layout і позиціювання*/
     display: flex;
+    flex-direction: column;
     position: fixed;
     top: 0;
     right: 0;
-    transform: translateX(100%);
+    /*Розміри та фон*/
     width: 15.625rem;
     height: 100%;
     background-color: var(--light-bg-color);
-    flex-direction: column;
-    align-items: center;
-    padding: 5rem 0;
-    opacity: 0;
-    visibility: hidden;
+    /*Анімація та приховування*/
+    transform: translateX(100%);
     transition:
       transform 0.3s ease,
       opacity 0.3s ease,
       visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    /*Z-індекс і тінь */
     z-index: 1002;
     box-shadow: -0.125rem 0 0.625rem rgba(0, 0, 0, 0.2);
+    /*Вирівнювання контенту */
     text-align: center;
+    align-items: center;
+    /*Відступи */
+    padding: 5rem 0;
   }
 
   .menu.is-open {
@@ -171,7 +179,7 @@
     color: var(--dark-color);
     padding: 0.75rem 0;
     margin: 0.75rem 0;
-    font-size: 1.125rem;
+    font-size: 1rem;
     width: 100%;
     text-align: center;
     pointer-events: auto;
@@ -196,6 +204,7 @@
     right: 1.25rem;
     z-index: 1003;
     color: var(--dark-color);
+    font-size: 1rem;
   }
 }
 
@@ -208,10 +217,13 @@
   .logoHeader {
     max-width: 5rem;
   }
-
+  .menu .link,
+  .menu .active {
+    font-size: 0.9rem;
+  }
   .closeButtonInsideMenu {
     right: 0.9375rem;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
 
   .link {

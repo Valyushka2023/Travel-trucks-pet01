@@ -5,7 +5,7 @@ import css from './Card.module.css';
 import Button from '../../Ui/Buttons/BaseButton/Button.jsx';
 import FeatureIcon from '../../FeatureIcon/FeatureIcon.jsx';
 import { v4 as uuidv4 } from 'uuid';
-import DescriptionPopup from '../../../modals/DescriptionModal/DescriptionPopup.jsx';
+import DescriptionPopup from '../../../components/Modals/DescriptionModal/DescriptionPopup.jsx';
 
 const Card = ({ _id, name, gallery, price, description, location, camper }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);

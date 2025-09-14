@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Modal from '../../components/Modal/Modal.jsx';
+import Modal from '../../Modal/Modal.jsx';
 import css from './AboutModal.module.css';
 
 const AboutModal = ({

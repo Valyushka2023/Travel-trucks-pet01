@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import AboutModal from '../../modals/AboutModal/AboutModal.jsx';
-import ServicesModal from '../../modals/ServicesModal/ServicesModal.jsx';
-import PricingModal from '../../modals/PricesModal/PricesModal.jsx';
-import ContactsModal from '../../modals/ContactsModal/ContactsModal.jsx';
+import AboutModal from '../../components/Modals/AboutModal/AboutModal.jsx';
+import ServicesModal from '../../components/Modals/ServicesModal/ServicesModal.jsx';
+import PricingModal from '../../components/Modals/PricesModal/PricesModal.jsx';
+import ContactsModal from '../../components/Modals/ContactsModal/ContactsModal.jsx';
 
 import css from './InfoLinks.module.css';
 
