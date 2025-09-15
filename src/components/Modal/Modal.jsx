@@ -30,7 +30,7 @@ function Modal({ title, titleClassName, children, onClose }) {
   return (
     <div className={css.backdrop} onClick={onClose}>
       <div className={css.modal} onClick={handleModalContentClick}>
-        <div className={css.modalHeader}>
+        <div className={css.modalHeaderContainer}>
           <Logo className={css.logoInModal} />
           <CloseButton
             onClick={onClose}

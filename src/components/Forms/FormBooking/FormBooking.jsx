@@ -50,11 +50,10 @@ function FormBooking({ camper }) {
         : !/^\+?\d{10,15}$/.test(value)
           ? 'Incorrect phone number format.'
           : null,
-    bookingStartDate: value =>
-      !value ? 'Please select a start date and time.' : null,
+    bookingStartDate: value => (!value ? 'Please fill in this field.' : null),
     bookingEndDate: value => {
       if (!value) {
-        return 'Please select an end date and time.';
+        return 'Please fill in this field.';
       }
       if (formData.bookingStartDate && value <= formData.bookingStartDate) {
         return 'End date and time must be after the start date and time.';

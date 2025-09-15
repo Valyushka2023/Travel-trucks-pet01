@@ -6,6 +6,7 @@
   text-align: justify;
   text-indent: 1em;
   color: var(--primary-color);
+  margin-bottom: 0.5rem;
 }
 @media (max-width: 74.9375rem) {
   .textAboutModal p {

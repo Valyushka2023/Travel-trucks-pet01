@@ -1,5 +1,5 @@
 .contactContainer {
-  max-height: 19rem;
+  max-height: 26.25rem;
 }
 
 .contactList {
@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-height: 50vh;
+  max-height: 80vh;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -24,13 +24,12 @@
   justify-content: center;
   max-width: 30rem;
   max-height: 8.75rem;
-  padding: 0.75rem;
+  /* padding: 0.75rem; */
   padding: var(--padding-xs);
   border: 0.0625rem solid var(--border-color);
   border-radius: var(--radius-md);
   box-shadow: var(--box-shadom);
   background-color: var(--blok-field-form-bg-color);
-  background-color: aqua;
 }
 
 .addressInfo {
@@ -70,6 +69,10 @@
 }
 
 @media (max-width: 74.9375rem) {
+  .contactContainer {
+    max-height: 21.1875rem;
+  }
+
   .addressInfo {
     font-size: 1.2rem;
     margin-bottom: 0.65rem;
@@ -84,6 +87,9 @@
 }
 
 @media (max-width: 61.9375rem) {
+  .contactContainer {
+    max-height: 17.8125rem;
+  }
   .contactList {
     gap: 1.15rem;
     padding: 0 1rem;
@@ -96,6 +102,9 @@
     flex-grow: 1;
     flex-basis: 17.375rem; /* Встановлюємо базовий розмір */
     max-width: 100%; /* Гарантуємо, що не вийде за межі */
+    display: flex;
+    flex-direction: column;
+    max-height: 7.5rem;
   }
 
   .addressInfo {
@@ -118,6 +127,9 @@
 }
 
 @media (max-width: 47.9375rem) {
+  .contactContainer {
+    max-height: 14.375rem;
+  }
   .contactList {
     /* display: flex;
     flex-direction: column;
@@ -134,13 +146,17 @@
     padding: 0;
   }
   .contactItem {
+    max-height: 6.875rem;
     /* width: 100%;
     font-size: 1rem;
     padding: 0.625rem;
     flex-shrink: 0; */
-    width: 90%; /* Або flex-basis: 90% */
+    width: 100%;
+    /* Або flex-basis: 90% */
     font-size: 1rem;
-    padding: 0.625rem;
+    /* padding: 0.625rem; */
+    /* padding: 0; */
+    padding: var(--padding-sm);
   }
   .addressInfo {
     font-size: 1rem;
@@ -157,20 +173,26 @@
 
 @media (max-width: 29.9375rem) {
   .contactContainer {
-    padding: 0.75rem;
+    max-height: 11.875rem;
+  }
+  .contactContainer {
+    /* padding: 0.75rem; */
   }
   .contactList {
     /* max-height: 40vh;
     gap: 1rem; */
     max-height: 40vh;
     gap: 1rem;
-    padding: 0 0.5rem; /* Зменшуємо padding, якщо необхідно */
+    /* padding: 0 0.5rem;  */
+    padding: 0;
   }
   .contactItem {
+    max-height: 6.25rem;
     /* font-size: 0.9rem;
     height: auto;  */
     width: 100%; /* Розтягуємо на всю ширину контейнера */
     /* height: auto;  Цього вже немає в оригіналі, тому тут не потрібно */
+    padding: var(--padding-xs);
   }
   .addressInfo {
     font-size: 0.9rem;
