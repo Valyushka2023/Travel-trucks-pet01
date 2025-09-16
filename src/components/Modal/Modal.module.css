@@ -146,11 +146,11 @@ body.modal-open {
 } */
 /*******************************/
 .backdrop {
-  position: fixed; /* Changed from absolute to fixed */
+  position: fixed; /* Замінено на fixed, щоб backdrop займав весь екран */
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Changed from 100vh */
+  height: 100%;
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -161,11 +161,11 @@ body.modal-open {
 
 .modal {
   position: relative;
-  max-width: 90vw; /* Changed from max-width: 90% */
-  max-height: 90vh; /* Changed from max-height: 90vh */
+  max-width: 90vw; /* Використовуємо vw для адаптації до ширини екрана */
+  max-height: 90vh; /* Використовуємо vh для адаптації до висоти екрана */
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow-y: auto; /* Дозволяє прокручувати вміст модального вікна, якщо він не вміщується */
   background-color: var(--body-bg-color);
   border: 0.0125rem solid var(--border-color);
   border-radius: var(--radius-sm);

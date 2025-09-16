@@ -12,17 +12,15 @@
   position: relative;
   display: flex;
   align-items: center;
-  /* Замінено на max-height: 100vh */
-  max-height: 100vh;
-  /* Використання min-height, щоб секція займала весь екран */
-  min-height: 100vh;
+  min-height: 100vh; /* Використання 100vh гарантує, що секція займатиме всю висоту екрана */
+  height: auto; /* Дозволяє секції адаптуватися до вмісту */
   background-image:
     linear-gradient(rgb(46 47 66 / 30%), rgb(46 47 66 / 30%)),
     url('/images/Picture@1x.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  overflow: hidden;
+  overflow: hidden; /* Запобігає появі скроллу всередині секції */
 }
 
 .modalWrapper {
