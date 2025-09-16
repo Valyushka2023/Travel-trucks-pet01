@@ -12,7 +12,10 @@
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 43.5rem;
+  /* Замінено на max-height: 100vh */
+  max-height: 100vh;
+  /* Використання min-height, щоб секція займала весь екран */
+  min-height: 100vh;
   background-image:
     linear-gradient(rgb(46 47 66 / 30%), rgb(46 47 66 / 30%)),
     url('/images/Picture@1x.jpg');
@@ -119,7 +122,7 @@
 
 @media (max-width: 47.9375rem) {
   .heroSection {
-    min-height: 21.875rem;
+    max-height: 21.875rem;
   }
   .heroOverlay {
     padding: var(--padding-sm);

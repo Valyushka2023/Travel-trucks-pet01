@@ -1,4 +1,4 @@
-.backdrop {
+/* .backdrop {
   position: absolute;
   top: 0;
   left: 0;
@@ -54,6 +54,154 @@ body.modal-open {
 
 .closeBtn {
   color: var(--primary-color);
+
+}
+
+.modalTitle {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  padding: var(--padding-xl);
+  color: var(--primary-color);
+}
+
+@media (max-width: 74.9375rem) {
+  .backdrop {
+    max-height: 42.375rem;
+  }
+ 
+  .modalBody {
+    padding: var(--padding-lg);
+  }
+
+  .modalHeaderContainer {
+    padding: var(--padding-lg);
+    min-height: 4rem;
+  }
+  .modalTitle {
+    font-size: 1.2rem;
+    padding: var(--padding-lg);
+  }
+}
+
+@media (max-width: 61.9375rem) {
+  .backdrop {
+    max-height: 35.625rem;
+  }
+ 
+  .modalBody {
+    padding: var(--padding-md);
+  }
+  .modalHeaderContainer {
+    padding: var(--padding-md);
+    min-height: 3.75rem;
+  }
+  .modalTitle {
+    font-size: 1.1rem;
+    padding: var(--padding-md);
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .backdrop {
+    max-height: 28.75rem;
+  }
+
+  .modalBody {
+    padding: var(--padding-sm);
+  }
+  .modalHeaderContainer {
+    padding: var(--padding-sm);
+    min-height: 3.4375rem;
+  }
+
+  .modalTitle {
+    font-size: 1rem;
+    padding: var(--padding-sm);
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .backdrop {
+    max-height: 23.75rem;
+  }
+  .modal {
+    max-width: 95%;
+    max-height: 95vh;
+  }
+  .modalBody {
+    padding: var(--padding-xs);
+  }
+  .modalHeaderContainer {
+    padding: var(--padding-xs);
+    min-height: 3.125rem;
+  }
+
+  .modalTitle {
+    font-size: 0.9rem;
+    padding: var(--padding-xs);
+  }
+} */
+/*******************************/
+.backdrop {
+  position: fixed; /* Changed from absolute to fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Changed from 100vh */
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal {
+  position: relative;
+  max-width: 90vw; /* Changed from max-width: 90% */
+  max-height: 90vh; /* Changed from max-height: 90vh */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background-color: var(--body-bg-color);
+  border: 0.0125rem solid var(--border-color);
+  border-radius: var(--radius-sm);
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+.modalBody {
+  margin-bottom: 1rem;
+  padding: var(--padding-xl);
+  flex-grow: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.modalHeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--padding-xl);
+  border-bottom: 0.0625rem solid var(--border-color);
+  background-color: var(--header-bg-color);
+  flex-shrink: 0;
+  min-height: 4.5rem;
+  /* max-width removed */
+}
+
+.logoInModal {
+  color: var(--logo-primary-color);
+}
+
+.closeBtn {
+  color: var(--primary-color);
   /* position: absolute;
   top: 1.5rem;
   right: 1.5rem; */
@@ -90,9 +238,7 @@ body.modal-open {
 } */
 
 @media (max-width: 74.9375rem) {
-  .backdrop {
-    max-height: 42.375rem;
-  }
+  /* Removed max-height from backdrop as it's now fixed */
   .modal {
     /* max-width: 90%; */
   }
@@ -111,9 +257,7 @@ body.modal-open {
 }
 
 @media (max-width: 61.9375rem) {
-  .backdrop {
-    max-height: 35.625rem;
-  }
+  /* Removed max-height from backdrop as it's now fixed */
   .modal {
     /* max-width: 90%; */
   }
@@ -131,9 +275,7 @@ body.modal-open {
 }
 
 @media (max-width: 47.9375rem) {
-  .backdrop {
-    max-height: 28.75rem;
-  }
+  /* Removed max-height from backdrop as it's now fixed */
   .modal {
     /* max-width: 90%; */
   }
@@ -152,11 +294,9 @@ body.modal-open {
 }
 
 @media (max-width: 29.9375rem) {
-  .backdrop {
-    max-height: 23.75rem;
-  }
+  /* Removed max-height from backdrop as it's now fixed */
   .modal {
-    max-width: 95%;
+    max-width: 95vw; /* changed from 95% */
     max-height: 95vh;
   }
   .modalBody {
