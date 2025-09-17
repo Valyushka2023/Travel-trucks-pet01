@@ -167,10 +167,10 @@
   }
 
   .contactList {
-    max-height: 40vh;
+    /* max-height: 40vh;
     gap: 1rem;
 
-    padding: 0;
+    padding: 0; */
   }
   .contactItem {
     max-height: 6.25rem;
