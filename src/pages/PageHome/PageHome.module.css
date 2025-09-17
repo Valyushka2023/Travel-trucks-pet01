@@ -12,7 +12,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 100vh; /* Використання 100vh гарантує, що секція займатиме всю висоту екрана */
+  min-height: 70vh; /* Використання 100vh гарантує, що секція займатиме всю висоту екрана */
   height: auto; /* Дозволяє секції адаптуватися до вмісту */
   background-image:
     linear-gradient(rgb(46 47 66 / 30%), rgb(46 47 66 / 30%)),
