@@ -11,7 +11,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 70vh;
+  min-height: 80vh;
   height: auto;
   background-image:
     linear-gradient(rgb(46 47 66 / 30%), rgb(46 47 66 / 30%)),
@@ -79,7 +79,8 @@
 
 @media (max-width: 74.9375rem) {
   .heroSection {
-    min-height: 34.375rem;
+    /* min-height: 34.375rem; */
+    min-height: 70vh;
   }
   .heroOverlay {
     padding: var(--padding-lg);
@@ -97,7 +98,8 @@
 
 @media (max-width: 61.9375rem) {
   .heroSection {
-    min-height: 28.125rem;
+    /* min-height: 28.125rem; */
+    min-height: 60vh;
   }
   .heroOverlay {
     padding: var(--padding-md);
@@ -116,7 +118,8 @@
 
 @media (max-width: 47.9375rem) {
   .heroSection {
-    max-height: 21.875rem;
+    /* max-height: 21.875rem; */
+    min-height: 50vh;
   }
   .heroOverlay {
     padding: var(--padding-sm);
@@ -141,7 +144,8 @@
 
 @media (max-width: 29.9375rem) {
   .heroSection {
-    min-height: 17.5rem;
+    /* min-height: 17.5rem; */
+    min-height: 40vh;
   }
   .heroOverlay {
     padding: var(--padding-xs);
