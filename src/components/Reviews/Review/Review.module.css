@@ -10,8 +10,9 @@
   flex-direction: column;
   width: 100%;
   max-width: 40rem;
-  min-height: 110px;
+  min-height: 6.875rem;
   padding: 0;
+  padding-bottom: 1rem;
   box-sizing: border-box;
   /* background-color: var(--body-bg-color); */
 }
@@ -89,5 +90,6 @@
   color: var(--secondary-color);
   flex-wrap: wrap;
   margin-right: 1.25rem;
+  margin-bottom: 0.3rem;
   text-align: justify;
 }

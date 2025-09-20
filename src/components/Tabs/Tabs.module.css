@@ -60,6 +60,6 @@
 }
 
 .active {
-  border-bottom: 0.3125rem solid var(--active-color);
+  border-bottom: 0.5125rem solid var(--active-color);
   cursor: default;
 }

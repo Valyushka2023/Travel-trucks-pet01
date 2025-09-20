@@ -53,7 +53,7 @@
   --color-gray: #6c7178; /*сірий  колір*/
   --color-red: #e60000; /*червоний колір*/
   /* --color-blue: #007bff; */
-  --color-blue: #4169e1; /*синій  колір*/
+  --color-blue: #1e40ff; /*синій  колір*/
 
   /* Спеціальні кольори */
   --color-yellow: #ffc107; /*помаранчевий колір*/
@@ -68,7 +68,7 @@
   --color-light-gray-4: #948f8fff;
 
   /* Відтінки червоного */
-  --color-dark-red: #d84343;
+  /* --color-dark-red: #d84343; */
 
   /* Відтінки  білого */
   --color-off-white: #f7f7f7;
@@ -145,7 +145,9 @@
     --color-light-gray-2
   ); /*колір фону header у світлій темі*/
   --body-bg-color: var(--color-off-white); /*колір фону  body  у світлій темі */
-  --footer-bg-color: var(--color-gray); /*колір фону footer у світлій темі*/
+  --footer-bg-color: var(
+    --color-dark-gray
+  ); /*колір фону footer у світлій темі*/
   --avatar-bg-color: var(
     --color-light-gray-2
   ); /*колір фону аватара у світлій темі*/
@@ -232,10 +234,10 @@
   /*Перевизначення змінних в темній темі*/
   /**********************************/
   /* bg color */
-  --header-bg-color: var(--color-gray);
+  --header-bg-color: var(--color-dark-gray);
   --body-bg-color: var(--color-soft-black);
   --footer-bg-color: var(--color-light-gray-2);
-  --avatar-bg-color: var(--color-gray);
+  --avatar-bg-color: var(--color-dark-gray);
   --blok-details-bg-color: var(--color-gunmetal-black);
   --blok-featureIcon-bg-color: var(--color-dark-gray);
   --blok-location-bg-color: var(--color-dark-gray);

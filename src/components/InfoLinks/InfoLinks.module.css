@@ -14,6 +14,8 @@
   font-weight: 500;
   text-decoration: none;
   color: var(--primary-color-1);
+  /* color: var(--color-ultramarine); */
+  --color-light-blue: #add8e6;
   transition:
     color 0.3s ease,
     transform 0.3s ease;

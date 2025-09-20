@@ -22,6 +22,7 @@
 
 .baseScrollToTopButton:hover {
   background-color: var(--hover-bg-color);
+
   transform: scale(1.05);
   opacity: 1;
 }

@@ -133,7 +133,7 @@
 .scrollToTopBtn {
   position: absolute;
   bottom: 4rem;
-  right: 1rem;
+  right: 1.8rem;
   width: 3.5rem;
   height: 3.5rem;
   background-color: var(--button-primary-bg-color);

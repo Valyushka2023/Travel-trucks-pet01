@@ -22,10 +22,21 @@
   text-decoration: none;
   white-space: nowrap;
   margin-right: 2rem;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 
 .phoneNumber:hover {
+  color: var(--hover-color);
+
   text-decoration: underline;
+  transform: scale(1.05);
+}
+
+.phoneNumber:active {
+  color: var(--active-color);
+  transform: scale(0.95);
 }
 
 @media (max-width: 74.9375rem) {
