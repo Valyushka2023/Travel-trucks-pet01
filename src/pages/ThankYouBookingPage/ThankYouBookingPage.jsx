@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import CloseButton from '../../components/Ui/Buttons/CloseButton/CloseButton.jsx';
 import Loader from '../../components/Ui/Loader/Loader.jsx';
@@ -8,7 +9,7 @@ const ThankYouBookingPage = () => {
   const location = useLocation();
 
   const { camperId, camper } = location.state || {};
-
+  const [loading, setLoading] = useState(false);
   const handleClose = () => {
     if (camperId && camper) {
       navigate(`/catalog/${camperId}`, { state: { camper } });
