@@ -5,7 +5,7 @@
   max-width: 90rem;
   max-height: 100vh;
   margin: 0 auto;
-  padding: var(--padding-min);
+  padding: var(--padding-form-xs);
 }
 
 .heroSection {
