@@ -61,14 +61,6 @@
   margin-top: 2.5rem;
 }
 
-/* .loaderContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 12.5rem;
-  width: 100%;
-} */
-
 .filterButtonsContainer {
   display: flex;
   flex-direction: row;
@@ -76,93 +68,73 @@
   gap: 0.9375rem;
 }
 
-/* --- Медіа-запити для адаптивності --- */
-
-/* Планшети (горизонтальна орієнтація) та менші десктопи */
-@media (max-width: 1199px) {
+@media (max-width: 74.9375rem) {
   .layout {
-    flex-direction: column; /* або grid with grid-template-rows */
+    flex-direction: column;
   }
   .containerCatalog {
-    /* width: 95%;  */
-    /* 
-    Трохи більші відступи */
-    /*flex-direction: column; 
-    * Фільтри та картки стають один під одним */
-    /*gap: 40px; */
-    /* Більший простір між секціями */
-    /* flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px; */
     display: flex;
     width: 100%;
-    max-width: 1199px;
-    margin: 24px 0;
-
-    /* scroll-margin-top: 72px; */
-
-    /* flex-wrap: wrap; */
+    max-width: 74.9375rem;
+    margin: 1.5rem 0;
     justify-content: center;
-    gap: 10px;
+    gap: 0.625rem;
   }
 
   .containerFilters {
-    margin-right: 0; /* Прибираємо відступ справа */
-    max-width: 100%; /* Фільтри займають всю доступну ширину */
-    align-items: center; /* Центруємо вміст фільтрів */
+    margin-right: 0;
+    max-width: 100%;
+    align-items: center;
   }
 
   .filterTitle {
-    text-align: center; /* Центруємо заголовок фільтрів */
+    text-align: center;
   }
 
   .containerCards {
-    margin-left: 0; /* Прибираємо відступ зліва */
-    max-width: 100%; /* Картки займають всю доступну ширину */
-    align-items: center; /* Центруємо картки в колонці */
+    margin-left: 0;
+    max-width: 100%;
+    align-items: center;
   }
 
   .filterButtonsContainer {
-    flex-direction: row; /* Кнопки знову в рядок */
-    justify-content: center; /* Центруємо кнопки */
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
   }
 }
 
-/* Мобільні телефони (вертикальна орієнтація) */
-@media (max-width: 768px) {
+@media (max-width: 47.9375rem) {
   .containerCatalog {
-    width: 98%; /* Ще менші відступи */
-    padding: 0 10px; /* Невеликий внутрішній відступ */
-    gap: 24px;
-    margin-top: 24px;
+    width: 98%;
+    padding: 0 0.625rem;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
   }
 
   .containerFilters,
   .containerCards {
-    min-width: unset; /* Дозволяємо зменшуватися більше */
-    width: 100%; /* Займає всю доступну ширину */
+    min-width: unset;
+    width: 100%;
   }
 
   .filterButtonsContainer {
-    flex-direction: column; /* Кнопки знову в стовпець */
-
-    gap: 10px; /* Менший простір між кнопками */
+    flex-direction: column;
+    gap: 0.625rem;
     align-items: center;
   }
 }
 
-/* Дуже маленькі екрани */
-@media (max-width: 480px) {
+@media (max-width: 29.9375rem) {
   .containerCatalog {
     width: 100%;
-    padding: 0 5px; /* Мінімальні відступи */
-    margin-top: 20px; /* Зменшуємо верхній відступ */
-    margin-bottom: 20px; /* Зменшуємо нижній відступ */
+    padding: 0 0.3125rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
   }
 
   .filterTitle {
-    margin-top: 20px;
-    margin-bottom: 15px;
+    margin-top: 1.25rem;
+    margin-bottom: 0.9375rem;
   }
 }

@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: column;
-
   width: 100%;
   max-width: 90rem;
   max-height: 100vh;
@@ -12,15 +11,15 @@
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 70vh; /* Використання 100vh гарантує, що секція займатиме всю висоту екрана */
-  height: auto; /* Дозволяє секції адаптуватися до вмісту */
+  min-height: 70vh;
+  height: auto;
   background-image:
     linear-gradient(rgb(46 47 66 / 30%), rgb(46 47 66 / 30%)),
     url('/images/Picture@1x.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  overflow: hidden; /* Запобігає появі скроллу всередині секції */
+  overflow: hidden;
 }
 
 .modalWrapper {
@@ -74,9 +73,6 @@
   margin: 0;
 }
 
-/* Стилі для посилання <Link>, щоб воно виглядало як кнопка.
-  Клас .viewButton додано для стилізації <Link>, який огортає компонент <Button>.
-*/
 .viewButton {
   text-decoration: none;
 }

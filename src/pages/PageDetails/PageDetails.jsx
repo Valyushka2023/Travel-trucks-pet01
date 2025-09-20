@@ -7,10 +7,10 @@ import {
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useWindowScrollToTopButton } from '../../hooks/useWindowScrollToTopButton.js';
-// import { ClipLoader } from 'react-spinners';
+
 import Loader from '../../components/Ui/Loader/Loader.jsx';
 import { selectCampers, setCamper } from '../../redux/campers/slice.js';
-import { fetchCamperById } from '../../services/api.js'; // ← уточнена функція
+import { fetchCamperById } from '../../services/api.js';
 import ScrollToTopButton from '../../components/Ui/Buttons/ScrollToTopButton/ScrollToTopButton.jsx';
 import scrollToTopButtonCss from '../../components/Ui/Buttons/ScrollToTopButton/ScrollToTopButton.module.css';
 import css from './PageDetails.module.css';
@@ -91,11 +91,11 @@ function PageDetails() {
   }
 
   if (!localCamper) {
-    return <div className={css.error}>⚠️ Camper not found.</div>;
+    return <div className={css.error}>⚠️ Camper not found</div>;
   }
 
   return (
-    <div className={css.pageDetailsWrapper}>
+    <div>
       <Outlet context={{ camper: localCamper, activeTab }} />
       <ScrollToTopButton
         visible={visible}

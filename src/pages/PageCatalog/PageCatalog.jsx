@@ -17,8 +17,7 @@ import FilterLocation from '../../components/Filters/FilterLocation/FilterLocati
 import FilterVehicleEquipment from '../../components/Filters/FilterEquipment/FilterVehicleEquipment.jsx';
 import FilterVehicleType from '../../components/Filters/FilterType/FilterVehicleType.jsx';
 import CardList from '../../components/CardList/CardList.jsx';
-// import { ClipLoader } from 'react-spinners';
-// import Loader from '../../components/Ui/Loader/Loader.jsx';
+
 import ErrorComponent from '../../components/ErrorComponent/ErrorComponent.jsx';
 import Loader from '../../components/Ui/Loader/Loader.jsx';
 
@@ -36,7 +35,7 @@ function PageCatalog() {
   const error = useSelector(selectError);
 
   const [visibleCampers, setVisibleCampers] = useState([]);
-  const [loadedCount, setLoadedCount] = useState(4); // Кількість кемперів, яку бачимо на початку
+  const [loadedCount, setLoadedCount] = useState(4);
 
   const [currentLocationFilter, setCurrentLocationFilter] = useState('all');
   const [currentEquipmentFilters, setCurrentEquipmentFilters] = useState({});
@@ -88,9 +87,8 @@ function PageCatalog() {
   ]);
 
   useEffect(() => {
-    // Встановлюємо видимі кемпери
     setVisibleCampers(filteredCampers.slice(0, loadedCount));
-  }, [filteredCampers, loadedCount]); // Залежність від loadedCount
+  }, [filteredCampers, loadedCount]);
 
   const handleLocationChange = newLocation => {
     setCurrentLocationFilter(newLocation);
@@ -99,10 +97,9 @@ function PageCatalog() {
     setCurrentTypeFilters({});
     setActiveEquipmentFilters({});
     setActiveTypeFilters({});
-    setLoadedCount(4); // Скидаємо до 4 кемперів
-    // Прокручуємо до верху після зміни фільтра
+    setLoadedCount(4);
+
     setTimeout(() => {
-      // Додаємо затримку
       if (topRef.current) {
         topRef.current.scrollIntoView({
           behavior: 'smooth',
@@ -110,7 +107,7 @@ function PageCatalog() {
           inline: 'nearest',
         });
       }
-    }, 50); // Невелика затримка, наприклад, 50 мс
+    }, 50);
   };
 
   const handleEquipmentFilterChange = filters => {
@@ -124,10 +121,9 @@ function PageCatalog() {
   const handleSearchClick = () => {
     setActiveEquipmentFilters(currentEquipmentFilters);
     setActiveTypeFilters(currentTypeFilters);
-    setLoadedCount(4); // Скидаємо до 4 кемперів
-    // Прокручуємо до верху після застосування фільтрів
+    setLoadedCount(4);
+
     setTimeout(() => {
-      // Додаємо затримку
       if (topRef.current) {
         topRef.current.scrollIntoView({
           behavior: 'smooth',
@@ -135,7 +131,7 @@ function PageCatalog() {
           inline: 'nearest',
         });
       }
-    }, 50); // Невелика затримка
+    }, 50);
   };
 
   const handleClearFilters = () => {
@@ -145,10 +141,9 @@ function PageCatalog() {
     setActiveLocationFilter('all');
     setActiveEquipmentFilters({});
     setActiveTypeFilters({});
-    setLoadedCount(4); // Скидаємо до 4 кемперів
-    // Прокручуємо до верху після очищення фільтрів
+    setLoadedCount(4);
+
     setTimeout(() => {
-      // Додаємо затримку
       if (topRef.current) {
         topRef.current.scrollIntoView({
           behavior: 'smooth',
@@ -156,7 +151,7 @@ function PageCatalog() {
           inline: 'nearest',
         });
       }
-    }, 50); // Невелика затримка
+    }, 50);
   };
 
   const handleRetry = () => {
@@ -167,7 +162,6 @@ function PageCatalog() {
     const prevScrollY = window.scrollY;
     setLoadedCount(prevCount => prevCount + 4);
 
-    // Даємо React час оновити DOM, потім прокручуємо
     setTimeout(() => {
       window.scrollTo({
         top: prevScrollY + window.innerHeight * 0.7,
@@ -176,23 +170,21 @@ function PageCatalog() {
     }, 100);
   };
 
-  // ✅ ГОЛОВНА ДОПРАВКА: функція для скролу до верху і скидання до 4 кемперів
   const handleScrollToTopAndReset = () => {
-    setLoadedCount(4); // Скидаємо кількість видимих кемперів до 4
-    // Важливо: додаємо затримку, щоб DOM встиг оновитися після setLoadedCount
+    setLoadedCount(4);
+
     setTimeout(() => {
       if (topRef.current) {
         topRef.current.scrollIntoView({
           behavior: 'smooth',
-          block: 'start', // Забезпечуємо, що елемент буде на початку видимій області
+          block: 'start',
         });
       }
-    }, 50); // Спробуйте 50 мс, якщо все ще не працює, збільште до 100-200 мс
+    }, 50);
   };
 
   return (
     <div>
-      {/* Цей div слугує якорем для скролу до верху */}
       <div ref={topRef} />
       <div className={css.container}>
         <Header />

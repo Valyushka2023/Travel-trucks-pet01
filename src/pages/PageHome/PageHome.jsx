@@ -1,12 +1,10 @@
-import { Link } from 'react-router-dom'; // Імпортуємо Link
+import { Link } from 'react-router-dom';
 import Header from '../../components/Header/Header.jsx';
 import Button from '../../components/Ui/Buttons/BaseButton/Button.jsx';
 import Footer from '../../components/Footer/Footer.jsx';
 import css from './PageHome.module.css';
 
 function PageHome() {
-  // Логіка для модального вікна видалена, оскільки вона не потрібна для цієї кнопки.
-
   return (
     <div className={css.container}>
       <Header />
@@ -20,7 +18,7 @@ function PageHome() {
                 You can find everything you want in our catalog
               </h2>
             </div>
-            {/* Замість Button використовуємо Link */}
+
             <Link to="/catalog" className={css.viewButton}>
               <Button variant="primary" size="large">
                 View Now
