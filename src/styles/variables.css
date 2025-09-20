@@ -10,6 +10,7 @@
   --padding-md: 0 1.5rem; /* max-width: 991px, padding-tablet */
   --padding-sm: 0 1.25rem; /* max-width: 767px, padding-mobile */
   --padding-xs: 0 1rem; /* max-width: 479px, padding-mobile */
+  --padding-min: 0 0.5rem; /* max-width: 359px, padding-mobile */
 
   /* padding form*/
   --padding-form-xl: 4rem; /*64px*/

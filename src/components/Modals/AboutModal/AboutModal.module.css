@@ -53,20 +53,20 @@
 }
 @media (max-width: 61.9375rem) {
   .textAboutModal p {
-    font-size: 1.1rem;
-    line-height: 1.2;
+    font-size: 1rem;
+    line-height: 1.1;
   }
 }
 @media (max-width: 47.9375rem) {
   .textAboutModal p {
-    font-size: 1rem;
-    line-height: 1.1;
+    font-size: 0.9rem;
+    line-height: 1;
   }
 }
 
 @media (max-width: 29.9375rem) {
   .textAboutModal p {
-    font-size: 0.9rem;
-    line-height: 1;
+    font-size: 0.8rem;
+    line-height: 0.9;
   }
 }
