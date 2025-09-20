@@ -5,12 +5,14 @@
   max-width: 90rem;
   max-height: 100vh;
   margin: 0 auto;
+  padding: var(--padding-xl);
 }
 
 .heroSection {
   position: relative;
   display: flex;
   align-items: center;
+
   min-height: 80vh;
   height: auto;
   background-image:
@@ -20,6 +22,9 @@
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
+
+  /* max-width: 1200px; 
+  margin: 0 auto;  */
 }
 
 .modalWrapper {
@@ -78,6 +83,11 @@
 }
 
 @media (max-width: 74.9375rem) {
+  .container {
+    width: 100%;
+    padding: var(--padding-lg);
+  }
+
   .heroSection {
     /* min-height: 34.375rem; */
     min-height: 70vh;
@@ -97,6 +107,11 @@
 }
 
 @media (max-width: 61.9375rem) {
+  .container {
+    width: 100%;
+    padding: var(--padding-md);
+  }
+
   .heroSection {
     /* min-height: 28.125rem; */
     min-height: 60vh;
@@ -117,6 +132,11 @@
 }
 
 @media (max-width: 47.9375rem) {
+  .container {
+    width: 100%;
+    padding: var(--padding-sm);
+  }
+
   .heroSection {
     /* max-height: 21.875rem; */
     min-height: 50vh;
@@ -143,6 +163,10 @@
 }
 
 @media (max-width: 29.9375rem) {
+  .container {
+    width: 100%;
+    padding: var(--padding-xs);
+  }
   .heroSection {
     /* min-height: 17.5rem; */
     min-height: 40vh;
