@@ -14,7 +14,7 @@ const contacts = [
 
 const ContactsModal = ({ onClose, title = 'Contacts' }) => (
   <Modal title={title} onClose={onClose}>
-    <div className={css.contactContainer}>
+    <div className={css.containerContacts}>
       <ul className={css.contactList}>
         {contacts.map(({ city, street, phone }, index) => (
           <li className={css.contactItem} key={index}>
@@ -30,10 +30,10 @@ const ContactsModal = ({ onClose, title = 'Contacts' }) => (
             <p className={css.contactInfoEmail}>
               Email:&nbsp;
               <a
-                href="mailto:info@traveltrucks.com"
+                href="mailto:infotraveltrucks@gmail.com"
                 className={css.contactLink}
               >
-                info@traveltrucks.com
+                infotraveltrucks@gmail.com
               </a>
             </p>
           </li>
