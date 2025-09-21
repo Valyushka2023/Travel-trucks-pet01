@@ -1,11 +1,11 @@
-.container {
+.containerPage {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 90rem;
   max-height: 100vh;
   margin: 0 auto;
-  padding: var(--padding-form-xs);
+  padding: var(--padding-form-min);
 }
 
 .heroSection {
@@ -22,9 +22,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
-
-  /* max-width: 1200px; 
-  margin: 0 auto;  */
 }
 
 .modalWrapper {

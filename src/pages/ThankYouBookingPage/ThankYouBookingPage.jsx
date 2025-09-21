@@ -19,7 +19,7 @@ const ThankYouBookingPage = () => {
   };
 
   return (
-    <div className={css.container}>
+    <div className={css.containerPage}>
       <div className={css.buttonsContainer}>
         <Link to="/catalog" className={css.goBackLink}>
           &lt; Повернутись до каталогу

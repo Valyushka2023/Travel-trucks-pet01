@@ -39,7 +39,7 @@ const ThankYouReviewPage = () => {
     }
   };
   return (
-    <div className={css.container}>
+    <div className={css.containerPage}>
       <div className={css.buttonsContainer}>
         <button onClick={handleGoBack} className={css.goBackLink}>
           &lt; Go back to catalog

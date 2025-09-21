@@ -96,6 +96,8 @@ function PageDetails() {
 
   return (
     <div>
+      {' '}
+      className={css.containerPage}
       <Outlet context={{ camper: localCamper, activeTab }} />
       <ScrollToTopButton
         visible={visible}

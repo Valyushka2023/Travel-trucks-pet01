@@ -139,7 +139,7 @@ function PageReviews() {
   }
 
   return (
-    <div>
+    <div className={css.containerPage}>
       <ContentReviews
         camper={camper}
         activeTab="reviews"

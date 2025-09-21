@@ -1,8 +1,8 @@
-.container {
+.containerPage {
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 1.25rem;
+  padding: var(--padding-form-min);
   box-sizing: border-box;
   width: 100%;
   max-width: 90rem;

@@ -6,7 +6,7 @@ import css from './PageHome.module.css';
 
 function PageHome() {
   return (
-    <div className={css.container}>
+    <div className={css.containerPage}>
       <Header />
 
       <section className={`${css.heroSection} ${css.mainContent}`}>

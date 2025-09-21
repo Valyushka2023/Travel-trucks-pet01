@@ -1,4 +1,4 @@
-.loaderContainer,
+.loaderContainerPage,
 .error {
   display: flex;
   justify-content: center;
@@ -7,7 +7,10 @@
   font-size: 1.2rem;
   color: var(--error-color);
   text-align: center;
-  padding: var(--padding-form-sm);
+  /* padding: var(--padding-form-sm); */
+}
+.containerPage {
+  padding: var(--padding-form-min);
 }
 
 @media (max-width: 61.9375rem) {

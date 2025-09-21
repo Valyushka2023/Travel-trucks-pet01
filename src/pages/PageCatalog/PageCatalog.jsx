@@ -184,7 +184,7 @@ function PageCatalog() {
   };
 
   return (
-    <div>
+    <div className={css.containerPage}>
       <div ref={topRef} />
       <div className={css.container}>
         <Header />
