@@ -5,7 +5,7 @@ const CloseButton = ({ onClick, ariaLabel = 'Закрити', className }) => {
   return (
     <button
       type="button"
-      className={`${css.baseCloseButton} ${className || ''}`}
+      className={`${css['baseCloseButton']} ${className || ''}`}
       onClick={onClick}
       aria-label={ariaLabel}
     >

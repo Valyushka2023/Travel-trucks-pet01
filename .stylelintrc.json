@@ -132,6 +132,8 @@
       {
         "unspecified": "bottom"
       }
-    ]
+    ],
+
+    "unit-disallowed-list": ["px"]
   }
 }

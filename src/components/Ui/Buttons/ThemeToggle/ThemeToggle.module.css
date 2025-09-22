@@ -1,20 +1,20 @@
-.themeToggleBtn {
+.theme-toggle-btn {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: 0;
   border: none;
-  cursor: pointer;
   background-color: transparent;
+  cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.themeToggleBtn:hover {
+.theme-toggle-btn:hover {
   transform: scale(1.05);
 }
 
-.themeIconMdLight,
-.themeIconMdDark {
+.theme-icon-md-light,
+.theme-icon-md-dark {
   display: flex;
   justify-content: center;
   margin: 0;
@@ -22,10 +22,10 @@
   font-size: 1.2rem;
 }
 
-.themeIconMdLight {
+.theme-icon-md-light {
   color: var(--primary-color);
 }
 
-.themeIconMdDark {
+.theme-icon-md-dark {
   color: var(--primary-color);
 }

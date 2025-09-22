@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useEffect, useState, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useWindowScrollToTopButton } from '../../hooks/useWindowScrollToTopButton.js';
@@ -24,10 +25,10 @@ import Loader from '../../components/Ui/Loader/Loader.jsx';
 import css from './PageCatalog.module.css';
 
 function PageCatalog() {
+  const { t } = useTranslation(); // Використання хука
+
   const topRef = useRef(null);
-
   const { visible } = useWindowScrollToTopButton(300);
-
   const dispatch = useDispatch();
 
   const campers = useSelector(selectCampers);
@@ -36,11 +37,9 @@ function PageCatalog() {
 
   const [visibleCampers, setVisibleCampers] = useState([]);
   const [loadedCount, setLoadedCount] = useState(4);
-
   const [currentLocationFilter, setCurrentLocationFilter] = useState('all');
   const [currentEquipmentFilters, setCurrentEquipmentFilters] = useState({});
   const [currentTypeFilters, setCurrentTypeFilters] = useState({});
-
   const [activeLocationFilter, setActiveLocationFilter] = useState('all');
   const [activeEquipmentFilters, setActiveEquipmentFilters] = useState({});
   const [activeTypeFilters, setActiveTypeFilters] = useState({});
@@ -51,7 +50,6 @@ function PageCatalog() {
 
   const filteredCampers = useMemo(() => {
     if (!campers || campers.length === 0) return [];
-
     let result = campers;
 
     if (activeLocationFilter !== 'all') {
@@ -59,12 +57,10 @@ function PageCatalog() {
         camper => camper.location === activeLocationFilter
       );
     }
-
     result = result.filter(camper => {
       for (const filterName in activeEquipmentFilters) {
         const activeValue = activeEquipmentFilters[filterName];
         if (activeValue == null) continue;
-
         if (typeof activeValue === 'boolean') {
           if (!camper[filterName]) return false;
         } else if (typeof activeValue === 'string') {
@@ -73,11 +69,9 @@ function PageCatalog() {
       }
       return true;
     });
-
     if (Object.keys(activeTypeFilters).some(key => activeTypeFilters[key])) {
       result = result.filter(camper => activeTypeFilters[camper.form]);
     }
-
     return result;
   }, [
     campers,
@@ -98,7 +92,6 @@ function PageCatalog() {
     setActiveEquipmentFilters({});
     setActiveTypeFilters({});
     setLoadedCount(4);
-
     setTimeout(() => {
       if (topRef.current) {
         topRef.current.scrollIntoView({
@@ -109,20 +102,16 @@ function PageCatalog() {
       }
     }, 50);
   };
-
   const handleEquipmentFilterChange = filters => {
     setCurrentEquipmentFilters(filters);
   };
-
   const handleTypeFilterChange = filters => {
     setCurrentTypeFilters(filters);
   };
-
   const handleSearchClick = () => {
     setActiveEquipmentFilters(currentEquipmentFilters);
     setActiveTypeFilters(currentTypeFilters);
     setLoadedCount(4);
-
     setTimeout(() => {
       if (topRef.current) {
         topRef.current.scrollIntoView({
@@ -133,7 +122,6 @@ function PageCatalog() {
       }
     }, 50);
   };
-
   const handleClearFilters = () => {
     setCurrentLocationFilter('all');
     setCurrentEquipmentFilters({});
@@ -142,7 +130,6 @@ function PageCatalog() {
     setActiveEquipmentFilters({});
     setActiveTypeFilters({});
     setLoadedCount(4);
-
     setTimeout(() => {
       if (topRef.current) {
         topRef.current.scrollIntoView({
@@ -153,15 +140,12 @@ function PageCatalog() {
       }
     }, 50);
   };
-
   const handleRetry = () => {
     dispatch(getCampers());
   };
-
   const handleLoadMore = () => {
     const prevScrollY = window.scrollY;
     setLoadedCount(prevCount => prevCount + 4);
-
     setTimeout(() => {
       window.scrollTo({
         top: prevScrollY + window.innerHeight * 0.7,
@@ -169,10 +153,8 @@ function PageCatalog() {
       });
     }, 100);
   };
-
   const handleScrollToTopAndReset = () => {
     setLoadedCount(4);
-
     setTimeout(() => {
       if (topRef.current) {
         topRef.current.scrollIntoView({
@@ -190,13 +172,17 @@ function PageCatalog() {
         <Header />
         <div className={css.containerCatalog}>
           <div className={css.containerFilters}>
-            <h4 className={css.locationTitle}>Location</h4>
+            <h4 className={css.locationTitle}>
+              {t('location_title', { ns: 'catalog' })}
+            </h4>
             <FilterLocation
               campers={campers}
               setLocation={handleLocationChange}
               location={currentLocationFilter}
             />
-            <h4 className={css.filterTitle}>Filters</h4>
+            <h4 className={css.filterTitle}>
+              {t('filters_title', { ns: 'catalog' })}
+            </h4>
             <FilterVehicleEquipment
               onFilter={handleEquipmentFilterChange}
               currentFilters={currentEquipmentFilters}
@@ -211,7 +197,7 @@ function PageCatalog() {
                 size="medium"
                 onClick={handleSearchClick}
               >
-                Filter out
+                {t('filter_out_button', { ns: 'catalog' })}
               </Button>
               {(Object.keys(currentEquipmentFilters).some(
                 key => currentEquipmentFilters[key]
@@ -226,12 +212,11 @@ function PageCatalog() {
                   onClick={handleClearFilters}
                   className={css.clearFiltersButton}
                 >
-                  Clear Filters
+                  {t('clear_filters_button', { ns: 'catalog' })}
                 </Button>
               )}
             </div>
           </div>
-
           <div className={css.containerCards}>
             {isLoading ? (
               <Loader type="container" />
@@ -247,21 +232,21 @@ function PageCatalog() {
                       size="small"
                       onClick={handleLoadMore}
                     >
-                      Load more
+                      {t('load_button', { ns: 'button' })}
                     </Button>
                   </div>
                 )}
               </>
             ) : (
-              <div>No campers available matching your criteria.</div>
+              <div>{t('no_campers_message', { ns: 'catalog' })}</div>
             )}
           </div>
         </div>
-
         <ScrollToTopButton
           visible={visible}
           onClick={handleScrollToTopAndReset}
           className={scrollToTopButtonCss.fixedPosition}
+          label={t('up_button', { ns: 'button' })}
         />
       </div>
     </div>

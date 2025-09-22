@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';import { useRef, useState } from 'react';
 import { useReviewsPagination } from '../../../hooks/useReviewsPagination.js';
 import Header from '../../Header/Header.jsx';
 import HeroSection from '../../HeroSection/HeroSection.jsx';
@@ -10,6 +10,7 @@ import Button from '../../Ui/Buttons/BaseButton/Button.jsx';
 import css from './ContentReviews.module.css';
 
 function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
+  const { t } = useTranslation();
   const camperId = camper._id || camper.id;
 
   const reviewsContainerRef = useRef(null);
@@ -119,7 +120,7 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
                         onClick={handleLoadMoreClick}
                         className={css.loadMoreBtn}
                       >
-                        Load more
+                        {t('load_button', { ns: 'button' })}
                       </Button>
                     </div>
                   )}

@@ -1,5 +1,4 @@
 .button {
-  /* z-index: 1000; */
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +16,6 @@
   cursor: pointer;
 }
 
-/* Стилі для різних розмірів */
 .small,
 .medium,
 .large {
@@ -25,19 +23,19 @@
 }
 
 .small {
-  width: 9.0625rem;
+  min-width: 9.0625rem;
   border: 0.125rem solid var(--border-color);
+  padding: 1rem 1.5rem;
 }
 
 .medium {
-  width: 10.375rem;
+  min-width: 10.375rem;
 }
 
 .large {
-  width: 11rem;
+  min-width: 11rem;
 }
 
-/* Стилі для різних варіантів (кольорова схема) */
 .default {
   background: var(--button-default-bg-color);
   color: var(--button-default-text-color);
@@ -53,29 +51,22 @@
   color: var(--button-secondary-text-color);
 }
 
-/* Стилі для станів (hover, active, disabled) */
-.button:hover {
-  /* transform: scale(1.05); */
+.button:disabled {
+  background: var(--button-disabled-bg-color);
+  color: var(--button-disabled-text-color);
+  transform: none;
+  cursor: not-allowed;
 }
 
 .button:active {
   transform: scale(0.95);
 }
-
 .button:hover:not(.small) {
   background-color: var(--hover-bg-color);
 }
 
 .button:active:not(.small) {
   background-color: var(--active-bg-color);
-}
-
-/* стиль кнопки у стані disabled (вимкнена) */
-.button:disabled {
-  background: var(--button-disabled-bg-color);
-  color: var(--button-disabled-text-color);
-  transform: none;
-  cursor: not-allowed;
 }
 
 .small:hover {

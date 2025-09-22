@@ -1,27 +1,27 @@
-.burgerButton {
+.burger-button {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   background: none;
   border: none;
   font-size: 1.2rem;
   line-height: 1;
-  cursor: pointer;
   z-index: 1001;
-  color: var(--button-burger-icon-color);
-  padding: 0;
+  cursor: pointer;
   margin: 0;
+  padding: 0;
+  color: var(--button-burger-icon-color);
   transition:
     color 0.2s ease,
     transform 0.2s ease;
 }
 
-.burgerButton:hover {
+.burger-button:hover {
   color: var(--hover-color);
   transform: scale(1.05);
 }
 
-.burgerButton:active {
+.burger-button:active {
   color: var(--active-color);
   transform: scale(0.95);
 }

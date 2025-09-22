@@ -1,5 +1,5 @@
 .backdrop {
-  position: fixed; /* Замінено на fixed, щоб backdrop займав весь екран */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -14,11 +14,11 @@
 
 .modal {
   position: relative;
-  max-width: 90vw; /* Використовуємо vw для адаптації до ширини екрана */
-  max-height: 90vh; /* Використовуємо vh для адаптації до висоти екрана */
+  max-width: 90vw;
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Дозволяє прокручувати вміст модального вікна, якщо він не вміщується */
+  overflow-y: auto;
   background-color: var(--body-bg-color);
   border: 0.0125rem solid var(--border-color);
   border-radius: var(--radius-sm);
@@ -46,7 +46,6 @@ body.modal-open {
   background-color: var(--header-bg-color);
   flex-shrink: 0;
   min-height: 4.5rem;
-  /* max-width removed */
 }
 
 .logoInModal {
@@ -55,9 +54,6 @@ body.modal-open {
 
 .closeBtn {
   color: var(--primary-color);
-  /* position: absolute;
-  top: 1.5rem;
-  right: 1.5rem; */
 }
 
 .modalTitle {
@@ -70,7 +66,7 @@ body.modal-open {
   color: var(--primary-color);
 }
 
-/* @keyframes fadeIn {
+@keyframes fadeIn {
   from {
     opacity: 0;
   }
@@ -81,20 +77,14 @@ body.modal-open {
 
 @keyframes scaleUp {
   from {
-    transform: scale(0.95);
     opacity: 0;
   }
   to {
-    transform: scale(1.05);
     opacity: 1;
   }
-} */
+}
 
 @media (max-width: 74.9375rem) {
-  /* Removed max-height from backdrop as it's now fixed */
-  .modal {
-    /* max-width: 90%; */
-  }
   .modalBody {
     padding: var(--padding-lg);
   }
@@ -110,10 +100,6 @@ body.modal-open {
 }
 
 @media (max-width: 61.9375rem) {
-  /* Removed max-height from backdrop as it's now fixed */
-  .modal {
-    /* max-width: 90%; */
-  }
   .modalBody {
     padding: var(--padding-md);
   }
@@ -128,10 +114,6 @@ body.modal-open {
 }
 
 @media (max-width: 47.9375rem) {
-  /* Removed max-height from backdrop as it's now fixed */
-  .modal {
-    /* max-width: 90%; */
-  }
   .modalBody {
     padding: var(--padding-sm);
   }
@@ -147,9 +129,8 @@ body.modal-open {
 }
 
 @media (max-width: 29.9375rem) {
-  /* Removed max-height from backdrop as it's now fixed */
   .modal {
-    max-width: 95vw; /* changed from 95% */
+    max-width: 95vw;
     max-height: 95vh;
   }
   .modalBody {

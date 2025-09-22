@@ -1,4 +1,5 @@
 // 1. Імпорти з зовнішніх бібліотек
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
@@ -18,6 +19,7 @@ import Button from '../../Ui/Buttons/BaseButton/Button.jsx';
 import css from './FormBooking.module.css';
 
 function FormBooking({ camper }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const initialState = {
@@ -305,7 +307,9 @@ function FormBooking({ camper }) {
             isSubmitting || Object.values(errors).some(error => error !== null)
           }
         >
-          {isSubmitting ? 'Sending...' : 'Send'}
+          {isSubmitting
+            ? t('sending_button', { ns: 'button' })
+            : t('send_button', { ns: 'button' })}
         </Button>
         {submissionError && (
           <p className={clsx(css.errorPopup, css.generalErrorPopup)}>

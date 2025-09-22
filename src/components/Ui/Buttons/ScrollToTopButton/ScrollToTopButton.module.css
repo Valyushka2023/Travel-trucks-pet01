@@ -1,16 +1,14 @@
-.baseScrollToTopButton {
+.base-scroll-to-top-button {
   z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 3.5rem;
   height: 3.5rem;
-
   background-color: var(--button-primary-bg-color);
   border: none;
   border-radius: 50%;
   font-size: 1.2rem;
-
   color: var(--button-primary-text-color);
   transition:
     opacity 0.3s ease,
@@ -20,14 +18,13 @@
   opacity: 0.8;
 }
 
-.baseScrollToTopButton:hover {
+.base-scroll-to-top-button:hover {
   background-color: var(--hover-bg-color);
-
   transform: scale(1.05);
   opacity: 1;
 }
 
-.baseScrollToTopButton:active {
+.base-sroll-to-top-button:active {
   background-color: var(--active-bg-color);
   transform: scale(0.95);
   opacity: 0.7;

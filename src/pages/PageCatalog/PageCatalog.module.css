@@ -71,6 +71,9 @@
   justify-content: center;
   gap: 0.9375rem;
 }
+.container-scroll-to-top-button {
+  position: fixed;
+}
 
 @media (max-width: 74.9375rem) {
   .layout {

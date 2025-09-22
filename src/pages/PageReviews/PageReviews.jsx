@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import {
   useParams,
@@ -16,6 +17,7 @@ import Loader from '../../components/Ui/Loader/Loader.jsx';
 import css from './PageReviews.module.css';
 
 function PageReviews() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { _id } = useParams();
@@ -152,7 +154,7 @@ function PageReviews() {
         visible={showScrollButton}
         onClick={scrollToTop}
         className={scrollToTopButtonCss.fixedPosition}
-        label="Up"
+        label={t('up_button', { ns: 'button' })}
       />
     </div>
   );

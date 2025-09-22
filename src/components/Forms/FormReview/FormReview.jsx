@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
@@ -8,6 +9,7 @@ import StarRating from '../../StarRating/StarRating.jsx';
 import css from './FormReview.module.css';
 
 const FormReview = ({ camperId, onReviewAdded }) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const initialState = {
@@ -200,7 +202,9 @@ const FormReview = ({ camperId, onReviewAdded }) => {
           type="submit"
           disabled={isSubmitting}
         >
-          {isSubmitting ? 'Sending...' : 'Submit'}
+          {isSubmitting
+            ? t('submiting_button', { ns: 'button' })
+            : t('submit_button', { ns: 'button' })}
         </Button>
         {submissionError && (
           <p className={clsx(css.errorPopup, css.generalErrorPopup)}>

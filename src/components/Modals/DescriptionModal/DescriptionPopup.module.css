@@ -27,11 +27,9 @@
   max-height: 90%;
   padding: 1.5rem;
   overflow-y: auto;
-  /* background-color: #fff; */
   background-color: var(--blok-description-bg-color);
   border: none;
   border-radius: var(--radius-sm);
-  /* box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.3); */
   box-shadow: var(--box-shadow);
   white-space: normal;
   cursor: default;

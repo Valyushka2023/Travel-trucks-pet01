@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 import DescriptionPopup from '../../../components/Modals/DescriptionModal/DescriptionPopup.jsx';
 
 const Card = ({ _id, name, gallery, price, description, location, camper }) => {
+  const { t } = useTranslation();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -143,7 +145,7 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
               variant="primary"
               size="medium"
             >
-              Show More
+              {t('show_button', { ns: 'button' })}
             </Button>
           </div>
 

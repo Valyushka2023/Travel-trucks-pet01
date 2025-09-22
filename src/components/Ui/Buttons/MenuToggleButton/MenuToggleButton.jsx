@@ -1,4 +1,4 @@
-import useWindowWidth from '../../../../hooks/useWindowWiidth.js'; // ✅ Імпортуємо хук
+import useWindowWidth from '../../../../hooks/useWindowWiidth.js';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import css from './MenuToggleButton.module.css';
@@ -9,19 +9,17 @@ const MenuToggleButton = ({
   ariaLabel = 'Перемкнути навігаційне меню',
   className,
 }) => {
-  const windowWidth = useWindowWidth(); // ✅ Отримуємо поточну ширину вікна
-  const mobileBreakpoint = 767; // ✅ Ваш мобільний брейкпоінт
+  const windowWidth = useWindowWidth();
+  const mobileBreakpoint = 767;
 
-  // ✅ Умовний рендеринг: кнопка гамбургера рендериться лише тоді, коли ширина вікна
-  // менша або дорівнює мобільному брейкпоінту.
   if (windowWidth > mobileBreakpoint) {
-    return null; // Не рендеримо нічого на десктопних розмірах
+    return null;
   }
 
   return (
     <button
       type="button"
-      className={clsx(css.burgerButton, className)}
+      className={clsx(css['burger-button'], className)}
       onClick={onClick}
       aria-expanded={isOpen}
       aria-label={ariaLabel}

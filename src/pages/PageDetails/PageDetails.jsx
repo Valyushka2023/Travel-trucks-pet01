@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import {
   useParams,
@@ -16,6 +17,7 @@ import scrollToTopButtonCss from '../../components/Ui/Buttons/ScrollToTopButton/
 import css from './PageDetails.module.css';
 
 function PageDetails() {
+  const { t } = useTranslation();
   const { _id } = useParams();
   const [searchParams] = useSearchParams();
   const activeTab = searchParams.get('tab') || 'features';
@@ -103,6 +105,7 @@ function PageDetails() {
         visible={visible}
         onClick={scrollToTop}
         className={scrollToTopButtonCss.fixedPosition}
+        label={t('up_button', { ns: 'button' })}
       />
     </div>
   );

@@ -9,8 +9,8 @@ const Button = ({
   disabled = false,
   children,
   to,
-  className = '', // <-- Add className to the destructured props with a default empty string
-  ...rest // <-- Add ...rest to capture any other props
+  className = '',
+  ...rest
 }) => {
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const Button = ({
 
   return (
     <button
-      className={`${css.button} ${css[variant]} ${css[size]} ${className}`}
+      className={`${css['button']} ${css[variant]} ${css[size]} ${className}`}
       onClick={handleClick}
       disabled={disabled}
     >

@@ -3,7 +3,6 @@ import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import css from './ThemeToggle.module.css';
 
 const ThemeToggle = () => {
-  // 1. Отримуємо стан з localStorage при ініціалізації
   const [isDarkTheme, setIsDarkTheme] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
     return savedTheme === 'dark';
@@ -16,25 +15,25 @@ const ThemeToggle = () => {
   useEffect(() => {
     if (isDarkTheme) {
       document.body.classList.add('dark-theme');
-      // 2. Зберігаємо "dark" у localStorage
+
       localStorage.setItem('theme', 'dark');
     } else {
       document.body.classList.remove('dark-theme');
-      // 3. Зберігаємо "light" у localStorage
+
       localStorage.setItem('theme', 'light');
     }
   }, [isDarkTheme]);
 
   return (
     <button
-      className={css.themeToggleBtn}
+      className={css['theme-toggle-btn']}
       onClick={toggleTheme}
-      aria-label="Перемкнути тему"
+      aria-label="Switch topic"
     >
       {isDarkTheme ? (
-        <MdLightMode className={css.themeIconMdLight} />
+        <MdLightMode className={css['theme-icon-md-light']} />
       ) : (
-        <MdDarkMode className={css.themeIconMdDark} />
+        <MdDarkMode className={css['theme-icon-md-dark']} />
       )}
     </button>
   );

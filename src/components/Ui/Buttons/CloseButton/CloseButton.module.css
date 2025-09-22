@@ -1,50 +1,50 @@
-.baseCloseButton {
+.base-close-button {
   background: none;
   border: none;
   font-size: 1.3rem;
-  cursor: pointer;
-  color: var(--dark-color);
-  font-weight: 900;
   padding: 0;
+  font-weight: 900;
+  color: var(--dark-color);
+  cursor: pointer;
+  display: flex;
+  line-height: 1;
   transition:
     color 0.2s ease,
     transform 0.2s ease;
-  line-height: 1;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.baseCloseButton:hover {
+.base-close-button:hover {
   color: var(--hover-color);
   transform: scale(1.05);
 }
 
-.baseCloseButton:active {
+.base-close-button:active {
   color: var(--active-color);
   transform: scale(0.95);
 }
 
-@media (max-width: 74.9375rem) {
-  .baseCloseButton {
+@media (width <= 74.9375rem) {
+  .base-close-button {
     font-size: 1.2rem;
   }
 }
 
-@media (max-width: 61.9375rem) {
-  .baseCloseButton {
+@media (width <= 61.9375rem) {
+  .base-close-button {
     font-size: 1.1rem;
   }
 }
 
-@media (max-width: 47.9375rem) {
-  .baseCloseButton {
+@media (width <= 47.9375rem) {
+  .base-close-button {
     font-size: 1rem;
   }
 }
 
-@media (max-width: 29.9375rem) {
-  .baseCloseButton {
+@media (width <= 29.9375rem) {
+  .base-close-button {
     font-size: 0.9rem;
   }
 }
