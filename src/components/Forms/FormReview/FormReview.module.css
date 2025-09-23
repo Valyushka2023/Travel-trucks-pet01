@@ -1,17 +1,17 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.875rem;
   align-items: center;
+  gap: 1.875rem;
   width: 100%;
-  max-width: var(--form-max-width-xl);
   height: 100%;
+  max-width: var(--form-max-width-xl);
   padding: var(--padding-form-xl);
   box-sizing: border-box;
   background-color: var(--body-bg-color);
+  border: 0.0125rem solid var(--border-color);
   border-radius: var(--radius-sm);
   box-shadow: var(--box-shadow);
-  border: 0.0125rem solid var(--border-color);
 }
 
 .titleForm {
@@ -40,16 +40,16 @@
 .inputs {
   display: flex;
   flex-direction: column;
-  width: 100%;
   gap: var(--spacing-lg);
+  width: 100%;
 }
 
 .inputAndErrorWrapper {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
   flex-grow: 1;
+  gap: var(--spacing-sm);
   width: 100%;
   background-color: var(--primary-bg-color);
 }
@@ -67,6 +67,7 @@
 }
 
 /* НОВИЙ КЛАС для компонента StarRating */
+
 /* .ratingField {
   display: flex;
   align-items: center;
@@ -107,45 +108,44 @@
 .labelComment {
   flex-shrink: 0;
   min-width: 2.5rem;
+  margin-top: 0.09375rem;
   font-size: 1rem;
   color: var(--tertiary-color);
-  margin-top: 0.09375rem;
 }
 
 .modalInput,
 .modalTextArea {
+  display: flex;
   flex: 1;
+  align-items: center;
+  cursor: pointer;
   width: 100%;
-  box-sizing: border-box;
   min-height: 1.5rem;
-  line-height: 1;
-  font-size: 1rem;
-  letter-spacing: 0.05625rem;
-  font-weight: 400;
-  color: var(--secondary-color);
-  font-family: inherit;
+  padding: 0 1.125rem;
+  box-sizing: border-box;
+  background-color: var(--body-bg-color);
   border: 0.0625rem solid var(--border-color);
   border-radius: var(--radius-sm);
-  cursor: pointer;
-  background-color: var(--body-bg-color);
-  display: flex;
-  align-items: center;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
   line-height: 1.5;
-  padding: 0 1.125rem;
+  letter-spacing: 0.05625rem;
+  color: var(--secondary-color);
 }
 
 .modalInput::placeholder,
 .modalTextArea::placeholder,
-.modalInput::-webkit-input-placeholder,
-.modalTextArea::-webkit-input-placeholder,
-.modalInput::-moz-placeholder,
-.modalTextArea::-moz-placeholder,
-.modalInput:-ms-input-placeholder,
-.modalTextArea:-ms-input-placeholder {
-  opacity: 1;
-  font-weight: 400;
-  font-size: 1rem;
+.modalInput::input-placeholder,
+.modalTextArea::input-placeholder,
+.modalInput::placeholder,
+.modalTextArea::placeholder,
+.modalInput:input-placeholder,
+.modalTextArea:input-placeholder {
   font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 1;
 }
 
 .modalInput {
@@ -155,10 +155,11 @@
 .modalTextArea {
   min-height: 5.125rem;
 }
+
 .modalInput:hover,
 .modalTextArea:hover {
-  line-height: 1.5;
   padding: 0 1.125rem;
+  line-height: 1.5;
 }
 
 .modalInput:hover,
@@ -205,8 +206,8 @@
 }
 
 .generalErrorPopup {
-  margin-top: 0.625rem;
   position: static;
+  margin-top: 0.625rem;
   white-space: normal;
 }
 
@@ -224,22 +225,25 @@
   content: '';
 }
 
-@media (max-width: 74.9375rem) {
+@media (width <= 74.9375rem) {
   .form {
     padding: var(--padding-form-lg);
   }
 }
-@media (max-width: 61.9375rem) {
+
+@media (width <= 61.9375rem) {
   .form {
     padding: var(--padding-form-md);
   }
 }
-@media (max-width: 47.9375rem) {
+
+@media (width <= 47.9375rem) {
   .form {
     padding: var(--padding-form-sm);
   }
 }
-@media (max-width: 29.9375rem) {
+
+@media (width <= 29.9375rem) {
   .form {
     padding: var(--padding-form-xs);
   }

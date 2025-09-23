@@ -19,16 +19,16 @@ const ThankYouBookingPage = () => {
   };
 
   return (
-    <div className={css.containerPage}>
-      <div className={css.buttonsContainer}>
-        <Link to="/catalog" className={css.goBackLink}>
-          &lt; Повернутись до каталогу
+    <div className={css['container-page']}>
+      <div className={css['buttons-container']}>
+        <Link to="/catalog" className={css['go-back-link']}>
+          &lt; Return to catalog
         </Link>
 
         <CloseButton
           onClick={handleClose}
-          className={css.pageCloseButton}
-          ariaLabel="Закрити сторінку"
+          className={css['page-close-button']}
+          ariaLabel="Close page"
         />
       </div>
 

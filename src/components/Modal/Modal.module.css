@@ -2,22 +2,22 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 50%);
   animation: fadeIn 0.3s ease-in-out;
 }
 
 .modal {
   position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
   display: flex;
   flex-direction: column;
+  max-width: 90vw;
+  max-height: 90vh;
   overflow-y: auto;
   background-color: var(--body-bg-color);
   border: 0.0125rem solid var(--border-color);
@@ -25,10 +25,10 @@
   animation: scaleUp 0.3s ease-in-out;
 }
 
-.modalBody {
+.modal-body {
+  flex-grow: 1;
   margin-bottom: 1rem;
   padding: var(--padding-xl);
-  flex-grow: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -37,112 +37,121 @@ body.modal-open {
   overflow: hidden;
 }
 
-.modalHeaderContainer {
+.modal-header-container {
   display: flex;
+  flex-shrink: 0;
   justify-content: space-between;
   align-items: center;
-  padding: var(--padding-xl);
-  border-bottom: 0.0625rem solid var(--border-color);
-  background-color: var(--header-bg-color);
-  flex-shrink: 0;
   min-height: 4.5rem;
+  padding: var(--padding-xl);
+  background-color: var(--header-bg-color);
+  border-bottom: 0.0625rem solid var(--border-color);
 }
 
-.logoInModal {
+.logo-in-modal {
   color: var(--logo-primary-color);
 }
 
-.closeBtn {
+.close-btn {
+  font-size: 1.2rem;
   color: var(--primary-color);
 }
 
-.modalTitle {
+.modal-title {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  padding: var(--padding-xl);
   font-size: 1.3rem;
   font-weight: 600;
   text-align: center;
-  padding: var(--padding-xl);
   color: var(--primary-color);
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
-@keyframes scaleUp {
+@keyframes scale-up {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
-@media (max-width: 74.9375rem) {
-  .modalBody {
+@media (width <= 74.9375rem) {
+  .modal-body {
     padding: var(--padding-lg);
   }
 
-  .modalHeaderContainer {
-    padding: var(--padding-lg);
+  .modal-header-container {
     min-height: 4rem;
-  }
-  .modalTitle {
-    font-size: 1.2rem;
     padding: var(--padding-lg);
   }
+
+  .modal-title {
+    padding: var(--padding-lg);
+    font-size: 1.2rem;
+  }
 }
 
-@media (max-width: 61.9375rem) {
-  .modalBody {
+@media (width <= 61.9375rem) {
+  .modal-body {
     padding: var(--padding-md);
   }
-  .modalHeaderContainer {
-    padding: var(--padding-md);
+
+  .modal-header-container {
     min-height: 3.75rem;
-  }
-  .modalTitle {
-    font-size: 1.1rem;
     padding: var(--padding-md);
   }
+
+  .modal-title {
+    padding: var(--padding-md);
+    font-size: 1.1rem;
+  }
 }
 
-@media (max-width: 47.9375rem) {
-  .modalBody {
+@media (width <= 47.9375rem) {
+  .modal-body {
     padding: var(--padding-sm);
   }
-  .modalHeaderContainer {
-    padding: var(--padding-sm);
+
+  .modal-header-container {
     min-height: 3.4375rem;
+    padding: var(--padding-sm);
   }
 
-  .modalTitle {
-    font-size: 1rem;
+  .modal-title {
     padding: var(--padding-sm);
+    font-size: 1rem;
   }
 }
 
-@media (max-width: 29.9375rem) {
+@media (width <= 29.9375rem) {
   .modal {
     max-width: 95vw;
     max-height: 95vh;
   }
-  .modalBody {
+
+  .modal-body {
     padding: var(--padding-xs);
-  }
-  .modalHeaderContainer {
-    padding: var(--padding-xs);
-    min-height: 3.125rem;
   }
 
-  .modalTitle {
-    font-size: 0.9rem;
+  .modal-header-container {
+    min-height: 3.125rem;
     padding: var(--padding-xs);
+  }
+
+  .modal-title {
+    padding: var(--padding-xs);
+    font-size: 0.9rem;
   }
 }

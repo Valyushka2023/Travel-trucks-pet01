@@ -25,15 +25,15 @@ const StarRating = ({
   };
 
   return (
-    <div className={css.fieldForm}>
+    <div className={css['field-form']}>
       <label htmlFor={name} className={css.label}>
         Rating*
       </label>
 
       <div
         id={name}
-        className={clsx(css.inputAndErrorWrapper, {
-          [css.inputError]: error,
+        className={clsx(css['input-and-error-wrapper'], {
+          [css['input-error']]: error,
         })}
         role={accessible ? 'radiogroup' : undefined}
         aria-label={accessible ? 'Rating' : undefined}
@@ -62,7 +62,6 @@ const StarRating = ({
                 role={accessible ? 'radio' : undefined}
                 aria-checked={accessible ? starValue === value : undefined}
                 tabIndex={accessible ? 0 : undefined}
-                // onClick={() => !readOnly && onChange(starValue)}
                 onClick={() => {
                   if (!readOnly) {
                     onChange(value === starValue ? 0 : starValue);

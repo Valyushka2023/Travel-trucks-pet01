@@ -25,7 +25,7 @@ import Loader from '../../components/Ui/Loader/Loader.jsx';
 import css from './PageCatalog.module.css';
 
 function PageCatalog() {
-  const { t } = useTranslation(); // Використання хука
+  const { t } = useTranslation();
 
   const topRef = useRef(null);
   const { visible } = useWindowScrollToTopButton(300);
@@ -166,13 +166,13 @@ function PageCatalog() {
   };
 
   return (
-    <div className={css.containerPage}>
+    <div className={css['container-page']}>
       <div ref={topRef} />
       <div className={css.container}>
         <Header />
-        <div className={css.containerCatalog}>
-          <div className={css.containerFilters}>
-            <h4 className={css.locationTitle}>
+        <div className={css['container-catalog']}>
+          <div className={css['container-filters']}>
+            <h4 className={css['location-title']}>
               {t('location_title', { ns: 'catalog' })}
             </h4>
             <FilterLocation
@@ -180,7 +180,7 @@ function PageCatalog() {
               setLocation={handleLocationChange}
               location={currentLocationFilter}
             />
-            <h4 className={css.filterTitle}>
+            <h4 className={css['filter-title']}>
               {t('filters_title', { ns: 'catalog' })}
             </h4>
             <FilterVehicleEquipment
@@ -191,7 +191,7 @@ function PageCatalog() {
               onFilter={handleTypeFilterChange}
               currentFilters={currentTypeFilters}
             />
-            <div className={css.filterButtonsContainer}>
+            <div className={css['filter-buttons-container']}>
               <Button
                 variant="primary"
                 size="medium"
@@ -210,14 +210,14 @@ function PageCatalog() {
                   variant="primary"
                   size="medium"
                   onClick={handleClearFilters}
-                  className={css.clearFiltersButton}
+                  className={css['clear-filters-button']}
                 >
                   {t('clear_filters_button', { ns: 'catalog' })}
                 </Button>
               )}
             </div>
           </div>
-          <div className={css.containerCards}>
+          <div className={css['container-cards']}>
             {isLoading ? (
               <Loader type="container" />
             ) : error ? (
@@ -226,7 +226,7 @@ function PageCatalog() {
               <>
                 <CardList campers={visibleCampers} />
                 {loadedCount < filteredCampers.length && (
-                  <div className={css.containerLoadMore}>
+                  <div className={css['container-load-more']}>
                     <Button
                       variant="default"
                       size="small"

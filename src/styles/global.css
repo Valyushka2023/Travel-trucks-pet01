@@ -26,9 +26,9 @@ a {
 
 /* Кнопки */
 button {
+  cursor: pointer;
   background: none;
   border: none;
-  cursor: pointer;
 }
 
 /* Заголовки */

@@ -1,15 +1,15 @@
 .burger-button {
+  z-index: 1001;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
   background: none;
   border: none;
   font-size: 1.2rem;
   line-height: 1;
-  z-index: 1001;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
   color: var(--button-burger-icon-color);
   transition:
     color 0.2s ease,

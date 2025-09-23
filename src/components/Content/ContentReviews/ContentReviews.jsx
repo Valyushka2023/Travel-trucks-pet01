@@ -1,4 +1,5 @@
-import { useTranslation } from 'react-i18next';import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useRef, useState } from 'react';
 import { useReviewsPagination } from '../../../hooks/useReviewsPagination.js';
 import Header from '../../Header/Header.jsx';
 import HeroSection from '../../HeroSection/HeroSection.jsx';
@@ -26,7 +27,6 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
 
   const [showScrollToTop, setShowScrollToTop] = useState(false);
 
-  // Функція прокрутки до останнього відгуку після додавання нового
   const scrollToLastReview = () => {
     setTimeout(() => {
       if (
@@ -43,9 +43,9 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
     }, 100);
   };
 
-  const reviewsContainerClasses = [css.blokReviewsForm];
+  const reviewsContainerClasses = [css['blok-reviews-form']];
   if (sortedReviews.length > 3) {
-    reviewsContainerClasses.push(css.blokReviewsFormScrollable);
+    reviewsContainerClasses.push(css['blok-reviews-form-scrollable']);
   }
 
   const handleReviewAdded = newReview => {
@@ -53,18 +53,14 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
     scrollToLastReview();
   };
 
-  // Оновлена логіка для кнопки "Load more" з авто-прокруткою
   const handleLoadMoreClick = () => {
     const container = reviewsContainerRef.current;
 
     if (container) {
-      // Запам'ятовуємо поточну висоту контейнера перед додаванням нових відгуків
       const prevScrollHeight = container.scrollHeight;
 
-      // Додаємо наступні 3 відгуки
       handleLoadMore();
 
-      // Чекаємо оновлення DOM і прокручуємо контейнер
       setTimeout(() => {
         const newScrollHeight = container.scrollHeight;
 
@@ -73,7 +69,6 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
           behavior: 'smooth',
         });
 
-        // Показуємо кнопку "підняти вгору"
         setShowScrollToTop(true);
       }, 100);
     }
@@ -90,35 +85,35 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
   return (
     <div className={css.container}>
       <Header />
-      <div className={css.containerContentReviews}>
+      <div className={css['container-content-reviews']}>
         <HeroSection camper={camper} />
         <ImageGallery gallery={camper.gallery} />
 
-        <div className={css.containerText}>
+        <div className={css['container-text']}>
           <p className={css.text}>{camper.description}</p>
         </div>
 
         <Tabs camper={camper} activeTab={activeTab} />
 
-        <div className={css.listReviewsFormReview}>
-          <div className={css.listReviews}>
+        <div className={css['list-reviews-form-review']}>
+          <div className={css['list-reviews']}>
             <div className={reviewsContainerClasses.join(' ')}>
               {reviews && reviews.length > 0 ? (
-                <div className={css.blokListButton}>
+                <div className={css['blokL-list-button']}>
                   <div
-                    className={css.reviewsContentWrapper}
+                    className={css['reviews-content-wrapper']}
                     ref={reviewsContainerRef}
                   >
                     <ReviewsList reviews={visibleReviews} ref={lastReviewRef} />
                   </div>
 
                   {hasMore && (
-                    <div className={css.buttonsWrapper}>
+                    <div className={css['buttons-wrapper']}>
                       <Button
                         variant="primary"
                         size="medium"
                         onClick={handleLoadMoreClick}
-                        className={css.loadMoreBtn}
+                        className={css['load-more-btn']}
                       >
                         {t('load_button', { ns: 'button' })}
                       </Button>
@@ -126,10 +121,10 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
                   )}
 
                   {showScrollToTop && (
-                    <div className={css.buttonsWrapper}>
+                    <div className={css['buttons-wrapper']}>
                       <div
                         onClick={handleScrollToTop}
-                        className={`${css.scrollToTopBtn} ${css.visible}`}
+                        className={`${css['scroll-to-top-btn']} ${css.visible}`}
                       >
                         <div className={css.triangle}></div>
                       </div>
@@ -142,7 +137,7 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
             </div>
           </div>
 
-          <div className={css.containerFormReview}>
+          <div className={css['container-form-review']}>
             <FormReview camperId={camperId} onReviewAdded={handleReviewAdded} />
           </div>
         </div>

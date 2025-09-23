@@ -2,6 +2,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   padding: 1rem 3.75rem;
   border-radius: 12.5rem;
   font-family: Inter, sans-serif;
@@ -13,7 +14,6 @@
   transition:
     background-color 0.3s ease,
     transform 0.3s ease;
-  cursor: pointer;
 }
 
 .small,
@@ -24,8 +24,8 @@
 
 .small {
   min-width: 9.0625rem;
-  border: 0.125rem solid var(--border-color);
   padding: 1rem 1.5rem;
+  border: 0.125rem solid var(--border-color);
 }
 
 .medium {
@@ -52,15 +52,16 @@
 }
 
 .button:disabled {
+  cursor: not-allowed;
   background: var(--button-disabled-bg-color);
   color: var(--button-disabled-text-color);
   transform: none;
-  cursor: not-allowed;
 }
 
 .button:active {
   transform: scale(0.95);
 }
+
 .button:hover:not(.small) {
   background-color: var(--hover-bg-color);
 }

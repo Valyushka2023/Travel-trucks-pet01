@@ -13,11 +13,11 @@ function Tabs({ camper, activeTab }) {
 
   return (
     <div className={css.tabs}>
-      <div className={css.titlesTabs}>
+      <div className={css['titles-tabs']}>
         <Link
           to={`/catalog/${camperId}`}
           state={{ camper }}
-          className={`${css.textTitlesTabsFeatures} ${
+          className={`${css['text-titles-tabs-features']} ${
             location.pathname === `/catalog/${camperId}` &&
             activeTab !== 'reviews'
               ? css.active
@@ -30,7 +30,7 @@ function Tabs({ camper, activeTab }) {
         <Link
           to={`/catalog/${camperId}/reviews`}
           state={{ camper }}
-          className={`${css.textTitlesTabsReviews} ${
+          className={`${css['text-titles-tabs-reviews']} ${
             location.pathname === `/catalog/${camperId}/reviews` &&
             activeTab === 'reviews'
               ? css.active

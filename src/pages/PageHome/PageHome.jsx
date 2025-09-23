@@ -9,18 +9,18 @@ const PageHome = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={css.containerPage}>
+    <div className={css['container-page']}>
       <Header />
 
-      <section className={`${css.heroSection} ${css.mainContent}`}>
-        <div className={css.heroOverlay}>
+      <section className={`${css['hero-section']} ${css['main-content']}`}>
+        <div className={css['hero-overlay']}>
           <div className={css.title}>
             <div className={css.text}>
-              <h1 className={css.heroTitle}>{t('hero_title')}</h1>
-              <h2 className={css.heroContent}>{t('hero_content')}</h2>
+              <h1 className={css['hero-title']}>{t('hero_title')}</h1>
+              <h2 className={css['hero-content']}>{t('hero_content')}</h2>
             </div>
 
-            <Link to="/catalog" className={css.viewButton}>
+            <Link to="/catalog" className={css['view-button']}>
               <Button variant="primary" size="large">
                 {t('view_button', { ns: 'button' })}
               </Button>

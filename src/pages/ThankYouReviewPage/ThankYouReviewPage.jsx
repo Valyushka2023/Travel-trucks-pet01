@@ -39,14 +39,14 @@ const ThankYouReviewPage = () => {
     }
   };
   return (
-    <div className={css.containerPage}>
-      <div className={css.buttonsContainer}>
-        <button onClick={handleGoBack} className={css.goBackLink}>
+    <div className={css['container-page']}>
+      <div className={css['buttons-container']}>
+        <button onClick={handleGoBack} className={css['go-back-link']}>
           &lt; Go back to catalog
         </button>
         <CloseButton
           onClick={handleClose}
-          className={css.pageCloseButton}
+          className={css['page-close-button']}
           ariaLabel="Close page"
         />
         {loading && <Loader type="overlay" />}

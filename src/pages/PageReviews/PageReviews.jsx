@@ -126,7 +126,7 @@ function PageReviews() {
 
   if (isLoading) {
     return (
-      <div className={css.loaderContainer}>
+      <div className={css['loader-container']}>
         <Loader type="container" />
       </div>
     );
@@ -141,7 +141,7 @@ function PageReviews() {
   }
 
   return (
-    <div className={css.containerPage}>
+    <div className={css['container-page']}>
       <ContentReviews
         camper={camper}
         activeTab="reviews"

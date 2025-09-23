@@ -1,4 +1,3 @@
-/* обчислення рейтингу по відгукам */
 import PropTypes from 'prop-types';
 import css from './HeroSection.module.css';
 
@@ -20,43 +19,40 @@ function HeroSection({ camper }) {
   }
 
   return (
-    <div className={css.containerHerosection}>
+    <div className={css['container-hero-section']}>
       <h2>{camper.name}</h2>
 
-      <div className={css.reviewsLocation}>
-        <div className={css.titleReviews}>
+      <div className={css['reviews-location']}>
+        <div className={css['title-reviews']}>
           <svg
-            className={css.iconStar}
+            className={css['icon-star']}
             width="16"
             height="16"
             viewBox="0 0 32 32"
-            // style={{
-            //   '--color1': '#28a745',
-            // }}
           >
             <use href="/icons.svg#icon-star"></use>
           </svg>
-          <p className={css.textReviewsTitle}>
+          <p className={css['text-reviews-title']}>
             {averageRating
               ? `${averageRating.toFixed(1)} (${reviewCount} Reviews)`
               : 'No reviews yet'}
           </p>
         </div>
-        <div className={css.locationTitle}>
+        <div className={css['location-title']}>
           <svg
-            className={css.iconMap}
+            className={css['icon-map']}
             width="16"
             height="16"
             viewBox="0 0 32 32"
           >
             <use href="/icons.svg#icon-map"></use>
           </svg>
-          <p className={css.textLocationTitle}>
+          <p className={css['text-location-title']}>
             {camper.location || 'Location not available'}
           </p>
         </div>
       </div>
-      <div className={css.containerPrice}>
+      <div className={css['container-price']}>
         <h2 className={css.price}>
           €{camper.price ? camper.price.toFixed(2) : 'Price not available'}
         </h2>

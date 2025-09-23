@@ -1,18 +1,18 @@
 .base-close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
   background: none;
   border: none;
   font-size: 1.3rem;
-  padding: 0;
   font-weight: 900;
-  color: var(--dark-color);
-  cursor: pointer;
-  display: flex;
   line-height: 1;
+  color: var(--dark-color);
   transition:
     color 0.2s ease,
     transform 0.2s ease;
-  justify-content: center;
-  align-items: center;
 }
 
 .base-close-button:hover {

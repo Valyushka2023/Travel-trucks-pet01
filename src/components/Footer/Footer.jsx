@@ -6,17 +6,15 @@ import css from './Footer.module.css';
 
 function Footer() {
   return (
-    <div className={css.footerWrapper}>
-      <footer className={css.footerContainer}>
-        {/* Контейнер для телефону та соцмереж */}
-        <div className={css.contactGroup}>
-          <PhoneNumber /> {/* Тепер використовуємо окремий компонент */}
-          <div className={css.socialNetworks}>
+    <div className={css['footer-wrapper']}>
+      <footer className={css['footer-container']}>
+        <div className={css['contact-group']}>
+          <PhoneNumber />
+          <div className={css['social-networks']}>
             <SocialLinks />
           </div>
         </div>
 
-        {/* Навігація */}
         <div className={css.info}>
           <InfoLinks />
         </div>

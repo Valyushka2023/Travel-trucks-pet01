@@ -14,24 +14,24 @@ const contacts = [
 
 const ContactsModal = ({ onClose, title = 'Contacts' }) => (
   <Modal title={title} onClose={onClose}>
-    <div className={css.containerContacts}>
-      <ul className={css.contactList}>
+    <div className={css['container-contacts']}>
+      <ul className={css['contact-list']}>
         {contacts.map(({ city, street, phone }, index) => (
-          <li className={css.contactItem} key={index}>
-            <p className={css.addressInfo}>
+          <li className={css['contact-item']} key={index}>
+            <p className={css['address-info']}>
               <strong>{city}:</strong> {street}
             </p>
-            <p className={css.contactInfoPhone}>
+            <p className={css['contact-info-phone']}>
               Tel:&nbsp;
-              <a href={`tel:${phone}`} className={css.contactLink}>
+              <a href={`tel:${phone}`} className={css['contact-link']}>
                 {phone}
               </a>
             </p>
-            <p className={css.contactInfoEmail}>
+            <p className={css['contact-info-email']}>
               Email:&nbsp;
               <a
                 href="mailto:infotraveltrucks@gmail.com"
-                className={css.contactLink}
+                className={css['contact-link']}
               >
                 infotraveltrucks@gmail.com
               </a>

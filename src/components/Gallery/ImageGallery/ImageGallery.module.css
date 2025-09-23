@@ -1,24 +1,23 @@
 .containerPictures {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: var(--gap-xl);
-
   width: 100%;
   max-width: 1312px;
   margin: 0 auto;
-  padding: 0;
   margin-top: 28px;
   margin-bottom: 28px;
+  padding: 0;
 }
 
 .galleryImageButton {
+  cursor: pointer;
   margin: 0;
   padding: 0;
   background: none;
   border: none;
   outline: none;
-  cursor: pointer;
   transition: outline 0.2s ease-in-out;
 }
 
@@ -33,23 +32,23 @@
   width: 100%;
   height: auto;
   min-height: var(--image-min-height);
-  object-fit: cover;
   border-radius: var(--radius-sm);
+  object-fit: cover;
 }
 
-@media (max-width: 1199px) {
+@media (width <= 1199px) {
   .containerPictures {
     gap: var(--gap-lg);
   }
 }
 
-@media (max-width: 991px) {
+@media (width <= 991px) {
   .containerPictures {
     gap: var(--gap-md);
   }
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .containerPictures {
     display: flex;
     flex-direction: column;
@@ -57,7 +56,7 @@
   }
 }
 
-@media (max-width: 479px) {
+@media (width <= 479px) {
   .containerPictures {
     gap: var(--gap-xs);
   }

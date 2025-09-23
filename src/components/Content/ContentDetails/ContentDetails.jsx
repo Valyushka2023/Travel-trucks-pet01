@@ -18,22 +18,22 @@ function ContentDetails() {
   return (
     <div className={css.container}>
       <Header />
-      <div className={css.containerContentDetails}>
+      <div className={css['container-content-details']}>
         <HeroSection camper={camper} />
         <ImageGallery gallery={camper.gallery} />
 
-        <div className={css.containerText}>
+        <div className={css['container-text']}>
           <p className={css.text}>{camper.description}</p>
         </div>
 
         <Tabs camper={camper} activeTab={activeTab} />
 
-        <div className={css.detailsForm}>
+        <div className={css['details-form']}>
           <div className={css.details}>
             <FeatureIcon camper={camper} />
             <VehicleDetails camper={camper} />
           </div>
-          <div className={css.containerFormBooking}>
+          <div className={css['container-form-booking']}>
             <FormBooking camper={camper} />
           </div>
         </div>

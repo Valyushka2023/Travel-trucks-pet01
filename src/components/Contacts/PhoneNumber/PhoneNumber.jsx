@@ -4,8 +4,8 @@ import css from './PhoneNumber.module.css';
 function PhoneNumber() {
   return (
     <div className={css.phone}>
-      <FaPhoneAlt className={css.phoneIcon} />
-      <a href="tel:0671234567" className={css.phoneNumber}>
+      <FaPhoneAlt className={css['phone-icon']} />
+      <a href="tel:0671234567" className={css['phone-number']}>
         067-123-45-67
       </a>
     </div>

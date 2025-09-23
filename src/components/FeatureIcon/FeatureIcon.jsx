@@ -28,11 +28,11 @@ const FeatureIcon = ({ camper }) => {
 
   return (
     <>
-      <div className={css.badgesContainer}>
+      <div className={css['badges-container']}>
         {featureIcons.map((feature, index) => {
-          const hasFeature = camper[feature.key]; // Доступ напряму
+          const hasFeature = camper[feature.key];
           return hasFeature ? (
-            <div className={css.featureIcon} key={index}>
+            <div className={css['feature-icon']} key={index}>
               <svg className={css.icon} viewBox="0 0 24 24">
                 <use href={`/icons.svg#${feature.svgId}`} />
               </svg>

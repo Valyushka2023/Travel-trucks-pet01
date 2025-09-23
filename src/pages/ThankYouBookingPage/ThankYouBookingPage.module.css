@@ -1,158 +1,157 @@
-.containerPage {
+.container-page {
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
-  padding: var(--padding-form-min);
-  box-sizing: border-box;
   width: 100%;
   max-width: 90rem;
   max-height: 100vh;
   margin: 0 auto;
+  padding: var(--padding-form-xl);
+  box-sizing: border-box;
   background-color: var(--body-bg-color);
 }
 
-.buttonsContainer {
+.buttons-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align: center;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
-.goBackLink {
-  font-size: 1.25rem;
+.go-back-link {
+  z-index: 10;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
   text-decoration: none;
+  white-space: nowrap;
   color: var(--primary-color);
   transition:
     transform 0.3s ease,
     color 0.3s ease,
     text-decoration 0.3s ease;
-  cursor: pointer;
-  white-space: nowrap;
-  z-index: 10;
-  padding: 0;
-  margin: 0;
 }
 
-.goBackLink:hover {
+.go-back-link:hover {
   text-decoration: underline;
   color: var(--hover-color);
   transform: scale(1.05);
 }
 
-.goBackLink:active {
+.go-back-link:active {
   text-decoration: underline;
   color: var(--active-color);
   transform: scale(0.95);
 }
 
-.pageCloseButton {
-  font-size: 1.25rem;
+.page-close-button {
   z-index: 10;
-  padding: 0;
-  margin: 0;
-  border: none;
-  background: transparent;
-  color: var(--button-close-icon-color);
   cursor: pointer;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--button-close-icon-color);
   transition: color 0.3s ease;
 }
 
-.pageCloseButton:hover {
+.page-close-button:hover {
   color: var(--hover-color);
+  transform: scale(1.05);
 }
-.pageCloseButton:active {
+
+.page-close-button:active {
   color: var(--active-color);
+  transform: scale(0.95);
 }
-/* .loaderOverlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 0.9735rem;
-  border-radius: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 
 .feedback {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   justify-content: flex-start;
   align-items: center;
-  flex-grow: 1;
-  text-align: center;
-  padding: 0;
   margin: 7.375rem 0;
+  padding: 0;
+  text-align: center;
 }
 
 .feedback h1 {
-  font-size: 3rem;
   margin: 0;
   margin-bottom: 3.125rem;
+  font-size: 3rem;
   color: var(--primary-color);
 }
 
 .text {
-  font-size: 2.25rem;
   max-width: 50rem;
+  font-size: 2.25rem;
   line-height: 1.5;
   color: var(--secondary-color);
 }
 
-@media (max-width: 74.9375rem) {
+@media (width <= 74.9375rem) {
   .feedback h1 {
     font-size: 2.75rem;
   }
+
   .text {
     font-size: 2rem;
   }
 }
 
-@media (max-width: 61.9375rem) {
-  .goBackLink,
-  .pageCloseButton {
+@media (width <= 61.9375rem) {
+  .go-back-link,
+  .page-close-button {
     font-size: 1.125rem;
   }
+
   .feedback h1 {
     font-size: 2.5rem;
   }
+
   .text {
     font-size: 1.875rem;
   }
 }
 
-@media (max-width: 47.9375rem) {
-  .goBackLink,
-  .pageCloseButton {
+@media (width <= 47.9375rem) {
+  .go-back-link,
+  .page-close-button {
     font-size: 1rem;
   }
+
   .feedback h1 {
     font-size: 2rem;
   }
+
   .text {
     font-size: 1.5rem;
   }
+
   .feedback {
     margin: 6.25rem 0;
   }
 }
 
-@media (max-width: 29.9375rem) {
-  .goBackLink,
-  .pageCloseButton {
+@media (width <= 29.9375rem) {
+  .go-back-link,
+  .page-close-button {
     font-size: 0.875rem;
   }
+
   .feedback h1 {
     font-size: 1.75rem;
   }
+
   .text {
     font-size: 1.25rem;
   }
+
   .feedback {
     margin: 5rem 0;
   }

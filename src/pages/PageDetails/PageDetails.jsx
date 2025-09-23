@@ -82,7 +82,7 @@ function PageDetails() {
 
   if (isLoading) {
     return (
-      <div className={css.loaderContainer}>
+      <div className={css['loader-container']}>
         <Loader type="container" />
       </div>
     );
@@ -99,7 +99,7 @@ function PageDetails() {
   return (
     <div>
       {' '}
-      className={css.containerPage}
+      className={css['container-page']}
       <Outlet context={{ camper: localCamper, activeTab }} />
       <ScrollToTopButton
         visible={visible}

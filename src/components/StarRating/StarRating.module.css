@@ -1,4 +1,4 @@
-.fieldForm {
+.field-form {
   display: flex;
   align-items: center;
   gap: var(--spacing-lg);
@@ -6,8 +6,8 @@
   padding: 0.5rem;
   box-sizing: border-box;
   background-color: var(--blok-field-form-bg-color);
-  border-radius: var(--radius-sm);
   border: 0.0625rem solid transparent;
+  border-radius: var(--radius-sm);
 }
 
 .label {
@@ -17,26 +17,26 @@
   color: var(--tertiary-color);
 }
 
-.inputAndErrorWrapper {
+.input-and-error-wrapper {
   position: relative;
   display: flex;
-  align-items: center;
   flex-grow: 1;
-  width: 100%;
+  align-items: center;
   gap: 0.3125rem;
+  width: 100%;
   min-height: 2.25rem;
   padding: 0 1.125rem;
+  background-color: var(--body-bg-color);
   border: 0.0625rem solid var(--border-color);
   border-radius: var(--radius-sm);
-  background-color: var(--body-bg-color);
   line-height: 1.5;
 }
 
-.inputAndErrorWrapper.inputError {
+.input-and-error-wrapper.input-error {
   border-color: var(--error-color) !important;
 }
 
-.inputAndErrorWrapper:hover {
+.input-and-error-wrapper:hover {
   border: 0.0625rem solid var(--hover-color);
 }
 
@@ -46,16 +46,16 @@
 }
 
 .star {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
   margin-right: 0.3125rem;
   padding: 0;
   background: none;
   border: none;
   font-size: 1rem;
   line-height: 1;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .filled {
@@ -71,9 +71,9 @@
   outline: 0.0625rem solid var(--secondary-color);
 }
 
-.errorPopup {
+.error-popup {
   position: absolute;
-  top: calc(100% + 0.25rem); /* Розміщує вікно під батьківським елементом */
+  top: calc(100% + 0.25rem);
   left: 0;
   z-index: 10;
   margin: 0;
@@ -83,17 +83,17 @@
   border-radius: var(--border-radius-small);
   box-shadow: var(--box-shadow);
   font-size: 0.9em;
-  letter-spacing: 0.05625rem;
+  letter-spacing: 0.0563rem;
   white-space: nowrap;
   color: var(--error-color);
 }
 
-.errorPopup::before {
-  content: '';
+.error-popup::before {
   position: absolute;
-  bottom: 100%; /* Розміщує трикутник над вікном */
+  bottom: 100%;
   left: 0.625rem;
   border-color: transparent transparent var(--error-color);
   border-style: solid;
   border-width: 0 0.375rem 0.375rem;
+  content: '';
 }

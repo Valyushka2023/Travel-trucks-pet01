@@ -1,3 +1,18 @@
 .lang-switcher {
-  font-size: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.lang-switcher button {
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.active {
+  text-decoration: underline;
 }

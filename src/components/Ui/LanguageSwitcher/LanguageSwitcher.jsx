@@ -1,6 +1,5 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
-import css from './LanguageSwitcher.module.css'; // Припустимо, що у вас є файл стилів
+import css from './LanguageSwitcher.module.css';
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();

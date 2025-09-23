@@ -4,13 +4,13 @@ import css from './CardList.module.css';
 
 const CardList = ({ campers }) => {
   return (
-    <div className={css.cardList}>
+    <div className={css['card-list']}>
       {campers.length === 0 ? (
         <div>No campers available.</div>
       ) : (
         campers.map(camper => (
           <Card
-            key={camper._id} // Враховуйте _id
+            key={camper._id}
             _id={camper._id}
             name={camper.name}
             gallery={camper.gallery}

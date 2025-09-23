@@ -14,8 +14,10 @@
   font-weight: 500;
   text-decoration: none;
   color: var(--primary-color-1);
+
   /* color: var(--color-ultramarine); */
   --color-light-blue: #add8e6;
+
   transition:
     color 0.3s ease,
     transform 0.3s ease;
@@ -25,26 +27,31 @@
   color: var(--hover-color);
   transform: scale(1.05);
 }
+
 .links li button:active {
   color: var(--active-color);
   transform: scale(0.95);
 }
-@media (max-width: 74.9375rem) {
+
+@media (width <= 74.9375rem) {
   .links li button {
     font-size: 1.2rem;
   }
 }
-@media (max-width: 61.9375rem) {
+
+@media (width <= 61.9375rem) {
   .links li button {
     font-size: 1.1rem;
   }
 }
-@media (max-width: 47.9375rem) {
+
+@media (width <= 47.9375rem) {
   .links li button {
     font-size: 1rem;
   }
 }
-@media (max-width: 29.9375rem) {
+
+@media (width <= 29.9375rem) {
   .links li button {
     font-size: 0.9rem;
   }

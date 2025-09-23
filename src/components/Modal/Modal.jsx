@@ -28,16 +28,18 @@ function Modal({ title, titleClassName, children, onClose }) {
   return (
     <div className={css.backdrop} onClick={onClose}>
       <div className={css.modal} onClick={handleModalContentClick}>
-        <div className={css.modalHeaderContainer}>
-          <Logo className={css.logoInModal} />
+        <div className={css['modal-header-container']}>
+          <Logo className={css['logo-in-modal']} />
           <CloseButton
             onClick={onClose}
-            className={css.closeBtn}
-            ariaLabel="Закрити модальне вікно"
+            className={css['close-btn']}
+            ariaLabel="Close modal window"
           />
         </div>
-        <h2 className={`${css.modalTitle} ${titleClassName || ''}`}>{title}</h2>
-        <div className={css.modalBody}>{children}</div>
+        <h2 className={`${css['modal-title']} ${titleClassName || ''}`}>
+          {title}
+        </h2>
+        <div className={css['modal-body']}>{children}</div>
       </div>
     </div>
   );

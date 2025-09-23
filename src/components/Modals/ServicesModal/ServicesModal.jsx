@@ -9,10 +9,10 @@ const ServicesModal = ({
 }) => (
   <Modal
     title={title}
-    titleClassName={css.titleServicesModal}
+    titleClassName={css['titleServicesModal']}
     onClose={onClose}
   >
-    <div className={css.textServicesModal}>
+    <div className={css['textServicesModal']}>
       {paragraphs.map((text, idx) => (
         <p key={idx}>{text}</p>
       ))}

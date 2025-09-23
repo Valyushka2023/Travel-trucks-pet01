@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import css from './ErrorComponent.module.css'; // Імпортимо стилі
+import css from './ErrorComponent.module.css';
 
 function ErrorComponent({ error, onRetry }) {
   return (
-    <div className={css.errorContainer}>
-      <p className={css.errorMessage}>Виникла помилка: {error}</p>
-      <button className={css.retryButton} onClick={onRetry}>
-        Повторити завантаження
+    <div className={css['error-container']}>
+      <p className={css['error-message']}>An error occurred: {error}</p>
+      <button className={css['retry-button']} onClick={onRetry}>
+        Retry download
       </button>
     </div>
   );
