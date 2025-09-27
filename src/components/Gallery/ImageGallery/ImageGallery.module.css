@@ -1,17 +1,17 @@
-.containerPictures {
+.container-pictures {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--gap-xl);
   width: 100%;
-  max-width: 1312px;
+  max-width: 82rem;
   margin: 0 auto;
-  margin-top: 28px;
-  margin-bottom: 28px;
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
   padding: 0;
 }
 
-.galleryImageButton {
+.gallery-image-button {
   cursor: pointer;
   margin: 0;
   padding: 0;
@@ -21,13 +21,13 @@
   transition: outline 0.2s ease-in-out;
 }
 
-.galleryImageButton:hover,
-.galleryImageButton:focus {
+.gallery-image-button:hover,
+.gallery-image-button:focus {
   border-radius: var(--radius-sm);
-  outline: 8px solid var(--highlight-color);
+  outline: 0.5rem solid var(--highlight-color);
 }
 
-.galleryItem {
+.gallery-item {
   display: block;
   width: 100%;
   height: auto;
@@ -36,28 +36,28 @@
   object-fit: cover;
 }
 
-@media (width <= 1199px) {
-  .containerPictures {
+@media (width <= 74.9375rem) {
+  .container-pictures {
     gap: var(--gap-lg);
   }
 }
 
-@media (width <= 991px) {
-  .containerPictures {
+@media (width <= 61.9375rem) {
+  .container-pictures {
     gap: var(--gap-md);
   }
 }
 
-@media (width <= 767px) {
-  .containerPictures {
+@media (width <= 47.9375rem) {
+  .container-pictures {
     display: flex;
     flex-direction: column;
     gap: var(--gap-sm);
   }
 }
 
-@media (width <= 479px) {
-  .containerPictures {
+@media (width <= 29.9375rem) {
+  .container-pictures {
     gap: var(--gap-xs);
   }
 }

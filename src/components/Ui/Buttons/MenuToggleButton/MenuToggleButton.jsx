@@ -6,7 +6,7 @@ import css from './MenuToggleButton.module.css';
 const MenuToggleButton = ({
   isOpen,
   onClick,
-  ariaLabel = 'Перемкнути навігаційне меню',
+  ariaLabel = 'Toggle navigation menu',
   className,
 }) => {
   const windowWidth = useWindowWidth();

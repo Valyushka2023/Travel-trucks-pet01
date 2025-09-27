@@ -1,27 +1,27 @@
-.filterTitle {
+/* .filter-title {
   display: flex;
   flex-direction: row;
-  width: 360px;
-  height: 24px;
+  width: 22.5rem;
+  height: 1.5rem;
   margin: 0;
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
   background-color: #e44848;
   line-height: normal;
   color: #475467;
-}
+} */
 
-.vehicleEquipment {
+.vehicle-equipment {
   display: flex;
   flex-direction: column;
-  width: 360px;
-  margin-bottom: 32px;
+  width: 22.5rem;
+  margin-bottom: 2rem;
 }
 
-.textEquipment {
+.text-equipment {
   display: flex;
   flex-direction: row;
-  width: 181px;
-  height: 24px;
+  width: 11.3125rem;
+  height: 1.5rem;
   margin: 0;
   line-height: normal;
   color: var(--primary-color);
@@ -30,30 +30,26 @@
 .divider {
   display: flex;
   flex-direction: column;
-  max-width: 357px;
-  margin: 24px 0;
-
-  /* border: 1px solid #dddbdb;  */
+  max-width: 22.3125rem;
+  margin: 1.5rem 0;
   border: 0.0625rem solid var(--border-color);
-
-  /* border-radius: 12px; */
 }
 
-.equipmentContainer {
+.equipment-container {
   display: flex;
-  gap: 8px 12px;
-  width: 360px;
-  height: 200px;
+  gap: 0.5rem 0.75rem;
+  width: 22.5rem;
+  height: 12.5rem;
   flex-wrap: wrap;
 }
 
-.rawIcon {
+.raw-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  width: 112px;
-  height: 96px;
+  width: 7rem;
+  height: 6rem;
   padding: 0;
   box-sizing: border-box;
   border: 0.125rem solid var(--border-color);
@@ -63,27 +59,25 @@
     box-shadow 0.2s;
 }
 
-.rawIcon:hover:not(.active) {
+.raw-icon:hover:not(.active) {
   border: 0.125rem solid var(--hover-color);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-.rawIcon.active {
+.raw-icon.active {
   border: 0.125rem solid var(--active-color);
-
-  /* transform: scale(1); */
 }
 
 .icon {
-  width: 48px;
-  height: 48px;
-  margin-top: 16px;
+  width: 3rem;
+  height: 3rem;
+  margin-top: 1rem;
   fill: var(--icon-primary-color);
 }
 
-.iconText {
-  margin-top: 8px;
-  margin-bottom: 16px;
-  font-size: 16px;
+.icon-text {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
   color: var(--tertiary-color);
 }

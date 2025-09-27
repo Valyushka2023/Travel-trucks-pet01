@@ -6,7 +6,7 @@
   color: var(--logo-primary-color);
 }
 
-.logoSecondary {
+.logo-secondary {
   display: flex;
   align-items: center;
   color: var(--modal-logo-secondary-color, var(--logo-secondary-color));

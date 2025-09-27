@@ -1,11 +1,11 @@
-.noReview {
+.no-review {
   padding: 0.625rem;
   font-style: italic;
   text-align: center;
   color: var(--warning-color);
 }
 
-.reviewContainer {
+.review-container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -14,11 +14,9 @@
   padding: 0;
   padding-bottom: 1rem;
   box-sizing: border-box;
-
-  /* background-color: var(--body-bg-color); */
 }
 
-.reviewHeader {
+.review-header {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -29,7 +27,7 @@
   flex-wrap: nowrap;
 }
 
-.reviewNameRating {
+.review-name-rating {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -38,7 +36,7 @@
   padding: 0.25rem 0;
 }
 
-.reviewerName {
+.reviewer-name {
   overflow: hidden;
   font-size: 1rem;
   font-weight: 600;
@@ -48,22 +46,22 @@
   text-overflow: ellipsis;
 }
 
-.reviewRating {
+.review-rating {
   display: flex;
   font-size: 1.5rem;
 }
 
-.filledStar {
+.filled-star {
   margin-right: 0.3125rem;
   color: var(--star-gold-color);
 }
 
-.emptyStar {
+.empty-star {
   margin-right: 0.3125rem;
   color: var(--star-empty-color);
 }
 
-.reviewDate {
+.review-date {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,7 +73,7 @@
   color: var(--secondary-color);
 }
 
-.reviewComment {
+.review-comment {
   display: flex;
   height: auto;
   max-width: 100%;

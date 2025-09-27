@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Loader = ({ type, color, size }) => {
   const loaderClass =
-    type === 'overlay' ? css.loaderOverlay : css.loaderContainer;
+    type === 'overlay' ? css['loader-overlay'] : css['loader-container'];
 
   return (
     <div className={loaderClass}>

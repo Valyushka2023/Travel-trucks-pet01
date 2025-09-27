@@ -8,7 +8,7 @@ const AboutModal = ({
   paragraphs = defaultParagraphs,
 }) => (
   <Modal title={title} onClose={onClose}>
-    <div className={css.textAboutModal}>
+    <div className={css['text-about-modal']}>
       {paragraphs.map((text, idx) => (
         <p key={idx}>{text}</p>
       ))}

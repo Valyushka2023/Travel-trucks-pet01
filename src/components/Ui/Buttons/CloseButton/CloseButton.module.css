@@ -9,7 +9,8 @@
   font-size: 1.3rem;
   font-weight: 900;
   line-height: 1;
-  color: var(--dark-color);
+  /* color: var(--dark-color); */
+  color: var(--button-close-icon-color);
   transition:
     color 0.2s ease,
     transform 0.2s ease;

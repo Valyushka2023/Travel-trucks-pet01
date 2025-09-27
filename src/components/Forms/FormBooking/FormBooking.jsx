@@ -122,75 +122,75 @@ function FormBooking({ camper }) {
       handleDateChange(null, 'bookingEndDate');
     }
   }, [formData.bookingStartDate, formData.bookingEndDate, handleDateChange]);
-  console.log('Поточні помилки:', errors);
-  console.log('Кнопка неактивна через:', {
+  console.log('Current errors:', errors);
+  console.log('The button is inactive because:', {
     isSubmitting,
     hasErrors: Object.keys(errors).length > 0,
   });
 
   return (
     <form className={css.form} onSubmit={handleSubmit} noValidate>
-      <div className={css.titleForm}>
-        <h3 className={css.textTitleForm}>Book a motorhome now</h3>
-        <p className={css.textForm}>
+      <div className={css['title-form']}>
+        <h3 className={css['text-title-form']}>Book a motorhome now</h3>
+        <p className={css['text-form']}>
           We are always in touch, ready to help you!
         </p>
       </div>
-      <div className={css.inputsArea}>
+      <div className={css['inputs-area']}>
         <div className={css.inputs}>
-          <div className={css.fieldForm}>
+          <div className={css['field-form']}>
             <label htmlFor="user-name-input" className={css.label}>
               Name*
             </label>
-            <div className={css.inputAndErrorWrapper}>
+            <div className={css['input-and-error-wrapper']}>
               <input
                 id="user-name-input"
                 name="name"
                 type="text"
-                className={clsx(css.modalInput, {
-                  [css.inputError]: hasAttemptedSubmit && errors.name,
+                className={clsx(css['modal-input'], {
+                  [css['input-error']]: hasAttemptedSubmit && errors.name,
                 })}
                 value={formData.name}
                 onChange={handleInputChange}
                 required
               />
               {hasAttemptedSubmit && errors.name && (
-                <p className={css.errorPopup}>{errors.name}</p>
+                <p className={css['error-popup']}>{errors.name}</p>
               )}
             </div>
           </div>
-          <div className={css.fieldForm}>
+          <div className={css['field-form']}>
             <label htmlFor="user-email-input" className={css.label}>
               Email*
             </label>
-            <div className={css.inputAndErrorWrapper}>
+            <div className={css['input-and-error-wrapper']}>
               <input
                 id="user-email-input"
                 name="email"
                 type="email"
-                className={clsx(css.modalInput, {
-                  [css.inputError]: hasAttemptedSubmit && errors.email,
+                className={clsx(css['modal-input'], {
+                  [css['input-error']]: hasAttemptedSubmit && errors.email,
                 })}
                 value={formData.email}
                 onChange={handleInputChange}
                 required
               />
               {hasAttemptedSubmit && errors.email && (
-                <p className={css.errorPopup}>{errors.email}</p>
+                <p className={css['error-popup']}>{errors.email}</p>
               )}
             </div>
           </div>
-          <div className={css.fieldForm}>
+          <div className={css['field-form']}>
             <label htmlFor="user-phone-input" className={css.label}>
               Phone*
             </label>
-            <div className={css.inputAndErrorWrapper}>
+            <div className={css['input-and-error-wrapper']}>
               <input
                 id="user-phone-input"
                 name="phone"
                 type="tel"
-                className={clsx(css.modalInput, {
-                  [css.inputError]: hasAttemptedSubmit && errors.phone,
+                className={clsx(css['modal-input'], {
+                  [css['input-error']]: hasAttemptedSubmit && errors.phone,
                 })}
                 value={formData.phone}
                 onChange={handleInputChange}
@@ -198,16 +198,19 @@ function FormBooking({ camper }) {
                 placeholder="+380XXXXXXXXX"
               />
               {hasAttemptedSubmit && errors.phone && (
-                <p className={css.errorPopup}>{errors.phone}</p>
+                <p className={css['error-popup']}>{errors.phone}</p>
               )}
             </div>
           </div>
-          <div className={css.fieldForm}>
+          <div className={css['field-form']}>
             <label htmlFor="booking-start-date" className={css.label}>
               From (date, time)*
             </label>
             <div
-              className={clsx(css.inputAndErrorWrapper, css.datepickerWrapper)}
+              className={clsx(
+                css['input-and-error-wrapper'],
+                css['datepicker-wrapper']
+              )}
             >
               <DatePicker
                 id="booking-start-date"
@@ -219,8 +222,8 @@ function FormBooking({ camper }) {
                 timeFormat="HH:mm"
                 timeIntervals={15}
                 dateFormat="yyyy-MM-dd HH:mm"
-                className={clsx(css.modalInput, {
-                  [css.inputError]:
+                className={clsx(css['modal-input'], {
+                  [css['input-error']]:
                     hasAttemptedSubmit && errors.bookingStartDate,
                 })}
                 placeholderText="Start date, time"
@@ -228,16 +231,19 @@ function FormBooking({ camper }) {
                 minDate={new Date()}
               />
               {hasAttemptedSubmit && errors.bookingStartDate && (
-                <p className={css.errorPopup}>{errors.bookingStartDate}</p>
+                <p className={css['error-popup']}>{errors.bookingStartDate}</p>
               )}
             </div>
           </div>
-          <div className={css.fieldForm}>
+          <div className={css['field-form']}>
             <label htmlFor="booking-end-date" className={css.label}>
               To (date, time)*
             </label>
             <div
-              className={clsx(css.inputAndErrorWrapper, css.datepickerWrapper)}
+              className={clsx(
+                css['input-and-error-wrapper'],
+                css['datepicker-wrapper']
+              )}
             >
               <DatePicker
                 id="booking-end-date"
@@ -249,26 +255,27 @@ function FormBooking({ camper }) {
                 timeFormat="HH:mm"
                 timeIntervals={15}
                 dateFormat="yyyy-MM-dd HH:mm"
-                className={clsx(css.modalInput, {
-                  [css.inputError]: hasAttemptedSubmit && errors.bookingEndDate,
+                className={clsx(css['modal-input'], {
+                  [css['input-error']]:
+                    hasAttemptedSubmit && errors.bookingEndDate,
                 })}
                 placeholderText="End date, time"
                 required
                 minDate={formData.bookingStartDate || new Date()}
               />
               {hasAttemptedSubmit && errors.bookingEndDate && (
-                <p className={css.errorPopup}>{errors.bookingEndDate}</p>
+                <p className={css['error-popup']}>{errors.bookingEndDate}</p>
               )}
             </div>
           </div>
-          <div className={css.fieldArea}>
-            <div className={css.commentAndCounterWrapper}>
-              <label htmlFor="user-comment" className={css.labelComment}>
+          <div className={css['field-area']}>
+            <div className={css['comment-and-counter-wrapper']}>
+              <label htmlFor="user-comment" className={css['label-comment']}>
                 Comment*
               </label>
               <p
-                className={clsx(css.charCount, {
-                  [css.charCountWarning]: formData.comment.length >= 250,
+                className={clsx(css['char-count'], {
+                  [css['char-count-warning']]: formData.comment.length >= 250,
                 })}
               >
                 {formData.comment.length} / 250
@@ -276,29 +283,29 @@ function FormBooking({ camper }) {
             </div>
             <div
               className={clsx(
-                css.inputAndErrorWrapper,
-                css.commentInputWrapper
+                css['input-and-error-wrapper'],
+                css['comment-input-wrapper']
               )}
             >
               <textarea
                 id="user-comment"
                 name="comment"
                 placeholder="Your message"
-                className={clsx(css.modalTextArea, {
-                  [css.inputError]: hasAttemptedSubmit && errors.comment,
+                className={clsx(css['modal-text-area'], {
+                  [css['input-error']]: hasAttemptedSubmit && errors.comment,
                 })}
                 value={formData.comment}
                 onChange={handleInputChange}
                 required
               />
               {hasAttemptedSubmit && errors.comment && (
-                <p className={css.errorPopup}>{errors.comment}</p>
+                <p className={css['error-popup']}>{errors.comment}</p>
               )}
             </div>
           </div>
         </div>
       </div>
-      <div className={css.elementSend}>
+      <div className={css['element-send']}>
         <Button
           variant="primary"
           size="medium"
@@ -312,7 +319,7 @@ function FormBooking({ camper }) {
             : t('send_button', { ns: 'button' })}
         </Button>
         {submissionError && (
-          <p className={clsx(css.errorPopup, css.generalErrorPopup)}>
+          <p className={clsx(css['error-popup'], css['general-error-popup'])}>
             {submissionError}
           </p>
         )}

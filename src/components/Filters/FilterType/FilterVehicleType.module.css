@@ -1,17 +1,15 @@
-.vehicleType {
+.vehicle-type {
   display: flex;
   flex-direction: column;
-  width: 360px;
-  margin-bottom: 32px;
-
-  /* background-color: rgb(255, 251, 0); */
+  width: 22.5rem;
+  margin-bottom: 2rem;
 }
 
-.textType {
+.text-type {
   display: flex;
   flex-direction: row;
-  width: 181px;
-  height: 24px;
+  width: 11.3125rem;
+  height: 1.5rem;
   margin: 0;
   line-height: normal;
   color: var(--primary-color);
@@ -20,34 +18,30 @@
 .divider {
   display: flex;
   flex-direction: column;
-  max-width: 357px;
-  margin: 24px 0;
-
-  /* border: 1px solid #dddbdb;   */
+  max-width: 22.3125rem;
+  margin: 1.5rem 0;
   border: 0.0625rem solid var(--border-color);
-  border-radius: 12px;
+  border-radius: 0.75rem;
 }
 
-.typeContainer {
+.type-container {
   display: flex;
-  gap: 12px;
+  gap: 0.75rem;
   width: 100%;
-  height: 96px;
-  min-width: 360px;
+  height: 6rem;
+  min-width: 22.5rem;
   flex-wrap: wrap;
 }
 
-.rawIcon {
+.raw-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  width: 112px;
-  height: 96px;
+  width: 7rem;
+  height: 6rem;
   padding: 0;
   box-sizing: border-box;
-
-  /* border: 2px solid #dddbdb;  */
   border: 0.125rem solid var(--border-color);
   border-radius: var(--radius-md);
   transition:
@@ -55,45 +49,41 @@
     box-shadow 0.2s;
 }
 
-.rawIcon:hover:not(.active) {
+.raw-icon:hover:not(.active) {
   border: 0.125rem solid var(--hover-color);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-.rawIcon.active {
+.raw-icon.active {
   border: 0.125rem solid var(--active-color);
-
-  /* transform: scale(1); */
 }
 
 .icon {
-  width: 48px;
-  height: 48px;
-  margin-top: 16px;
+  width: 3rem;
+  height: 3rem;
+  margin-top: 1rem;
   fill: var(--icon-primary-color);
 }
 
-.multiLine .icon {
-  margin-top: 8px;
+.multi-line .icon {
+  margin-top: 0.5rem;
 }
 
-.iconText {
-  margin-top: 8px;
-  margin-bottom: 16px;
-  font-size: 16px;
+.icon-text {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
   text-align: center;
   white-space: normal;
   color: var(--tertiary-color);
-  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
-.multiLine .iconText {
-  max-width: 90px;
-  margin-top: 8px;
-  margin-bottom: 4px;
+.multi-line .icon-text {
+  max-width: 5.625rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
   text-align: center;
   white-space: pre-wrap;
-
-  /* word-break: break-word; */
   word-break: break-all;
 }

@@ -14,24 +14,24 @@
   box-shadow: var(--box-shadow);
 }
 
-.titleForm {
+.title-form {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: 0;
 }
 
-.textTitleForm {
+.text-title-form {
   margin: 0;
   color: var(--primary-color);
 }
 
-.textForm {
+.text-form {
   margin: 0;
   color: var(--secondary-color);
 }
 
-.inputsArea {
+.inputs-area {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -44,7 +44,7 @@
   width: 100%;
 }
 
-.inputAndErrorWrapper {
+.input-and-error-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -54,10 +54,8 @@
   background-color: var(--primary-bg-color);
 }
 
-.fieldForm {
+.field-form {
   display: flex;
-
-  /* flex-direction: row; */
   align-items: center;
   gap: var(--spacing-lg);
   width: 100%;
@@ -67,10 +65,8 @@
   border-radius: var(--radius-sm);
 }
 
-.fieldArea {
+.field-area {
   display: flex;
-
-  /* flex-direction: row; */
   align-items: flex-start;
   gap: var(--spacing-lg);
   width: 100%;
@@ -80,7 +76,7 @@
   border-radius: var(--radius-sm);
 }
 
-.commentAndCounterWrapper {
+.comment-and-counter-wrapper {
   display: flex;
   flex-direction: column;
 }
@@ -92,7 +88,7 @@
   color: var(--tertiary-color);
 }
 
-.labelComment {
+.label-comment {
   flex-shrink: 0;
   min-width: 2.5rem;
   margin-top: 0.0625rem;
@@ -100,14 +96,40 @@
   color: var(--secondary-color);
 }
 
-.modalInput,
-.modalTextArea {
+.modal-input,
+.modal-text-area {
   display: flex;
   flex: 1;
   align-items: center;
-  cursor: pointer;
+  cursor: text;
   width: 100%;
   min-height: 1.5rem;
+  padding: 0 1.125rem;
+  box-sizing: border-box;
+  background-color: var(--blok-field-input-bg-color);
+  border: 0.0625rem solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.056rem;
+  color: var(--secondary-color);
+}
+
+.modal-input::placeholder,
+.modal-text-area::placeholder {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 1;
+}
+
+.react-datepicker-input-container input {
+  width: 100%;
+  height: 1.5rem;
+  min-height: 1.5rem;
+  padding: 0 1.125rem;
   box-sizing: border-box;
   background-color: var(--body-bg-color);
   border: 0.0625rem solid var(--border-color);
@@ -115,66 +137,53 @@
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.05625rem;
+  line-height: 1.5;
+  letter-spacing: 0.056rem;
   color: var(--secondary-color);
 }
 
-.modalInput::placeholder,
-.modalTextArea::placeholder,
-.modalInput::input-placeholder,
-.modalTextArea::input-placeholder,
-.modalInput::placeholder,
-.modalTextArea::placeholder,
-.modalInput:input-placeholder,
-.modalTextArea:input-placeholder {
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 400;
-  opacity: 1;
+.react-datepicker-input-container input::placeholder {
+  font-style: italic;
+  color: var(--tertiary-color);
 }
 
-.modalInput,
-.modalTextArea {
-  padding: 0 1.125rem;
-  line-height: 1.5;
-}
-
-.modalInput {
+.modal-input {
   min-height: 2rem;
 }
 
-.modalTextArea {
+.modal-text-area {
   min-height: 5.125rem;
+  resize: vertical;
 }
 
-.modalInput:hover,
-.modalTextArea:hover {
+.modal-input:hover,
+.modal-text-area:hover {
   border: 0.0625rem solid var(--hover-color);
 }
 
-.elementSend {
+.element-send {
   width: 100%;
   margin-top: auto;
   text-align: center;
 }
 
-.charCount {
+.char-count {
   margin: 0;
   padding: 0;
-  font-size: 0.8em;
+  font-size: 0.8rem;
+  font-weight: 500;
   text-align: center;
-  color: var(--secondary-color);
+  color: var(--char-count-color);
   transition: color 0.3s ease;
 }
 
-.charCountWarning {
+.char-count-warning {
   font-weight: bold;
   color: var(--warning-color);
 }
 
-.errorPopup,
-.generalErrorPopup {
+.error-popup,
+.general-error-popup {
   position: absolute;
   top: calc(100% + 0.25rem);
   left: 0;
@@ -186,22 +195,22 @@
   border-radius: var(--radius-sm);
   box-shadow: var(--box-shadow);
   font-size: 0.9em;
-  letter-spacing: 0.05625;
+  letter-spacing: 0.0563rem;
   white-space: nowrap;
   color: var(--error-color);
 }
 
-.generalErrorPopup {
+.general-error-popup {
   position: static;
   margin-top: 0.625rem;
   white-space: normal;
 }
 
-.inputError {
+.input-error {
   border-color: var(--error-color) !important;
 }
 
-.errorPopup::before {
+.error-popup::before {
   position: absolute;
   bottom: 100%;
   left: 0.625rem;
@@ -211,15 +220,15 @@
   content: '';
 }
 
-.datepickerWrapper {
+.datepicker-wrapper {
   position: relative;
 }
 
-.react-datepicker__input-container {
+.react-datepicker-input-container {
   width: 100%;
 }
 
-.react-datepicker__input-container .modalInput {
+.react-datepicker-input-container .modal-input {
   width: 100%;
   height: 1.5rem;
 }

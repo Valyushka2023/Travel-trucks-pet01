@@ -26,7 +26,7 @@ function ImageGallery({ gallery }) {
 
   const handleImageClick = imageUrl => {
     if (isMobile) {
-      console.log('Модальне вікно заблоковано на мобільних пристроях.');
+      console.log('Modal window is blocked on mobile devices');
       return;
     }
     setSelectedImage(imageUrl);
@@ -42,21 +42,21 @@ function ImageGallery({ gallery }) {
 
   return (
     <div
-      className={css.containerPictures}
+      className={css['container-pictures']}
       role="list"
       aria-label="Image Gallery"
     >
       {gallery.map((imageUrl, index) => (
         <button
           key={index}
-          className={css.galleryImageButton}
+          className={css['gallery-image-button']}
           onClick={() => handleImageClick(imageUrl)}
           aria-label={`Open image ${index + 1}`}
         >
           <img
             src={imageUrl}
             alt={`Gallery item ${index + 1}`}
-            className={css.galleryItem}
+            className={css['gallery-item']}
             loading="lazy"
             onError={e => {
               e.target.onerror = null;

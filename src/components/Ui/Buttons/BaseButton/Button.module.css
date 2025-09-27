@@ -51,9 +51,11 @@
   color: var(--button-secondary-text-color);
 }
 
-.button:disabled {
+.button:disabled,
+.primary:disabled,
+.secondary:disabled {
   cursor: not-allowed;
-  background: var(--button-disabled-bg-color);
+  background-color: var(--button-disabled-bg-color);
   color: var(--button-disabled-text-color);
   transform: none;
 }

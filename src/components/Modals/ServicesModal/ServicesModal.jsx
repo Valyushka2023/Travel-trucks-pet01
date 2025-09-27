@@ -9,10 +9,18 @@ const ServicesModal = ({
 }) => (
   <Modal
     title={title}
-    titleClassName={css['titleServicesModal']}
+    //   titleClassName={css['title-services-modal']}
+    // //   onClose={onClose}
+    // >
+    //   <div className={css['text-services-modal']}>
+    //     {paragraphs.map((text, idx) => (
+    //       <p key={idx}>{text}</p>
+    //     ))}
+    //   </div>
+    // </Modal>  <Modal title={title}
     onClose={onClose}
   >
-    <div className={css['textServicesModal']}>
+    <div className={css['text-services-modal']}>
       {paragraphs.map((text, idx) => (
         <p key={idx}>{text}</p>
       ))}

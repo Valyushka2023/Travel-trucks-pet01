@@ -14,24 +14,24 @@
   box-shadow: var(--box-shadow);
 }
 
-.titleForm {
+.title-form {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: 0;
 }
 
-.textTitleForm {
+.text-title-form {
   margin: 0;
   color: var(--primary-color);
 }
 
-.textForm {
+.textform {
   margin: 0;
   color: var(--secondary-color);
 }
 
-.inputsArea {
+.inputs-area {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -44,7 +44,7 @@
   width: 100%;
 }
 
-.inputAndErrorWrapper {
+.input-and-error-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -54,8 +54,7 @@
   background-color: var(--primary-bg-color);
 }
 
-/* Існуючий fieldForm */
-.fieldForm {
+.field-form {
   display: flex;
   align-items: center;
   gap: var(--spacing-lg);
@@ -66,21 +65,7 @@
   border-radius: var(--radius-sm);
 }
 
-/* НОВИЙ КЛАС для компонента StarRating */
-
-/* .ratingField {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-lg);
-  width: 100%;
-  padding: 0.5rem;
-  box-sizing: border-box;
-  background-color: #664b92;
-  color: aqua;
-  border-radius: var(--radius-sm);
-} */
-
-.fieldArea {
+.field-area {
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-lg);
@@ -91,7 +76,7 @@
   border-radius: var(--radius-sm);
 }
 
-.commentAndCounterWrapper {
+.comment-and-counterr-wapper {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
@@ -105,16 +90,16 @@
   color: var(--tertiary-color);
 }
 
-.labelComment {
+.label-comment {
   flex-shrink: 0;
   min-width: 2.5rem;
-  margin-top: 0.09375rem;
+  margin-top: 0.0938rem;
   font-size: 1rem;
   color: var(--tertiary-color);
 }
 
-.modalInput,
-.modalTextArea {
+.modal-input,
+.modal-text-area {
   display: flex;
   flex: 1;
   align-items: center;
@@ -130,65 +115,61 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: 0.05625rem;
+  letter-spacing: 0.0563rem;
   color: var(--secondary-color);
 }
 
-.modalInput::placeholder,
-.modalTextArea::placeholder,
-.modalInput::input-placeholder,
-.modalTextArea::input-placeholder,
-.modalInput::placeholder,
-.modalTextArea::placeholder,
-.modalInput:input-placeholder,
-.modalTextArea:input-placeholder {
+.modal-input::placeholder,
+.modal-text-area::placeholder {
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
   opacity: 1;
 }
 
-.modalInput {
+.modal-input {
   min-height: 2.25rem;
 }
 
-.modalTextArea {
+.modal-text-area {
   min-height: 5.125rem;
 }
 
-.modalInput:hover,
-.modalTextArea:hover {
+.modal-input:hover,
+.modal-text-area:hover {
   padding: 0 1.125rem;
+  border: 0.0625rem solid var(--hover-color);
   line-height: 1.5;
 }
 
-.modalInput:hover,
-.modalTextArea:hover {
+/* .modal-input:hover,
+.modal-text-area:hover {
   border: 0.0625rem solid var(--hover-color);
-}
+} */
 
-.elementSubmit {
+.element-submit {
   width: 100%;
   margin-top: auto;
   text-align: center;
 }
 
-.charCount {
+.char-count {
   margin: 0;
   padding: 0;
-  font-size: 0.8em;
+  font-size: 0.8rem;
+  font-weight: 500;
   text-align: center;
-  color: var(--secondary-color);
+  color: var(--char-count-color);
   transition: color 0.3s ease;
 }
 
-.charCountWarning {
+.char-count-warning {
   font-weight: bold;
   color: var(--warning-color);
 }
 
-.errorPopup,
-.generalErrorPopup {
+.error-popup,
+.general-error-popup {
   position: absolute;
   top: calc(100% + 0.25rem);
   left: 0;
@@ -199,23 +180,23 @@
   border: 0.0625rem solid var(--error-color);
   border-radius: var(--radius-sm);
   box-shadow: var(--box-shadow);
-  font-size: 0.9em;
-  letter-spacing: 0.05625rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.0563rem;
   white-space: nowrap;
   color: var(--error-color);
 }
 
-.generalErrorPopup {
+.general-error-popup {
   position: static;
   margin-top: 0.625rem;
   white-space: normal;
 }
 
-.inputError {
+.input-error {
   border-color: var(--error-color) !important;
 }
 
-.errorPopup::before {
+.error-popup::before {
   position: absolute;
   bottom: 100%;
   left: 0.625rem;

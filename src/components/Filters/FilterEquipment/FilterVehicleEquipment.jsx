@@ -59,15 +59,15 @@ const FilterVehicleEquipment = ({ onFilter, currentFilters }) => {
   };
 
   return (
-    <div className={css.vehicleEquipment}>
-      <h3 className={css.textEquipment}>Vehicle equipment</h3>
+    <div className={css['vehicle-equipment']}>
+      <h3 className={css['text-equipment']}>Vehicle equipment</h3>
       <hr className={css.divider} />
 
-      <div className={css.equipmentContainer}>
+      <div className={css['equipment-container']}>
         {filterButtons.map(button => (
           <button
             key={button.icon}
-            className={`${css.rawIcon} ${button.label.includes(' ') ? css.multiLine : ''} ${
+            className={`${css['raw-icon']} ${button.label.includes(' ') ? css.multiLine : ''} ${
               (button.type === 'boolean' && currentFilters[button.icon]) ||
               (button.type === 'string' &&
                 currentFilters[button.icon] === button.label)
@@ -80,7 +80,7 @@ const FilterVehicleEquipment = ({ onFilter, currentFilters }) => {
             <svg className={css.icon}>
               <use href={`/icons.svg#icon-icon-button-${button.icon}`}></use>
             </svg>
-            <span className={css.iconText}>{button.label}</span>
+            <span className={css['icon-text']}>{button.label}</span>
           </button>
         ))}
       </div>

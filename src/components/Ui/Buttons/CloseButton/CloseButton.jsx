@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import css from './CloseButton.module.css';
 
-const CloseButton = ({ onClick, ariaLabel = 'Закрити', className }) => {
+const CloseButton = ({ onClick, ariaLabel = 'Close', className }) => {
   return (
     <button
       type="button"
-      className={`${css['baseCloseButton']} ${className || ''}`}
+      className={`${css['base-close-button']} ${className || ''}`}
       onClick={onClick}
       aria-label={ariaLabel}
     >

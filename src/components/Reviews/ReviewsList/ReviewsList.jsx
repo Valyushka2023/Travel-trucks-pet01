@@ -5,14 +5,14 @@ import css from './ReviewsList.module.css';
 
 const ReviewsList = forwardRef(({ reviews }, ref) => {
   return (
-    <ul className={css.reviewsList}>
+    <ul className={css['reviews-list']}>
       {reviews.map((review, index) => {
         const isLastItem = index === reviews.length - 1;
 
         return (
           <li
             key={review.id || review._id}
-            className={`${css.reviewItem} ${!isLastItem ? css.withBorder : ''}`}
+            className={`${css['review-item']} ${!isLastItem ? css['with-border'] : ''}`}
             ref={isLastItem ? ref : null}
           >
             <Review review={review} />

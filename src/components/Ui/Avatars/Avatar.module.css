@@ -2,11 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(30px, 10vw, 60px);
-  height: clamp(30px, 10vw, 60px);
+  width: clamp(1.875rem, 10vw, 3.75rem);
+  height: clamp(1.875rem, 10vw, 3.75rem);
   background-color: var(--avatar-bg-color);
   border-radius: 50%;
-  font-size: clamp(16px, 4vw, 24px);
+  font-size: clamp(1rem, 4vw, 1.5rem);
   font-weight: bold;
   color: var(--avatar-color);
   aspect-ratio: 1 / 1;

@@ -1,218 +1,18 @@
 .container-contacts {
   max-width: 75rem;
-  max-height: 80vh;
+  /* max-height: 80vh; */
   overflow-y: auto;
 }
 
 .contact-list {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 1.3rem;
+  /* width: 100%; */
   min-width: 90vh;
-  max-height: 80vh;
-  margin: 0;
-  padding: 0;
-  color: var(--primary-color);
-  list-style-type: none;
-}
+  /* max-height: 80vh; */
 
-.contact-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 14rem;
-  max-height: 8.75rem;
-  padding: var(--padding-xs);
-  background-color: var(--blok-field-form-bg-color);
-  border: 0.0625rem solid var(--border-color);
-  border-radius: var(--radius-md);
-  box-shadow: var(--box-shadom);
-}
-
-.address-info {
-  margin: 0;
-  margin-bottom: 0.75rem;
-  font-size: 1.3rem;
-  font-weight: bold;
-}
-
-.address-info strong {
-  padding-right: var(--spacing-md);
-}
-
-.contact-info-phone {
-  margin: 0;
-  margin-bottom: 0.25rem;
-  font-size: 1.3rem;
-}
-
-.contact-link {
-  cursor: pointer;
-  margin-left: var(--spacing-md);
-}
-
-.contact-info-email {
-  margin: 0;
-  font-size: 1.3rem;
-}
-
-.contact-link {
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--color-blue);
-}
-
-.contact-link:hover {
-  text-decoration: underline;
-}
-
-@media (width <= 74.9375rem) {
-  .container-contacts {
-    /* max-height: 21.1875rem; */
-  }
-  .contact-list {
-    min-width: 80vh;
-    max-height: 70vh;
-  }
-  .address-info {
-    margin-bottom: 0.65rem;
-    font-size: 1.2rem;
-  }
-
-  .contact-info-phone {
-    margin-bottom: 0.2rem;
-    font-size: 1.2rem;
-  }
-
-  .contact-info-email {
-    font-size: 1.2rem;
-  }
-}
-
-@media (width <= 61.9375rem) {
-  .container-contacts {
-    max-width: 49.56rem;
-  }
-  .contact-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.15rem;
-    padding: 0 1rem;
-    min-width: 60vh;
-    max-height: 60vh;
-  }
-
-  .contact-item {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-basis: 17.375rem;
-    max-width: 100%;
-    max-height: 7.5rem;
-  }
-
-  .address-info {
-    margin: 0;
-    margin-bottom: 0.6rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
-
-  .contact-info-phone {
-    margin: 0;
-    margin-bottom: 0.15rem;
-    font-size: 1.1rem;
-  }
-
-  .contact-info-email {
-    margin: 0;
-    font-size: 1.1rem;
-  }
-}
-
-@media (width <= 47.9375rem) {
-  .container-contacts {
-    overflow: hidden auto;
-  }
-
-  .contact-list {
-    flex-direction: column;
-    gap: 1rem;
-    min-width: auto;
-    max-height: 70vh;
-    padding: 0;
-  }
-}
-
-.contact-item {
-  width: 100%;
-  max-height: 6.875rem;
-  padding: var(--padding-sm);
-  font-size: 1rem;
-}
-
-.address-info {
-  margin-bottom: 0.55rem;
-  font-size: 1rem;
-}
-
-.contact-info-phone {
-  margin-bottom: 0.1rem;
-  font-size: 1rem;
-}
-
-.contact-info-email {
-  font-size: 1rem;
-}
-
-@media (width <= 29.9375rem) {
-  .container-contacts {
-    max-height: 11.875rem;
-  }
-
-  .contact-list {
-    /* max-height: 40vh;
-    gap: 1rem;
-
-    padding: 0; */
-  }
-
-  .contact-item {
-    width: 100%;
-    max-height: 6.25rem;
-    padding: var(--padding-xs);
-  }
-
-  .address-info {
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-  }
-
-  .contact-infoh-phone {
-    margin-bottom: 0.05rem;
-    font-size: 0.9rem;
-  }
-
-  .contact-info-email {
-    font-size: 0.9rem;
-  }
-}
-
-/*****************************  */
-.contact-container {
-  /* Прибрано max-height, контейнер буде адаптивним */
-}
-
-.contact-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  width: 100%;
-  max-height: 80%; /* Змінено з 80vh на 100% */
   margin: 0;
   padding: 0;
   overflow-y: auto; /* Додано, щоб дозволити скролл */
@@ -227,11 +27,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 30rem;
-
-  /* Прибрано max-height, картки будуть адаптивними */
+  max-width: 20rem;
+  /* max-width: 30rem; */
+  min-height: 8.75rem;
   padding: var(--padding-xs);
+  padding: 1rem;
+
   background-color: var(--blok-field-form-bg-color);
+
   border: 0.0625rem solid var(--border-color);
   border-radius: var(--radius-md);
   box-shadow: var(--box-shadom);
@@ -254,10 +57,6 @@
   font-size: 1.3rem;
 }
 
-.contact-link {
-  margin-left: var(--spacing-md);
-}
-
 .contact-info-email {
   margin: 0;
   font-size: 1.3rem;
@@ -267,6 +66,7 @@
   cursor: pointer;
   text-decoration: none;
   color: var(--color-blue);
+  margin-left: var(--spacing-md);
 }
 
 .contact-link:hover {
@@ -274,9 +74,18 @@
 }
 
 @media (width <= 74.9375rem) {
-  /* .contactContainer {
-    max-height: 21.1875rem;
-  } */
+  .container-contacts {
+  }
+
+  .contact-list {
+    min-width: 90vh;
+    /* max-height: 70vh; */
+  }
+  .contact-item {
+    /* max-width: 17rem; */
+    /* max-width: 30rem; */
+    min-height: 6.75rem;
+  }
 
   .address-info {
     margin-bottom: 0.65rem;
@@ -294,11 +103,15 @@
 }
 
 @media (width <= 61.9375rem) {
-  /* .contactContainer {
-    max-height: 17.8125rem;
+  /* .container-contacts {
+    max-width: 49.56rem;
   } */
+
   .contact-list {
+    display: flex;
     gap: 1.15rem;
+    /* min-width: 60vh; */
+    /* max-height: 60vh; */
     padding: 0 1rem;
     flex-wrap: wrap;
   }
@@ -309,7 +122,6 @@
     flex-grow: 1;
     flex-basis: 17.375rem;
     max-width: 100%;
-
     /* max-height: 7.5rem; */
   }
 
@@ -333,42 +145,46 @@
 }
 
 @media (width <= 47.9375rem) {
-  /* .contactContainer {
-    max-height: 14.375rem;
+  /* .container-contacts {
+    overflow: hidden auto;
   } */
+
   .contact-list {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    max-height: 100vh;
+    min-width: auto;
+    /* max-height: 70vh; */
+    min-height: 100vh;
     padding: 0;
     overflow-y: auto;
   }
+}
 
-  .contact-item {
-    /* max-height: 6.875rem; */
-    width: 100%;
-    padding: var(--padding-sm);
-    font-size: 1rem;
-  }
+.contact-item {
+  width: 100%;
+  /* max-height: 6.875rem; */
+  padding: var(--padding-sm);
+  font-size: 1rem;
+}
 
-  .address-info {
-    margin-bottom: 0.55rem;
-    font-size: 1rem;
-  }
+.address-info {
+  margin-bottom: 0.55rem;
+  font-size: 1rem;
+}
 
-  .contact-info-phone {
-    margin-bottom: 0.1rem;
-    font-size: 1rem;
-  }
+.contact-info-phone {
+  margin-bottom: 0.1rem;
+  font-size: 1rem;
+}
 
-  .contact-info-email {
-    font-size: 1rem;
-  }
+.contact-info-email {
+  font-size: 1rem;
 }
 
 @media (width <= 29.9375rem) {
   .container-contacts {
+    /* max-height: 11.875rem;   */
     max-width: 80vh;
     max-height: 70vh; /* або 80vh, адаптивна висота */
     overflow-y: auto;
@@ -384,6 +200,7 @@
 
   .contact-item {
     width: 100%;
+    /* max-height: 6.25rem; */
     padding: var(--padding-xs);
   }
 
@@ -392,7 +209,7 @@
     font-size: 0.9rem;
   }
 
-  .contact-info-phone {
+  .contact-infoh-phone {
     margin-bottom: 0.05rem;
     font-size: 0.9rem;
   }

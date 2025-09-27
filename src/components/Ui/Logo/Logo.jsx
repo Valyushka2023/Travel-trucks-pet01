@@ -5,7 +5,7 @@ function Logo({ className = '' }) {
   return (
     <div className={`${css.logo} ${className}`}>
       Travel
-      <span className={css.logoSecondary}>Trucks</span>
+      <span className={css['logo-secondary']}>Trucks</span>
     </div>
   );
 }

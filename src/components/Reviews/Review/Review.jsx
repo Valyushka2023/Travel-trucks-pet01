@@ -5,7 +5,7 @@ import css from './Review.module.css';
 
 function Review({ review }) {
   if (!review) {
-    return <p className={css.noReview}>Review data is not available.</p>;
+    return <p className={css['noReview']}>Review data is not available.</p>;
   }
 
   const reviewerName = review.reviewer_name || review['reviewer name'];
@@ -28,18 +28,22 @@ function Review({ review }) {
   };
 
   return (
-    <div className={css.reviewContainer}>
-      <div className={css.reviewHeader}>
+    <div className={css['reviewContainer']}>
+      <div className={css['reviewHeader']}>
         <Avatar name={reviewerName} />
-        <div className={css.reviewNameRating}>
-          <div className={css.reviewerName}>{reviewerName || 'Anonymous'}</div>
-          <div className={css.reviewRating}>{renderStars(reviewerRating)}</div>
+        <div className={css['reviewNameRating']}>
+          <div className={css['reviewerName']}>
+            {reviewerName || 'Anonymous'}
+          </div>
+          <div className={css['reviewRating']}>
+            {renderStars(reviewerRating)}
+          </div>
         </div>
-        <div className={css.reviewDate}>{createdAt}</div>
+        <div className={css['reviewDate']}>{createdAt}</div>
       </div>
 
       {reviewText?.trim() && (
-        <div className={css.reviewComment}>{reviewText}</div>
+        <div className={css['reviewComment']}>{reviewText}</div>
       )}
     </div>
   );

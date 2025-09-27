@@ -1,4 +1,4 @@
-.loaderContainer {
+.loader-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   background-color: rgb(255 255 255 / 80%);
 }
 
-.loaderOverlay {
+.loader-overlay {
   position: absolute;
   top: 50%;
   left: 50%;

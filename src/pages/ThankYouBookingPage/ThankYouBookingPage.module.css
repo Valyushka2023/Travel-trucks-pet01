@@ -25,7 +25,7 @@
   cursor: pointer;
   margin: 0;
   padding: 0;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-decoration: none;
   white-space: nowrap;
   color: var(--primary-color);
@@ -54,12 +54,11 @@
   padding: 0;
   background: transparent;
   border: none;
-  font-size: 1.5rem;
   color: var(--button-close-icon-color);
   transition: color 0.3s ease;
 }
 
-.page-close-button:hover {
+/* .page-close-button:hover {
   color: var(--hover-color);
   transform: scale(1.05);
 }
@@ -67,7 +66,7 @@
 .page-close-button:active {
   color: var(--active-color);
   transform: scale(0.95);
-}
+} */
 
 .feedback {
   display: flex;
@@ -95,6 +94,10 @@
 }
 
 @media (width <= 74.9375rem) {
+  .go-back-link {
+    font-size: 1.2rem;
+  }
+
   .feedback h1 {
     font-size: 2.75rem;
   }
@@ -105,9 +108,8 @@
 }
 
 @media (width <= 61.9375rem) {
-  .go-back-link,
-  .page-close-button {
-    font-size: 1.125rem;
+  .go-back-link {
+    font-size: 1.1rem;
   }
 
   .feedback h1 {
@@ -120,8 +122,7 @@
 }
 
 @media (width <= 47.9375rem) {
-  .go-back-link,
-  .page-close-button {
+  .go-back-link {
     font-size: 1rem;
   }
 
@@ -139,9 +140,8 @@
 }
 
 @media (width <= 29.9375rem) {
-  .go-back-link,
-  .page-close-button {
-    font-size: 0.875rem;
+  .go-back-link {
+    font-size: 0.9rem;
   }
 
   .feedback h1 {

@@ -54,14 +54,14 @@ const FilterVehicleType = ({ onFilter, currentFilters }) => {
   };
 
   return (
-    <div className={css.vehicleType}>
-      <h3 className={css.textType}>Vehicle type</h3>
+    <div className={css['vehicle-type']}>
+      <h3 className={css['text-type']}>Vehicle type</h3>
       <hr className={css.divider} />
-      <div className={css.typeContainer}>
+      <div className={css['type-container']}>
         {filterButtons.map(button => (
           <button
             key={button.icon}
-            className={`${css.rawIcon} ${button.isMultiLine ? css.multiLine : ''} ${
+            className={`${css['raw-icon']} ${button.isMultiLine ? css.multiLine : ''} ${
               currentFilters[button.icon] ? css.active : ''
             }`}
             /* Використовуємо currentFilters для активного стану */
@@ -71,7 +71,7 @@ const FilterVehicleType = ({ onFilter, currentFilters }) => {
             <svg className={css.icon}>
               <use href={`/icons.svg#icon-icon-button-${button.icon}`}></use>
             </svg>
-            <span className={css.iconText}>{button.label}</span>
+            <span className={css['icon-text']}>{button.label}</span>
           </button>
         ))}
       </div>

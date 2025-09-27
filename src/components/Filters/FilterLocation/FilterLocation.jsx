@@ -43,26 +43,31 @@ const FilterLocation = ({ campers, location, setLocation }) => {
   const displayLocation = location === 'all' ? 'All locations' : location;
 
   return (
-    <div className={css.inputWrapper} ref={dropdownRef}>
+    <div className={css['input-wrapper']} ref={dropdownRef}>
       {' '}
       {/* Додаємо референс сюди */}
       <div
-        className={`${css.scaleWrapper} ${isLocationSelected ? css.selected : ''}`}
+        className={`${css['scale-wrapper']} ${isLocationSelected ? css.selected : ''}`}
         onClick={toggleDropdown} // Клік на wrapper відкриває/закриває дропдаун
       >
-        <svg className={css.iconMap} width="20" height="20" viewBox="0 0 32 32">
+        <svg
+          className={css['icon-map']}
+          width="20"
+          height="20"
+          viewBox="0 0 32 32"
+        >
           <use href="/icons.svg#icon-map"></use>
         </svg>
-        <div className={css.locationDisplay}>
+        <div className={css['location-display']}>
           {' '}
           {/* Це буде відображати обрану локацію */}
           {displayLocation}
         </div>
       </div>
       {isOpen && ( // Відображаємо список, якщо isOpen = true
-        <div className={css.dropdownList}>
+        <div className={css['dropdown-list']}>
           <div
-            className={`${css.dropdownItem} ${location === 'all' ? css.selectedItem : ''}`}
+            className={`${css['dropdown-item']} ${location === 'all' ? css.selectedItem : ''}`}
             onClick={() => handleLocationSelect('all')}
           >
             All locations
@@ -70,7 +75,7 @@ const FilterLocation = ({ campers, location, setLocation }) => {
           {locations.map(loc => (
             <div
               key={loc}
-              className={`${css.dropdownItem} ${location === loc ? css.selectedItem : ''}`}
+              className={`${css['dropdown-item']} ${location === loc ? css.selectedItem : ''}`}
               onClick={() => handleLocationSelect(loc)}
             >
               {loc}

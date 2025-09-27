@@ -8,14 +8,14 @@ const DescriptionPopup = ({ description, onClose }) => {
   };
 
   return (
-    <div className={css.backdropInCard} onClick={onClose}>
-      <div className={css.popupContent} onClick={handleContentClick}>
+    <div className={css['backdrop-in-card']} onClick={onClose}>
+      <div className={css['popup-content']} onClick={handleContentClick}>
         <CloseButton
           onClick={onClose}
-          className={css.popupCloseButton}
-          ariaLabel="Закрити опис"
+          className={css['popup-close-button']}
+          ariaLabel="Close description"
         />
-        <p className={css.descriptionText}>{description}</p>
+        <p className={css['description-text']}>{description}</p>
       </div>
     </div>
   );

@@ -25,16 +25,16 @@ function FullScreenImageModal({ imageUrl, onClose }) {
   return (
     <div
       id="fullScreenModalOverlay"
-      className={css.modalOverlay}
+      className={css['modal-overlay']}
       onClick={handleOverlayClick}
     >
-      <div className={css.modalContent}>
+      <div className={css['modal-content']}>
         <img
           src={imageUrl}
-          alt="Повнорозмірне зображення"
-          className={css.fullScreenImage}
+          alt="Full size image"
+          className={css['full-screen-image']}
         />
-        <button className={css.closeButton} onClick={onClose}>
+        <button className={css['close-button']} onClick={onClose}>
           Close
         </button>
       </div>
