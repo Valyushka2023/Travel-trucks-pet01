@@ -132,7 +132,7 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
                   )}
                 </div>
               ) : (
-                <p className={css.noReviews}>No reviews yet</p>
+                <p className={css['no-reviews']}>No reviews yet</p>
               )}
             </div>
           </div>

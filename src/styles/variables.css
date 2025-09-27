@@ -114,6 +114,8 @@
     --color-light-gray-2
   ); /* світло-сірий незмінний колір для фону відключеної кнопки */
 
+  /***************************************/
+
   /* unchanging  color */
   --hover-color: var(
     --color-blue
@@ -210,7 +212,12 @@
   --blok-field-form-bg-color: var(
     --color-light-gray-2
   ); /* колір блоку поля форми у світлій темі */
-  --blok-field-input-bg-color: var(--color-light-gray);
+  --blok-field-input-bg-color: var(--color-light-gray-3);
+  /* колір треку склобара в  світлій темі */
+  --scrollbar-track-bg-color: var(
+    --color-light-gray
+  ); /* колір повзунка  склобара в  світлій темі */
+  --scrollbar-thumb-bg-color: var(--color-light-gray-4);
   /* text color */
   --primary-color: var(
     --color-black
@@ -302,7 +309,9 @@
   --blok-description-bg-color: var(--color-dark-gray);
   --blok-field-form-bg-color: var(--color-dark-gray);
   --blok-field-input-bg-color: var(--color-gunmetal-black);
-  /* text color */
+  --scrollbar-track-bg-color: var(--color-dark-gray);
+  --scrollbar-thumb-bg-color: var(--color-light-gray-2);
+  /****************/
   --primary-color: var(--color-white);
   --primary-color-1: var(--color-black);
   --secondary-color: var(--color-off-white);

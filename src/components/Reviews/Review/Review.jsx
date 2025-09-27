@@ -5,10 +5,10 @@ import css from './Review.module.css';
 
 function Review({ review }) {
   if (!review) {
-    return <p className={css['noReview']}>Review data is not available.</p>;
+    return <p className={css['no-review']}>Review data is not available.</p>;
   }
 
-  const reviewerName = review.reviewer_name || review['reviewer name'];
+  const reviewerName = review.reviewer_name || review['reviewer-name'];
   const reviewText = review.review_text || review.comment;
   const reviewerRating = review.reviewer_rating ?? 0;
   const createdAt = review.createdAt
@@ -21,29 +21,32 @@ function Review({ review }) {
 
   const renderStars = rating => {
     return Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={i < rating ? css.filledStar : css.emptyStar}>
+      <span
+        key={i}
+        className={i < rating ? css['filled-star'] : css['empty-star']}
+      >
         ★
       </span>
     ));
   };
 
   return (
-    <div className={css['reviewContainer']}>
-      <div className={css['reviewHeader']}>
+    <div className={css['review-container']}>
+      <div className={css['review-header']}>
         <Avatar name={reviewerName} />
-        <div className={css['reviewNameRating']}>
-          <div className={css['reviewerName']}>
+        <div className={css['review-name-rating']}>
+          <div className={css['reviewer-name']}>
             {reviewerName || 'Anonymous'}
           </div>
-          <div className={css['reviewRating']}>
+          <div className={css['review-rating']}>
             {renderStars(reviewerRating)}
           </div>
         </div>
-        <div className={css['reviewDate']}>{createdAt}</div>
+        <div className={css['review-date']}>{createdAt}</div>
       </div>
 
       {reviewText?.trim() && (
-        <div className={css['reviewComment']}>{reviewText}</div>
+        <div className={css['review-comment']}>{reviewText}</div>
       )}
     </div>
   );

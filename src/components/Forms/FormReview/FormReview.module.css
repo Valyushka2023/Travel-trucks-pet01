@@ -9,6 +9,7 @@
   padding: var(--padding-form-xl);
   box-sizing: border-box;
   background-color: var(--body-bg-color);
+
   border: 0.0125rem solid var(--border-color);
   border-radius: var(--radius-sm);
   box-shadow: var(--box-shadow);

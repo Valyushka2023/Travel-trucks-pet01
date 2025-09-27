@@ -44,7 +44,7 @@ const FormReview = ({ camperId, onReviewAdded }) => {
   };
 
   const onSubmit = async formData => {
-    console.log('1. onSubmit - Запущено функцію відправки.');
+    console.log('1. onSubmit - Sending function launched');
 
     const reviewToSend = {
       reviewer_name: formData.name.trim(),
@@ -57,21 +57,21 @@ const FormReview = ({ camperId, onReviewAdded }) => {
     };
 
     try {
-      console.log('2. onSubmit - Імітуємо затримку API-запиту...');
+      console.log('2. onSubmit - Simulate API request delay...');
       await new Promise(resolve => setTimeout(resolve, 300));
-      console.log('3. onSubmit - Імітація запиту завершена.');
+      console.log('3. onSubmit - Request simulation complete');
 
-      console.log('4. onSubmit - Викликаємо onReviewAdded...');
+      console.log('4. onSubmit - Calling onReviewAdded...');
       await onReviewAdded(reviewToSend);
       console.log(
-        '5. onSubmit - onReviewAdded завершено. Дані відправлені:',
+        '5. onSubmit - onReviewAdded completed. Data sent:',
         reviewToSend
       );
 
-      console.log('6. onSubmit - Навігація до сторінки подяки...');
+      console.log('6. onSubmit - Navigation to the thank you page...');
       navigate('/thank-you');
     } catch (err) {
-      console.error('Помилка при відправці форми:', err);
+      console.error('Error sending form:', err);
       // Можна обробити помилку тут, наприклад, показати сповіщення
     }
   };
@@ -87,7 +87,7 @@ const FormReview = ({ camperId, onReviewAdded }) => {
   } = useForm(initialState, validationRules, onSubmit);
 
   console.log(
-    'Рендер FormReview - isSubmitting:',
+    'Render FormReview - isSubmitting:',
     isSubmitting,
     'hasAttemptedSubmit:',
     hasAttemptedSubmit
@@ -113,7 +113,7 @@ const FormReview = ({ camperId, onReviewAdded }) => {
                 name="name"
                 type="text"
                 className={clsx(css['modal-input'], {
-                  [css.inputError]: hasAttemptedSubmit && errors.name,
+                  [css['input-error']]: hasAttemptedSubmit && errors.name,
                 })}
                 value={formData.name}
                 onChange={handleInputChange}
