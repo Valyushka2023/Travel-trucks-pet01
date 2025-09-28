@@ -10,18 +10,19 @@ const LanguageSwitcher = () => {
 
   return (
     <div className={css['lang-switcher']}>
-      <button
+      <span
         onClick={() => handleLanguageChange('en')}
-        className={i18n.language === 'en' ? css.active : ''}
+        className={`${i18n.language === 'en' ? css.active : ''} ${css['language-En']}`}
       >
         EN
-      </button>
-      <button
+      </span>
+      <span className={css.separator}>/</span>
+      <span
         onClick={() => handleLanguageChange('uk')}
-        className={i18n.language === 'uk' ? css.active : ''}
+        className={`${i18n.language === 'uk' ? css.active : ''} ${css['language-Uk']}`}
       >
         UA
-      </button>
+      </span>
     </div>
   );
 };

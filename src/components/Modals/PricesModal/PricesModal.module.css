@@ -2,7 +2,7 @@
   margin: 0;
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
-  line-height: 1.3;
+  line-height: 1.5;
   text-align: justify;
   text-indent: 1em;
   color: var(--primary-color);
@@ -11,27 +11,27 @@
 @media (width <= 74.9375rem) {
   .text-prices-modall p {
     font-size: 1.1rem;
-    line-height: 1.2;
+    /* line-height: 1.2; */
   }
 }
 
 @media (width <= 61.9375rem) {
   .text-prices-modal p {
     font-size: 1rem;
-    line-height: 1.1;
+    /* line-height: 1.1; */
   }
 }
 
 @media (width <= 47.9375rem) {
   .text-prices-modal p {
     font-size: 0.9rem;
-    line-height: 1;
+    /* line-height: 1; */
   }
 }
 
 @media (width <= 29.9375rem) {
   .text-prices-modal p {
     font-size: 0.8rem;
-    line-height: 0.9;
+    /* line-height: 0.9; */
   }
 }

@@ -82,7 +82,7 @@ const StarRating = ({
 
         {!readOnly && <input type="hidden" name={name} value={value} />}
 
-        {error && <p className={css.errorPopup}>{error}</p>}
+        {error && <p className={css['error-popup']}>{error}</p>}
       </div>
     </div>
   );

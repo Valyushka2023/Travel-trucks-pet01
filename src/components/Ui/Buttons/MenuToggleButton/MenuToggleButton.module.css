@@ -8,7 +8,7 @@
   padding: 0;
   background: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   line-height: 1;
   color: var(--button-burger-icon-color);
   transition:
@@ -24,4 +24,27 @@
 .burger-button:active {
   color: var(--active-color);
   transform: scale(0.95);
+}
+/* @media (width <= 74.9375rem) {
+  .burger-button {
+    font-size: 1.2rem;
+  }
+}
+
+@media (width <= 61.9375rem) {
+  .burger-button {
+    font-size: 1.1rem;
+  }
+} */
+
+@media (width <= 47.9375rem) {
+  .burger-button {
+    font-size: 1rem;
+  }
+}
+
+@media (width <= 29.9375rem) {
+  .burger-button {
+    font-size: 0.9rem;
+  }
 }
