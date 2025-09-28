@@ -1,4 +1,4 @@
-.container-contacts {
+/* .container-contacts {
   justify-content: center;
 
   align-items: center;
@@ -18,7 +18,7 @@
 
   margin: 0;
   padding: 0;
-  overflow-y: auto; /* Додано, щоб дозволити скролл */
+  overflow-y: auto;
   background-color: var(--body-bg-color);
   color: var(--primary-color);
   flex-wrap: wrap;
@@ -85,7 +85,7 @@
   }
   .contact-item {
     max-width: 17rem;
-    /* max-width: 30rem; */
+
     min-height: 6.75rem;
   }
 
@@ -124,7 +124,7 @@
     flex-grow: 1;
     flex-basis: 17.375rem;
     max-width: 100%;
-    /* max-height: 7.5rem; */
+
     min-height: 6.75rem;
   }
 
@@ -187,9 +187,8 @@
 
 @media (width <= 29.9375rem) {
   .container-contacts {
-    /* max-height: 11.875rem;   */
     max-width: 80vh;
-    max-height: 70vh; /* або 80vh, адаптивна висота */
+    max-height: 70vh;
     overflow-y: auto;
   }
 
@@ -213,6 +212,397 @@
   }
 
   .contact-infoh-phone {
+    margin-bottom: 0.05rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-info-email {
+    font-size: 0.9rem;
+  }
+} */
+/*******************************/
+/* .container-contacts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 75rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.contact-list {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.3rem;
+  width: 100%;
+  max-height: 80vh;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  flex-wrap: wrap;
+  list-style-type: none;
+  background-color: var(--body-bg-color);
+  color: var(--primary-color);
+}
+
+.contact-item {
+  flex-basis: calc(33.33% - 1.3rem * 2 / 3);
+  flex-grow: 1;
+  max-width: 24rem;
+  min-height: 5.5rem;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blok-field-form-bg-color);
+  border: 0.0625rem solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--box-shadom);
+}
+
+.address-info {
+  margin: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.address-info strong {
+  padding-right: var(--spacing-md);
+}
+
+.contact-info-phone {
+  margin: 0;
+  margin-bottom: 0.25rem;
+  font-size: 1.3rem;
+}
+
+.contact-info-email {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.contact-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-blue);
+  margin-left: var(--spacing-md);
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+@media (width <= 74.9375rem) {
+  .contact-item {
+    min-height: 4rem;
+  }
+  .address-info {
+    margin-bottom: 0.65rem;
+    font-size: 1.2rem;
+  }
+
+  .contact-info-phone {
+    margin-bottom: 0.2rem;
+    font-size: 1.2rem;
+  }
+
+  .contact-info-email {
+    font-size: 1.2rem;
+  }
+}
+
+@media (width <= 61.9375rem) {
+  .container-contacts {
+    max-width: 60rem;
+  }
+
+  .contact-list {
+    justify-content: center;
+    gap: 1.15rem;
+    padding: 0 0.5rem;
+  }
+
+  .contact-item {
+    flex-basis: calc(50% - 1.15rem / 2);
+    max-width: none;
+    min-height: 4rem;
+
+    font-size: 1.1rem;
+  }
+  .address-info {
+    margin: 0;
+    margin-bottom: 0.6rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  .contact-info-phone {
+    margin: 0;
+    margin-bottom: 0.15rem;
+    font-size: 1.1rem;
+  }
+
+  .contact-info-email {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+}
+
+@media (width <= 47.9375rem) {
+  .container-contacts {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  .contact-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-width: auto;
+    max-height: none;
+    padding: 0 1rem;
+  }
+
+  .contact-item {
+    width: 100%;
+    max-height: 6.875rem;
+    padding: var(--padding-sm);
+    font-size: 1rem;
+  }
+
+  .address-info {
+    margin-bottom: 0.55rem;
+    font-size: 1rem;
+  }
+
+  .contact-info-phone {
+    margin-bottom: 0.1rem;
+    font-size: 1rem;
+  }
+
+  .contact-info-email {
+    font-size: 1rem;
+  }
+}
+
+@media (width <= 29.9375rem) {
+  .contact-item {
+    width: 100%;
+
+    max-height: 6.875rem;
+    padding: var(--padding-xs);
+  }
+} */
+
+.container-contacts {
+  display: flex;
+  justify-content: center; /* Центрує список контактів */
+  align-items: center;
+  max-width: 75rem; /* 1200px */
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden; /* Запобігає горизонтальному скролу */
+  margin: 0 auto; /* Центрує сам контейнер */
+}
+
+.contact-list {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.3rem; /* Проміжок між картками */
+  width: 100%;
+  max-height: 80vh;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  flex-wrap: wrap;
+  list-style-type: none;
+  background-color: var(--body-bg-color);
+  color: var(--primary-color);
+}
+
+.contact-item {
+  /* Формула для 3 карток: 100% / 3 */
+  flex-basis: calc(33.33% - 1.3rem * 2 / 3);
+  flex-grow: 1;
+  max-width: 24rem; /* Обмежуємо картки на великих екранах */
+  min-height: 5.5rem; /* Зменшена висота */
+  padding: var(--padding-form-xs);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blok-field-form-bg-color);
+  border: 0.0625rem solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--box-shadom);
+}
+
+.address-info {
+  margin: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.address-info strong {
+  padding-right: var(--spacing-md);
+}
+
+.contact-info-phone {
+  margin: 0;
+  margin-bottom: 0.25rem;
+  font-size: 1.3rem;
+}
+
+.contact-info-email {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.contact-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-blue);
+  margin-left: var(--spacing-md);
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+/* ========================================================================= */
+/* БРЕКПОІНТ: <= 74.9375rem (1199px) - 3 картки в ряд, менша висота/шрифт */
+/* ========================================================================= */
+
+@media (width <= 74.9375rem) {
+  .contact-item {
+    min-height: 4rem; /* Зменшена висота */
+  }
+  .address-info {
+    margin-bottom: 0.65rem;
+    font-size: 1.2rem;
+  }
+
+  .contact-info-phone {
+    margin-bottom: 0.2rem;
+    font-size: 1.2rem;
+  }
+
+  .contact-info-email {
+    font-size: 1.2rem;
+  }
+}
+
+/* ========================================================================= */
+/* БРЕКПОІНТ: <= 61.9375rem (991px) - 2 картки в ряд */
+/* ========================================================================= */
+
+@media (width <= 61.9375rem) {
+  .container-contacts {
+    max-width: 60rem;
+  }
+
+  .contact-list {
+    justify-content: center;
+    gap: 1.15rem;
+    padding: 0 0.5rem;
+  }
+
+  .contact-item {
+    /* Формула для 2 карток: 100% / 2 */
+    flex-basis: calc(50% - 1.15rem / 2);
+    max-width: none;
+    min-height: 4rem; /* Зменшена висота */
+
+    font-size: 1.1rem;
+  }
+  .address-info {
+    margin: 0;
+    margin-bottom: 0.6rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  .contact-info-phone {
+    margin: 0;
+    margin-bottom: 0.15rem;
+    font-size: 1.1rem;
+  }
+
+  .contact-info-email {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+}
+
+/* ========================================================================= */
+/* БРЕКПОІНТ: <= 47.9375rem (767px) - Стовпчик (767px та 479px) */
+/* ========================================================================= */
+
+@media (width <= 47.9375rem) {
+  .container-contacts {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  .contact-list {
+    flex-direction: column; /* Картки в стовпчик */
+    align-items: center; /* Центруємо картки */
+    gap: 1rem;
+    min-width: auto;
+    max-height: none; /* Дозволяємо скролити весь список */
+    padding: 0 1rem;
+  }
+
+  .contact-item {
+    width: 100%; /* Картка займає всю ширину */
+    flex-basis: auto; /* Скидаємо flex-basis */
+    max-width: 100%;
+    /* ВИДАЛЕНО max-height, щоб не обрізати контент */
+    min-height: 4.5rem; /* Невелика мінімальна висота */
+    /* padding: var(  --padding-form-xs); */
+    /* padding: 1rem; */
+    font-size: 1rem;
+  }
+  .address-info {
+    margin-bottom: 0.55rem;
+    font-size: 1rem;
+  }
+
+  .contact-info-phone {
+    margin-bottom: 0.1rem;
+    font-size: 1rem;
+  }
+
+  .contact-info-email {
+    font-size: 1rem;
+  }
+}
+
+/* ========================================================================= */
+/* БРЕКПОІНТ: <= 29.9375rem (479px) - Стилі для найменших екранів */
+/* ========================================================================= */
+
+@media (width <= 29.9375rem) {
+  .contact-item {
+    width: 100%;
+    /* ВИДАЛЕНО max-height */
+    min-height: 4rem; /* Ще менша мінімальна висота */
+    /* padding: var(--padding-xs); */
+  }
+
+  .address-info {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-info-phone {
     margin-bottom: 0.05rem;
     font-size: 0.9rem;
   }

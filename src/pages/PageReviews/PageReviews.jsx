@@ -71,7 +71,7 @@ function PageReviews() {
             setIsLoading(false);
           }
         } else {
-          setError('Camper ID не вказаний.');
+          setError('Camper ID not specified');
         }
       }
     }
@@ -153,7 +153,7 @@ function PageReviews() {
       <ScrollToTopButton
         visible={showScrollButton}
         onClick={scrollToTop}
-        className={scrollToTopButtonCss.fixedPosition}
+        className={scrollToTopButtonCss['fixed-position']}
         label={t('up_button', { ns: 'button' })}
       />
     </div>

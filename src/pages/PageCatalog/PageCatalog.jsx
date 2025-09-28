@@ -245,7 +245,7 @@ function PageCatalog() {
         <ScrollToTopButton
           visible={visible}
           onClick={handleScrollToTopAndReset}
-          className={scrollToTopButtonCss.fixedPosition}
+          className={scrollToTopButtonCss['fixed-position']}
           label={t('up_button', { ns: 'button' })}
         />
       </div>

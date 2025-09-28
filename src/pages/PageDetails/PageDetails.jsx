@@ -97,14 +97,12 @@ function PageDetails() {
   }
 
   return (
-    <div>
-      {' '}
-      className={css['container-page']}
+    <div className={css['container-page']}>
       <Outlet context={{ camper: localCamper, activeTab }} />
       <ScrollToTopButton
         visible={visible}
         onClick={scrollToTop}
-        className={scrollToTopButtonCss.fixedPosition}
+        className={scrollToTopButtonCss['fixed-position']}
         label={t('up_button', { ns: 'button' })}
       />
     </div>
