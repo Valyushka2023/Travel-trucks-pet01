@@ -1,20 +1,25 @@
 .container-contacts {
   display: flex;
-  justify-content: center; /* Центрує список контактів */
+  justify-content: center;
+  /* Центрує список контактів */
   align-items: center;
 
-  max-width: 75rem; /* 1200px */
+  max-width: 75rem;
+  /* 1200px */
   max-height: 80vh;
   overflow-y: auto;
-  overflow-x: hidden; /* Запобігає горизонтальному скролу */
-  margin: 0 auto; /* Центрує сам контейнер */
+  overflow-x: hidden;
+  /* Запобігає горизонтальному скролу */
+  margin: 0 auto;
+  /* Центрує сам контейнер */
 }
 
 .contact-list {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 1.3rem; /* Проміжок між картками */
+  gap: 1.3rem;
+  /* Проміжок між картками */
   width: 100%;
   max-height: 80vh;
   margin: 0;
@@ -30,8 +35,10 @@
   /* Формула для 3 карток: 100% / 3 */
   flex-basis: calc(33.33% - 1.3rem * 2 / 3);
   flex-grow: 1;
-  max-width: 24rem; /* Обмежуємо картки на великих екранах */
-  min-height: 5.5rem; /* Зменшена висота */
+  max-width: 24rem;
+  /* Обмежуємо картки на великих екранах */
+  min-height: 5.5rem;
+  /* Зменшена висота */
   padding: var(--padding-form-xs);
 
   display: flex;
@@ -83,7 +90,8 @@
 
 @media (width <= 74.9375rem) {
   .contact-item {
-    min-height: 4rem; /* Зменшена висота */
+    min-height: 4rem;
+    /* Зменшена висота */
   }
   .address-info {
     margin-bottom: 0.65rem;
@@ -120,26 +128,27 @@
     /* Формула для 2 карток: 100% / 2 */
     flex-basis: calc(50% - 1.15rem / 2);
     max-width: none;
-    min-height: 4rem; /* Зменшена висота */
+    /* min-height: 4rem; */
+    /* Зменшена висота */
 
     font-size: 1.1rem;
   }
   .address-info {
-    margin: 0;
+    /* margin: 0; */
     margin-bottom: 0.6rem;
     font-size: 1.1rem;
-    font-weight: bold;
+    /* font-weight: bold; */
   }
 
   .contact-info-phone {
-    margin: 0;
+    /* margin: 0; */
     margin-bottom: 0.15rem;
     font-size: 1.1rem;
   }
 
   .contact-info-email {
-    margin: 0;
-    font-size: 1.1rem;
+    /* margin: 0; */
+    /* font-size: 1.1rem; */
   }
 }
 
@@ -154,23 +163,29 @@
   }
 
   .contact-list {
-    flex-direction: column; /* Картки в стовпчик */
-    align-items: center; /* Центруємо картки */
+    flex-direction: column;
+    /* Картки в стовпчик */
+    align-items: center;
+    /* Центруємо картки */
     gap: 1rem;
     min-width: auto;
-    max-height: none; /* Дозволяємо скролити весь список */
+    max-height: none;
+    /* Дозволяємо скролити весь список */
     padding: 0 1rem;
   }
 
   .contact-item {
-    width: 100%; /* Картка займає всю ширину */
-    flex-basis: auto; /* Скидаємо flex-basis */
+    width: 100%;
+    /* Картка займає всю ширину */
+    flex-basis: auto;
+    /* Скидаємо flex-basis */
     max-width: 100%;
     /* ВИДАЛЕНО max-height, щоб не обрізати контент */
-    min-height: 4.5rem; /* Невелика мінімальна висота */
+    min-height: 4rem;
+    /* Невелика мінімальна висота */
     /* padding: var(  --padding-form-xs); */
     /* padding: 1rem; */
-    font-size: 1rem;
+    /* font-size: 1rem; */
   }
   .address-info {
     margin-bottom: 0.55rem;
@@ -193,9 +208,10 @@
 
 @media (width <= 29.9375rem) {
   .contact-item {
-    width: 100%;
+    /* width: 100%; */
     /* ВИДАЛЕНО max-height */
-    min-height: 4rem; /* Ще менша мінімальна висота */
+    min-height: 4rem;
+    /* Ще менша мінімальна висота */
     /* padding: var(--padding-xs); */
   }
 
