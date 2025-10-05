@@ -233,7 +233,7 @@
 
   --tertiary-color: var(
     --color-dark-gray
-  ); /* третинний темно-світлий колір тексту в світлій темі */
+  ); /* третинний темно-сірий колір тексту в світлій темі */
 
   --tertiary-color-2: var(
     --color-light-gray
@@ -277,7 +277,8 @@
   --star-icon-filled-color: var(
     --color-light-gray-2
   ); /* світло-сірий колір заповнення іконки зірка в світлій темі */
-
+  /* placeholder color */
+  --placeholder-color: var(--color-light-gray);
   /* boorder color */
   --border-color: var(
     --color-light-gray-2
@@ -332,7 +333,8 @@
   --social-icon-color: var(--color-black);
   --icon-primary-color: var(--color-light-gray);
   --star-icon-filled-color: var(--color-gray);
-
+  /* placeholder color */
+  --placeholder-color: var(--color-light-gray-3);
   /* border color */
   --border-color: var(--color-gray);
   --border-secondary-color: var(--color-light-gray-2);

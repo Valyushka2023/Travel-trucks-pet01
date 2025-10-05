@@ -123,6 +123,9 @@
   font-size: 1rem;
   font-weight: 400;
   opacity: 1;
+  color: var(--placeholder-color);
+
+  /* color: --color-light-gray-2; */
 }
 
 .react-datepicker-input-container input {
