@@ -28,7 +28,7 @@ function ContentDetails() {
 
         <Tabs camper={camper} activeTab={activeTab} />
 
-        <div className={css['details-form']}>
+        <div className={css['container-form-details']}>
           <div className={css.details}>
             <FeatureIcon camper={camper} />
             <VehicleDetails camper={camper} />
