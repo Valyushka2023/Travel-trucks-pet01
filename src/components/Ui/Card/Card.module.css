@@ -324,8 +324,11 @@ p {
   }
 
   .text-info {
+    width: 100%;
     font-size: 0.8125rem;
-    text-align: center;
+    text-indent: 2em;
+    /* text-align: center; */
+    text-align: justify;
     white-space: normal;
     -webkit-line-clamp: 3;
   }

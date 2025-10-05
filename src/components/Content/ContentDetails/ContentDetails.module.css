@@ -33,7 +33,7 @@
   position: relative;
   display: flex;
   align-items: stretch;
-  gap: 4rem;
+  gap: var(--gap-xl);
   width: 100%;
   max-width: 82rem;
   margin: 2.75rem auto 5rem;
@@ -46,7 +46,7 @@
   max-width: 39rem;
   min-width: 20rem;
   box-sizing: border-box;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
 }
 
