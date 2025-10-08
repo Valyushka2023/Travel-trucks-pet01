@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-
+import { useTranslation } from 'react-i18next';
 import Modal from '../../Modal/Modal.jsx';
 import css from './AboutModal.module.css';
 
