@@ -5,6 +5,7 @@
   "info.working_hours": "Our customer support operates 24/7.",
 
   "city_label": "City",
+  "main_email": "infotraveltrucks@gmail.com",
 
   "addresses": [
     { "city": "Kyiv", "street": "Kyivska St., 1", "phone": "067-123-45-67" },

@@ -30,6 +30,11 @@ const ContactsModal = ({ onClose }) => {
     })
   );
 
+  // --- ОТРИМУЄМО АДРЕСУ ЕЛЕКТРОННОЇ ПОШТИ З I18N ---
+  const emailAddress = t('main_email', {
+    defaultValue: 'infotraveltrucks@gmail.com',
+  });
+
   // --- ДОДАНО: Динамічне завантаження контактів (міст і вулиць) з файлу перекладу ---
   // returnObjects: true дозволяє отримати масив об'єктів
   const localizedContacts = t('addresses', { returnObjects: true });
@@ -39,18 +44,15 @@ const ContactsModal = ({ onClose }) => {
     <Modal title={title} onClose={onClose}>
       <div className={css['container-contacts']}>
         <ul className={css['contact-list']}>
-          {/* Використовуємо localizedContacts, де city та street вже перекладені */}
           {localizedContacts.map(({ city, street, phone }, index) => (
             <li className={css['contact-item']} key={index}>
               <p className={css['address-info']}>
-                {/* Мітка 'Місто' перекладається, а city та street вже мають перекладене значення */}
                 <strong>{t('city_label', { defaultValue: 'City' })}:</strong>{' '}
                 {city}
                 <br />
                 {street}
               </p>
               <p className={css['contact-info-phone']}>
-                {/* Іконка телефону */}
                 <FaPhoneAlt className={css['contact-phone-icon']} />
                 &nbsp;
                 <a href={`tel:${phone}`} className={css['phone-link']}>
@@ -58,14 +60,13 @@ const ContactsModal = ({ onClose }) => {
                 </a>
               </p>
               <p className={css['contact-info-email']}>
-                {/* Іконка пошти */}
                 <FaEnvelope className={css['contact-email-icon']} />
                 &nbsp;
                 <a
-                  href="mailto:infotraveltrucks@gmail.com"
+                  href={`mailto:${emailAddress}`}
                   className={css['email-link']}
                 >
-                  infotraveltrucks@gmail.com
+                  {emailAddress}
                 </a>
               </p>
             </li>

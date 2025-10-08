@@ -5,6 +5,7 @@
   "info.working_hours": "Наша служба підтримки працює цілодобово.",
 
   "city_label": "Місто",
+  "main_email": "infotraveltrucks@gmail.com",
 
   "addresses": [
     { "city": "Київ", "street": "вул. Київська, 1", "phone": "067-123-45-67" },
