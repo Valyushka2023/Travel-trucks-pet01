@@ -9,11 +9,12 @@
   color: var(--primary-color-1);
 }
 
-.phone-icon {
+.home-phone-icon {
   width: 1.3rem;
   height: 1.3rem;
   margin-right: 0.75rem;
-  color: #0f0;
+  /* color: #0f0; */
+  color: var(--home-phone-icon-color);
 }
 
 .phone-number {
