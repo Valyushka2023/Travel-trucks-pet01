@@ -1,51 +1,83 @@
-import Modal from '../../Modal/Modal.jsx';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
+import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa'; // Іконки
+import Modal from '../../Modal/Modal.jsx';
 import css from './ContactsModal.module.css';
 
-const contacts = [
-  { city: 'Kyiv', street: 'Kyivska St., 1', phone: '067-123-45-67' },
-  { city: 'Odesa', street: 'Odeska St., 2', phone: '067-123-45-68' },
-  { city: 'Poltava', street: 'Poltavska St., 3', phone: '067-123-45-69' },
-  { city: 'Kharkiv', street: 'Kharkivska St., 4', phone: '067-123-45-70' },
-  { city: 'Dnipro', street: 'Dniprovska St., 5', phone: '067-123-45-71' },
-  { city: 'Sumy', street: 'Sumska St., 6', phone: '067-123-45-72' },
-  { city: 'Lviv', street: 'Lvivska St., 7', phone: '067-123-45-73' },
-];
+// --- Визначення констант для демонстрації перекладу параграфів (залишаємо) ---
+const DEFAULT_PARAGRAPH_KEYS = ['info.address', 'info.working_hours'];
 
-const ContactsModal = ({ onClose, title = 'Contacts' }) => (
-  <Modal title={title} onClose={onClose}>
-    <div className={css['container-contacts']}>
-      <ul className={css['contact-list']}>
-        {contacts.map(({ city, street, phone }, index) => (
-          <li className={css['contact-item']} key={index}>
-            <p className={css['address-info']}>
-              <strong>{city}:</strong> {street}
-            </p>
-            <p className={css['contact-info-phone']}>
-              Tel:&nbsp;
-              <a href={`tel:${phone}`} className={css['contact-link']}>
-                {phone}
-              </a>
-            </p>
-            <p className={css['contact-info-email']}>
-              Email:&nbsp;
-              <a
-                href="mailto:infotraveltrucks@gmail.com"
-                className={css['contact-link']}
-              >
-                infotraveltrucks@gmail.com
-              </a>
-            </p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </Modal>
-);
+const FALLBACK_PARAGRAPHS = [
+  'Please find our addresses and contact details below.',
+  'Our customer support operates 24/7.',
+];
+// -------------------------------------------------------------------------
+
+// --- ВИДАЛЕНО: Статичний масив contacts, оскільки дані будуть завантажуватися з i18n ---
+// const contacts = [...]
+
+const ContactsModal = ({ onClose }) => {
+  // Встановлюємо простір імен 'contacts_modal'
+  const { t } = useTranslation('contacts_modal');
+
+  // Отримуємо перекладений заголовок (ключ: 'title')
+  const title = t('title', { defaultValue: 'Contacts' });
+
+  // Отримуємо масив перекладених параграфів
+  const translatedParagraphs = DEFAULT_PARAGRAPH_KEYS.map((key, index) =>
+    t(key, {
+      defaultValue: FALLBACK_PARAGRAPHS[index],
+    })
+  );
+
+  // --- ДОДАНО: Динамічне завантаження контактів (міст і вулиць) з файлу перекладу ---
+  // returnObjects: true дозволяє отримати масив об'єктів
+  const localizedContacts = t('addresses', { returnObjects: true });
+  // ----------------------------------------------------------------------------------
+
+  return (
+    <Modal title={title} onClose={onClose}>
+      <div className={css['container-contacts']}>
+        <ul className={css['contact-list']}>
+          {/* Використовуємо localizedContacts, де city та street вже перекладені */}
+          {localizedContacts.map(({ city, street, phone }, index) => (
+            <li className={css['contact-item']} key={index}>
+              <p className={css['address-info']}>
+                {/* Мітка 'Місто' перекладається, а city та street вже мають перекладене значення */}
+                <strong>{t('city_label', { defaultValue: 'City' })}:</strong>{' '}
+                {city}
+                <br />
+                {street}
+              </p>
+              <p className={css['contact-info-phone']}>
+                {/* Іконка телефону */}
+                <FaPhoneAlt className={css['contact-phone-icon']} />
+                &nbsp;
+                <a href={`tel:${phone}`} className={css['phone-link']}>
+                  {phone}
+                </a>
+              </p>
+              <p className={css['contact-info-email']}>
+                {/* Іконка пошти */}
+                <FaEnvelope className={css['contact-email-icon']} />
+                &nbsp;
+                <a
+                  href="mailto:infotraveltrucks@gmail.com"
+                  className={css['email-link']}
+                >
+                  infotraveltrucks@gmail.com
+                </a>
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Modal>
+  );
+};
 
 ContactsModal.propTypes = {
   onClose: PropTypes.func.isRequired,
-  title: PropTypes.string,
 };
 
 export default ContactsModal;

@@ -21,7 +21,7 @@ const LanguageSwitcher = () => {
         onClick={() => handleLanguageChange('uk')}
         className={`${i18n.language === 'uk' ? css.active : ''} ${css['language-Uk']}`}
       >
-        UA
+        UK
       </span>
     </div>
   );

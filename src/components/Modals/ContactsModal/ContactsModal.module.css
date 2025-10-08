@@ -4,41 +4,42 @@
   align-items: center;
   max-width: 75rem;
   max-height: 80vh;
+  margin: 0 auto;
   overflow-y: auto;
   overflow-x: hidden;
-  margin: 0 auto;
 }
 
 .contact-list {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: 1.3rem;
   width: 100%;
   max-height: 80vh;
   margin: 0;
   padding: 0;
   overflow-y: auto;
-  flex-wrap: wrap;
   list-style-type: none;
   background-color: var(--body-bg-color);
   color: var(--primary-color);
 }
 
 .contact-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   flex-basis: calc(33.33% - 1.3rem * 2 / 3);
   flex-grow: 1;
   max-width: 24rem;
   min-height: 5.5rem;
   padding: var(--padding-form-xs);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: var(--blok-field-form-bg-color);
   border: 0.0625rem solid var(--border-color);
   border-radius: var(--radius-md);
   box-shadow: var(--box-shadom);
+  text-align: center;
 }
 
 .address-info {
@@ -57,26 +58,59 @@
   margin-bottom: 0.25rem;
   font-size: 1.3rem;
 }
+.contact-phone-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  margin-right: 0.9375rem;
+  vertical-align: middle;
+  color: var(--contact-phone-icon-color);
+}
+.phone-link {
+  display: inline-block;
+  margin-left: var(--spacing-md);
+  text-decoration: none;
+  color: var(--color-blue);
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
 
 .contact-info-email {
   margin: 0;
   font-size: 1.3rem;
 }
+.contact-email-icon {
+  width: 1rem;
+  height: 0.875rem;
+  margin-right: 0.3125rem;
+  vertical-align: middle;
+  color: var(--contact-email-icon-color);
+}
 
-.contact-link {
-  cursor: pointer;
+.email-link {
+  display: inline-block;
+  margin-left: var(--spacing-md);
   text-decoration: none;
   color: var(--color-blue);
-  margin-left: var(--spacing-md);
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 
-.contact-link:hover {
+.phone-link:hover,
+.email-link:hover {
+  transform: scale(1.05);
   text-decoration: underline;
+  color: var(--hover-color);
 }
-
-/* ========================================================================= */
-/* БРЕКПОІНТ: <= 74.9375rem (1199px) - 3 картки в ряд, менша висота/шрифт */
-/* ========================================================================= */
+.phone-link:active,
+.email-link:active {
+  transform: scale(0.95);
+  text-decoration: underline;
+  color: var(--active-color);
+}
 
 @media (width <= 74.9375rem) {
   .contact-item {
@@ -96,10 +130,6 @@
     font-size: 1.2rem;
   }
 }
-
-/* ========================================================================= */
-/* БРЕКПОІНТ: <= 61.9375rem (991px) - 2 картки в ряд */
-/* ========================================================================= */
 
 @media (width <= 61.9375rem) {
   .container-contacts {
@@ -132,10 +162,6 @@
     font-size: 1.1rem;
   }
 }
-
-/* ========================================================================= */
-/* БРЕКПОІНТ: <= 47.9375rem (767px) - Стовпчик (767px та 479px) */
-/* ========================================================================= */
 
 @media (width <= 47.9375rem) {
   .container-contacts {
@@ -172,10 +198,6 @@
     font-size: 1rem;
   }
 }
-
-/* ========================================================================= */
-/* БРЕКПОІНТ: <= 29.9375rem (479px) - Стилі для найменших екранів */
-/* ========================================================================= */
 
 @media (width <= 29.9375rem) {
   .contact-item {

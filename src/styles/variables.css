@@ -67,7 +67,7 @@
   /* Спеціальні кольори */
   --color-yellow: #ffc107; /* помаранчевий колір */
 
-  /* --color-lilas: #c048e4;  */
+  --color-green: #0f0; /* зелений  колір */
 
   /* Відтінки сірого */
   --color-dark-gray: #3f3b3f;
@@ -76,7 +76,8 @@
   --color-light-gray-3: #9ea0a0;
   --color-light-gray-4: #948f8fff;
 
-  /* Відтінки червоного */
+  /* Відтінки зеленого */
+  --color-dark-green: #05a820;
 
   /* --color-dark-red: #d84343; */
 
@@ -266,6 +267,15 @@
   ); /* темно-сірий колір іконки хрестик в світлій темі */
 
   /* icon color */
+
+  --contact-phone-icon-color: var(
+    --color-dark-green
+  ); /*зелений колір іконок телефону  в світлій темі*/
+
+  --contact-email-icon-color: var(
+    --color-dark-green
+  ); /*зелений колір іконок  ел.пошти   в світлій темі*/
+
   --social-icon-color: var(
     --color-white
   ); /* білий колір іконок соцмереж в світлій темі */
@@ -277,8 +287,10 @@
   --star-icon-filled-color: var(
     --color-light-gray-2
   ); /* світло-сірий колір заповнення іконки зірка в світлій темі */
+
   /* placeholder color */
-  --placeholder-color: var(--color-light-gray);
+  --placeholder-form-booking-color: var(--color-light-gray);
+  --placeholder-form-reviews-color: var(--color-gray);
   /* boorder color */
   --border-color: var(
     --color-light-gray-2
@@ -330,11 +342,14 @@
   --button-close-icon-color: var(--color-white);
 
   /* icon color */
+  --contact-phone-icon-color: var(--color-green);
+  --contact-email-icon-color: var(--color-green);
   --social-icon-color: var(--color-black);
   --icon-primary-color: var(--color-light-gray);
   --star-icon-filled-color: var(--color-gray);
   /* placeholder color */
-  --placeholder-color: var(--color-light-gray-3);
+  --placeholder-form-booking-color: var(--color-light-gray-3);
+  --placeholder-form-reviews-color: var(--color-gray);
   /* border color */
   --border-color: var(--color-gray);
   --border-secondary-color: var(--color-light-gray-2);

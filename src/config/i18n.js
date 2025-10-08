@@ -17,6 +17,18 @@ import translationUK from '../locales/uk/translation.json';
 import formBookingUK from '../locales/uk/form_booking.json';
 import formReviewsUK from '../locales/uk/form_reviews.json';
 import contentReviewsUK from '../locales/uk/content_reviews.json';
+import headerEN from '../locales/en/header.json'; // <--- ДОДАНО
+import headerUK from '../locales/uk/header.json'; // <--- ДОДАНО
+import footerEN from '../locales/en/footer.json'; // <--- ДОДАНО
+import footerUK from '../locales/uk/footer.json'; // <--- ДОДАНО
+import aboutModalEN from '../locales/en/about_modal.json'; // <--- ДОДАНО
+import aboutModalUK from '../locales/uk/about_modal.json'; // <--- ДОДАНО
+import servicesModalEN from '../locales/en/services_modal.json'; // <--- ДОДАНО
+import servicesModalUK from '../locales/uk/services_modal.json'; // <--- ДОДАНО
+import pricesModalEN from '../locales/en/prices_modal.json'; // <--- ДОДАНО
+import pricesModalUK from '../locales/uk/prices_modal.json'; // <--- ДОДАНО
+import contactsModalEN from '../locales/en/contacts_modal.json'; // <--- ДОДАНО
+import contactsModalUK from '../locales/uk/contacts_modal.json'; // <--- ДОДАНО
 
 // Ресурси перекладів
 const resources = {
@@ -28,6 +40,12 @@ const resources = {
     form_booking: formBookingEN,
     form_reviews: formReviewsEN,
     content_reviews: contentReviewsEN,
+    header: headerEN,
+    footer: footerEN,
+    about_modal: aboutModalEN,
+    services_modal: servicesModalEN,
+    prices_modal: pricesModalEN,
+    contacts_modal: contactsModalEN,
   },
   uk: {
     button: buttonUK,
@@ -37,6 +55,12 @@ const resources = {
     form_booking: formBookingUK,
     form_reviews: formReviewsUK,
     content_reviews: contentReviewsUK,
+    header: headerUK,
+    footer: footerUK,
+    about_modal: aboutModalUK,
+    services_modal: servicesModalUK,
+    prices_modal: pricesModalUK,
+    contacts_modal: contactsModalUK,
   },
 };
 
@@ -57,6 +81,12 @@ i18n
       'form_booking',
       'form_reviews',
       'content_reviews',
+      'header',
+      'footer',
+      'about_modal',
+      'services_modal',
+      'prices_modal',
+      'contacts_modal',
     ],
     defaultNS: 'home',
   });

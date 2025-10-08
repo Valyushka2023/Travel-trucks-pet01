@@ -70,9 +70,9 @@
   .container-content-details {
     padding: var(--padding-lg);
   }
-  .details-form {
+  /* .details-form {
     gap: 2.5625rem;
-  }
+  } */
   .container-form-details {
     flex-wrap: nowrap; /* ❌ забороняємо перенос у колонку */
     gap: 2rem; /* трохи зменшуємо відстань, щоб влізло */

@@ -15,7 +15,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className={css.info}>
+        <div className={css['info-links']}>
           <InfoLinks />
         </div>
       </footer>

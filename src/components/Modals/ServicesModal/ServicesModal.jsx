@@ -1,21 +1,17 @@
-import Modal from '../../Modal/Modal.jsx';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
+import Modal from '../../Modal/Modal.jsx';
 import css from './ServicesModal.module.css';
 
-const ServicesModal = ({
-  onClose,
-  title = 'Our services',
-  paragraphs = defaultParagraphs,
-}) => (
-  <Modal title={title} onClose={onClose}>
-    <div className={css['text-services-modal']}>
-      {paragraphs.map((text, idx) => (
-        <p key={idx}>{text}</p>
-      ))}
-    </div>
-  </Modal>
-);
-const defaultParagraphs = [
+const DEFAULT_PARAGRAPH_KEYS = [
+  'paragraph_1',
+  'paragraph_2',
+  'paragraph_3',
+  'paragraph_4',
+  'paragraph_5',
+  'paragraph_6',
+];
+const FALLBACK_PARAGRAPHS = [
   'Our services include camper rental, technical support on the road, route advice, and additional equipment.',
   'You can rent a car with or without a driver.',
   'A car delivery service to a specified location is possible.',
@@ -23,7 +19,28 @@ const defaultParagraphs = [
   'Technical support is available 24/7. You can always call if you have any problems with your car or service.',
   'If the car breaks down, we will replace it instantly.',
 ];
+const ServicesModal = ({ onClose }) => {
+  // Встановлюємо простір імен 'services_modal'
+  const { t } = useTranslation('services_modal');
 
+  // Отримуємо перекладений заголовок (ключ: 'title')
+  const title = t('title', { defaultValue: 'Our services' });
+
+  const translatedParagraphs = DEFAULT_PARAGRAPH_KEYS.map((key, index) =>
+    t(key, {
+      defaultValue: FALLBACK_PARAGRAPHS[index],
+    })
+  );
+  return (
+    <Modal title={title} onClose={onClose}>
+      <div className={css['text-services-modal']}>
+        {translatedParagraphs.map((text, idx) => (
+          <p key={idx}>{text}</p>
+        ))}
+      </div>
+    </Modal>
+  );
+};
 ServicesModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string,

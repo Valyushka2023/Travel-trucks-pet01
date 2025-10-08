@@ -22,7 +22,7 @@
 }
 
 .social-networks,
-.info {
+.info-links {
   display: flex;
   flex-shrink: 1;
   justify-content: center;
@@ -32,8 +32,8 @@
   color: var(--primary-color-1);
 }
 
-.info {
-  font-size: 1.3rem; /* Можна також винести в окремі змінні, якщо потрібно */
+.info-links {
+  font-size: 1.3rem;
 }
 
 @media (width <= 74.9375rem) {
