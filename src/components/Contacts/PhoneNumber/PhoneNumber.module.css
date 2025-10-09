@@ -13,7 +13,7 @@
   width: 1.3rem;
   height: 1.3rem;
   margin-right: 0.75rem;
-  /* color: #0f0; */
+  vertical-align: middle;
   color: var(--home-phone-icon-color);
 }
 

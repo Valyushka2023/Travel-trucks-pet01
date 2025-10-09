@@ -28,6 +28,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  vertical-align: middle;
 }
 
 .menu {
