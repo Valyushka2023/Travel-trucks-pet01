@@ -174,8 +174,9 @@
     align-items: center;
     gap: 1rem;
     min-width: auto;
-    max-height: none;
+    max-height: 70vh;
     padding: 0 1rem;
+    overflow-y: auto;
   }
 
   .contact-item {
