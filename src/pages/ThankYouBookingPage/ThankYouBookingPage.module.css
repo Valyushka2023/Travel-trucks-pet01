@@ -57,7 +57,7 @@
   border: none;
   color: var(--button-close-icon-color);
   transition: color 0.3s ease;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 /* .page-close-button:hover {

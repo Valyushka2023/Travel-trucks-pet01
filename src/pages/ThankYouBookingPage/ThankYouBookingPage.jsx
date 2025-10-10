@@ -22,7 +22,7 @@ const ThankYouBookingPage = () => {
     <div className={css['container-page']}>
       <div className={css['buttons-container']}>
         <Link to="/catalog" className={css['go-back-link']}>
-          &lt; Return to catalog
+          &lt; &nbsp; Return to catalog
         </Link>
 
         <CloseButton
