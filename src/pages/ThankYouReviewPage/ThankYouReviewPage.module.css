@@ -61,24 +61,13 @@
   font-size: 2rem;
 }
 
-/* .page-close-button:hover {
-  color: var(--hover-color);
-  transform: scale(1.05);
-}
-
-.page-close-button:active {
-  color: var(--active-color);
-  transform: scale(0.95);
-} */
-
 .feedback {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   justify-content: flex-start;
   align-items: center;
-  /* margin: 9.375rem 0; */
-  margin: 7.375rem 0;
+  margin: 4.375rem 0;
   padding: 0;
   text-align: center;
 }
@@ -92,21 +81,12 @@
 
 .text {
   max-width: 50rem;
-  /* font-size: 2.25rem;   */
   font-size: 2.5rem;
   line-height: 1.5;
   color: var(--secondary-color);
 }
 
 @media (width <= 74.9375rem) {
-  /* .feedback h1 {
-    font-size: 2.75rem;
-  }
-
-  .text {
-    font-size: 2rem;
-  } */
-
   .go-back-link {
     font-size: 2rem;
   }
@@ -123,18 +103,6 @@
 }
 
 @media (width <= 61.9375rem) {
-  /* .go-back-link,
-  .page-close-button {
-    font-size: 1.125rem;
-  }
-
-  .feedback h1 {
-    font-size: 2.5rem;
-  }
-
-  .text {
-    font-size: 1.875rem;
-  } */
   .go-back-link {
     font-size: 1.75rem;
   }
@@ -151,34 +119,18 @@
 }
 
 @media (width <= 47.9375rem) {
-  /* .go-back-link,
-  .page-close-button {
-    font-size: 1rem;
-  }
-
-  .feedback h1 {
-    font-size: 2rem;
-  }
-
-  .text {
+  .go-back-link {
     font-size: 1.5rem;
   }
-
-  .feedback {
-    margin: 6.25rem 0;
-  } */
-  .go-back-link {
+  .page-close-button {
     font-size: 1.25rem;
   }
-  .page-close-button {
-    font-size: 1rem;
-  }
   .feedback h1 {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
 
   .text {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 
   .feedback {
@@ -187,34 +139,18 @@
 }
 
 @media (width <= 29.9375rem) {
-  /* .go-back-link,
-  .page-close-button {
-    font-size: 0.875rem;
-  }
-
-  .feedback h1 {
-    font-size: 1.75rem;
-  }
-
-  .text {
-    font-size: 1.25rem;
-  }
-
-  .feedback {
-    margin: 5rem 0;
-  } */
   .go-back-link {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
   .page-close-button {
     font-size: 1rem;
   }
   .feedback h1 {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
 
   .text {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .feedback {

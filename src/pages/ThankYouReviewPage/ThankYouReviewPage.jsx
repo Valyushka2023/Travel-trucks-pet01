@@ -42,7 +42,7 @@ const ThankYouReviewPage = () => {
     <div className={css['container-page']}>
       <div className={css['buttons-container']}>
         <button onClick={handleGoBack} className={css['go-back-link']}>
-          &lt; Go back to catalog
+          &lt; &nbsp; Go back to catalog
         </button>
         <CloseButton
           onClick={handleClose}
