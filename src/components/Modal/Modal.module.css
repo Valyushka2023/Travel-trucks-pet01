@@ -18,8 +18,7 @@
   flex-direction: column;
   max-width: 90vw;
   max-height: 90vh;
-
-  /* overflow-y: auto; */
+  overflow-y: auto;
   background-color: var(--body-bg-color);
   border: 0.0125rem solid var(--border-color);
   border-radius: var(--radius-sm);
@@ -30,7 +29,7 @@
   flex-grow: 1;
   margin-bottom: 1rem;
   padding: var(--padding-xl);
-  /* overflow-y: auto; */
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
