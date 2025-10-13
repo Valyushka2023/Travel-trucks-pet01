@@ -43,7 +43,6 @@
 
 .label-input-wrapper {
   display: flex;
-  flex-wrap: nowrap;
   align-items: center;
   gap: var(--spacing-lg);
   width: 100%;
@@ -53,6 +52,8 @@
   box-sizing: border-box;
   background-color: var(--blok-field-form-bg-color);
   border-radius: var(--radius-sm);
+  /* ФІКС: Забезпечуємо, що елементи не переноситимуться, але можуть стискатися */
+  flex-wrap: nowrap;
 }
 
 /* Унікальне оголошення для .label */
@@ -67,10 +68,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  /* flex-grow: 1; (У вас це вже є) */
   flex-grow: 1;
   gap: var(--spacing-sm);
-  /* min-width: 100%; */
-  background-color: var(--primary-bg-color);
+  /* min-width: 100%; - ЦЕ НЕПОТРІБНО І ВИКЛИКАЄ ПРОБЛЕМУ */
+  /* background-color: var(--primary-bg-color); - Краще видалити, щоб не перекривати інші елементи */
+  /* min-width: 0; - ДОДАЄМО, щоб дозволити стискання! */
   min-width: 0;
   flex-shrink: 0;
 }
@@ -144,7 +147,6 @@
 
 .label-area-wrapper {
   display: flex;
-  flex-wrap: nowrap;
   align-items: flex-start;
   gap: var(--spacing-lg);
   width: 100%;
@@ -154,6 +156,8 @@
   box-sizing: border-box;
   background-color: var(--blok-field-form-bg-color);
   border-radius: var(--radius-sm);
+  /* ФІКС: Забезпечуємо, що елементи не переноситимуться, але можуть стискатися */
+  flex-wrap: nowrap;
 }
 
 .label-and-counter-wrapper {
@@ -181,10 +185,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  /* flex-grow: 1; (У вас це вже є) */
   flex-grow: 1;
   gap: var(--spacing-sm);
-  /* min-width: 100%; */
-  background-color: var(--primary-bg-color);
+  /* min-width: 100%; - ЦЕ НЕПОТРІБНО І ВИКЛИКАЄ ПРОБЛЕМУ */
+  /* background-color: var(--primary-bg-color); - Краще видалити */
+  /* min-width: 0; - ДОДАЄМО, щоб дозволити стискання! */
   min-width: 0;
   flex-shrink: 0;
 }
