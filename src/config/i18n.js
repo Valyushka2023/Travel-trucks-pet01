@@ -46,6 +46,7 @@ const resources = {
     services_modal: servicesModalEN,
     prices_modal: pricesModalEN,
     contacts_modal: contactsModalEN,
+    form_booking: formBookingEN,
   },
   uk: {
     button: buttonUK,
@@ -61,6 +62,7 @@ const resources = {
     services_modal: servicesModalUK,
     prices_modal: pricesModalUK,
     contacts_modal: contactsModalUK,
+    form_booking: formBookingUK,
   },
 };
 
@@ -87,8 +89,14 @@ i18n
       'services_modal',
       'prices_modal',
       'contacts_modal',
+      'form_booking',
     ],
     defaultNS: 'home',
   });
+// 🟢 ДОДАНО: синхронізація мови HTML для системних повідомлень
+document.documentElement.lang = i18n.language;
+i18n.on('languageChanged', lng => {
+  document.documentElement.lang = lng;
+});
 
 export default i18n;

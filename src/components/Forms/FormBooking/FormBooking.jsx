@@ -1,9 +1,332 @@
-// 1. Імпорти з зовнішніх бібліотек
+// import { useTranslation } from 'react-i18next';
+// import { useNavigate } from 'react-router-dom';
+// import PropTypes from 'prop-types';
+// import clsx from 'clsx';
+
+// import DatePicker from 'react-datepicker';
+// import 'react-datepicker/dist/react-datepicker.css';
+// import { format } from 'date-fns';
+
+// import useForm from '../../../hooks/useForm.js';
+// import { sendBookingRequest } from '../../../services/api.js';
+
+// import Button from '../../Ui/Buttons/BaseButton/Button.jsx';
+
+// import css from './FormBooking.module.css';
+
+// function FormBooking({ camper }) {
+//   const { t } = useTranslation('form_booking');
+//   const navigate = useNavigate();
+
+//   const initialState = {
+//     name: '',
+//     email: '',
+//     bookingStartDate: null,
+//     bookingEndDate: null,
+//     comment: '',
+//     phone: '',
+//   };
+
+//   const validationRules = {
+//     name: value =>
+//       !value.trim()
+//         ? t('errors.required')
+//         : value.length < 2 || value.length > 20
+//           ? t('errors.nameLength')
+//           : null,
+
+//     email: value =>
+//       !value.trim()
+//         ? t('errors.required')
+//         : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+//           ? t('errors.invalidEmail')
+//           : value.length > 50
+//             ? t('errors.emailTooLong')
+//             : null,
+
+//     phone: value =>
+//       !value.trim()
+//         ? t('errors.required')
+//         : !/^\+?\d{10,15}$/.test(value)
+//           ? t('errors.invalidPhone')
+//           : null,
+
+//     bookingStartDate: value => (!value ? t('errors.required') : null),
+
+//     bookingEndDate: (value, allFormData) => {
+//       if (!value) {
+//         return t('errors.required');
+//       }
+//       if (
+//         allFormData.bookingStartDate &&
+//         value <= allFormData.bookingStartDate
+//       ) {
+//         return t('errors.invalidEndDate');
+//       }
+//       return null;
+//     },
+
+//     comment: value =>
+//       !value.trim()
+//         ? t('errors.required')
+//         : value.length > 250
+//           ? t('errors.commentTooLong')
+//           : null,
+//   };
+
+//   const onSubmit = async formData => {
+//     const formattedStartDate = formData.bookingStartDate
+//       ? format(formData.bookingStartDate, 'yyyy-MM-dd HH:mm')
+//       : '';
+//     const formattedEndDate = formData.bookingEndDate
+//       ? format(formData.bookingEndDate, 'yyyy-MM-dd HH:mm')
+//       : '';
+
+//     const bookingData = {
+//       camperId: camper._id,
+//       name: formData.name.trim(),
+//       email: formData.email.trim(),
+//       phone: formData.phone.trim(),
+//       comment: formData.comment.trim(),
+//       bookingStartDate: formattedStartDate,
+//       bookingEndDate: formattedEndDate,
+//     };
+
+//     const response = await sendBookingRequest(bookingData);
+//     if (response?.success) {
+//       navigate('/booking-received', {
+//         state: {
+//           camperId: camper._id,
+//           camper,
+//         },
+//       });
+//     } else {
+
+//       throw new Error(response?.message || 'Failed to send booking.');
+//     }
+//   };
+
+//   const {
+//     formData,
+//     errors,
+//     isSubmitting,
+//     hasAttemptedSubmit,
+//     submissionError,
+//     handleInputChange,
+//     handleDateChange,
+//     handleSubmit,
+//   } = useForm(initialState, validationRules, onSubmit);
+
+//   const hasErrors = Object.values(errors).some(error => error !== null);
+
+//   console.log('Current errors:', errors);
+//   console.log('The button is inactive because:', {
+//     isSubmitting,
+//     hasErrors,
+//     hasAttemptedSubmit,
+//   });
+
+//   return (
+//     <form className={css.form} onSubmit={handleSubmit} noValidate>
+//       <div className={css['title-text-form']}>
+//         <h3 className={css['title-form']}>{t('title')}</h3>
+//         <p className={css['text-form']}>{t('text')}</p>
+//       </div>
+//       <div className={css['inputs-area-form']}>
+//         <div className={css['label-input-wrapper']}>
+//           <label htmlFor="user-name-input" className={css.label}>
+//             {t('name_label')}*
+//           </label>
+//           <div className={css['field-input-and-field-error']}>
+//             <input
+//               id="user-name-input"
+//               name="name"
+//               type="text"
+//               className={clsx(css['field-input'], {
+//                 [css['field-error']]: hasAttemptedSubmit && errors.name,
+//               })}
+//               value={formData.name}
+//               onChange={handleInputChange}
+//               required
+//             />
+//             {hasAttemptedSubmit && errors.name && (
+//               <p className={css['error-popup']}>{errors.name}</p>
+//             )}
+//           </div>
+//         </div>
+//         <div className={css['label-input-wrapper']}>
+//           <label htmlFor="user-email-input" className={css.label}>
+//             {t('email_label')}*
+//           </label>
+//           <div className={css['field-input-and-field-error']}>
+//             <input
+//               id="user-email-input"
+//               name="email"
+//               type="email"
+//               className={clsx(css['field-input'], {
+//                 [css['field-error']]: hasAttemptedSubmit && errors.email,
+//               })}
+//               value={formData.email}
+//               onChange={handleInputChange}
+//               required
+//             />
+//             {hasAttemptedSubmit && errors.email && (
+//               <p className={css['error-popup']}>{errors.email}</p>
+//             )}
+//           </div>
+//         </div>
+//         <div className={css['label-input-wrapper']}>
+//           <label htmlFor="user-phone-input" className={css.label}>
+//             {t('phone_label')}*
+//           </label>
+//           <div className={css['field-input-and-field-error']}>
+//             <input
+//               id="user-phone-input"
+//               name="phone"
+//               type="tel"
+//               className={clsx(css['field-input'], {
+//                 [css['field-error']]: hasAttemptedSubmit && errors.phone,
+//               })}
+//               value={formData.phone}
+//               onChange={handleInputChange}
+//               required
+//               placeholder="+380XXXXXXXXX"
+//             />
+//             {hasAttemptedSubmit && errors.phone && (
+//               <p className={css['error-popup']}>{errors.phone}</p>
+//             )}
+//           </div>
+//         </div>
+//         <div className={css['label-input-wrapper']}>
+//           <label htmlFor="booking-start-date" className={css.label}>
+//             {t('from_date-time_label')}*
+//           </label>
+//           <div
+//             className={clsx(
+//               css['field-input-and-field-error'],
+//               css['datepicker-wrapper']
+//             )}
+//           >
+//             <DatePicker
+//               id="booking-start-date"
+//               name="bookingStartDate"
+//               selected={formData.bookingStartDate}
+//               onChange={date => handleDateChange(date, 'bookingStartDate')}
+//               showTimeSelect
+//               timeFormat="HH:mm"
+//               timeIntervals={15}
+//               dateFormat="yyyy-MM-dd HH:mm"
+//               className={clsx(css['field-input'], {
+//                 [css['field-error']]:
+//                   hasAttemptedSubmit && errors.bookingStartDate,
+//               })}
+//               placeholderText="Start date, time"
+//               required
+//               minDate={new Date()}
+//             />
+//             {hasAttemptedSubmit && errors.bookingStartDate && (
+//               <p className={css['error-popup']}>{errors.bookingStartDate}</p>
+//             )}
+//           </div>
+//         </div>
+//         <div className={css['label-input-wrapper']}>
+//           <label htmlFor="booking-end-date" className={css.label}>
+//             {t('to_date_time_label')}*
+//           </label>
+//           <div
+//             className={clsx(
+//               css['field-input-and-field-error'],
+//               css['datepicker-wrapper']
+//             )}
+//           >
+//             <DatePicker
+//               id="booking-end-date"
+//               name="bookingEndDate"
+//               selected={formData.bookingEndDate}
+//               onChange={date => handleDateChange(date, 'bookingEndDate')}
+//               showTimeSelect
+//               timeFormat="HH:mm"
+//               timeIntervals={15}
+//               dateFormat="yyyy-MM-dd HH:mm"
+//               className={clsx(css['field-input'], {
+//                 [css['field-error']]:
+//                   hasAttemptedSubmit && errors.bookingEndDate,
+//               })}
+//               placeholderText="End date, time"
+//               required
+
+//               minDate={formData.bookingStartDate || new Date()}
+//             />
+//             {hasAttemptedSubmit && errors.bookingEndDate && (
+//               <p className={css['error-popup']}>{errors.bookingEndDate}</p>
+//             )}
+//           </div>
+//         </div>
+//         <div className={css['label-area-wrapper']}>
+//           <div className={css['label-and-counter-wrapper']}>
+//             <label htmlFor="user-comment" className={css.label}>
+//               {t('comment_label')}*
+//             </label>
+//             <p
+//               className={clsx(css['char-count'], {
+//                 [css['char-count-warning']]: formData.comment.length >= 250,
+//               })}
+//             >
+//               {formData.comment.length} / 250
+//             </p>
+//           </div>
+//           <div className={clsx(css['field-area-and-field-error'])}>
+//             <textarea
+//               id="user-comment"
+//               name="comment"
+//               placeholder={t('comment_placeholder')}
+//               className={clsx(css['field-area'], {
+//                 [css['field-error']]: hasAttemptedSubmit && errors.comment,
+//               })}
+//               value={formData.comment}
+//               onChange={handleInputChange}
+//               required
+//             />
+//             {hasAttemptedSubmit && errors.comment && (
+//               <p className={css['error-popup']}>{errors.comment}</p>
+//             )}
+//           </div>
+//         </div>
+//       </div>
+//       <div className={css['element-send']}>
+//         <Button
+//           variant="primary"
+//           size="medium"
+//           type="submit"
+
+//           disabled={isSubmitting || (hasAttemptedSubmit && hasErrors)}
+//         >
+//           {isSubmitting
+//             ? t('sending_button', { ns: 'button' })
+//             : t('send_button', { ns: 'button' })}
+//         </Button>
+//         {submissionError && (
+//           <p className={clsx(css['error-popup'], css['general-error-popup'])}>
+//             {submissionError}
+//           </p>
+//         )}
+//       </div>
+//     </form>
+//   );
+// }
+
+// FormBooking.propTypes = {
+//   camper: PropTypes.shape({
+//     _id: PropTypes.string.isRequired,
+//   }).isRequired,
+// };
+
+// export default FormBooking;
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { useEffect } from 'react';
+// import { useEffect } from 'react'; // Видалено, оскільки minDate у DatePicker достатньо
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
@@ -19,7 +342,7 @@ import Button from '../../Ui/Buttons/BaseButton/Button.jsx';
 import css from './FormBooking.module.css';
 
 function FormBooking({ camper }) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('form_booking');
   const navigate = useNavigate();
 
   const initialState = {
@@ -34,39 +357,48 @@ function FormBooking({ camper }) {
   const validationRules = {
     name: value =>
       !value.trim()
-        ? 'Please fill in this field.'
+        ? t('errors.required')
         : value.length < 2 || value.length > 20
-          ? 'The name must be between 2 and 20 characters.'
+          ? t('errors.nameLength')
           : null,
+
     email: value =>
       !value.trim()
-        ? 'Please fill in this field.'
+        ? t('errors.required')
         : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-          ? 'Incorrect email format.'
+          ? t('errors.invalidEmail')
           : value.length > 50
-            ? 'Email is too long.'
+            ? t('errors.emailTooLong')
             : null,
+
     phone: value =>
       !value.trim()
-        ? 'Please fill in this field.'
+        ? t('errors.required')
         : !/^\+?\d{10,15}$/.test(value)
-          ? 'Incorrect phone number format.'
+          ? t('errors.invalidPhone')
           : null,
-    bookingStartDate: value => (!value ? 'Please fill in this field.' : null),
-    bookingEndDate: value => {
+
+    bookingStartDate: value => (!value ? t('errors.required') : null),
+
+    // Приймаємо allFormData для залежної валідації
+    bookingEndDate: (value, allFormData) => {
       if (!value) {
-        return 'Please fill in this field.';
+        return t('errors.required');
       }
-      if (formData.bookingStartDate && value <= formData.bookingStartDate) {
-        return 'End date and time must be after the start date and time.';
+      if (
+        allFormData.bookingStartDate &&
+        value <= allFormData.bookingStartDate
+      ) {
+        return t('errors.invalidEndDate');
       }
       return null;
     },
+
     comment: value =>
       !value.trim()
-        ? 'Please fill in this field.'
+        ? t('errors.required')
         : value.length > 250
-          ? 'The comment must be up to 250 characters long.'
+          ? t('errors.commentTooLong')
           : null,
   };
 
@@ -97,6 +429,7 @@ function FormBooking({ camper }) {
         },
       });
     } else {
+      // Використовуйте `throw` лише якщо ваш useForm ловить помилки
       throw new Error(response?.message || 'Failed to send booking.');
     }
   };
@@ -112,196 +445,184 @@ function FormBooking({ camper }) {
     handleSubmit,
   } = useForm(initialState, validationRules, onSubmit);
 
-  // Додамо логіку, щоби `bookingEndDate` завжди була пізнішою за `bookingStartDate`
-  useEffect(() => {
-    if (
-      formData.bookingStartDate &&
-      formData.bookingEndDate &&
-      formData.bookingEndDate <= formData.bookingStartDate
-    ) {
-      handleDateChange(null, 'bookingEndDate');
-    }
-  }, [formData.bookingStartDate, formData.bookingEndDate, handleDateChange]);
+  // Створюємо змінну для перевірки наявності помилок
+  const hasErrors = Object.values(errors).some(error => error !== null);
+
   console.log('Current errors:', errors);
   console.log('The button is inactive because:', {
     isSubmitting,
-    hasErrors: Object.keys(errors).length > 0,
+    hasErrors,
+    hasAttemptedSubmit,
   });
 
   return (
     <form className={css.form} onSubmit={handleSubmit} noValidate>
-      <div className={css['title-form']}>
-        <h3 className={css['text-title-form']}>Book a motorhome now</h3>
-        <p className={css['text-form']}>
-          We are always in touch, ready to help you!
-        </p>
+      <div className={css['title-text-form']}>
+        <h3 className={css['title-form']}>{t('title')}</h3>
+        <p className={css['text-form']}>{t('text')}</p>
       </div>
-      <div className={css['inputs-area']}>
-        <div className={css.inputs}>
-          <div className={css['field-form']}>
-            <label htmlFor="user-name-input" className={css.label}>
-              Name*
-            </label>
-            <div className={css['input-and-error-wrapper']}>
-              <input
-                id="user-name-input"
-                name="name"
-                type="text"
-                className={clsx(css['modal-input'], {
-                  [css['input-error']]: hasAttemptedSubmit && errors.name,
-                })}
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-              />
-              {hasAttemptedSubmit && errors.name && (
-                <p className={css['error-popup']}>{errors.name}</p>
-              )}
-            </div>
+      <div className={css['inputs-area-form']}>
+        <div className={css['label-input-wrapper']}>
+          <label htmlFor="user-name-input" className={css.label}>
+            {t('name_label')}*
+          </label>
+          <div className={css['field-input-and-field-error']}>
+            <input
+              id="user-name-input"
+              name="name"
+              type="text"
+              className={clsx(css['field-input'], {
+                [css['field-error']]: hasAttemptedSubmit && errors.name,
+              })}
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+            />
+            {hasAttemptedSubmit && errors.name && (
+              <p className={css['error-popup']}>{errors.name}</p>
+            )}
           </div>
-          <div className={css['field-form']}>
-            <label htmlFor="user-email-input" className={css.label}>
-              Email*
-            </label>
-            <div className={css['input-and-error-wrapper']}>
-              <input
-                id="user-email-input"
-                name="email"
-                type="email"
-                className={clsx(css['modal-input'], {
-                  [css['input-error']]: hasAttemptedSubmit && errors.email,
-                })}
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-              {hasAttemptedSubmit && errors.email && (
-                <p className={css['error-popup']}>{errors.email}</p>
-              )}
-            </div>
+        </div>
+        <div className={css['label-input-wrapper']}>
+          <label htmlFor="user-email-input" className={css.label}>
+            {t('email_label')}*
+          </label>
+          <div className={css['field-input-and-field-error']}>
+            <input
+              id="user-email-input"
+              name="email"
+              type="email"
+              className={clsx(css['field-input'], {
+                [css['field-error']]: hasAttemptedSubmit && errors.email,
+              })}
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+            />
+            {hasAttemptedSubmit && errors.email && (
+              <p className={css['error-popup']}>{errors.email}</p>
+            )}
           </div>
-          <div className={css['field-form']}>
-            <label htmlFor="user-phone-input" className={css.label}>
-              Phone*
-            </label>
-            <div className={css['input-and-error-wrapper']}>
-              <input
-                id="user-phone-input"
-                name="phone"
-                type="tel"
-                className={clsx(css['modal-input'], {
-                  [css['input-error']]: hasAttemptedSubmit && errors.phone,
-                })}
-                value={formData.phone}
-                onChange={handleInputChange}
-                required
-                placeholder="+380XXXXXXXXX"
-              />
-              {hasAttemptedSubmit && errors.phone && (
-                <p className={css['error-popup']}>{errors.phone}</p>
-              )}
-            </div>
+        </div>
+        <div className={css['label-input-wrapper']}>
+          <label htmlFor="user-phone-input" className={css.label}>
+            {t('phone_label')}*
+          </label>
+          <div className={css['field-input-and-field-error']}>
+            <input
+              id="user-phone-input"
+              name="phone"
+              type="tel"
+              className={clsx(css['field-input'], {
+                [css['field-error']]: hasAttemptedSubmit && errors.phone,
+              })}
+              value={formData.phone}
+              onChange={handleInputChange}
+              required
+              placeholder="+380XXXXXXXXX"
+            />
+            {hasAttemptedSubmit && errors.phone && (
+              <p className={css['error-popup']}>{errors.phone}</p>
+            )}
           </div>
-          <div className={css['field-form']}>
-            <label htmlFor="booking-start-date" className={css.label}>
-              From (date, time)*
+        </div>
+        <div className={css['label-input-wrapper']}>
+          <label htmlFor="booking-start-date" className={css.label}>
+            {t('from_date-time_label')}*
+          </label>
+          <div
+            className={clsx(
+              css['field-input-and-field-error'],
+              css['datepicker-wrapper']
+            )}
+          >
+            <DatePicker
+              id="booking-start-date"
+              name="bookingStartDate"
+              selected={formData.bookingStartDate}
+              onChange={date => handleDateChange(date, 'bookingStartDate')}
+              showTimeSelect
+              timeFormat="HH:mm"
+              timeIntervals={15}
+              dateFormat="yyyy-MM-dd HH:mm"
+              className={clsx(css['field-input'], {
+                [css['field-error']]:
+                  hasAttemptedSubmit && errors.bookingStartDate,
+              })}
+              placeholderText="Start date, time"
+              required
+              minDate={new Date()}
+              // Встановлюємо високий z-index
+              popperClassName={css['datepicker-popper-high-z']}
+            />
+            {hasAttemptedSubmit && errors.bookingStartDate && (
+              <p className={css['error-popup']}>{errors.bookingStartDate}</p>
+            )}
+          </div>
+        </div>
+        <div className={css['label-input-wrapper']}>
+          <label htmlFor="booking-end-date" className={css.label}>
+            {t('to_date_time_label')}*
+          </label>
+          <div
+            className={clsx(
+              css['field-input-and-field-error'],
+              css['datepicker-wrapper']
+            )}
+          >
+            <DatePicker
+              id="booking-end-date"
+              name="bookingEndDate"
+              selected={formData.bookingEndDate}
+              onChange={date => handleDateChange(date, 'bookingEndDate')}
+              showTimeSelect
+              timeFormat="HH:mm"
+              timeIntervals={15}
+              dateFormat="yyyy-MM-dd HH:mm"
+              className={clsx(css['field-input'], {
+                [css['field-error']]:
+                  hasAttemptedSubmit && errors.bookingEndDate,
+              })}
+              placeholderText="End date, time"
+              required
+              // MinDate гарантує, що кінець не раніше початку
+              minDate={formData.bookingStartDate || new Date()}
+              // Встановлюємо високий z-index
+              popperClassName={css['datepicker-popper-high-z']}
+            />
+            {hasAttemptedSubmit && errors.bookingEndDate && (
+              <p className={css['error-popup']}>{errors.bookingEndDate}</p>
+            )}
+          </div>
+        </div>
+        <div className={css['label-area-wrapper']}>
+          <div className={css['label-and-counter-wrapper']}>
+            <label htmlFor="user-comment" className={css.label}>
+              {t('comment_label')}*
             </label>
-            <div
-              className={clsx(
-                css['input-and-error-wrapper'],
-                css['datepicker-wrapper']
-              )}
+            <p
+              className={clsx(css['char-count'], {
+                [css['char-count-warning']]: formData.comment.length >= 250,
+              })}
             >
-              <DatePicker
-                id="booking-start-date"
-                name="bookingStartDate"
-                selected={formData.bookingStartDate}
-                onChange={date => handleDateChange(date, 'bookingStartDate')}
-                onSelect={date => handleDateChange(date, 'bookingStartDate')}
-                showTimeSelect
-                timeFormat="HH:mm"
-                timeIntervals={15}
-                dateFormat="yyyy-MM-dd HH:mm"
-                className={clsx(css['modal-input'], {
-                  [css['input-error']]:
-                    hasAttemptedSubmit && errors.bookingStartDate,
-                })}
-                placeholderText="Start date, time"
-                required
-                minDate={new Date()}
-              />
-              {hasAttemptedSubmit && errors.bookingStartDate && (
-                <p className={css['error-popup']}>{errors.bookingStartDate}</p>
-              )}
-            </div>
+              {formData.comment.length} / 250
+            </p>
           </div>
-          <div className={css['field-form']}>
-            <label htmlFor="booking-end-date" className={css.label}>
-              To (date, time)*
-            </label>
-            <div
-              className={clsx(
-                css['input-and-error-wrapper'],
-                css['datepicker-wrapper']
-              )}
-            >
-              <DatePicker
-                id="booking-end-date"
-                name="bookingEndDate"
-                selected={formData.bookingEndDate}
-                onChange={date => handleDateChange(date, 'bookingEndDate')}
-                onSelect={date => handleDateChange(date, 'bookingEndDate')}
-                showTimeSelect
-                timeFormat="HH:mm"
-                timeIntervals={15}
-                dateFormat="yyyy-MM-dd HH:mm"
-                className={clsx(css['modal-input'], {
-                  [css['input-error']]:
-                    hasAttemptedSubmit && errors.bookingEndDate,
-                })}
-                placeholderText="End date, time"
-                required
-                minDate={formData.bookingStartDate || new Date()}
-              />
-              {hasAttemptedSubmit && errors.bookingEndDate && (
-                <p className={css['error-popup']}>{errors.bookingEndDate}</p>
-              )}
-            </div>
-          </div>
-          <div className={css['field-area']}>
-            <div className={css['comment-and-counter-wrapper']}>
-              <label htmlFor="user-comment" className={css['label-comment']}>
-                Comment*
-              </label>
-              <p
-                className={clsx(css['char-count'], {
-                  [css['char-count-warning']]: formData.comment.length >= 250,
-                })}
-              >
-                {formData.comment.length} / 250
-              </p>
-            </div>
-            <div
-              className={clsx(
-                css['input-and-error-wrapper'],
-                css['comment-input-wrapper']
-              )}
-            >
-              <textarea
-                id="user-comment"
-                name="comment"
-                placeholder="Your message"
-                className={clsx(css['modal-text-area'], {
-                  [css['input-error']]: hasAttemptedSubmit && errors.comment,
-                })}
-                value={formData.comment}
-                onChange={handleInputChange}
-                required
-              />
-              {hasAttemptedSubmit && errors.comment && (
-                <p className={css['error-popup']}>{errors.comment}</p>
-              )}
-            </div>
+          <div className={clsx(css['field-area-and-field-error'])}>
+            <textarea
+              id="user-comment"
+              name="comment"
+              placeholder={t('comment_placeholder')}
+              className={clsx(css['field-area'], {
+                [css['field-error']]: hasAttemptedSubmit && errors.comment,
+              })}
+              value={formData.comment}
+              onChange={handleInputChange}
+              required
+            />
+            {hasAttemptedSubmit && errors.comment && (
+              <p className={css['error-popup']}>{errors.comment}</p>
+            )}
           </div>
         </div>
       </div>
@@ -310,9 +631,9 @@ function FormBooking({ camper }) {
           variant="primary"
           size="medium"
           type="submit"
-          disabled={
-            isSubmitting || Object.values(errors).some(error => error !== null)
-          }
+          // Оновлена логіка: неактивна, якщо відправляється АБО
+          // якщо була спроба відправити І є помилки
+          disabled={isSubmitting || (hasAttemptedSubmit && hasErrors)}
         >
           {isSubmitting
             ? t('sending_button', { ns: 'button' })

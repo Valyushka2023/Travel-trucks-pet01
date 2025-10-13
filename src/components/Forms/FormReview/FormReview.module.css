@@ -9,7 +9,6 @@
   padding: var(--padding-form-xl);
   box-sizing: border-box;
   background-color: var(--body-bg-color);
-
   border: 0.0125rem solid var(--border-color);
   border-radius: var(--radius-sm);
   box-shadow: var(--box-shadow);
@@ -95,7 +94,7 @@
 .label-comment {
   flex-shrink: 0;
   min-width: 2.5rem;
-  margin-top: 0.0938rem;
+  /* margin-top: 0.0625rem; */
   font-size: 1rem;
   color: var(--tertiary-color);
 }
@@ -109,7 +108,7 @@
   cursor: text;
   width: 100%;
   min-height: 1.5rem;
-  padding: 0 1.125rem;
+  padding: 0.0625 1.125rem;
   box-sizing: border-box;
   background-color: var(--body-bg-color);
   border: 0.0625rem solid var(--border-color);
@@ -124,10 +123,10 @@
 
 .modal-input::placeholder,
 .modal-text-area::placeholder {
-  font-family: inherit;
-  font-size: 1rem;
+  /* font-family: inherit; */
+  /* font-size: 1rem;
   font-weight: 400;
-  opacity: 1;
+  opacity: 1; */
   color: var(--placeholder-form-reviews-color);
 }
 
@@ -136,21 +135,17 @@
 }
 
 .modal-text-area {
+  display: block;
+  flex-shrink: 0;
+  justify-content: center;
   min-height: 5.125rem;
   resize: vertical;
 }
 
 .modal-input:hover,
 .modal-text-area:hover {
-  /* padding: 0 1.125rem; */
   border: 0.0625rem solid var(--hover-color);
-  /* line-height: 1.5; */
 }
-
-/* .modal-input:hover,
-.modal-text-area:hover {
-  border: 0.0625rem solid var(--hover-color);
-} */
 
 .element-submit {
   width: 100%;

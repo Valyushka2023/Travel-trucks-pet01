@@ -1,1 +1,20 @@
-{}
+{
+  "title": "Book a motorhome now",
+  "text": " We are always in touch, ready to help you!",
+  "name_label": "Name",
+  "email_label": "Email",
+  "phone_label": "Phone",
+  "from_date-time_label": "From (date,time)",
+  "to_date_time_label": "To (date,time)",
+  "comment_label": "Comment",
+  "comment_placeholder": "Your message",
+  "errors": {
+    "required": "Please fill in this field.",
+    "nameLength": "The name must be between 2 and 20 characters.",
+    "invalidEmail": "Incorrect email format.",
+    "emailTooLong": "Email is too long.",
+    "invalidPhone": "Incorrect phone number format.",
+    "invalidEndDate": "End date and time must be after the start date and time.",
+    "commentTooLong": "The comment must be up to 250 characters long."
+  }
+}
