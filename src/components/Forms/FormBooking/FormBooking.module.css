@@ -52,7 +52,6 @@
   box-sizing: border-box;
   background-color: var(--blok-field-form-bg-color);
   border-radius: var(--radius-sm);
-  /* ФІКС: Забезпечуємо, що елементи не переноситимуться, але можуть стискатися */
   flex-wrap: nowrap;
 }
 
@@ -68,12 +67,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  /* flex-grow: 1; (У вас це вже є) */
   flex-grow: 1;
   gap: var(--spacing-sm);
-  /* min-width: 100%; - ЦЕ НЕПОТРІБНО І ВИКЛИКАЄ ПРОБЛЕМУ */
-  /* background-color: var(--primary-bg-color); - Краще видалити, щоб не перекривати інші елементи */
-  /* min-width: 0; - ДОДАЄМО, щоб дозволити стискання! */
   min-width: 0;
   flex-shrink: 0;
 }
@@ -92,6 +87,10 @@
   font-size: 1rem;
   min-height: 2.2rem;
   color: var(--primary-color);
+  flex-grow: 1;
+  gap: var(--spacing-sm);
+  min-width: 0;
+  flex-shrink: 0;
 }
 
 .field-input::placeholder {
@@ -114,13 +113,13 @@
 }
 
 .react-datepicker-input-container {
-  width: 100%;
+  /* width: 100%; */
   display: block;
 }
 
 /* Оптимізовані стилі для input у DatePicker */
 .react-datepicker-input-container input {
-  width: 100%;
+  /* width: 100%; */
   /* Використовуємо тут потрібну висоту */
   min-height: 2.2rem;
   padding: 0 1.125rem;
@@ -185,12 +184,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  /* flex-grow: 1; (У вас це вже є) */
   flex-grow: 1;
   gap: var(--spacing-sm);
-  /* min-width: 100%; - ЦЕ НЕПОТРІБНО І ВИКЛИКАЄ ПРОБЛЕМУ */
   /* background-color: var(--primary-bg-color); - Краще видалити */
-  /* min-width: 0; - ДОДАЄМО, щоб дозволити стискання! */
   min-width: 0;
   flex-shrink: 0;
 }
@@ -200,7 +196,7 @@
   flex: 1;
   align-items: center;
   cursor: text;
-  width: 100%;
+  /* width: 100%; */
   padding: 0.0625rem 1.125rem;
   box-sizing: border-box;
   background-color: var(--blok-field-input-bg-color);
