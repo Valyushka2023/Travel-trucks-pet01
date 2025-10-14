@@ -1,9 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import css from './Tabs.module.css';
 
 function Tabs({ camper, activeTab }) {
   const location = useLocation();
+  const { t, i18n } = useTranslation('tabs');
 
   const camperId = camper?._id || camper?.id;
 
@@ -24,7 +26,7 @@ function Tabs({ camper, activeTab }) {
               : ''
           }`}
         >
-          Features
+          {t('features')}
         </Link>
 
         <Link
@@ -37,7 +39,7 @@ function Tabs({ camper, activeTab }) {
               : ''
           }`}
         >
-          Reviews
+          {t('reviews')}
         </Link>
       </div>
     </div>

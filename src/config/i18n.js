@@ -29,6 +29,8 @@ import pricesModalEN from '../locales/en/prices_modal.json'; // <--- ДОДАН�
 import pricesModalUK from '../locales/uk/prices_modal.json'; // <--- ДОДАНО
 import contactsModalEN from '../locales/en/contacts_modal.json'; // <--- ДОДАНО
 import contactsModalUK from '../locales/uk/contacts_modal.json'; // <--- ДОДАНО
+import tabsEN from '../locales/en/tabs.json'; // <--- ДОДАНО
+import tabsUK from '../locales/uk/tabs.json'; // <--- ДОДАНО
 
 // Ресурси перекладів
 const resources = {
@@ -47,6 +49,7 @@ const resources = {
     prices_modal: pricesModalEN,
     contacts_modal: contactsModalEN,
     form_booking: formBookingEN,
+    tabs: tabsEN,
   },
   uk: {
     button: buttonUK,
@@ -63,6 +66,7 @@ const resources = {
     prices_modal: pricesModalUK,
     contacts_modal: contactsModalUK,
     form_booking: formBookingUK,
+    tabs: tabsUK,
   },
 };
 
@@ -90,6 +94,7 @@ i18n
       'prices_modal',
       'contacts_modal',
       'form_booking',
+      'tabs',
     ],
     defaultNS: 'home',
   });
