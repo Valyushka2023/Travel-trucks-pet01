@@ -9,7 +9,7 @@
   "comment_label": "Comment",
   "comment_placeholder": "Your message",
   "errors": {
-    "required": "Please fill in this field.",
+    "required": "Please fill in the field.",
     "nameLength": "The name must be between 2 and 20 characters.",
     "invalidEmail": "Incorrect email format.",
     "emailTooLong": "Email is too long.",

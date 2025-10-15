@@ -31,6 +31,8 @@ import contactsModalEN from '../locales/en/contacts_modal.json'; // <--- ДОД�
 import contactsModalUK from '../locales/uk/contacts_modal.json'; // <--- ДОДАНО
 import tabsEN from '../locales/en/tabs.json'; // <--- ДОДАНО
 import tabsUK from '../locales/uk/tabs.json'; // <--- ДОДАНО
+import vechicleDetailsEN from '../locales/en/vechicle_details.json'; // <--- ДОДАНО
+import vechicleDetailsUK from '../locales/uk/vechicle_details.json'; // <--- ДОДАНО
 
 // Ресурси перекладів
 const resources = {
@@ -50,6 +52,7 @@ const resources = {
     contacts_modal: contactsModalEN,
     form_booking: formBookingEN,
     tabs: tabsEN,
+    vechicle_details: vechicleDetailsEN,
   },
   uk: {
     button: buttonUK,
@@ -67,6 +70,7 @@ const resources = {
     contacts_modal: contactsModalUK,
     form_booking: formBookingUK,
     tabs: tabsUK,
+    vechicle_details: vechicleDetailsUK,
   },
 };
 
@@ -95,6 +99,7 @@ i18n
       'contacts_modal',
       'form_booking',
       'tabs',
+      'vechicle_details',
     ],
     defaultNS: 'home',
   });
