@@ -150,16 +150,16 @@
 .label-area-wrapper {
   display: flex;
   align-items: flex-start;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   width: 100%;
   min-height: 5.5rem;
-  flex-shrink: 0;
+  /* flex-shrink: 0; */
   padding: 0.5rem;
   box-sizing: border-box;
   background-color: var(--blok-field-form-bg-color);
   border-radius: var(--radius-sm);
 
-  flex-wrap: nowrap;
+  /* flex-wrap: nowrap; */
 }
 
 .label-and-counter-wrapper {
