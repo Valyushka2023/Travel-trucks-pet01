@@ -1,8 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import css from './FilterLocation.module.css';
 
 const FilterLocation = ({ campers, location, setLocation }) => {
+  const { t, i18n } = useTranslation('filter_location');
   const [locations, setLocations] = useState([]);
   const [isOpen, setIsOpen] = useState(false); // Стан для керування відкриттям/закриттям дропдауну
   const dropdownRef = useRef(null); // Референс для відстеження кліків поза дропдауном
@@ -70,7 +72,7 @@ const FilterLocation = ({ campers, location, setLocation }) => {
             className={`${css['dropdown-item']} ${location === 'all' ? css.selectedItem : ''}`}
             onClick={() => handleLocationSelect('all')}
           >
-            All locations
+            {t('all_locations')}
           </div>
           {locations.map(loc => (
             <div

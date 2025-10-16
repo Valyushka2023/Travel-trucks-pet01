@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from 'react'; // Імпортуємо useEffect та useRef
+import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import css from './FilterVehicleEquipment.module.css';
 
@@ -21,6 +22,7 @@ const filterButtons = [
 ];
 
 const FilterVehicleEquipment = ({ onFilter, currentFilters }) => {
+  const { t, i18n } = useTranslation('filter_vehicle_equipment');
   // currentFilters передається як проп
   // Використовуємо useEffect для оновлення внутрішнього стану при зміні пропу currentFilters
   const prevFiltersRef = useRef(); // Використовуємо реф для зберігання попередніх currentFilters, щоб уникнути нескінченних циклів
@@ -60,7 +62,7 @@ const FilterVehicleEquipment = ({ onFilter, currentFilters }) => {
 
   return (
     <div className={css['vehicle-equipment']}>
-      <h3 className={css['text-equipment']}>Vehicle equipment</h3>
+      <h3 className={css['text-equipment']}>{t('vehicle_equipment')}</h3>
       <hr className={css.divider} />
 
       <div className={css['equipment-container']}>

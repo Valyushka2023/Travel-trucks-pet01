@@ -33,6 +33,12 @@ import tabsEN from '../locales/en/tabs.json'; // <--- ДОДАНО
 import tabsUK from '../locales/uk/tabs.json'; // <--- ДОДАНО
 import vechicleDetailsEN from '../locales/en/vechicle_details.json'; // <--- ДОДАНО
 import vechicleDetailsUK from '../locales/uk/vechicle_details.json'; // <--- ДОДАНО
+import filterLocationEN from '../locales/en/filter_location.json'; // <--- ДОДАНО
+import filterLocationUK from '../locales/uk/filter_location.json'; // <--- ДОДАНО
+import filterVehicleTypeEN from '../locales/en/filter_vehicle_type.json'; // <--- ДОДАНО
+import filterVehicleTypeUK from '../locales/uk/filter_vehicle_type.json'; // <--- ДОДАНО
+import filterVehicleEquipmentEN from '../locales/en/filter_vehicle_equipment.json'; // <--- ДОДАНО
+import filterVehicleEquipmentUK from '../locales/uk/filter_vehicle_equipment.json'; // <--- ДОДАНО
 
 // Ресурси перекладів
 const resources = {
@@ -53,6 +59,9 @@ const resources = {
     form_booking: formBookingEN,
     tabs: tabsEN,
     vechicle_details: vechicleDetailsEN,
+    filter_location: filterLocationEN,
+    filter_vehicle_type: filterVehicleTypeEN,
+    filter_vehicle_equipment: filterVehicleEquipmentEN,
   },
   uk: {
     button: buttonUK,
@@ -71,6 +80,9 @@ const resources = {
     form_booking: formBookingUK,
     tabs: tabsUK,
     vechicle_details: vechicleDetailsUK,
+    filter_location: filterLocationUK,
+    filter_vehicle_type: filterVehicleTypeUK,
+    filter_vehicle_equipment: filterVehicleEquipmentUK,
   },
 };
 
@@ -100,6 +112,9 @@ i18n
       'form_booking',
       'tabs',
       'vechicle_details',
+      'filter_location',
+      'filter_vehicle_type',
+      'filter_vehicle_equipment',
     ],
     defaultNS: 'home',
   });
