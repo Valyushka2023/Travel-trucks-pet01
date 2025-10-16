@@ -262,14 +262,14 @@
   .form {
     padding: var(--padding-form-lg);
   }
+  .title-text-form {
+    align-items: center;
+  }
 }
 
 @media (width <= 61.9375rem) {
   .form {
     padding: var(--padding-form-md);
-  }
-  .title-text-form {
-    align-items: center;
   }
 }
 
@@ -304,18 +304,11 @@
   .label-and-counter-wrapper {
     display: flex;
     flex-direction: row;
-    /* gap: 2px; */
     justify-content: space-between;
     align-items: center;
-    /* margin-top: 0.0625rem; */
     width: 100%;
-    /* left: 0; */
   }
   .char-count {
-    /* display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: end; */
     text-align: right;
     white-space: nowrap;
   }
