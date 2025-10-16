@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
-import css from './filterVehicleType.module.css';
+import css from './FilterVehicleType.module.css';
 
 const filterButtons = [
   { icon: 'van', label: 'Van', ariaLabel: 'Фургон', isMultiLine: false },
