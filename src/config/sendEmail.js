@@ -25,15 +25,15 @@ export const sendEmail = async ({ to, subject, html }) => {
   if (!to || !subject || !html) {
     const errorMsg = `[EMAIL] Відсутні обов'язкові параметри для надсилання email: ${JSON.stringify({ to, subject, html })}`;
     logger.error(errorMsg);
-    console.error('❌ [DEBUG] sendEmail():', errorMsg);
+    // console.error('❌ [DEBUG] sendEmail():', errorMsg);
     throw new Error('Missing email parameters');
   }
 
-  console.log('[DEBUG] Викликано sendEmail() з такими параметрами:', {
-    to,
-    subject,
-    html,
-  });
+  // console.log('[DEBUG] Викликано sendEmail() з такими параметрами:', {
+  //   to,
+  //   subject,
+  //   html,
+  // });
 
   const mailOptions = {
     from: process.env.SMTP_FROM || process.env.SMTP_USER, // fallback
@@ -48,14 +48,14 @@ export const sendEmail = async ({ to, subject, html }) => {
     );
     const info = await transporter.sendMail(mailOptions);
     logger.info('✅ [EMAIL] Email успішно відправлено: %o', info);
-    console.log('✅ [DEBUG] Email відправлено:', info.response);
+    // console.log('✅ [DEBUG] Email відправлено:', info.response);
   } catch (error) {
     logger.error(
       '❌ [EMAIL] Помилка відправлення email на адресу: %s, помилка: %o',
       to,
       error
     );
-    console.error('❌ [DEBUG] sendEmail помилка:', error);
+    // console.error('❌ [DEBUG] sendEmail помилка:', error);
     throw new Error('Email sending failed');
   }
 };

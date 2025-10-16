@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import css from './VehicleDetails.module.css';
 
 function VehicleDetails({ camper }) {
-  const { t, i18n } = useTranslation('vechicle_details');
+  const { t } = useTranslation('vechicle_details');
   if (!camper) {
     return (
       <div className={css['vehicleContainer']}>Loading vehicle details...</div>

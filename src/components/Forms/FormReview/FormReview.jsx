@@ -44,7 +44,7 @@ const FormReview = ({ camperId, onReviewAdded }) => {
   };
 
   const onSubmit = async formData => {
-    console.log('1. onSubmit - Sending function launched');
+    // console.log('1. onSubmit - Sending function launched');
 
     const reviewToSend = {
       reviewer_name: formData.name.trim(),
@@ -57,21 +57,21 @@ const FormReview = ({ camperId, onReviewAdded }) => {
     };
 
     try {
-      console.log('2. onSubmit - Simulate API request delay...');
+      // console.log('2. onSubmit - Simulate API request delay...');
       await new Promise(resolve => setTimeout(resolve, 300));
-      console.log('3. onSubmit - Request simulation complete');
+      // console.log('3. onSubmit - Request simulation complete');
 
-      console.log('4. onSubmit - Calling onReviewAdded...');
+      // console.log('4. onSubmit - Calling onReviewAdded...');
       await onReviewAdded(reviewToSend);
-      console.log(
-        '5. onSubmit - onReviewAdded completed. Data sent:',
-        reviewToSend
-      );
+      // console.log(
+      //   '5. onSubmit - onReviewAdded completed. Data sent:',
+      //   reviewToSend
+      // );
 
-      console.log('6. onSubmit - Navigation to the thank you page...');
+      // console.log('6. onSubmit - Navigation to the thank you page...');
       navigate('/thank-you');
     } catch (err) {
-      console.error('Error sending form:', err);
+      // console.error('Error sending form:', err);
       // Можна обробити помилку тут, наприклад, показати сповіщення
     }
   };
@@ -86,12 +86,12 @@ const FormReview = ({ camperId, onReviewAdded }) => {
     handleSubmit,
   } = useForm(initialState, validationRules, onSubmit);
 
-  console.log(
-    'Render FormReview - isSubmitting:',
-    isSubmitting,
-    'hasAttemptedSubmit:',
-    hasAttemptedSubmit
-  );
+  // console.log(
+  //   'Render FormReview - isSubmitting:',
+  //   isSubmitting,
+  //   'hasAttemptedSubmit:',
+  //   hasAttemptedSubmit
+  // );
 
   return (
     <form className={css.form} onSubmit={handleSubmit} noValidate>

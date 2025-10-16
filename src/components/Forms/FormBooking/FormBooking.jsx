@@ -124,12 +124,12 @@ function FormBooking({ camper }) {
   // Створюємо змінну для перевірки наявності помилок
   const hasErrors = Object.values(errors).some(error => error !== null);
 
-  console.log('Current errors:', errors);
-  console.log('The button is inactive because:', {
-    isSubmitting,
-    hasErrors,
-    hasAttemptedSubmit,
-  });
+  // console.log('Current errors:', errors);
+  // console.log('The button is inactive because:', {
+  //   isSubmitting,
+  //   hasErrors,
+  //   hasAttemptedSubmit,
+  // });
 
   return (
     <form className={css.form} onSubmit={handleSubmit} noValidate>

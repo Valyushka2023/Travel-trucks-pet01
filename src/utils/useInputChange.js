@@ -5,7 +5,7 @@ export const handleInputChange =
 
     // Видалення помилки для конкретного поля
     setErrors(prevErrors => {
-      const { [fieldName]: removed, ...rest } = prevErrors;
+      const { [fieldName]: _, ...rest } = prevErrors;
       return rest;
     });
 

@@ -26,7 +26,7 @@ const filterButtons = [
 ];
 
 const FilterVehicleType = ({ onFilter, currentFilters }) => {
-  const { t, i18n } = useTranslation('filter_vehicle_type');
+  const { t } = useTranslation('filter_vehicle_type');
   // currentFilters передається як проп
   // Використовуємо useEffect для оновлення внутрішнього стану при зміні пропу currentFilters
   const prevFiltersRef = useRef(); // Використовуємо реф для зберігання попередніх currentFilters, щоб уникнути нескінченних циклів

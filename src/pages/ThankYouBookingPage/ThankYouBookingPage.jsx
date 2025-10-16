@@ -9,7 +9,7 @@ const ThankYouBookingPage = () => {
   const location = useLocation();
 
   const { camperId, camper } = location.state || {};
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const handleClose = () => {
     if (camperId && camper) {
       navigate(`/catalog/${camperId}`, { state: { camper } });

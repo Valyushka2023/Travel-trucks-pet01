@@ -1,4 +1,3 @@
-
 export const generateBookingEmailHtml = (booking, camper) => {
   return `
     <table style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">

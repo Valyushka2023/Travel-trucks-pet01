@@ -13,8 +13,8 @@ export const fetchCampers = async (params = {}) => {
 
     const response = await axios.get(url);
 
-    console.log(`GET request to ${url} succeeded. Status: ${response.status}`);
-    console.log('Response data:', response.data);
+    // console.log(`GET request to ${url} succeeded. Status: ${response.status}`);
+    // console.log('Response data:', response.data);
 
     if (response.status !== 200) return [];
 
@@ -26,10 +26,10 @@ export const fetchCampers = async (params = {}) => {
 
     return [];
   } catch (error) {
-    console.error(`Error fetching campers: ${error.message}`);
+    // console.error(`Error fetching campers: ${error.message}`);
     if (error.response) {
-      console.error('Status:', error.response.status);
-      console.error('Data:', error.response.data);
+      // console.error('Status:', error.response.status);
+      // console.error('Data:', error.response.data);
     }
     return [];
   }
@@ -42,12 +42,12 @@ export const fetchCamperById = async id => {
 
     const url = `${BACKEND_BASE_URL}/campers/${id}`;
 
-    console.log(`Sending GET request to: ${url}`);
+    // console.log(`Sending GET request to: ${url}`);
 
     const response = await axios.get(url);
 
-    console.log(`GET request to ${url} succeeded. Status: ${response.status}`);
-    console.log('Response data:', response.data);
+    // console.log(`GET request to ${url} succeeded. Status: ${response.status}`);
+    // console.log('Response data:', response.data);
 
     if (response.status === 200) {
       return response.data;
@@ -55,10 +55,10 @@ export const fetchCamperById = async id => {
       return null;
     }
   } catch (error) {
-    console.error(`Error fetching camper by ID: ${error.message}`);
+    // console.error(`Error fetching camper by ID: ${error.message}`);
     if (error.response) {
-      console.error('Status:', error.response.status);
-      console.error('Data:', error.response.data);
+      // console.error('Status:', error.response.status);
+      // console.error('Data:', error.response.data);
     }
     return null;
   }
@@ -85,10 +85,10 @@ export const sendReview = async reviewData => {
       return null;
     }
   } catch (error) {
-    console.error(`Error sending review: ${error.message}`);
+    // console.error(`Error sending review: ${error.message}`);
     if (error.response) {
-      console.error('Status:', error.response.status);
-      console.error('Data:', error.response.data);
+      // console.error('Status:', error.response.status);
+      // console.error('Data:', error.response.data);
     }
     return null;
   }
@@ -107,7 +107,7 @@ export const sendBookingRequest = async bookingData => {
 
     return response.data;
   } catch (error) {
-    console.error(`Error sending booking request: ${error.message}`);
+    // console.error(`Error sending booking request: ${error.message}`);
     return {
       success: false,
       message: error.message || 'Failed to connect to the server.',

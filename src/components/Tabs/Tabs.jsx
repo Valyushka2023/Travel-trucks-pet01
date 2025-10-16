@@ -5,7 +5,7 @@ import css from './Tabs.module.css';
 
 function Tabs({ camper, activeTab }) {
   const location = useLocation();
-  const { t, i18n } = useTranslation('tabs');
+  const { t } = useTranslation('tabs');
 
   const camperId = camper?._id || camper?.id;
 

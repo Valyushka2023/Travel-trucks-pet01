@@ -26,7 +26,7 @@ function ImageGallery({ gallery }) {
 
   const handleImageClick = imageUrl => {
     if (isMobile) {
-      console.log('Modal window is blocked on mobile devices');
+      // console.log('Modal window is blocked on mobile devices');
       return;
     }
     setSelectedImage(imageUrl);

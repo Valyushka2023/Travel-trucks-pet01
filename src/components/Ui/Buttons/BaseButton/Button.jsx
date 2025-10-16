@@ -28,6 +28,7 @@ const Button = ({
       className={`${css['button']} ${css[variant]} ${css[size]} ${className}`}
       onClick={handleClick}
       disabled={disabled}
+      {...rest}
     >
       {children}
     </button>
