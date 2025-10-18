@@ -39,6 +39,10 @@ import filterVehicleTypeEN from '../locales/en/filter_vehicle_type.json'; // <--
 import filterVehicleTypeUK from '../locales/uk/filter_vehicle_type.json'; // <--- ДОДАНО
 import filterVehicleEquipmentEN from '../locales/en/filter_vehicle_equipment.json'; // <--- ДОДАНО
 import filterVehicleEquipmentUK from '../locales/uk/filter_vehicle_equipment.json'; // <--- ДОДАНО
+import thankYouBookingPageEN from '../locales/en/thank_you_booking_page.json'; // <--- ДОДАНО
+import thankYouBookingPageUK from '../locales/uk/thank_you_booking_page.json'; // <--- ДОДАНО
+import thankYouReviewsPageEN from '../locales/en/thank_you_reviews.page.json'; // <--- ДОДАНО
+import thankYouReviewsPageUK from '../locales/uk/thank_you_reviews_page.json'; // <--- ДОДАНО
 
 // Ресурси перекладів
 const resources = {
@@ -62,6 +66,8 @@ const resources = {
     filter_location: filterLocationEN,
     filter_vehicle_type: filterVehicleTypeEN,
     filter_vehicle_equipment: filterVehicleEquipmentEN,
+    thank_you_booking_page: thankYouBookingPageEN,
+    thank_you_reviews_page: thankYouReviewsPageEN,
   },
   uk: {
     button: buttonUK,
@@ -83,6 +89,8 @@ const resources = {
     filter_location: filterLocationUK,
     filter_vehicle_type: filterVehicleTypeUK,
     filter_vehicle_equipment: filterVehicleEquipmentUK,
+    thank_you_booking_page: thankYouBookingPageUK,
+    thank_you_reviews_page: thankYouReviewsPageUK,
   },
 };
 
@@ -115,6 +123,8 @@ i18n
       'filter_location',
       'filter_vehicle_type',
       'filter_vehicle_equipment',
+      'thank_you_booking_page',
+      'thank_you_reviews_page',
     ],
     defaultNS: 'home',
   });

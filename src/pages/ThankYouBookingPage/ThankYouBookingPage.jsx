@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import CloseButton from '../../components/Ui/Buttons/CloseButton/CloseButton.jsx';
@@ -5,6 +6,7 @@ import Loader from '../../components/Ui/Loader/Loader.jsx';
 import css from './ThankYouBookingPage.module.css';
 
 const ThankYouBookingPage = () => {
+  const { t } = useTranslation('thank_you_booking_page');
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -22,7 +24,7 @@ const ThankYouBookingPage = () => {
     <div className={css['container-page']}>
       <div className={css['buttons-container']}>
         <Link to="/catalog" className={css['go-back-link']}>
-          &lt; &nbsp; Return to catalog
+          &lt; &nbsp; {t('go_back_link')}
         </Link>
 
         <CloseButton
@@ -33,10 +35,8 @@ const ThankYouBookingPage = () => {
       </div>
 
       <div className={css.feedback}>
-        <h1>Your booking request has been received!</h1>
-        <p className={css.text}>
-          Our team will contact you shortly to confirm your booking details.
-        </p>
+        <h1 className={css['title-feedback']}>{t('title_feedback')}</h1>
+        <p className={css['text-feedback']}>{t('text_feedback')}</p>
       </div>
 
       {loading && <Loader type="overlay" />}

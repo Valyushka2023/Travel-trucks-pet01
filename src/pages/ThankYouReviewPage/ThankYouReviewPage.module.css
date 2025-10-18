@@ -67,7 +67,8 @@
   flex-grow: 1;
   justify-content: flex-start;
   align-items: center;
-  margin: 4.375rem 0;
+  /* margin: 4.375rem 0; */
+  margin: 7.375rem 0;
   padding: 0;
   text-align: center;
 }
@@ -79,7 +80,7 @@
   color: var(--primary-color);
 }
 
-.text {
+.text-feedback {
   max-width: 50rem;
   font-size: 2.5rem;
   line-height: 1.5;
@@ -97,7 +98,7 @@
     font-size: 2.75rem;
   }
 
-  .text {
+  .text-feedback {
     font-size: 2.25rem;
   }
 }
@@ -113,14 +114,14 @@
     font-size: 2.5rem;
   }
 
-  .text {
+  .text-feedback {
     font-size: 2rem;
   }
 }
 
 @media (width <= 47.9375rem) {
   .go-back-link {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
   }
   .page-close-button {
     font-size: 1.25rem;
@@ -129,7 +130,7 @@
     font-size: 2.25rem;
   }
 
-  .text {
+  .text-feedback {
     font-size: 1.75rem;
   }
 
@@ -149,7 +150,7 @@
     font-size: 2rem;
   }
 
-  .text {
+  .text-feedback {
     font-size: 1.5rem;
   }
 

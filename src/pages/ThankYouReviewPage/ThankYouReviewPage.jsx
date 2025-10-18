@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { fetchCamperById } from '../../services/api';
@@ -6,6 +7,7 @@ import Loader from '../../components/Ui/Loader/Loader.jsx';
 import css from './ThankYouReviewPage.module.css';
 
 const ThankYouReviewPage = () => {
+  const { t } = useTranslation('thank_you_reviews_page');
   const navigate = useNavigate();
   const location = useLocation();
   const { camperId } = location.state || {};
@@ -42,7 +44,7 @@ const ThankYouReviewPage = () => {
     <div className={css['container-page']}>
       <div className={css['buttons-container']}>
         <button onClick={handleGoBack} className={css['go-back-link']}>
-          &lt; &nbsp; Go back to catalog
+          &lt; &nbsp; {t('go_back_link')}
         </button>
         <CloseButton
           onClick={handleClose}
@@ -53,8 +55,8 @@ const ThankYouReviewPage = () => {
       </div>
 
       <div className={css.feedback}>
-        <h1>Thank you for your feedback!</h1>
-        <p className={css.text}>Your opinion is very important to us!</p>
+        <h1 className={css['title-feedback']}>{t('title_feedback')}</h1>
+        <p className={css['text-feedback']}>{t('text_feedback')}</p>
       </div>
     </div>
   );
