@@ -71,7 +71,7 @@ const FormReview = ({ camperId, onReviewAdded }) => {
       // console.log('6. onSubmit - Navigation to the thank you page...');
       navigate('/thank-you');
     } catch (err) {
-      // console.error('Error sending form:', err);
+      console.error('Error sending form:', err);
       // Можна обробити помилку тут, наприклад, показати сповіщення
     }
   };

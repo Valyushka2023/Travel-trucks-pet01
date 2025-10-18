@@ -55,7 +55,7 @@ function Review({ review }) {
 Review.propTypes = {
   review: PropTypes.shape({
     reviewer_name: PropTypes.string,
-    'reviewer name': PropTypes.string,
+    'reviewer-name': PropTypes.string,
     review_text: PropTypes.string,
     comment: PropTypes.string,
     reviewer_rating: PropTypes.number,

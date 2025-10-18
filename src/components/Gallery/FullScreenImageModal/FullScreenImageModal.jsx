@@ -105,7 +105,7 @@ function FullScreenImageModal({ imageUrl, onClose }) {
         <img
           src={imageUrl}
           // ✅ Fix img-redundant-alt (Рядок 32): Видалено "image"
-          alt="Full size photo of truck or camper"
+          alt="Truck or camper"
           className={css['full-screen-image']}
         />
         <button className={css['close-button']} onClick={onClose}>

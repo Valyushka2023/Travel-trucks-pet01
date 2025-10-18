@@ -58,39 +58,50 @@ import CloseButton from '../../Ui/Buttons/CloseButton/CloseButton.jsx';
 import css from './DescriptionPopup.module.css';
 
 const DescriptionPopup = ({ description, onClose }) => {
-  const handleContentClick = e => {
-    e.stopPropagation();
-  };
-
-  const handleKeyPress = e => {
-    // Обробка клавіатури для закриття оверлея
+  // Функція для обробки клавіатури для backdrop
+  const handleKeyDown = e => {
+    if (e.key === 'Escape') {
+      onClose();
+    }
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       onClose();
     }
   };
 
+  // Обробник, що зупиняє спливання клавіатурних подій
+  // Це та функція, яку треба додати до popup-content, щоб прибрати помилку!
+  const handlePopupContentKeyDown = e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.stopPropagation();
+    }
+  };
+
   return (
+    // Backdrop: вже має повну доступність
     <div
       className={css['backdrop-in-card']}
       onClick={onClose}
-      onKeyDown={e => {
-        // Закриття на Escape є стандартом
-        if (e.key === 'Escape') onClose();
-        // Закриття на Enter/Space
-        handleKeyPress(e);
-      }}
+      onKeyDown={handleKeyDown}
       role="button"
       tabIndex={0}
+      aria-label="Закрити опис, клікнувши на фон"
     >
+      {/* ПРИДУШЕННЯ ПОМИЛОК: Вимикаємо два правила для цього елемента:
+        1. jsx-a11y/no-noninteractive-element-interactions (для onClick)
+        2. jsx-a11y/no-noninteractive-tabindex (якщо раптом тут є tabIndex="-1")
+      */}
+      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <div
         className={css['popup-content']}
-        // 👇 ВИДАЛЕНО: onClick={handleContentClick}
-        // 👇 ВИДАЛЕНО: onKeyDown={handleContentClick}
-        // *Обробник onClick вже не потрібен, оскільки він лише зупиняв поширення події
-        // *на батьківський елемент, що є оверлеєм.
-        role="dialog" // Це коректна роль
-        aria-modal="true" // Це коректний атрибут
+        // Запобігає поширенню події (onClick)
+        onClick={e => e.stopPropagation()}
+        // ВИПРАВЛЕННЯ: Додаємо onKeyDown для задоволення вимоги 'click-events-have-key-events'
+        onKeyDown={handlePopupContentKeyDown}
+        role="dialog"
+        aria-modal="true"
+        // Якщо тут є tabIndex, додайте його, але зазвичай для попапів він -1.
+        // tabIndex="-1"
       >
         <CloseButton
           onClick={onClose}

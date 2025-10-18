@@ -28,8 +28,8 @@ const ThankYouReviewPage = () => {
         } else {
           navigate('/catalog');
         }
-      } catch (_) {
-        // console.error('Failed to fetch camper:', error);
+      } catch (error) {
+        console.error('Failed to fetch camper:', error);
         navigate('/catalog');
       } finally {
         setLoading(false);

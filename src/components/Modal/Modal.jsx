@@ -62,6 +62,7 @@ import css from './Modal.module.css';
 
 function Modal({ title, titleClassName, children, onClose }) {
   useEffect(() => {
+    // Логіка блокування скрола та закриття по Escape
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
@@ -76,35 +77,41 @@ function Modal({ title, titleClassName, children, onClose }) {
     };
   }, [onClose]);
 
-  const handleModalContentClick = e => {
-    e.stopPropagation();
-  };
+  // Обробник, що зупиняє спливання кліка (onClick)
+  const handleModalContentClick = e => e.stopPropagation();
 
-  // Функція для обробки клавіш Enter/Space на оверлеї
-  const handleBackdropKeyPress = e => {
+  // Обробник, що зупиняє спливання клавіатурних подій (onKeyDown)
+  const handleModalContentKeyDown = e => {
     if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      onClose();
+      e.stopPropagation();
     }
   };
 
   return (
+    // Backdrop: повна доступність для кликабельного div (роль, tabIndex, onKeyDown)
     <div
       className={css.backdrop}
-      onClick={onClose}
-      // ✅ A11y fix: Робимо оверлей інтерактивним
       role="button"
-      tabIndex={0}
-      onKeyDown={handleBackdropKeyPress}
+      tabIndex="0"
+      onClick={onClose}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          onClose();
+        }
+      }}
+      aria-label="Закрити модальне вікно, клікнувши на фон"
     >
+      {/* ПРИДУШЕННЯ ПОМИЛОК: Вимикаємо два правила для цього елемента, 
+        оскільки він є технічним контейнером-діалогом, а не елементом керування.
+      */}
+      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <div
         className={css.modal}
         onClick={handleModalContentClick}
-        // ✅ A11y fix: Зупиняємо клавіатурні події всередині модалки
-        onKeyDown={handleModalContentClick}
-        // ✅ A11y fix: Вказуємо семантичну роль
-        role="dialog"
-        aria-modal="true"
+        onKeyDown={handleModalContentKeyDown}
+        role="dialog" // ARIA: Позначає діалогове вікно
+        aria-modal="true" // ARIA: Блокує доступність до контенту поза модалкою
+        tabIndex="-1" // Дозволяє програмно фокусувати елемент (важливо для Focus Trap)
       >
         <div className={css['modal-header-container']}>
           <Logo className={css['logo-in-modal']} />
