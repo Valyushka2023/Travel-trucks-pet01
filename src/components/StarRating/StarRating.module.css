@@ -1,48 +1,59 @@
-.field-form {
+.label-input-wrapper {
   display: flex;
   align-items: center;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   width: 100%;
+  min-height: 3.5rem;
   padding: 0.5rem;
   box-sizing: border-box;
   background-color: var(--blok-field-form-bg-color);
-  border: 0.0625rem solid transparent;
   border-radius: var(--radius-sm);
 }
 
 .label {
   flex-shrink: 0;
-  min-width: 2.5rem;
+  min-width: 0;
+  white-space: normal;
+  word-break: break-word;
   font-size: 1rem;
   color: var(--tertiary-color);
+  text-align: left;
 }
 
-.input-and-error-wrapper {
+.field-input-and-field-error {
   position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
   display: flex;
-  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.field-input {
+  display: flex;
   align-items: center;
-  gap: 0.3125rem;
   width: 100%;
-  min-height: 2.25rem;
+  height: 2.5rem;
   padding: 0 1.125rem;
-  background-color: var(--body-bg-color);
+  box-sizing: border-box;
+  background-color: var(--blok-field-input-area-bg-color-1);
   border: 0.0625rem solid var(--border-color);
   border-radius: var(--radius-sm);
-  line-height: 1.5;
+  font-size: 1rem;
+  color: var(--primary-color);
 }
 
-.input-and-error-wrapper.input-error {
-  border-color: var(--error-color) !important;
-}
-
-.input-and-error-wrapper:hover {
+.field-input:hover {
   border: 0.0625rem solid var(--hover-color);
 }
-
+.field-error {
+  border-color: var(--error-color) !important;
+}
+/*-----------------------------*/
 .stars {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .star {
@@ -54,7 +65,7 @@
   padding: 0;
   background: none;
   border: none;
-  font-size: 1rem;
+
   line-height: 1;
 }
 
@@ -70,7 +81,7 @@
   border-radius: 0.1875rem;
   outline: 0.0625rem solid var(--secondary-color);
 }
-
+/*-----------------------*/
 .error-popup {
   position: absolute;
   top: calc(100% + 0.25rem);
@@ -80,10 +91,10 @@
   padding: 0.25rem 0.5rem;
   background-color: var(--body-bg-color);
   border: 0.0625rem solid var(--error-color);
-  border-radius: var(--border-radius-small);
+  border-radius: var(--radius-sm);
   box-shadow: var(--box-shadow);
-  font-size: 0.9em;
-  letter-spacing: 0.0563rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.056rem;
   white-space: nowrap;
   color: var(--error-color);
 }

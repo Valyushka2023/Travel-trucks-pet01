@@ -78,7 +78,7 @@
   height: 2.5rem;
   padding: 0 1.125rem;
   box-sizing: border-box;
-  background-color: var(--blok-field-input-bg-color);
+  background-color: var(--blok-field-input-area-bg-color);
   border: 0.0625rem solid var(--border-color);
   border-radius: var(--radius-sm);
   font-size: 1rem;
@@ -184,7 +184,7 @@
   cursor: text;
   padding: 0.0625rem 1.125rem;
   box-sizing: border-box;
-  background-color: var(--blok-field-input-bg-color);
+  background-color: var(--blok-field-input-area-bg-color);
   border: 0.0625rem solid var(--border-color);
   border-radius: var(--radius-sm);
   font-size: 1.1rem;

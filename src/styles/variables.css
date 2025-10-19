@@ -118,7 +118,8 @@
   --blok-location-bg-color: var(--color-light-gray-2);
   --blok-description-bg-color: var(--color-light-gray-2);
   --blok-field-form-bg-color: var(--color-light-gray-2);
-  --blok-field-input-bg-color: var(--color-light-gray-3);
+  --blok-field-input-area-bg-color: var(--color-light-gray-3);
+  --blok-field-input-area-bg-color-1: var(--color-off-white);
   --scrollbar-track-bg-color: var(--color-light-gray);
   --scrollbar-thumb-bg-color: var(--color-light-gray-4);
 

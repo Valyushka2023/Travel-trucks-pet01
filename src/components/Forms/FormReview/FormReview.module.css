@@ -14,144 +14,99 @@
   box-shadow: var(--box-shadow);
 }
 
-.title-form {
+.title-text-form {
   display: flex;
   flex-direction: column;
   align-items: start;
   width: 100%;
   margin: 0;
-  background-color: rgb(166, 0, 255);
 }
 
-.text-title-form {
+.title-form {
   margin: 0;
   color: var(--primary-color);
 }
 
-.textform {
+.text-form {
   margin: 0;
   color: var(--secondary-color);
 }
 
-.inputs-area {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.inputs {
+.inputs-area-form {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
   width: 100%;
 }
-
-.input-and-error-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  gap: var(--spacing-sm);
-  width: 100%;
-  background-color: var(--primary-bg-color);
-}
-
-.field-form {
+/*-------------------*/
+.label-input-wrapper {
   display: flex;
   align-items: center;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   width: 100%;
+  min-height: 3.5rem;
   padding: 0.5rem;
   box-sizing: border-box;
   background-color: var(--blok-field-form-bg-color);
   border-radius: var(--radius-sm);
-}
-
-.field-area {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-lg);
-  width: 100%;
-  padding: 0.5rem;
-  box-sizing: border-box;
-  background-color: var(--blok-field-form-bg-color);
-  border-radius: var(--radius-sm);
-}
-
-.comment-and-counterr-wapper {
-  display: flex;
-  flex-direction: column;
-  /* gap: var(--spacing-sm); */
-  /* min-width: 5rem; */
 }
 
 .label {
-  flex-shrink: 0;
-  min-width: 2.5rem;
+  flex: 0 1 auto;
+  min-width: 0;
+  white-space: normal;
+  word-break: break-word;
   font-size: 1rem;
   color: var(--tertiary-color);
+  text-align: left;
 }
 
-.label-comment {
-  flex-shrink: 0;
-  min-width: 2.5rem;
-  /* margin-top: 0.0625rem; */
-  font-size: 1rem;
-  color: var(--tertiary-color);
-}
-
-.modal-input,
-.modal-text-area {
+.field-input-and-field-error {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
   display: flex;
-  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.field-input {
+  display: flex;
   align-items: center;
-  /* cursor: pointer; */
-  cursor: text;
   width: 100%;
-  min-height: 1.5rem;
-  padding: 0.0625 1.125rem;
+  height: 2.5rem;
+  padding: 0 1.125rem;
   box-sizing: border-box;
-  background-color: var(--body-bg-color);
+  background-color: var(--blok-field-input-area-bg-color-1);
+  /* background-color: var(--body-bg-color); */
   border: 0.0625rem solid var(--border-color);
   border-radius: var(--radius-sm);
-  font-family: inherit;
   font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: 0.056rem;
-  color: var(--secondary-color);
+  color: var(--primary-color);
+  /* min-height: 2.25rem; */
 }
 
-.modal-input::placeholder,
-.modal-text-area::placeholder {
-  /* font-family: inherit; */
-  /* font-size: 1rem;
-  font-weight: 400;
-  opacity: 1; */
-  color: var(--placeholder-form-reviews-color);
-}
-
-.modal-input {
-  min-height: 2.25rem;
-}
-
-.modal-text-area {
-  display: block;
-  flex-shrink: 0;
-  justify-content: center;
-  min-height: 5.125rem;
-  resize: vertical;
-}
-
-.modal-input:hover,
-.modal-text-area:hover {
+.field-input:hover {
   border: 0.0625rem solid var(--hover-color);
 }
+/*----------------*/
 
-.element-submit {
+.label-area-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
   width: 100%;
-  margin-top: auto;
-  text-align: center;
+  min-height: 5.5rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background-color: var(--blok-field-form-bg-color);
+  border-radius: var(--radius-sm);
+}
+
+.label-and-counter-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.0625rem;
 }
 
 .char-count {
@@ -167,6 +122,67 @@
 .char-count-warning {
   font-weight: bold;
   color: var(--warning-color);
+}
+
+.field-area-and-field-error {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--spacing-sm);
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.field-area {
+  display: block;
+  flex: 1;
+  align-items: center;
+  cursor: text;
+  padding: 0.0625rem 1.125rem;
+  box-sizing: border-box;
+  background-color: var(--blok-field-input-area-bg-color-1);
+  border: 0.0625rem solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  min-height: 5.5rem;
+  color: var(--primary-color);
+}
+
+.field-area::placeholder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  opacity: 1;
+  color: var(--placeholder-form-reviews-color);
+}
+
+.field-area:hover {
+  border: 0.0625rem solid var(--hover-color);
+}
+
+/*---------------------*/
+.element-submit {
+  width: 100%;
+  margin-top: auto;
+  text-align: center;
+}
+/*---------------------*/
+
+.field-error {
+  border-color: var(--error-color) !important;
+}
+
+.error-popup::before {
+  position: absolute;
+  bottom: 100%;
+  left: 0.625rem;
+  border-color: transparent transparent var(--error-color);
+  border-style: solid;
+  border-width: 0 0.375rem 0.375rem;
+  content: '';
 }
 
 .error-popup,
@@ -193,32 +209,19 @@
   white-space: normal;
 }
 
-.input-error {
-  border-color: var(--error-color) !important;
-}
-
-.error-popup::before {
-  position: absolute;
-  bottom: 100%;
-  left: 0.625rem;
-  border-color: transparent transparent var(--error-color);
-  border-style: solid;
-  border-width: 0 0.375rem 0.375rem;
-  content: '';
-}
-
 @media (width <= 74.9375rem) {
   .form {
     padding: var(--padding-form-lg);
+  }
+
+  .title-text-form {
+    align-items: center;
   }
 }
 
 @media (width <= 61.9375rem) {
   .form {
     padding: var(--padding-form-md);
-  }
-  .title-form {
-    align-items: center;
   }
 }
 
@@ -231,5 +234,37 @@
 @media (width <= 29.9375rem) {
   .form {
     padding: var(--padding-form-xs);
+  }
+  .label-input-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .label {
+    width: 100%;
+  }
+
+  .field-input-and-field-error {
+    width: 100%;
+  }
+
+  .label-area-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .label-and-counter-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .char-count {
+    text-align: right;
+    white-space: nowrap;
+  }
+  .field-area-and-field-error {
+    width: 100%;
   }
 }

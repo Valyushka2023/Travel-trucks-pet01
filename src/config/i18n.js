@@ -43,6 +43,8 @@ import thankYouBookingPageEN from '../locales/en/thank_you_booking_page.json'; /
 import thankYouBookingPageUK from '../locales/uk/thank_you_booking_page.json'; // <--- ДОДАНО
 import thankYouReviewsPageEN from '../locales/en/thank_you_reviews.page.json'; // <--- ДОДАНО
 import thankYouReviewsPageUK from '../locales/uk/thank_you_reviews_page.json'; // <--- ДОДАНО
+import starRatingEN from '../locales/en/star_rating.json'; // <--- ДОДАНО
+import starRatingUK from '../locales/uk/star_rating.json'; // <--- ДОДАНО
 
 // Ресурси перекладів
 const resources = {
@@ -60,7 +62,6 @@ const resources = {
     services_modal: servicesModalEN,
     prices_modal: pricesModalEN,
     contacts_modal: contactsModalEN,
-    // form_booking: formBookingEN,
     tabs: tabsEN,
     vechicle_details: vechicleDetailsEN,
     filter_location: filterLocationEN,
@@ -68,6 +69,7 @@ const resources = {
     filter_vehicle_equipment: filterVehicleEquipmentEN,
     thank_you_booking_page: thankYouBookingPageEN,
     thank_you_reviews_page: thankYouReviewsPageEN,
+    star_rating: starRatingEN,
   },
   uk: {
     button: buttonUK,
@@ -83,7 +85,6 @@ const resources = {
     services_modal: servicesModalUK,
     prices_modal: pricesModalUK,
     contacts_modal: contactsModalUK,
-    // form_booking: formBookingUK,
     tabs: tabsUK,
     vechicle_details: vechicleDetailsUK,
     filter_location: filterLocationUK,
@@ -91,6 +92,7 @@ const resources = {
     filter_vehicle_equipment: filterVehicleEquipmentUK,
     thank_you_booking_page: thankYouBookingPageUK,
     thank_you_reviews_page: thankYouReviewsPageUK,
+    star_rating: starRatingUK,
   },
 };
 
@@ -125,6 +127,7 @@ i18n
       'filter_vehicle_equipment',
       'thank_you_booking_page',
       'thank_you_reviews_page',
+      'star_rating',
     ],
     defaultNS: 'home',
   });

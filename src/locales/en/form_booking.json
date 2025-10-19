@@ -6,15 +6,17 @@
   "phone_label": "Phone",
   "from_date-time_label": "From (date,time)",
   "to_date_time_label": "To (date,time)",
+  "booking_start_date_placeholder": "Start date, time",
+  "booking_end_date_placeholder": "End date, time",
   "comment_label": "Comment",
   "comment_placeholder": "Your message",
   "errors": {
     "required": "Please fill in the field.",
-    "nameLength": "The name must be between 2 and 20 characters.",
-    "invalidEmail": "Incorrect email format.",
-    "emailTooLong": "Email is too long.",
-    "invalidPhone": "Incorrect phone number format.",
-    "invalidEndDate": "End date and time must be after the start date and time.",
-    "commentTooLong": "The comment must be up to 250 characters long."
+    "name_length": "The name must be between 2 and 20 characters.",
+    "invalid_email": "Incorrect email format.",
+    "email_too_long": "Email is too long.",
+    "invalid_phone": "Incorrect phone number format.",
+    "invalid_end_date": "End date and time must be after the start date and time.",
+    "comment_too_long": "The comment must be up to 250 characters long."
   }
 }

@@ -35,23 +35,23 @@ function FormBooking({ camper }) {
       !value.trim()
         ? t('errors.required')
         : value.length < 2 || value.length > 20
-          ? t('errors.nameLength')
+          ? t('errors.name_length')
           : null,
 
     email: value =>
       !value.trim()
         ? t('errors.required')
         : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-          ? t('errors.invalidEmail')
+          ? t('errors.invalid_email')
           : value.length > 50
-            ? t('errors.emailTooLong')
+            ? t('errors.email_too_long')
             : null,
 
     phone: value =>
       !value.trim()
         ? t('errors.required')
         : !/^\+?\d{10,15}$/.test(value)
-          ? t('errors.invalidPhone')
+          ? t('errors.invalid_phone')
           : null,
 
     bookingStartDate: value => (!value ? t('errors.required') : null),
@@ -65,7 +65,7 @@ function FormBooking({ camper }) {
         allFormData.bookingStartDate &&
         value <= allFormData.bookingStartDate
       ) {
-        return t('errors.invalidEndDate');
+        return t('errors.invalid_end_date');
       }
       return null;
     },
@@ -74,7 +74,7 @@ function FormBooking({ camper }) {
       !value.trim()
         ? t('errors.required')
         : value.length > 250
-          ? t('errors.commentTooLong')
+          ? t('errors.comment_too_long')
           : null,
   };
 
@@ -225,7 +225,7 @@ function FormBooking({ camper }) {
                 [css['field-error']]:
                   hasAttemptedSubmit && errors.bookingStartDate,
               })}
-              placeholderText="Start date, time"
+              placeholderText={t('booking_start_date_placeholder')}
               required
               minDate={new Date()}
               // Встановлюємо високий z-index
@@ -259,7 +259,7 @@ function FormBooking({ camper }) {
                 [css['field-error']]:
                   hasAttemptedSubmit && errors.bookingEndDate,
               })}
-              placeholderText="End date, time"
+              placeholderText={t('booking_end_date_placeholder')}
               required
               // MinDate гарантує, що кінець не раніше початку
               minDate={formData.bookingStartDate || new Date()}

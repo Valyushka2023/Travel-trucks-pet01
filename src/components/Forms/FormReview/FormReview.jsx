@@ -9,7 +9,7 @@ import StarRating from '../../StarRating/StarRating.jsx';
 import css from './FormReview.module.css';
 
 const FormReview = ({ camperId, onReviewAdded }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('form_reviews');
   const navigate = useNavigate();
 
   const initialState = {
@@ -22,24 +22,24 @@ const FormReview = ({ camperId, onReviewAdded }) => {
   const validationRules = {
     name: value =>
       !value.trim()
-        ? 'Please fill in this field.'
+        ? t('errors.required')
         : value.length < 2 || value.length > 20
-          ? 'The name must be between 2 and 20 characters long.'
+          ? t('errors.name_length')
           : null,
     email: value =>
       !value.trim()
-        ? 'Please fill in this field.'
+        ? t('errors.required')
         : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-          ? 'Invalid email format.'
+          ? t('errors.invalid_email')
           : value.length > 40
-            ? 'Email is too long.'
+            ? t('errors.email_tooLong')
             : null,
-    rating: value => (!value ? 'Please rate.' : null),
+    rating: value => (!value ? t('errors.rating') : null),
     comment: value =>
       !value.trim()
-        ? 'Please fill in this field.'
+        ? t('errors.required')
         : value.length > 150
-          ? 'The comment must contain up to 150 characters.'
+          ? t('errors.comment_tooLong')
           : null,
   };
 
@@ -95,103 +95,100 @@ const FormReview = ({ camperId, onReviewAdded }) => {
 
   return (
     <form className={css.form} onSubmit={handleSubmit} noValidate>
-      <div className={css['title-form']}>
-        <h3 className={css['text-title-form']}>Submit your review now</h3>
-        <p className={css['text-form']}>
-          Stay connected! We are always ready to help you.
-        </p>
+      <div className={css['title-text-form']}>
+        <h3 className={css['title-form']}>{t('title')}</h3>
+        <p className={css['text-form']}>{t('text')}</p>
       </div>
-      <div className={css['inputs-area']}>
-        <div className={css.inputs}>
-          <div className={css['field-form']}>
-            <label htmlFor="user-name-input" className={css.label}>
-              Name*
-            </label>
-            <div className={css['input-and-error-wrapper']}>
-              <input
-                id="user-name-input"
-                name="name"
-                type="text"
-                className={clsx(css['modal-input'], {
-                  [css['input-error']]: hasAttemptedSubmit && errors.name,
-                })}
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-              />
-              {hasAttemptedSubmit && errors.name && (
-                <p className={css['error-popup']}>{errors.name}</p>
-              )}
-            </div>
+      <div className={css['inputs-area-form']}>
+        <div className={css['label-input-wrapper']}>
+          <label htmlFor="user-name-input" className={css.label}>
+            {t('name_label')}*
+          </label>
+          <div className={css['field-input-and-field-error']}>
+            <input
+              id="user-name-input"
+              name="name"
+              type="text"
+              className={clsx(css['field-input'], {
+                [css['field-error']]: hasAttemptedSubmit && errors.name,
+              })}
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+            />
+            {hasAttemptedSubmit && errors.name && (
+              <p className={css['error-popup']}>{errors.name}</p>
+            )}
           </div>
+        </div>
 
-          <div className={css['field-form']}>
-            <label htmlFor="user-email-input" className={css.label}>
-              Email*
-            </label>
-            <div className={css['input-and-error-wrapper']}>
-              <input
-                id="user-email-input"
-                name="email"
-                type="email"
-                className={clsx(css['modal-input'], {
-                  [css['input-error']]: hasAttemptedSubmit && errors.email,
-                })}
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-              {hasAttemptedSubmit && errors.email && (
-                <p className={css['error-popup']}>{errors.email}</p>
-              )}
-            </div>
+        <div className={css['label-input-wrapper']}>
+          <label htmlFor="user-email-input" className={css.label}>
+            {t('email_label')}*
+          </label>
+          <div className={css['field-input-and-field-error']}>
+            <input
+              id="user-email-input"
+              name="email"
+              type="email"
+              className={clsx(css['field-input'], {
+                [css['field-error']]: hasAttemptedSubmit && errors.email,
+              })}
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+            />
+            {hasAttemptedSubmit && errors.email && (
+              <p className={css['error-popup']}>{errors.email}</p>
+            )}
           </div>
+        </div>
 
-          <StarRating
-            value={formData.rating}
-            onChange={rating =>
-              handleInputChange({ target: { name: 'rating', value: rating } })
-            }
-            name="rating"
-            error={hasAttemptedSubmit ? errors.rating : null}
-            accessible={true}
-            className={css['rating-field']}
-          />
+        <StarRating
+          value={formData.rating}
+          onChange={rating =>
+            handleInputChange({ target: { name: 'rating', value: rating } })
+          }
+          name="rating"
+          error={hasAttemptedSubmit ? errors.rating : null}
+          accessible={true}
+          className={css['rating-field']}
+        />
 
-          <div className={css['field-area']}>
-            <div className={css['comment-and-counter-wrapper']}>
-              <label htmlFor="user-comment" className={css['label-comment']}>
-                Comment*
-              </label>
-              <p
-                className={clsx(css['char-count'], {
-                  [css['char-count-warning']]: formData.comment.length >= 150,
-                })}
-              >
-                {formData.comment.length} / 150
-              </p>
-            </div>
-            <div
-              className={clsx(
-                css['input-and-error-wrapper'],
-                css['comment-input-wrapper']
-              )}
+        <div className={css['label-area-wrapper']}>
+          <div className={css['label-and-counter-wrapper']}>
+            <label htmlFor="user-comment" className={css.label}>
+              {t('comment_label')}*
+            </label>
+            <p
+              className={clsx(css['char-count'], {
+                [css['char-count-warning']]: formData.comment.length >= 150,
+              })}
             >
-              <textarea
-                id="user-comment"
-                name="comment"
-                placeholder="Your message"
-                className={clsx(css['modal-text-area'], {
-                  [css['input-error']]: hasAttemptedSubmit && errors.comment,
-                })}
-                value={formData.comment}
-                onChange={handleInputChange}
-                required
-              />
-              {hasAttemptedSubmit && errors.comment && (
-                <p className={css['error-popup']}>{errors.comment}</p>
-              )}
-            </div>
+              {formData.comment.length} / 150
+            </p>
+          </div>
+          {/* <div
+            className={clsx(
+              css['input-and-error-wrapper'],
+              css['comment-input-wrapper']
+            )}
+          > */}
+          <div className={clsx(css['field-area-and-field-error'])}>
+            <textarea
+              id="user-comment"
+              name="comment"
+              placeholder={t('comment_placeholder')}
+              className={clsx(css['field-area'], {
+                [css['field-error']]: hasAttemptedSubmit && errors.comment,
+              })}
+              value={formData.comment}
+              onChange={handleInputChange}
+              required
+            />
+            {hasAttemptedSubmit && errors.comment && (
+              <p className={css['error-popup']}>{errors.comment}</p>
+            )}
           </div>
         </div>
       </div>
