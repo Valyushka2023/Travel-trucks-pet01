@@ -3,10 +3,15 @@ import axios from 'axios';
 const BOOKINGS_ENDPOINT = '/bookings';
 const BACKEND_BASE_URL = import.meta.env.VITE_API_URL;
 
-// ✅ Отримати список усіх кемперів (з optional фільтрами)
-export const fetchCampers = async (params = {}) => {
+// =========================================================================
+// ✅ Отримати список усіх кемперів (з optional фільтрами та мовою)
+// =========================================================================
+export const fetchCampers = async (params = {}, lang = 'en') => {
   try {
-    const searchParams = new URLSearchParams(params).toString();
+    // 💥 ЗМІНА: Додаємо мову до всіх параметрів запиту
+    const allParams = { ...params, lang };
+
+    const searchParams = new URLSearchParams(allParams).toString();
     const url = searchParams
       ? `${BACKEND_BASE_URL}/campers?${searchParams}`
       : `${BACKEND_BASE_URL}/campers`;
@@ -35,12 +40,16 @@ export const fetchCampers = async (params = {}) => {
   }
 };
 
-// ✅ Отримати одного кемпера за ID
-export const fetchCamperById = async id => {
+// =========================================================================
+// ✅ Отримати одного кемпера за ID (з параметром мови)
+// =========================================================================
+export const fetchCamperById = async (id, lang = 'en') => {
+  // 💥 ЗМІНА: Додаємо параметр lang
   try {
     if (!id) return null;
 
-    const url = `${BACKEND_BASE_URL}/campers/${id}`;
+    // 💥 ЗМІНА: Додаємо параметр мови до URL
+    const url = `${BACKEND_BASE_URL}/campers/${id}?lang=${lang}`;
 
     // console.log(`Sending GET request to: ${url}`);
 
@@ -64,7 +73,9 @@ export const fetchCamperById = async id => {
   }
 };
 
+// =========================================================================
 // ✅ Надіслати відгук
+// =========================================================================
 export const sendReview = async reviewData => {
   try {
     const { camperId, ...reviewFields } = reviewData;
@@ -94,7 +105,9 @@ export const sendReview = async reviewData => {
   }
 };
 
+// =========================================================================
 // ✅ Надіслати запит на бронювання
+// =========================================================================
 export const sendBookingRequest = async bookingData => {
   try {
     const url = `${BACKEND_BASE_URL}${BOOKINGS_ENDPOINT}`;

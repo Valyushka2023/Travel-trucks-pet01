@@ -1,3 +1,11 @@
 {
-  "vehicle_type": "Vehicle type"
+  "vehicle_type": "Vehicle type",
+  "label_van": "Van",
+  "aria_van": "Van (Panel Van or Campervan)",
+
+  "label_fully_integrated": "Fully Integrated",
+  "aria_fully_integrated": "Fully Integrated (A-Class) Camper",
+
+  "label_alcove": "Alcove",
+  "aria_alcove": "Alcove Camper"
 }

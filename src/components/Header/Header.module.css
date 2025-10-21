@@ -24,11 +24,10 @@
 
 .toggle-icons {
   display: flex;
-  /* justify-content: center; */
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 
 .menu {
