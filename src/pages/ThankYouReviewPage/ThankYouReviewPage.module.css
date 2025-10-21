@@ -7,7 +7,7 @@
   max-height: 100vh;
   overflow-y: auto;
   margin: 0 auto;
-  padding: var(--padding-form-xl);
+  padding: var(--padding-form-md);
   box-sizing: border-box;
   background-color: var(--body-bg-color);
 }

@@ -4,6 +4,9 @@
   "length": "Довжина",
   "width": "Ширина",
   "height": "Висота",
-  "tank": "Резервуар",
-  "consumption": "Споживання"
+  "tank": "Паливний бак",
+  "consumption": "Витрати палива",
+  "form_alcove": "Альковий",
+  "form_fullyintegrated": "Повністю інтегрований",
+  "form_paneltruck": "Фургон"
 }

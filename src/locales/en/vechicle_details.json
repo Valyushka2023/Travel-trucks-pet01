@@ -5,5 +5,8 @@
   "width": "Width",
   "height": "Height",
   "tank": "Tank",
-  "consumption": "Consumption"
+  "consumption": "Consumption",
+  "form_alcove": "Alcove",
+  "form_fullyintegrated": "Fully Integrated",
+  "form_paneltruck": "Panel Truck"
 }

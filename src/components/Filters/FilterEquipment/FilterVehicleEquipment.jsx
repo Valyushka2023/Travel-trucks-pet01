@@ -114,7 +114,7 @@ const filterButtons = [
     icon: 'transmission',
     labelKey: 'label_transmission',
     label: 'Automatic',
-    ariaLabelKey: 'aria_transmission', // 👈 Використовуємо ключ
+    ariaLabelKey: 'aria_transmission',
     type: 'string',
   },
   {

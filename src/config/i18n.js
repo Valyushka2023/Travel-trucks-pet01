@@ -146,7 +146,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-// --- Імпорт файлів перекладу --- //
+// --- Імпорт файлів перекладу (EN) --- //
 import buttonEN from '../locales/en/button.json';
 import homeEN from '../locales/en/home.json';
 import catalogEN from '../locales/en/catalog.json';
@@ -169,7 +169,17 @@ import thankYouBookingPageEN from '../locales/en/thank_you_booking_page.json';
 import thankYouReviewsPageEN from '../locales/en/thank_you_reviews.page.json';
 import starRatingEN from '../locales/en/star_rating.json';
 import cardEN from '../locales/en/card.json';
+import featureIconEN from '../locales/en/feature_icon.json';
 
+// --- Оновлений namespace для одиниць виміру (англійська) --- //
+const unitsEN = {
+  m: 'm',
+  l: 'l',
+  km: 'km',
+  l_per_100km: 'l/100km', // ✅ Додано ключ для витрати палива
+};
+
+// --- Імпорт файлів перекладу (UK) --- //
 import buttonUK from '../locales/uk/button.json';
 import homeUK from '../locales/uk/home.json';
 import catalogUK from '../locales/uk/catalog.json';
@@ -192,8 +202,17 @@ import thankYouBookingPageUK from '../locales/uk/thank_you_booking_page.json';
 import thankYouReviewsPageUK from '../locales/uk/thank_you_reviews_page.json';
 import starRatingUK from '../locales/uk/star_rating.json';
 import cardUK from '../locales/uk/card.json';
+import featureIconUK from '../locales/uk/feature_icon.json';
 
-// --- Ресурси перекладів --- //
+// --- Оновлений namespace для одиниць виміру (українська) --- //
+const unitsUK = {
+  m: 'м',
+  l: 'л',
+  km: 'км',
+  l_per_100km: 'л/100км', // ✅ Додано ключ для витрати палива
+};
+
+// --- Підключення всіх перекладів --- //
 const resources = {
   en: {
     button: buttonEN,
@@ -218,6 +237,8 @@ const resources = {
     thank_you_reviews_page: thankYouReviewsPageEN,
     star_rating: starRatingEN,
     card: cardEN,
+    feature_icon: featureIconEN, // ✅ Виправлено ім'я namespace
+    units: unitsEN, // ✅ Додано новий namespace
   },
   uk: {
     button: buttonUK,
@@ -242,20 +263,21 @@ const resources = {
     thank_you_reviews_page: thankYouReviewsPageUK,
     star_rating: starRatingUK,
     card: cardUK,
+    feature_icon: featureIconUK, // ✅ Виправлено ім'я namespace
+    units: unitsUK, // ✅ Додано новий namespace
   },
 };
 
 // --- Ініціалізація i18next --- //
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'en', // Поточна мова за замовчуванням
+  lng: 'en',
   fallbackLng: 'en',
 
   interpolation: {
-    escapeValue: false, // React вже екранує HTML
+    escapeValue: false,
   },
 
-  // 🟢 Додаємо всі namespace
   ns: [
     'button',
     'home',
@@ -279,9 +301,10 @@ i18n.use(initReactI18next).init({
     'thank_you_reviews_page',
     'star_rating',
     'card',
+    'feature_icon',
+    'units', // ✅ Додано до namespace
   ],
 
-  // 🟡 Головний namespace, який буде fallback-ом
   defaultNS: 'home',
 });
 

@@ -94,11 +94,12 @@ import css from './FilterVehicleType.module.css';
 
 const filterButtons = [
   {
-    icon: 'van',
-    labelKey: 'label_van',
-    ariaLabelKey: 'aria_van',
+    icon: 'panelTruck',
+    labelKey: 'label_panel-truck',
+    ariaLabelKey: 'aria_panel-truck',
     isMultiLine: false,
   },
+
   {
     icon: 'fullyIntegrated',
     labelKey: 'label_fully_integrated',

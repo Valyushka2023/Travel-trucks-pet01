@@ -1,7 +1,7 @@
 {
   "vehicle_type": "Vehicle type",
-  "label_van": "Van",
-  "aria_van": "Van (Panel Van or Campervan)",
+  "label_panel-truck": "Panel Truck",
+  "aria_panel-truck": "Van (Panel Truck or Campervan)",
 
   "label_fully_integrated": "Fully Integrated",
   "aria_fully_integrated": "Fully Integrated (A-Class) Camper",
