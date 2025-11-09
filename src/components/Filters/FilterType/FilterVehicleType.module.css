@@ -8,11 +8,13 @@
 .text-type {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 11.3125rem;
   height: 1.5rem;
   margin: 0;
   line-height: normal;
   color: var(--primary-color);
+  width: 100%;
 }
 
 .divider {

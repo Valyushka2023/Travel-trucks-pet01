@@ -170,6 +170,7 @@ import thankYouReviewsPageEN from '../locales/en/thank_you_reviews.page.json';
 import starRatingEN from '../locales/en/star_rating.json';
 import cardEN from '../locales/en/card.json';
 import featureIconEN from '../locales/en/feature_icon.json';
+import errorComponentEN from '../locales/en/error_component.json';
 
 // --- Оновлений namespace для одиниць виміру (англійська) --- //
 const unitsEN = {
@@ -203,6 +204,7 @@ import thankYouReviewsPageUK from '../locales/uk/thank_you_reviews_page.json';
 import starRatingUK from '../locales/uk/star_rating.json';
 import cardUK from '../locales/uk/card.json';
 import featureIconUK from '../locales/uk/feature_icon.json';
+import errorComponentUK from '../locales/uk/error_component.json';
 
 // --- Оновлений namespace для одиниць виміру (українська) --- //
 const unitsUK = {
@@ -239,6 +241,7 @@ const resources = {
     card: cardEN,
     feature_icon: featureIconEN, // ✅ Виправлено ім'я namespace
     units: unitsEN, // ✅ Додано новий namespace
+    error_component: errorComponentEN,
   },
   uk: {
     button: buttonUK,
@@ -265,6 +268,7 @@ const resources = {
     card: cardUK,
     feature_icon: featureIconUK, // ✅ Виправлено ім'я namespace
     units: unitsUK, // ✅ Додано новий namespace
+    error_component: errorComponentUK,
   },
 };
 
@@ -302,7 +306,8 @@ i18n.use(initReactI18next).init({
     'star_rating',
     'card',
     'feature_icon',
-    'units', // ✅ Додано до namespace
+    'units', // ✅ Додано до namespac
+    'error_component',
   ],
 
   defaultNS: 'home',

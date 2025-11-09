@@ -1,16 +1,21 @@
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import css from './ErrorComponent.module.css';
 
-function ErrorComponent({ error, onRetry }) {
+const ErrorComponent = ({ error, onRetry }) => {
+  const { t } = useTranslation('errorComponent');
+
   return (
     <div className={css['error-container']}>
-      <p className={css['error-message']}>An error occurred: {error}</p>
+      <p className={css['error-message']}>
+        {t('error_message')} {error}
+      </p>
       <button className={css['retry-button']} onClick={onRetry}>
-        Retry download
+        {t('retry_button', { ns: 'errorComponent' })}
       </button>
     </div>
   );
-}
+};
 
 ErrorComponent.propTypes = {
   error: PropTypes.string.isRequired,
