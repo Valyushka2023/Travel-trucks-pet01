@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* gap: 0.9rem; */
   gap: 1.3rem;
   margin: 0;
   padding: 0;
@@ -15,10 +14,7 @@
   font-weight: 500;
   text-decoration: none;
   color: var(--primary-color-1);
-
-  /* color: var(--color-ultramarine); */
   --color-light-blue: #add8e6;
-
   transition:
     color 0.3s ease,
     transform 0.3s ease;

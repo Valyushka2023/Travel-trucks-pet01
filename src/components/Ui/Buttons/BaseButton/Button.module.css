@@ -23,8 +23,6 @@
 }
 
 .small {
-  /* min-width: 9.0625rem; */
-  /* padding: 1rem 1.5rem; */
   border: 0.125rem solid var(--border-color);
 }
 

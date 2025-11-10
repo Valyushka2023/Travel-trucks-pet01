@@ -8,7 +8,6 @@
 
 .header-container {
   display: flex;
-  /* justify-content: space-between; */
   justify-content: space-around;
   align-items: center;
   max-width: 90rem;
@@ -27,7 +26,6 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  /* vertical-align: middle; */
 }
 
 .menu {

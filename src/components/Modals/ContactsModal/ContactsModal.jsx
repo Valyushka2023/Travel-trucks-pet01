@@ -4,7 +4,7 @@ import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import Modal from '../../Modal/Modal.jsx';
 import css from './ContactsModal.module.css';
 
-// --- Визначення констант для демонстрації перекладу параграфів (залишаємо) ---
+// Визначення констант для демонстрації перекладу параграфів /
 const DEFAULT_PARAGRAPH_KEYS = ['info.address', 'info.working_hours'];
 
 const FALLBACK_PARAGRAPHS = [
@@ -12,9 +12,6 @@ const FALLBACK_PARAGRAPHS = [
   'Our customer support operates 24/7.',
 ];
 // -------------------------------------------------------------------------
-
-// --- ВИДАЛЕНО: Статичний масив contacts, оскільки дані будуть завантажуватися з i18n ---
-// const contacts = [...]
 
 const ContactsModal = ({ onClose }) => {
   // Встановлюємо простір імен 'contacts_modal'

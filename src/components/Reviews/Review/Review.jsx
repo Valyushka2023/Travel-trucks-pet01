@@ -1,23 +1,24 @@
+import { useTranslation } from 'react-i18next';
 import Avatar from '../../Ui/Avatars/Avatar.jsx';
 import PropTypes from 'prop-types';
-
 import css from './Review.module.css';
 
 function Review({ review }) {
+  const { t, i18n } = useTranslation('common');
   if (!review) {
-    return <p className={css['no-review']}>Review data is not available.</p>;
+    return <p className={css['no-review']}>{t('review_data_unavailable')}</p>;
   }
 
   const reviewerName = review.reviewer_name || review['reviewer-name'];
   const reviewText = review.review_text || review.comment;
   const reviewerRating = review.reviewer_rating ?? 0;
   const createdAt = review.createdAt
-    ? new Date(review.createdAt).toLocaleDateString('en-GB', {
+    ? new Date(review.createdAt).toLocaleDateString(i18n.language, {
         day: '2-digit',
         month: 'short',
         year: 'numeric',
       })
-    : 'Unknown date';
+    : t('unknown_date');
 
   const renderStars = rating => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -36,7 +37,7 @@ function Review({ review }) {
         <Avatar name={reviewerName} />
         <div className={css['review-name-rating']}>
           <div className={css['reviewer-name']}>
-            {reviewerName || 'Anonymous'}
+            {reviewerName || t('anonymous')}
           </div>
           <div className={css['review-rating']}>
             {renderStars(reviewerRating)}

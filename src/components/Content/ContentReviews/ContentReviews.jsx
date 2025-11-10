@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useRef, useState } from 'react';
-import PropTypes from 'prop-types'; // ✅ ДОДАНО: Імпорт PropTypes
+import PropTypes from 'prop-types';
 import { useReviewsPagination } from '../../../hooks/useReviewsPagination.js';
 import Header from '../../Header/Header.jsx';
 import HeroSection from '../../HeroSection/HeroSection.jsx';
@@ -133,7 +133,6 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
                     <div className={css['buttons-wrapper']}>
                       <div
                         onClick={handleScrollToTop}
-                        // ✅ A11y Fix: Додаємо role, tabIndex та onKeyDown (Рядок ~149)
                         role="button"
                         tabIndex={0}
                         onKeyDown={handleScrollToTopKeyPress}
@@ -159,7 +158,6 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
   );
 }
 
-// ✅ ВИПРАВЛЕННЯ: Додано propTypes для всіх використовуваних пропсів
 ContentReviews.propTypes = {
   // Пропс camper та його вкладені поля (_id, id, gallery, description)
   camper: PropTypes.shape({

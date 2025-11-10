@@ -2,19 +2,12 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-// import { useEffect } from 'react'; // Видалено, оскільки minDate у DatePicker достатньо
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
-
-// 2. Імпорти власних хуків та утиліт
 import useForm from '../../../hooks/useForm.js';
 import { sendBookingRequest } from '../../../services/api.js';
-
-// 3. Імпорти локальних компонентів
 import Button from '../../Ui/Buttons/BaseButton/Button.jsx';
-
-// 4. Імпорти стилів
 import css from './FormBooking.module.css';
 
 function FormBooking({ camper }) {
@@ -56,7 +49,6 @@ function FormBooking({ camper }) {
 
     bookingStartDate: value => (!value ? t('errors.required') : null),
 
-    // Приймаємо allFormData для залежної валідації
     bookingEndDate: (value, allFormData) => {
       if (!value) {
         return t('errors.required');
@@ -105,7 +97,6 @@ function FormBooking({ camper }) {
         },
       });
     } else {
-      // Використовуйте `throw` лише якщо ваш useForm ловить помилки
       throw new Error(response?.message || 'Failed to send booking.');
     }
   };
@@ -121,15 +112,7 @@ function FormBooking({ camper }) {
     handleSubmit,
   } = useForm(initialState, validationRules, onSubmit);
 
-  // Створюємо змінну для перевірки наявності помилок
   const hasErrors = Object.values(errors).some(error => error !== null);
-
-  // console.log('Current errors:', errors);
-  // console.log('The button is inactive because:', {
-  //   isSubmitting,
-  //   hasErrors,
-  //   hasAttemptedSubmit,
-  // });
 
   return (
     <form className={css.form} onSubmit={handleSubmit} noValidate>
@@ -228,7 +211,6 @@ function FormBooking({ camper }) {
               placeholderText={t('booking_start_date_placeholder')}
               required
               minDate={new Date()}
-              // Встановлюємо високий z-index
               popperClassName={css['datepicker-popper-high-z']}
             />
             {hasAttemptedSubmit && errors.bookingStartDate && (
@@ -261,9 +243,7 @@ function FormBooking({ camper }) {
               })}
               placeholderText={t('booking_end_date_placeholder')}
               required
-              // MinDate гарантує, що кінець не раніше початку
               minDate={formData.bookingStartDate || new Date()}
-              // Встановлюємо високий z-index
               popperClassName={css['datepicker-popper-high-z']}
             />
             {hasAttemptedSubmit && errors.bookingEndDate && (
@@ -307,8 +287,6 @@ function FormBooking({ camper }) {
           variant="primary"
           size="medium"
           type="submit"
-          // Оновлена логіка: неактивна, якщо відправляється АБО
-          // якщо була спроба відправити І є помилки
           disabled={isSubmitting || (hasAttemptedSubmit && hasErrors)}
         >
           {isSubmitting
