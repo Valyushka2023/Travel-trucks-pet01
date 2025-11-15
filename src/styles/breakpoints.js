@@ -1,9 +1,3 @@
-// export const BREAKPOINTS = {
-//   mobileLgMax: '1199px',
-//   tabletMax: '991px',
-//   mobileMdMax: '767px',
-//   mobileSmMax: '479px',
-// };
 export const BREAKPOINTS = {
   // mobileLgMax: '1199px' -> 1199 / 16 = 74.9375rem
   mobileLgMax: '74.9375rem',
@@ -14,8 +8,3 @@ export const BREAKPOINTS = {
   // mobileSmMax: '479px' -> 479 / 16 = 29.9375rem
   mobileSmMax: '29.9375rem',
 };
-
-// @media(max-width: 74.9375rem)
-// @media(max-width: 61.9375rem)
-// @media(max-width: 47.9375rem)
-// @media (max-width: 29.9375rem)

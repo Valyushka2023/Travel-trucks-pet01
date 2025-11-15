@@ -60,34 +60,34 @@ export const getCamperById = async (req, res) => {
               else: '$description',
             },
           },
-          price: 1, // ✅ ВІДНОВЛЕНО
-          rating: 1, // ✅ ВІДНОВЛЕНО
-          location: 1, // ✅ ВІДНОВЛЕНО
-          id: 1, // ✅ ВІДНОВЛЕНО
-          form: 1, // ✅ ВІДНОВЛЕНО
-          length: 1, // ✅ ВІДНОВЛЕНО
-          width: 1, // ✅ ВІДНОВЛЕНО
-          height: 1, // ✅ ВІДНОВЛЕНО
-          tank: 1, // ✅ ВІДНОВЛЕНО
-          consumption: 1, // ✅ ВІДНОВЛЕНО
-          transmission: 1, // ✅ ВІДНОВЛЕНО
-          engine: 1, // ✅ ВІДНОВЛЕНО
-          AC: 1, // ✅ ВІДНОВЛЕНО (для іконок)
-          bathroom: 1, // ✅ ВІДНОВЛЕНО (для іконок)
-          kitchen: 1, // ✅ ВІДНОВЛЕНО (для іконок)
-          TV: 1, // ✅ ВІДНОВЛЕНО
-          radio: 1, // ✅ ВІДНОВЛЕНО
-          refrigerator: 1, // ✅ ВІДНОВЛЕНО
-          microwave: 1, // ✅ ВІДНОВЛЕНО
-          gas: 1, // ✅ ВІДНОВЛЕНО
-          water: 1, // ✅ ВІДНОВЛЕНО
-          gallery: 1, // ✅ ВІДНОВЛЕНО (для галереї)
+          price: 1,
+          rating: 1,
+          location: 1,
+          id: 1,
+          form: 1,
+          length: 1,
+          width: 1,
+          height: 1,
+          tank: 1,
+          consumption: 1,
+          transmission: 1,
+          engine: 1,
+          AC: 1,
+          bathroom: 1,
+          kitchen: 1,
+          TV: 1,
+          radio: 1,
+          refrigerator: 1,
+          microwave: 1,
+          gas: 1,
+          water: 1,
+          gallery: 1,
           reviews: {
             $sortArray: {
               input: '$reviews',
               sortBy: { createdAt: -1 },
             },
-          }, // ✅ ВІДНОВЛЕНО
+          },
         },
       },
     ]);

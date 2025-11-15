@@ -97,6 +97,18 @@
   background-color: #555;
 }
 
+/* НОВИЙ/ОНОВЛЕНИЙ КОНТЕЙНЕР ДЛЯ КНОПОК - забезпечує одну лінію */
+.action-buttons-line {
+  display: flex;
+  justify-content: center; /* Вирівнює кнопки по центру */
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  min-height: 3.5rem; /* Фіксована висота запобігає стрибку при зникненні Load More */
+  margin-top: 1.25rem;
+}
+
+/* СТАРИЙ КОНТЕЙНЕР (НЕ ВИКОРИСТОВУЄТЬСЯ для Load More/Scroll To Top) */
 .container-buttons {
   position: relative;
   display: flex;
@@ -106,6 +118,7 @@
   background-color: var(--button-primary-bg-color);
 }
 
+/* СТАРИЙ КОНТЕЙНЕР (НЕ ВИКОРИСТОВУЄТЬСЯ для Load More/Scroll To Top) */
 .buttons-wrapper {
   bottom: 0;
   display: flex;
@@ -134,8 +147,9 @@
   color: #777;
 }
 
+/* СТАРИЙ КЛАС для кнопки "Нагору" (використовував position: absolute) */
 .scroll-to-top-btn {
-  position: absolute;
+  position: absolute; /* Цей клас більше не використовується у JSX */
   right: 1.8rem;
   bottom: 4rem;
   z-index: 20;
@@ -174,6 +188,35 @@
   opacity: 1;
   visibility: visible;
 }
+/* КІНЕЦЬ СТАРОГО БЛОКУ */
+
+/* НОВИЙ КЛАС: Кнопка "Нагору" вбудована у потік поруч із "Load more" */
+.scroll-to-top-inline-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: var(--button-primary-bg-color);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+  transition:
+    transform 0.2s ease,
+    background-color 0.3s ease;
+  flex-shrink: 0; /* Важливо: запобігає стисненню */
+}
+
+.scroll-to-top-inline-btn:hover {
+  background-color: var(--hover-bg-color);
+  transform: scale(1.05);
+}
+
+.scroll-to-top-inline-btn:active {
+  background-color: var(--active-bg-color);
+  transform: scale(0.95);
+}
 
 .triangle {
   width: 0;
@@ -204,10 +247,7 @@
     padding: 0 0 2.5rem;
   }
 
-  .scroll-to-top-btn {
-    right: 0.75rem;
-    bottom: 2.5rem;
-  }
+  /* Видалено: .scroll-to-top-btn (старий абсолютний клас) */
 }
 
 @media (width <= 61.9375rem) {
@@ -231,10 +271,7 @@
     padding: 0 0 1.5rem;
   }
 
-  .scroll-to-top-btn {
-    right: 0.625rem;
-    bottom: 1.5rem;
-  }
+  /* Видалено: .scroll-to-top-btn (старий абсолютний клас) */
 }
 
 @media (width <= 47.9375rem) {
@@ -257,10 +294,7 @@
     max-width: 39rem;
   }
 
-  .scroll-to-top-btn {
-    right: 0.625rem;
-    bottom: 1.25rem;
-  }
+  /* Видалено: .scroll-to-top-btn (старий абсолютний клас) */
 }
 
 @media (width <= 29.9375rem) {
@@ -277,8 +311,5 @@
     padding: 0.9375rem;
   }
 
-  .scroll-to-top-btn {
-    right: 0.5rem;
-    bottom: 0.5rem;
-  }
+  /* Видалено: .scroll-to-top-btn (старий абсолютний клас) */
 }

@@ -116,8 +116,9 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
                     <ReviewsList reviews={visibleReviews} ref={lastReviewRef} />
                   </div>
 
-                  {hasMore && (
-                    <div className={css['buttons-wrapper']}>
+                  {/* Єдиний контейнер для обох кнопок */}
+                  <div className={css['action-buttons-line']}>
+                    {hasMore && (
                       <Button
                         variant="primary"
                         size="medium"
@@ -126,22 +127,22 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
                       >
                         {t('load_button', { ns: 'button' })}
                       </Button>
-                    </div>
-                  )}
-
-                  {showScrollToTop && (
-                    <div className={css['buttons-wrapper']}>
+                    )}
+                    {/* Кнопка Нагору тепер відображається у потоці, якщо активна */}
+                    {showScrollToTop && (
                       <div
                         onClick={handleScrollToTop}
                         role="button"
                         tabIndex={0}
                         onKeyDown={handleScrollToTopKeyPress}
-                        className={`${css['scroll-to-top-btn']} ${css.visible}`}
+                        className={
+                          css['scroll-to-top-inline-btn']
+                        } /* НОВИЙ КЛАС */
                       >
                         <div className={css.triangle}></div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               ) : (
                 <p className={css['no-reviews']}>No reviews yet</p>

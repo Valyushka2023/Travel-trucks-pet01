@@ -1,7 +1,5 @@
-/* eslint-env node */
 import mongoose from 'mongoose';
-import { getEnvVar } from '../utils/getEnvVar.js'; // або просто process.env якщо без валідації
-// import { start } from 'repl';
+import { getEnvVar } from '../utils/getEnvVar.js';
 
 export const initMongoDB = async () => {
   try {
@@ -13,7 +11,6 @@ export const initMongoDB = async () => {
     const mongoUri = `mongodb+srv://${user}:${password}@${cluster}/${dbName}?retryWrites=true&w=majority&appName=Cluster0`;
 
     await mongoose.connect(mongoUri);
-    // console.log('✅ MongoDB connected successfully');
   } catch (error) {
     console.error('❌ MongoDB connection error:', error.message);
     process.exit(1);
