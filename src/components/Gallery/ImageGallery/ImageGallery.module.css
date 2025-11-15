@@ -1,4 +1,4 @@
-.container-pictures {
+/* .container-pictures {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,6 +34,74 @@
   min-height: var(--image-min-height);
   border-radius: var(--radius-sm);
   object-fit: cover;
+}
+
+@media (width <= 74.9375rem) {
+  .container-pictures {
+    gap: var(--gap-lg);
+  }
+}
+
+@media (width <= 61.9375rem) {
+  .container-pictures {
+    gap: var(--gap-md);
+  }
+}
+
+@media (width <= 47.9375rem) {
+  .container-pictures {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm);
+  }
+}
+
+@media (width <= 29.9375rem) {
+  .container-pictures {
+    gap: var(--gap-xs);
+  }
+} */
+.container-pictures {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap-xl);
+  width: 100%;
+  max-width: 82rem;
+  margin: 0 auto;
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+  padding: 0;
+}
+
+.gallery-image-button {
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+  transition: outline 0.2s ease-in-out;
+}
+
+.gallery-image-button:hover,
+.gallery-image-button:focus {
+  border-radius: var(--radius-sm);
+  outline: 0.5rem solid var(--highlight-color);
+}
+
+.gallery-item {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* min-height: var(--image-min-height); */
+  border-radius: var(--radius-sm);
+
+  /* >>> ВИПРАВЛЕННЯ: Змінюємо 'cover' на 'contain' */
+  object-fit: contain;
+
+  /* Додатково: Задаємо фон контейнера, щоб заповнити простір, де зображення не дістає */
+  background-color: var(--body-bg-color, #ffffff);
 }
 
 @media (width <= 74.9375rem) {
