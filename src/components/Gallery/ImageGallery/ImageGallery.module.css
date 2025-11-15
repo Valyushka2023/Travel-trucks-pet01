@@ -24,17 +24,18 @@
 .gallery-image-button:hover,
 .gallery-image-button:focus {
   border-radius: var(--radius-sm);
-  outline: 0.5rem solid var(--highlight-color);
+  outline: 0.625rem solid var(--border-color);
 }
 
 .gallery-item {
   display: block;
   width: 100%;
   height: auto;
-  min-height: var(--image-min-height);
-  border-radius: var(--radius-sm);
+  /* min-height: var(--image-min-height); */
   object-fit: contain;
   background-color: var(--body-bg-color, #ffffff);
+  outline: 0.625rem solid var(--border-color);
+  border-radius: var(--radius-sm);
 }
 
 @media (width <= 74.9375rem) {

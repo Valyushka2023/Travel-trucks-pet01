@@ -27,7 +27,6 @@
   overflow: hidden; /* Рамка не прокручується */
   background-color: var(--modal-image-bg-color);
   border-radius: var(--radius-md);
-
   display: flex;
   flex-direction: column;
 }
@@ -39,6 +38,7 @@
   overflow-x: hidden;
   width: 100%;
   -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md);
 }
 
 /* Стилі скроллбара */
@@ -63,6 +63,7 @@
   max-height: none;
   height: auto;
   object-fit: contain;
+  border-radius: var(--radius-md);
 }
 
 /* КНОПКА CLOSE - ТЕПЕР ПОЗИЦІОНУЄТЬСЯ ВІДНОСНО ОВЕРЛЕЮ */
