@@ -90,6 +90,16 @@
   outline: 0.5rem solid var(--highlight-color);
 }
 
+/* .gallery-item {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: var(--image-min-height);
+  border-radius: var(--radius-sm);
+  object-fit: contain;
+  background-color: var(--body-bg-color, #ffffff);
+} */
+
 .gallery-item {
   display: block;
   width: 100%;
@@ -97,11 +107,12 @@
   min-height: var(--image-min-height);
   border-radius: var(--radius-sm);
 
-  /* Встановлено 'contain', щоб фото у галереї не обрізалося */
   object-fit: contain;
   background-color: var(--body-bg-color, #ffffff);
-}
 
+  /* >>> ДОДАТИ ЦЕЙ РЯДОК ДЛЯ КОНТРОЛЮ ЖЕСТІВ ДОТИКУ */
+  touch-action: manipulation;
+}
 @media (width <= 74.9375rem) {
   .container-pictures {
     gap: var(--gap-lg);
