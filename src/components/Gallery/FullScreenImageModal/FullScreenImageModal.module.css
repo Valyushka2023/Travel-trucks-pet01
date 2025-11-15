@@ -76,8 +76,7 @@
   width: 100%;
   height: 100%;
   padding-top: 0;
-  /* Вимикаємо прокручування всього екрана */
-  overflow: hidden;
+  overflow: hidden; /* Вимикаємо прокручування всього екрана */
   background-color: rgb(0 0 0 / 70%);
   -webkit-overflow-scrolling: touch;
 }
@@ -88,60 +87,49 @@
 
 .modal-content {
   position: relative;
+  /* Обмежуємо розміри рамки відносно вікна перегляду */
   max-width: 95%;
   max-height: 95vh;
-  padding: 2.5rem; /* Залишаємо рамку модального вікна */
+  padding: 2.5rem;
   box-sizing: border-box;
-  /* ВАЖЛИВО: Видаляємо overflow: auto, щоб кнопка не прокручувалася */
-  overflow: hidden;
+  overflow: hidden; /* Важливо: вимикаємо прокручування тут */
   background-color: var(--modal-image-bg-color);
   border-radius: var(--radius-md);
 
-  /* Встановлюємо Flexbox, щоб image-scroll-wrapper зайняв доступний простір */
   display: flex;
   flex-direction: column;
+  justify-content: center; /* Центруємо зображення по вертикалі всередині рамки */
+  align-items: center; /* Центруємо зображення по горизонталі всередині рамки */
 }
 
-/* НОВИЙ КОНТЕЙНЕР: Обгортка для зображення, яка має прокручуватися */
+/* Обгортка для зображення (ТЕПЕР БЕЗ ПРОКРУЧУВАННЯ) */
 .image-scroll-wrapper {
-  flex-grow: 1; /* Займає весь доступний простір */
-  overflow-y: auto; /* Тільки цей блок тепер прокручується */
-  overflow-x: hidden;
+  flex-grow: 1; /* Дозволяє займати максимальний простір */
+  /* ВАЖЛИВО: Видаляємо overflow-y: auto */
+  overflow: hidden;
+  width: 100%; /* Займає всю доступну ширину */
+  max-height: 100%; /* Займає всю доступну висоту */
 
-  /* ВАЖЛИВО: Створюємо відступ для безпечної зони кнопки */
-  padding-top: 0; /* Верхній відступ вже є у .modal-content (2.5rem) */
-  padding-right: 3.5rem; /* Зона для кнопки (мінімум 2.5rem ширина кнопки + 1rem відступ) */
-  margin: -2.5rem; /* Компенсуємо padding з .modal-content, щоб прокрутка працювала від краю */
-  padding: 2.5rem; /* Повертаємо padding для обгортки */
-  margin-bottom: -2.5rem; /* Прибираємо нижній маржин */
-}
-
-/* Коригуємо стилі скроллбара, якщо потрібно */
-.image-scroll-wrapper::-webkit-scrollbar {
-  width: 0.375rem;
-}
-
-.image-scroll-wrapper::-webkit-scrollbar-track {
-  background-color: var(--scrollbar-track-bg-color);
-  border-radius: var(--border-radius-small);
-}
-
-.image-scroll-wrapper::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb-bg-color);
-  border: 0.1875rem solid var(--modal-image-bg-color);
-  border-radius: var(--border-radius-small);
+  /* Додаємо відступ справа, щоб зображення не заходило в зону кнопки */
+  /* padding-right: 3.5rem;  */
+  /* Залиште достатньо місця для кнопки */
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .full-screen-image {
   display: block;
+  /* ВАЖЛИВО: Змушуємо зображення стискатися, щоб повністю поміститися */
   max-width: 100%;
+  max-height: 100%;
   height: auto;
+  /* Використовуємо 'contain', щоб вмістити зображення повністю, зберігаючи пропорції */
   object-fit: contain;
 }
 
 .close-button {
   position: absolute;
-  /* Встановлюємо позицію, щоб кнопка була всередині рамки (2.5rem padding) */
+  /* Коригування позиції для кращого центрування у білій рамці */
   top: 0;
   right: 0.5rem;
   z-index: 10;
@@ -157,7 +145,7 @@
   font-weight: 500;
   line-height: 1;
   white-space: nowrap;
-  background: transparent; /* Робимо фон кнопки прозорим, щоб бачити рамку */
+  background: transparent;
   color: var(--button-secondary-text-color);
   transition:
     color 0.2s ease-in-out,
