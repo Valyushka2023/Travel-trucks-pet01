@@ -94,13 +94,11 @@
   display: block;
   width: 100%;
   height: auto;
-  /* min-height: var(--image-min-height); */
+  min-height: var(--image-min-height);
   border-radius: var(--radius-sm);
 
-  /* >>> ВИПРАВЛЕННЯ: Змінюємо 'cover' на 'contain' */
+  /* Встановлено 'contain', щоб фото у галереї не обрізалося */
   object-fit: contain;
-
-  /* Додатково: Задаємо фон контейнера, щоб заповнити простір, де зображення не дістає */
   background-color: var(--body-bg-color, #ffffff);
 }
 
