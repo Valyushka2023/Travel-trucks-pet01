@@ -111,8 +111,7 @@
   background-color: var(--body-bg-color, #ffffff);
 
   /* >>> ДОДАТИ ЦЕЙ РЯДОК ДЛЯ КОНТРОЛЮ ЖЕСТІВ ДОТИКУ */
-  /* touch-action: manipulation; */
-  touch-action: none;
+  touch-action: manipulation;
 }
 @media (width <= 74.9375rem) {
   .container-pictures {
