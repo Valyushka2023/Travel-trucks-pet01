@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import css from './ErrorComponent.module.css';
 
 const ErrorComponent = ({ error, onRetry }) => {
-  const { t } = useTranslation('errorComponent');
+  const { t } = useTranslation('error_component');
 
   return (
     <div className={css['error-container']}>
@@ -11,7 +11,7 @@ const ErrorComponent = ({ error, onRetry }) => {
         {t('error_message')} {error}
       </p>
       <button className={css['retry-button']} onClick={onRetry}>
-        {t('retry_button', { ns: 'errorComponent' })}
+        {t('retry_button')}
       </button>
     </div>
   );

@@ -118,7 +118,6 @@
   --blok-location-bg-color: var(--color-light-gray-2);
   --blok-description-bg-color: var(--color-light-gray-2);
   --blok-field-form-bg-color: var(--color-light-gray-2);
-  /* --blok-field-input-area-bg-color: var(--color-light-gray-3); */
   --blok-field-input-area-bg-color-1: var(--color-off-white);
   --scrollbar-track-bg-color: var(--color-light-gray);
   --scrollbar-thumb-bg-color: var(--color-light-gray-4);
@@ -150,12 +149,12 @@
 
   /* placeholder color */
   --placeholder-form-booking-reviews-color: var(--color-gray);
-  /* --placeholder-form-reviews-color: var(--color-gray); */
 
   /* boorder color */
   --border-color: var(--color-light-gray-2);
   --border-secondary-color: var(--color-gray);
   --border-tertiary-color: var(--color-light-gray-2);
+
   /* box-shadow color */
   --box-shadow: 0 0.125rem 0.625rem rgb(0 0 0 / 15%);
 }
@@ -171,7 +170,6 @@
   --blok-location-bg-color: var(--color-dark-gray);
   --blok-description-bg-color: var(--color-dark-gray);
   --blok-field-form-bg-color: var(--color-dark-gray);
-  /* --blok-field-input-bg-color: var(--color-gunmetal-black); */
   --blok-field-input-area-bg-color-1: var(--color-soft-black);
   --scrollbar-track-bg-color: var(--color-dark-gray);
   --scrollbar-thumb-bg-color: var(--color-light-gray-2);
@@ -203,12 +201,12 @@
 
   /* placeholder color */
   --placeholder-form-booking-reviews-color: var(--color-gray);
-  /* --placeholder-form-reviews-color: var(--color-gray); */
 
   /* border color */
   --border-color: var(--color-gray);
   --border-secondary-color: var(--color-light-gray-2);
-  --border-tertiary-color: var(--color-gray);
+  --border-tertiary-color: var(--color-dark-gray);
+
   /* box-shadow color */
   --box-shadow: 0 0.125rem 0.625rem rgb(255 255 255 / 15%);
 }
