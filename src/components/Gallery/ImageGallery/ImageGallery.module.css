@@ -21,11 +21,11 @@
   transition: outline 0.2s ease-in-out;
 }
 
-.gallery-image-button:hover,
+/* .gallery-image-button:hover,
 .gallery-image-button:focus {
   border-radius: var(--radius-sm);
-  outline: 0.625rem solid var(--border-color);
-}
+  outline: 0.0625rem solid var(--border-color);
+} */
 
 .gallery-item {
   display: block;
@@ -34,7 +34,7 @@
   /* min-height: var(--image-min-height); */
   object-fit: contain;
   background-color: var(--body-bg-color, #ffffff);
-  outline: 0.625rem solid var(--border-color);
+  outline: 0.25rem solid var(--border-tertiary-color);
   border-radius: var(--radius-sm);
 }
 

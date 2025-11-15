@@ -155,7 +155,7 @@
   /* boorder color */
   --border-color: var(--color-light-gray-2);
   --border-secondary-color: var(--color-gray);
-
+  --border-tertiary-color: var(--color-light-gray-2);
   /* box-shadow color */
   --box-shadow: 0 0.125rem 0.625rem rgb(0 0 0 / 15%);
 }
@@ -208,7 +208,7 @@
   /* border color */
   --border-color: var(--color-gray);
   --border-secondary-color: var(--color-light-gray-2);
-
+  --border-tertiary-color: var(--color-gray);
   /* box-shadow color */
   --box-shadow: 0 0.125rem 0.625rem rgb(255 255 255 / 15%);
 }
