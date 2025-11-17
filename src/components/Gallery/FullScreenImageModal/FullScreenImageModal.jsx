@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import css from './FullScreenImageModal.module.css';
 import PropTypes from 'prop-types';
 
 function FullScreenImageModal({ imageUrl, onClose }) {
+  const { t } = useTranslation();
+
   useEffect(() => {
     const modalOverlay = document.getElementById('fullScreenModalOverlay');
     if (modalOverlay) {
@@ -50,7 +53,6 @@ function FullScreenImageModal({ imageUrl, onClose }) {
       onKeyDown={handleOverlayKeyPress}
     >
       <div className={css['modal-content']}>
-        {/* Обгортка, що прокручується */}
         <div className={css['image-scroll-wrapper']}>
           <img
             src={imageUrl}
@@ -58,10 +60,8 @@ function FullScreenImageModal({ imageUrl, onClose }) {
             className={css['full-screen-image']}
           />
         </div>
-
-        {/* Кнопка Close залишається всередині .modal-content, але фіксованою */}
         <button className={css['close-button']} onClick={onClose}>
-          Close
+          {t('button_close', { ns: 'full_screen_image_modal' })}
         </button>
       </div>
     </div>

@@ -28,13 +28,12 @@ const StarRating = ({
       onChange(value - 1);
     } else if (event.key === 'Backspace' || event.key === 'Delete') {
       event.preventDefault();
-      onChange(0); // очищення клавішею
+      onChange(0);
     }
   };
 
   const handleClick = starValue => {
     if (readOnly || !onChange) return;
-    // Логіка: натиснули ту саму зірку — обнулити рейтинг
     if (starValue === value) {
       onChange(0);
     } else {
@@ -54,7 +53,7 @@ const StarRating = ({
         <div
           id={name}
           className={clsx(css['field-input'], {
-            [css['field-error']]: error, // ✅ ЗАСТОСУВАННЯ field-error при наявності помилки
+            [css['field-error']]: error,
           })}
           role={accessible ? 'radiogroup' : undefined}
           aria-label={accessible ? t('rating') : undefined}

@@ -3,39 +3,27 @@ import { useTranslation } from 'react-i18next';
 import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import Modal from '../../Modal/Modal.jsx';
 import css from './ContactsModal.module.css';
-
-// Визначення констант для демонстрації перекладу параграфів /
 const DEFAULT_PARAGRAPH_KEYS = ['info.address', 'info.working_hours'];
 
 const FALLBACK_PARAGRAPHS = [
   'Please find our addresses and contact details below.',
   'Our customer support operates 24/7.',
 ];
-// -------------------------------------------------------------------------
 
 const ContactsModal = ({ onClose }) => {
-  // Встановлюємо простір імен 'contacts_modal'
   const { t } = useTranslation('contacts_modal');
-
-  // Отримуємо перекладений заголовок (ключ: 'title')
   const title = t('title', { defaultValue: 'Contacts' });
-
-  // Отримуємо масив перекладених параграфів
   const _translatedParagraphs = DEFAULT_PARAGRAPH_KEYS.map((key, index) =>
     t(key, {
       defaultValue: FALLBACK_PARAGRAPHS[index],
     })
   );
 
-  // --- ОТРИМУЄМО АДРЕСУ ЕЛЕКТРОННОЇ ПОШТИ З I18N ---
   const emailAddress = t('main_email', {
     defaultValue: 'infotraveltrucks@gmail.com',
   });
 
-  // --- ДОДАНО: Динамічне завантаження контактів (міст і вулиць) з файлу перекладу ---
-  // returnObjects: true дозволяє отримати масив об'єктів
   const localizedContacts = t('addresses', { returnObjects: true });
-  // ----------------------------------------------------------------------------------
 
   return (
     <Modal title={title} onClose={onClose}>

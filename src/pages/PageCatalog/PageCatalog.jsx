@@ -25,7 +25,9 @@ import Loader from '../../components/Ui/Loader/Loader.jsx';
 import css from './PageCatalog.module.css';
 
 function PageCatalog() {
-  const { t, i18n } = useTranslation();
+  const { t: tCatalog } = useTranslation('catalog');
+  const { t: tButton } = useTranslation('button');
+  const { i18n } = useTranslation();
   const currentLang = i18n.language;
 
   const topRef = useRef(null);
@@ -176,7 +178,8 @@ function PageCatalog() {
         <div className={css['container-catalog']}>
           <div className={css['container-filters']}>
             <h4 className={css['location-title']}>
-              {t('location_title', { ns: 'catalog' })}
+              {/* {t('location_title', { ns: 'catalog' })} */}
+              {tCatalog('location_title')}
             </h4>
             <FilterLocation
               campers={campers}
@@ -184,7 +187,8 @@ function PageCatalog() {
               location={currentLocationFilter}
             />
             <h4 className={css['filter-title']}>
-              {t('filters_title', { ns: 'catalog' })}
+              {/* {t('filters_title', { ns: 'catalog' })} */}
+              {tCatalog('filters_title')}
             </h4>
             <FilterVehicleEquipment
               onFilter={handleEquipmentFilterChange}
@@ -200,7 +204,8 @@ function PageCatalog() {
                 size="medium"
                 onClick={handleSearchClick}
               >
-                {t('filter_out_button', { ns: 'catalog' })}
+                {/* {t('filter_out_button', { ns: 'catalog' })} */}
+                {tCatalog('filter_out_button')}
               </Button>
               {(Object.keys(currentEquipmentFilters).some(
                 key => currentEquipmentFilters[key]
@@ -215,7 +220,8 @@ function PageCatalog() {
                   onClick={handleClearFilters}
                   className={css['clear-filters-button']}
                 >
-                  {t('clear_filters_button', { ns: 'catalog' })}
+                  {/* {t('clear_filters_button', { ns: 'catalog' })} */}
+                  {tCatalog('clear_filters_button')}
                 </Button>
               )}
             </div>
@@ -235,13 +241,17 @@ function PageCatalog() {
                       size="small"
                       onClick={handleLoadMore}
                     >
-                      {t('load_button', { ns: 'button' })}
+                      {/* {t('load_button', { ns: 'button' })} */}
+                      {tButton('load_button')}
                     </Button>
                   </div>
                 )}
               </>
             ) : (
-              <div>{t('no_campers_message', { ns: 'catalog' })}</div>
+              <div className={css['no-results-message']}>
+                {/* {t('no_campers_message', { ns: 'catalog' })} */}
+                {tCatalog('no_campers_message')}
+              </div>
             )}
           </div>
         </div>
@@ -249,7 +259,8 @@ function PageCatalog() {
           visible={visible}
           onClick={handleScrollToTopAndReset}
           className={scrollToTopButtonCss['fixed-position']}
-          label={t('up_button', { ns: 'button' })}
+          // label={t('up_button', { ns: 'button' })}
+          label={tButton('up_button')}
         />
       </div>
     </div>

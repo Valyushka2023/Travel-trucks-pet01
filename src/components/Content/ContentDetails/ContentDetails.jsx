@@ -1,4 +1,5 @@
 import { useOutletContext } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Header from '../../Header/Header.jsx';
 import HeroSection from '../../HeroSection/HeroSection.jsx';
 import ImageGallery from '../../Gallery/ImageGallery/ImageGallery.jsx';
@@ -10,9 +11,14 @@ import css from './ContentDetails.module.css';
 
 function ContentDetails() {
   const { camper, activeTab } = useOutletContext();
+  const { t } = useTranslation();
 
   if (!camper) {
-    return <div className={css.error}>Camper not found.</div>;
+    return (
+      <div className={css.error}>
+        {t('errors.camperNotFound', { ns: 'content_details' })}{' '}
+      </div>
+    );
   }
 
   return (

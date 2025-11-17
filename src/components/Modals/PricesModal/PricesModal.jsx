@@ -18,10 +18,8 @@ const FALLBACK_PARAGRAPHS = [
   'In case of early return, a payment of 30% for the remaining days will be withheld, the difference will be refunded.',
 ];
 const PricesModal = ({ onClose }) => {
-  // Встановлюємо простір імен 'prices_modal'
   const { t } = useTranslation('prices_modal');
 
-  // Отримуємо перекладений заголовок (ключ: 'title')
   const title = t('title', { defaultValue: 'Prices' });
 
   const translatedParagraphs = DEFAULT_PARAGRAPH_KEYS.map((key, index) =>

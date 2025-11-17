@@ -17,7 +17,9 @@ import Loader from '../../components/Ui/Loader/Loader.jsx';
 import css from './PageReviews.module.css';
 
 function PageReviews() {
-  const { t } = useTranslation();
+  const { t: tError } = useTranslation('error_component');
+  const { t: tButton } = useTranslation('button');
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { _id } = useParams();
@@ -63,20 +65,20 @@ function PageReviews() {
                 JSON.stringify(response[0])
               );
             } else {
-              setError('Camper not found.');
+              setError(tError('error_camperNotFound'));
             }
           } catch (err) {
-            setError(err.message || 'Error loading camper.');
+            setError(err.message || tError('error_loadingCamper'));
           } finally {
             setIsLoading(false);
           }
         } else {
-          setError('Camper ID not specified');
+          setError(tError('error_idNotSpecified'));
         }
       }
     }
     loadCamper();
-  }, [_id, context, location]);
+  }, [_id, context, location, tError]);
 
   useEffect(() => {
     if (camper) {
@@ -115,10 +117,10 @@ function PageReviews() {
 
         navigate('/thank-you', { state: { camperId: _id } });
       } else {
-        setError('Error adding review and updating data.');
+        setError(tError('error_addingReview'));
       }
     } catch (err) {
-      setError(err.message || 'Error sending feedback.');
+      setError(err.message || tError('error_sendingFeedback'));
     } finally {
       setIsLoading(false);
     }
@@ -133,11 +135,15 @@ function PageReviews() {
   }
 
   if (error) {
-    return <div className={css.error}>⚠️ Error: {error}</div>;
+    return (
+      <div className={css.error}>
+        ⚠️ {tError('error_generic')}: {error}
+      </div>
+    );
   }
 
   if (!camper) {
-    return <div className={css.error}>⚠️ Camper not found</div>;
+    return <div className={css.error}>⚠️{tError('error_camperNotFound')}</div>;
   }
 
   return (
@@ -154,7 +160,7 @@ function PageReviews() {
         visible={showScrollButton}
         onClick={scrollToTop}
         className={scrollToTopButtonCss['fixed-position']}
-        label={t('up_button', { ns: 'button' })}
+        label={tButton('up_button')}
       />
     </div>
   );

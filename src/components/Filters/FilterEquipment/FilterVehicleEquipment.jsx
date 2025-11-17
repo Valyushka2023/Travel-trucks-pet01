@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 import css from './FilterVehicleEquipment.module.css';
 
 const filterButtons = [
-  // ✅ Додано ariaLabelKey замість жорстко закодованого ariaLabel
   {
     icon: 'AC',
     labelKey: 'label_ac',
     label: 'AC',
-    ariaLabelKey: 'aria_ac', // 👈 Використовуємо ключ
+    ariaLabelKey: 'aria_ac',
     type: 'boolean',
   },
   {
@@ -23,34 +22,30 @@ const filterButtons = [
     icon: 'kitchen',
     labelKey: 'label_kitchen',
     label: 'Kitchen',
-    ariaLabelKey: 'aria_kitchen', // 👈 Використовуємо ключ
+    ariaLabelKey: 'aria_kitchen',
     type: 'boolean',
   },
   {
     icon: 'TV',
     labelKey: 'label_tv',
     label: 'TV',
-    ariaLabelKey: 'aria_tv', // 👈 Використовуємо ключ
+    ariaLabelKey: 'aria_tv',
     type: 'boolean',
   },
   {
     icon: 'bathroom',
     labelKey: 'label_bathroom',
     label: 'Bathroom',
-    ariaLabelKey: 'aria_bathroom', // 👈 Використовуємо ключ
+    ariaLabelKey: 'aria_bathroom',
     type: 'boolean',
   },
 ];
 
 const FilterVehicleEquipment = ({ onFilter, currentFilters }) => {
   const { t } = useTranslation('filter_vehicle_equipment');
-  // currentFilters передається як проп
-  // Використовуємо useEffect для оновлення внутрішнього стану при зміні пропу currentFilters
-  const prevFiltersRef = useRef(); // Використовуємо реф для зберігання попередніх currentFilters, щоб уникнути нескінченних циклів
+  const prevFiltersRef = useRef();
 
   useEffect(() => {
-    // Це гарантує, що внутрішній стан `filters` відображає `currentFilters` від батьківського компонента
-    // при зміні локації або дії очищення фільтрів.
     if (
       JSON.stringify(currentFilters) !== JSON.stringify(prevFiltersRef.current)
     ) {
@@ -62,16 +57,13 @@ const FilterVehicleEquipment = ({ onFilter, currentFilters }) => {
     prevFiltersRef.current = currentFilters;
   });
 
-  const [filters, setFilters] = useState(currentFilters); // Ініціалізуємо з currentFilters
-
+  const [filters, setFilters] = useState(currentFilters);
   const handleFilterChange = (filterName, type) => {
     const updatedFilters = { ...filters };
 
     const button = filterButtons.find(button => button.icon === filterName);
 
     if (type === 'string') {
-      // Для string (transmission) ми зберігаємо в фільтрах оригінальне англійське значення
-      // (наприклад, 'Automatic'), а не його переклад.
       const originalLabel = button.label;
       const newValue =
         updatedFilters[filterName] === originalLabel ? null : originalLabel;
@@ -94,24 +86,20 @@ const FilterVehicleEquipment = ({ onFilter, currentFilters }) => {
           <button
             key={button.icon}
             className={`${css['raw-icon']} ${
-              // Умовний клас для багаторядкового тексту тепер повинен використовувати переклад
               t(button.labelKey).includes(' ') ? css.multiLine : ''
             } ${
               (button.type === 'boolean' && currentFilters[button.icon]) ||
               (button.type === 'string' &&
-                // Порівняння з оригінальним label для коректної логіки фільтрації
                 currentFilters[button.icon] === button.label)
                 ? css.active
                 : ''
             }`}
-            // ✅ ВИПРАВЛЕНО A11y: Використовуємо ключ для aria-label, щоб забезпечити переклад
             aria-label={t(button.ariaLabelKey)}
             onClick={() => handleFilterChange(button.icon, button.type)}
           >
             <svg className={css.icon}>
               <use href={`/icons.svg#icon-icon-button-${button.icon}`}></use>
             </svg>
-            {/* ✅ ОСНОВНИЙ ПЕРЕКЛАД */}
             <span className={css['icon-text']}>{t(button.labelKey)}</span>
           </button>
         ))}
@@ -122,7 +110,7 @@ const FilterVehicleEquipment = ({ onFilter, currentFilters }) => {
 
 FilterVehicleEquipment.propTypes = {
   onFilter: PropTypes.func.isRequired,
-  currentFilters: PropTypes.object.isRequired, // Додаємо propType для currentFilters
+  currentFilters: PropTypes.object.isRequired,
 };
 
 export default FilterVehicleEquipment;

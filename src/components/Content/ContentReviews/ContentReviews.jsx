@@ -145,7 +145,9 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
                   </div>
                 </div>
               ) : (
-                <p className={css['no-reviews']}>No reviews yet</p>
+                <p className={css['no-reviews-message']}>
+                  {t('message_noReviewsYet', { ns: 'content_reviews' })}
+                </p>
               )}
             </div>
           </div>

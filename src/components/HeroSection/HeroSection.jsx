@@ -1,9 +1,8 @@
-import { useTranslation } from 'react-i18next'; // 👈 Додаємо
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import css from './HeroSection.module.css';
 
 function HeroSection({ camper }) {
-  // Отримуємо функцію t для неймспейсу 'card' (для відгуків)
   const { t } = useTranslation('card');
 
   if (!camper) {
@@ -22,7 +21,6 @@ function HeroSection({ camper }) {
     reviewCount = camper.reviews.length;
   }
 
-  // 🚀 ЛОКАЛІЗАЦІЯ ЛОКАЦІЇ: використовуємо t() з неймспейсом 'filter_location'
   const translatedLocation = t(`locations.${camper.location}`, {
     defaultValue: camper.location || 'Location not available',
     ns: 'filter_location',
@@ -43,7 +41,6 @@ function HeroSection({ camper }) {
             <use href="/icons.svg#icon-star"></use>
           </svg>
           <p className={css['text-reviews-title']}>
-            {/* 🚀 ЛОКАЛІЗАЦІЯ ВІДГУКІВ: використовуємо ключі множини */}
             {averageRating
               ? `${averageRating.toFixed(1)} ${t('reviews_count', { count: reviewCount })}`
               : t('no_reviews')}

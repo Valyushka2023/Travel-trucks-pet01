@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import css from './FeatureIcon.module.css';
 
-// ✅ Оновлено: Використовуємо labelKey для перекладу та збережено оригінальний key для доступу до даних.
 const featureIcons = [
   {
     key: 'AC',
@@ -61,48 +60,37 @@ const featureIcons = [
 ];
 
 const FeatureIcon = ({ camper }) => {
-  // Перевірка camper тут не потрібна, якщо вона є у PropType та подальшій логіці
   const { t } = useTranslation('feature_icon');
 
   if (!camper) {
     return null;
   }
 
-  // Функція для отримання значення для відображення
   const getFeatureValue = (feature, value) => {
     if (feature.type === 'count' && typeof value === 'number') {
-      // Для лічильників відображаємо кількість + перекладену назву
       return `${value} ${t(feature.labelKey)}`;
     }
     if (feature.type === 'boolean' && value) {
-      // Для булевих значень відображаємо лише перекладену назву
       return t(feature.labelKey);
     }
     if (feature.type === 'string' && value) {
-      // Для рядків (transmission, engine) відображаємо перекладену назву.
-      // Можна додати більш складну логіку перекладу для 'Automatic'/'Manual' та 'gas'/'diesel',
-      // але тут використовуємо загальний ключ для заголовка.
       return t(feature.labelKey);
     }
-    return null; // Не відображати, якщо значення не відповідає типу/відсутнє
+    return null;
   };
 
   return (
     <>
       <div className={css['badges-container']}>
         {featureIcons.map(feature => {
-          // Припускаємо, що проп camper містить всі необхідні поля (наприклад, camper.AC, camper.beds, camper.transmission)
           const featureValue = camper[feature.key];
           const displayText = getFeatureValue(feature, featureValue);
 
-          // Відображаємо, лише якщо є значення для відображення
           return displayText ? (
             <div className={css['feature-icon']} key={feature.key}>
               <svg className={css.icon} viewBox="0 0 24 24">
-                {/* Використовуємо feature.svgId для шляху до іконки */}
                 <use href={`/icons.svg#${feature.svgId}`} />
               </svg>
-              {/* ✅ ВИКОРИСТАННЯ ПЕРЕКЛАДЕНОГО ТЕКСТУ */}
               <span className={css.text}>{displayText}</span>
             </div>
           ) : null;
@@ -113,7 +101,6 @@ const FeatureIcon = ({ camper }) => {
 };
 
 FeatureIcon.propTypes = {
-  // Припускаємо, що camper містить всі ключі в featureIcons на верхньому рівні
   camper: PropTypes.shape({
     adults: PropTypes.number,
     transmission: PropTypes.string,
@@ -128,7 +115,6 @@ FeatureIcon.propTypes = {
     microwave: PropTypes.bool,
     gas: PropTypes.bool,
     water: PropTypes.bool,
-    // Додайте інші очікувані властивості тут
   }).isRequired,
 };
 

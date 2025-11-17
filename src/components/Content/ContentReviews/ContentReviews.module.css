@@ -140,11 +140,11 @@
   font-size: 1.25rem;
 }
 
-.no-reviews {
+.no-reviews-message {
   padding: 5rem;
   font-size: 1.1em;
   text-align: center;
-  color: #777;
+  color: var(--primary-color);
 }
 
 /* СТАРИЙ КЛАС для кнопки "Нагору" (використовував position: absolute) */

@@ -3,7 +3,6 @@ import CloseButton from '../../Ui/Buttons/CloseButton/CloseButton.jsx';
 import css from './DescriptionPopup.module.css';
 
 const DescriptionPopup = ({ description, onClose }) => {
-  // Функція для обробки клавіатури для backdrop
   const handleKeyDown = e => {
     if (e.key === 'Escape') {
       onClose();
@@ -14,8 +13,6 @@ const DescriptionPopup = ({ description, onClose }) => {
     }
   };
 
-  // Обробник, що зупиняє спливання клавіатурних подій
-  // Це та функція, яку треба додати до popup-content, щоб прибрати помилку!
   const handlePopupContentKeyDown = e => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.stopPropagation();
@@ -23,7 +20,6 @@ const DescriptionPopup = ({ description, onClose }) => {
   };
 
   return (
-    // Backdrop: вже має повну доступність
     <div
       className={css['backdrop-in-card']}
       onClick={onClose}
@@ -39,14 +35,10 @@ const DescriptionPopup = ({ description, onClose }) => {
       {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <div
         className={css['popup-content']}
-        // Запобігає поширенню події (onClick)
         onClick={e => e.stopPropagation()}
-        // ВИПРАВЛЕННЯ: Додаємо onKeyDown для задоволення вимоги 'click-events-have-key-events'
         onKeyDown={handlePopupContentKeyDown}
         role="dialog"
         aria-modal="true"
-        // Якщо тут є tabIndex, додайте його, але зазвичай для попапів він -1.
-        // tabIndex="-1"
       >
         <CloseButton
           onClick={onClose}

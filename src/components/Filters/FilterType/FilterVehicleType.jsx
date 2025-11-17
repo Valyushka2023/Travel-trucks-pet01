@@ -70,10 +70,8 @@ const FilterVehicleType = ({ onFilter, currentFilters }) => {
             </svg>
             <span className={css['icon-text']}>
               {button.isMultiLine ? (
-                // 🟢 ВИКОРИСТОВУЄМО Trans ДЛЯ БАГАТОРЯДКОВОГО ТЕКСТУ
                 <Trans i18nKey={button.labelKey} components={{ br: <br /> }} />
               ) : (
-                // Звичайний переклад
                 t(button.labelKey)
               )}
             </span>

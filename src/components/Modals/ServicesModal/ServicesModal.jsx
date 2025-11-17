@@ -20,10 +20,8 @@ const FALLBACK_PARAGRAPHS = [
   'If the car breaks down, we will replace it instantly.',
 ];
 const ServicesModal = ({ onClose }) => {
-  // Встановлюємо простір імен 'services_modal'
   const { t } = useTranslation('services_modal');
 
-  // Отримуємо перекладений заголовок (ключ: 'title')
   const title = t('title', { defaultValue: 'Our services' });
 
   const translatedParagraphs = DEFAULT_PARAGRAPH_KEYS.map((key, index) =>

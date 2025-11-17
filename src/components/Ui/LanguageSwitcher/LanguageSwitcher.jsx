@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import css from './LanguageSwitcher.module.css';
 
 const LanguageSwitcher = () => {
-  // Використовуємо об'єкт i18n для зміни мови та перевірки поточної мови
   const { i18n } = useTranslation();
 
   const handleLanguageChange = lng => {
@@ -12,7 +11,7 @@ const LanguageSwitcher = () => {
   return (
     <div className={css['lang-switcher']}>
       <button
-        type="button" // ✅ Використовуємо нативний інтерактивний елемент
+        type="button"
         onClick={() => handleLanguageChange('en')}
         className={`${i18n.language === 'en' ? css.active : ''} ${css['language-En']}`}
       >
@@ -20,7 +19,7 @@ const LanguageSwitcher = () => {
       </button>
       <span className={css.separator}>/</span>
       <button
-        type="button" // ✅ Використовуємо нативний інтерактивний елемент
+        type="button"
         onClick={() => handleLanguageChange('uk')}
         className={`${i18n.language === 'uk' ? css.active : ''} ${css['language-Uk']}`}
       >

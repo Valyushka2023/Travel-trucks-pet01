@@ -75,6 +75,12 @@
 .container-scroll-to-top-button {
   position: fixed;
 }
+.no-results-message {
+  color: var(--primary-color);
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2rem;
+}
 
 @media (width <= 74.9375rem) {
   .layout {

@@ -3,12 +3,11 @@ import { initReactI18next } from 'react-i18next';
 
 // --- Імпорт файлів перекладу (EN) --- //
 import buttonEN from '../locales/en/button.json';
+import cardListEN from '../locales/en/card_list.json';
 import homeEN from '../locales/en/home.json';
 import catalogEN from '../locales/en/catalog.json';
-import translationEN from '../locales/en/translation.json';
 import formBookingEN from '../locales/en/form_booking.json';
 import formReviewsEN from '../locales/en/form_reviews.json';
-import contentReviewsEN from '../locales/en/content_reviews.json';
 import headerEN from '../locales/en/header.json';
 import footerEN from '../locales/en/footer.json';
 import aboutModalEN from '../locales/en/about_modal.json';
@@ -26,6 +25,9 @@ import starRatingEN from '../locales/en/star_rating.json';
 import cardEN from '../locales/en/card.json';
 import featureIconEN from '../locales/en/feature_icon.json';
 import errorComponentEN from '../locales/en/error_component.json';
+import contentDetailsEN from '../locales/en/content_details.json';
+import contentReviewsEN from '../locales/en/content_reviews.json';
+import fullScreenImageModalEN from '../locales/en/full_screen_image_modal.json';
 
 // --- Оновлений namespace для одиниць виміру (англійська) --- //
 const unitsEN = {
@@ -37,12 +39,11 @@ const unitsEN = {
 
 // --- Імпорт файлів перекладу (UK) --- //
 import buttonUK from '../locales/uk/button.json';
+import cardListUK from '../locales/uk/card_list.json';
 import homeUK from '../locales/uk/home.json';
 import catalogUK from '../locales/uk/catalog.json';
-import translationUK from '../locales/uk/translation.json';
 import formBookingUK from '../locales/uk/form_booking.json';
 import formReviewsUK from '../locales/uk/form_reviews.json';
-import contentReviewsUK from '../locales/uk/content_reviews.json';
 import headerUK from '../locales/uk/header.json';
 import footerUK from '../locales/uk/footer.json';
 import aboutModalUK from '../locales/uk/about_modal.json';
@@ -60,6 +61,9 @@ import starRatingUK from '../locales/uk/star_rating.json';
 import cardUK from '../locales/uk/card.json';
 import featureIconUK from '../locales/uk/feature_icon.json';
 import errorComponentUK from '../locales/uk/error_component.json';
+import contentDetailsUK from '../locales/uk/content_details.json';
+import contentReviewsUK from '../locales/uk/content_reviews.json';
+import fullScreenImageModalUK from '../locales/uk/full_screen_image_modal.json';
 
 // --- Оновлений namespace для одиниць виміру (українська) --- //
 const unitsUK = {
@@ -73,12 +77,11 @@ const unitsUK = {
 const resources = {
   en: {
     button: buttonEN,
+    card_list: cardListEN,
     home: homeEN,
     catalog: catalogEN,
-    translation: translationEN,
     form_booking: formBookingEN,
     form_reviews: formReviewsEN,
-    content_reviews: contentReviewsEN,
     header: headerEN,
     footer: footerEN,
     about_modal: aboutModalEN,
@@ -97,15 +100,17 @@ const resources = {
     feature_icon: featureIconEN,
     units: unitsEN,
     error_component: errorComponentEN,
+    content_details: contentDetailsEN,
+    content_reviews: contentReviewsEN,
+    full_screen_image_modal: fullScreenImageModalEN,
   },
   uk: {
     button: buttonUK,
+    card_list: cardListUK,
     home: homeUK,
     catalog: catalogUK,
-    translation: translationUK,
     form_booking: formBookingUK,
     form_reviews: formReviewsUK,
-    content_reviews: contentReviewsUK,
     header: headerUK,
     footer: footerUK,
     about_modal: aboutModalUK,
@@ -124,6 +129,9 @@ const resources = {
     feature_icon: featureIconUK,
     units: unitsUK,
     error_component: errorComponentUK,
+    content_details: contentDetailsUK,
+    content_reviews: contentReviewsUK,
+    full_screen_image_modal: fullScreenImageModalUK,
   },
 };
 
@@ -139,12 +147,11 @@ i18n.use(initReactI18next).init({
 
   ns: [
     'button',
+    'card_list',
     'home',
     'catalog',
-    'translation',
     'form_booking',
     'form_reviews',
-    'content_reviews',
     'header',
     'footer',
     'about_modal',
@@ -163,6 +170,9 @@ i18n.use(initReactI18next).init({
     'feature_icon',
     'units',
     'error_component',
+    'content_details',
+    'content_reviews',
+    'full_screen_image_modal',
   ],
 
   defaultNS: 'home',

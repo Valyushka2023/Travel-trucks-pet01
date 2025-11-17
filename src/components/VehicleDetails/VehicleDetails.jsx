@@ -12,19 +12,15 @@ function VehicleDetails({ camper }) {
     );
   }
 
-  // 💡 Допоміжна функція для отримання числової частини (ігноруючи одиниці бекенда)
   const getNumericValue = value => {
     if (typeof value !== 'string') return value;
-    // Знайти число, включаючи десяткові роздільники (крапки або коми)
     const match = value.match(/^-?\d+([.,]\d+)?/);
     return match ? match[0] : value;
   };
 
-  // 🔧 Форматування значень для одиниць
   const formatValue = (key, value) => {
     if (!value) return 'N/A';
 
-    // Отримуємо лише числову частину (наприклад, "6.4" замість "6.4m")
     const numericValue = getNumericValue(value);
 
     switch (key) {
@@ -41,15 +37,11 @@ function VehicleDetails({ camper }) {
     }
   };
 
-  // 💡 Функція для перекладу значення форми
   const translateForm = formValue => {
     if (!formValue) return 'N/A';
 
-    // Створюємо ключ перекладу, наприклад: 'alcove' -> 'form_alcove'
-    // Це вимагає, щоб ключі у локалях були у форматі `form_` + [значення з бекенда]
     const translationKey = `form_${formValue.toLowerCase().replace(/ /g, '_')}`;
 
-    // Якщо переклад знайдено, повертаємо його, інакше повертаємо оригінальне значення
     const translated = t(translationKey);
     return translated === translationKey ? formValue : translated;
   };
@@ -63,7 +55,6 @@ function VehicleDetails({ camper }) {
       <div className={css['vehicle-info']}>
         <div className={css.texts}>
           <p>{t('form')}</p>
-          {/* ✅ ВИПРАВЛЕНО: Використовуємо translateForm для перекладу значення */}
           <p>{translateForm(camper.form)}</p>
         </div>
         <div className={css.texts}>

@@ -6,14 +6,12 @@ import css from './ImageGallery.module.css';
 
 function ImageGallery({ gallery }) {
   const [selectedImage, setSelectedImage] = useState(null);
-  // Стан isMobile та useEffect ВИДАЛЕНО, оскільки вони не використовуються
 
   if (!Array.isArray(gallery) || gallery.length === 0) {
     return <div className={css.noImages}>No images available.</div>;
   }
 
   const handleImageClick = imageUrl => {
-    // Логіка isMobile, що спричиняла помилку ESLint, видалена.
     setSelectedImage(imageUrl);
 
     document.body.style.overflow = 'hidden';

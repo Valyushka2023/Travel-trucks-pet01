@@ -9,8 +9,9 @@ import { v4 as uuidv4 } from 'uuid';
 import DescriptionPopup from '../../../components/Modals/DescriptionModal/DescriptionPopup.jsx';
 
 const Card = ({ _id, name, gallery, price, description, location, camper }) => {
-  // Отримуємо функцію t для неймспейсу 'card'
-  const { t } = useTranslation('card');
+  const { t: tCard } = useTranslation('card');
+  const { t: tButton } = useTranslation('button');
+  const { t: tLocation } = useTranslation('filter_location');
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -57,7 +58,7 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
   }
 
   const handleShowMoreClick = () => {
-    navigate(`/catalog/${_id}`, { state: { camper } }); // Передаємо camper для кешування
+    navigate(`/catalog/${_id}`, { state: { camper } });
   };
 
   const MAX_WORDS = 20;
@@ -70,10 +71,11 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
     return words.slice(0, MAX_WORDS).join(' ') + '...';
   }, [description]);
 
-  // 🚀 ЛОКАЛІЗАЦІЯ ЛОКАЦІЇ: Використовуємо неймспейс 'filter_location' для перекладу міст
-  const translatedLocation = t(`locations.${location}`, {
+  // const translatedLocation = t(`locations.${location}`, {
+  //   defaultValue: location,
+  //   ns: 'filter_location',
+  const translatedLocation = tLocation(`locations.${location}`, {
     defaultValue: location,
-    ns: 'filter_location',
   });
 
   return (
@@ -86,8 +88,9 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
             <h2>{name}</h2>
             <div className={css['price-info']}>
               <h2 className={css['text-price-info']}>
-                {t('currency_symbol')}
-                {price} {/* 👈 ВИКОРИСТАННЯ ПЕРЕКЛАДУ */}
+                {/* {t('currency_symbol')} */}
+                {tCard('currency_symbol')}
+                {price}
               </h2>
               <svg
                 className={css['icon-heart']}
@@ -117,13 +120,18 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
               <p>
                 {reviewsWithUniqueIds.length > 0 ? (
                   <span>
+                    {/* {averageRating.toFixed(1)}{' '}
+                    {t('reviews_count', {
+                      count: reviewsWithUniqueIds.length,
+                    })} */}
                     {averageRating.toFixed(1)}{' '}
-                    {/* 🚀 ЛОКАЛІЗАЦІЯ КІЛЬКОСТІ ВІДГУКІВ (з обробкою множини) */}
-                    {t('reviews_count', { count: reviewsWithUniqueIds.length })}
+                    {tCard('reviews_count', {
+                      count: reviewsWithUniqueIds.length,
+                    })}
                   </span>
                 ) : (
-                  // 🚀 ЛОКАЛІЗАЦІЯ '0 (0 відгуків)'
-                  t('no_reviews')
+                  // t('no_reviews')
+                  tCard('no_reviews')
                 )}
               </p>
             </div>
@@ -138,7 +146,6 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
                   href={`${import.meta.env.BASE_URL}icons.svg#icon-map`}
                 ></use>
               </svg>
-              {/* 🚀 ВИКОРИСТАННЯ ПЕРЕКЛАДЕНОЇ ЛОКАЦІЇ */}
               <p>{translatedLocation}</p>
             </div>
           </div>
@@ -160,7 +167,8 @@ const Card = ({ _id, name, gallery, price, description, location, camper }) => {
               variant="primary"
               size="medium"
             >
-              {t('show_button', { ns: 'button' })}
+              {/* {t('show_button', { ns: 'button' })} */}
+              {tButton('show_button')}
             </Button>
           </div>
 

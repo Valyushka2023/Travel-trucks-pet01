@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types';
 import Card from '../Ui/Card/Card.jsx';
 import css from './CardList.module.css';
+import { useTranslation } from 'react-i18next';
 
 const CardList = ({ campers }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={css['card-list']}>
       {campers.length === 0 ? (
-        <div>No campers available.</div>
+        <div>{t('noCamperMessage', { ns: 'card_list' })}</div>
       ) : (
         campers.map(camper => (
           <Card

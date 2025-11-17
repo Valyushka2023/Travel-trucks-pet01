@@ -1,28 +1,3 @@
-// import { useTranslation } from 'react-i18next';
-// import PropTypes from 'prop-types';
-// import css from './ErrorComponent.module.css';
-
-// const ErrorComponent = ({ error, onRetry }) => {
-//   const { t } = useTranslation('error_component');
-
-//   return (
-//     <div className={css['error-container']}>
-//       <p className={css['error-message']}>
-//         {t('error_message')} {error}
-//       </p>
-//       <button className={css['retry-button']} onClick={onRetry}>
-//         {t('retry_button')}
-//       </button>
-//     </div>
-//   );
-// };
-
-// ErrorComponent.propTypes = {
-//   error: PropTypes.string.isRequired,
-//   onRetry: PropTypes.func.isRequired,
-// };
-
-// export default ErrorComponent;
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import css from './ErrorComponent.module.css';
@@ -38,7 +13,6 @@ const ErrorComponent = ({ error, onRetry }) => {
       </p>
       <button className={css['retry-button']} onClick={onRetry}>
         {t('retry_button')}
-        {/* Можна прибрати { ns: 'errorComponent' }, оскільки неймспейс вже визначений у useTranslation */}
       </button>
     </div>
   );

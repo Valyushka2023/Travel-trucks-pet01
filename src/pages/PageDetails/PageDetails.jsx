@@ -17,7 +17,9 @@ import scrollToTopButtonCss from '../../components/Ui/Buttons/ScrollToTopButton/
 import css from './PageDetails.module.css';
 
 function PageDetails() {
-  const { t, i18n } = useTranslation();
+  const { t: tButton } = useTranslation('button');
+  const { t: tError } = useTranslation('error_component');
+  const { i18n } = useTranslation();
   const currentLang = i18n.language;
 
   const { _id } = useParams();
@@ -45,7 +47,8 @@ function PageDetails() {
 
   const fetchCamperDetails = useCallback(async () => {
     if (!_id) {
-      setError('Camper ID is missing.');
+      // setError('Camper ID is missing.');
+      setError(tError('error_idNotSpecified'));
       return;
     }
 
@@ -76,15 +79,17 @@ function PageDetails() {
         setAndStoreCamper(apiCamper);
       } else if (!camperToUse) {
         // Якщо API не повернуло даних і в кеші нічого немає
-        setError('Camper not found.');
+        // setError('Camper not found.');
+        setError(tError('error_camperNotFound'));
       }
     } catch (err) {
-      setError(err.message || 'Unknown error');
+      // setError(err.message || 'Unknown error');
+      setError(err.message || tError('error_generic'));
     } finally {
       setIsLoading(false);
       setDataLoaded(true);
     }
-  }, [_id, currentLang, campers, location.state, setAndStoreCamper]);
+  }, [_id, currentLang, campers, location.state, setAndStoreCamper, tError]);
 
   // useEffect запускає завантаження при зміні ID або мови
   useEffect(() => {
@@ -106,11 +111,17 @@ function PageDetails() {
   }
 
   if (error) {
-    return <div className={css.error}>⚠️ Error: {error}</div>;
+    //   return <div className={css.error}>⚠️ Error: {error}</div>;
+    // }
+    return (
+      <div className={css.error}>
+        ⚠️ {tError('error_generic_prefix')}: {error}
+      </div>
+    );
   }
-
   if (!localCamper) {
-    return <div className={css.error}>⚠️ Camper not found</div>;
+    // return <div className={css.error}>⚠️ Camper not found</div>;
+    return <div className={css.error}>⚠️ {tError('error_camperNotFound')}</div>;
   }
 
   return (
@@ -120,7 +131,8 @@ function PageDetails() {
         visible={visible}
         onClick={scrollToTop}
         className={scrollToTopButtonCss['fixed-position']}
-        label={t('up_button', { ns: 'button' })}
+        // label={t('up_button', { ns: 'button' })}
+        label={tButton('up_button')}
       />
     </div>
   );
