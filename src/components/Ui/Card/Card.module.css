@@ -33,10 +33,10 @@
 .container-info {
   position: relative;
   display: flex;
-  height: 100%;
   flex-direction: column;
   flex-grow: 1;
   width: auto;
+  height: 100%;
   overflow: hidden;
   border-radius: var(--radius-md);
 }
@@ -173,10 +173,11 @@ p {
 .container-show-more {
   display: inline-flex;
   align-items: center;
+
   /* margin-top: 1.5rem; */
   margin-top: auto;
-  padding-top: 1.5rem;
   margin-bottom: 0;
+  padding-top: 1.5rem;
 }
 
 @media (width >= 47.9375rem) {
@@ -330,8 +331,8 @@ p {
   .text-info {
     width: 100%;
     font-size: 0.8125rem;
-    text-indent: 2em;
     text-align: justify;
+    text-indent: 2em;
     white-space: normal;
     -webkit-line-clamp: 3;
   }

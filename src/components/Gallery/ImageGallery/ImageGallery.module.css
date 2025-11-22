@@ -31,11 +31,12 @@
   display: block;
   width: 100%;
   height: auto;
+  background-color: var(--body-bg-color, #fff);
+  border-radius: var(--radius-sm);
+  outline: 0.25rem solid var(--border-tertiary-color);
+
   /* min-height: var(--image-min-height); */
   object-fit: contain;
-  background-color: var(--body-bg-color, #ffffff);
-  outline: 0.25rem solid var(--border-tertiary-color);
-  border-radius: var(--radius-sm);
 }
 
 @media (width <= 74.9375rem) {

@@ -2,11 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  vertical-align: middle;
   cursor: pointer;
   padding: 0;
   background-color: transparent;
   border: none;
+  vertical-align: middle;
   transition: transform 0.3s ease;
 }
 
@@ -44,6 +44,7 @@
     font-size: 1.1rem;
   }
 }
+
 @media (width <= 47.9375rem) {
   .theme-icon-md-light,
   .theme-icon-md-dark {

@@ -30,8 +30,8 @@
 .review-name-rating {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   flex-grow: 1;
+  align-items: flex-start;
   width: 100%;
   max-width: 9.375rem;
   padding: 0.25rem 0;

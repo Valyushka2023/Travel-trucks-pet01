@@ -20,6 +20,8 @@
 
 .modal-content {
   position: relative;
+  display: flex;
+  flex-direction: column;
   max-width: 95%;
   max-height: 95vh;
   padding: 2.5rem;
@@ -27,18 +29,15 @@
   overflow: hidden; /* Рамка не прокручується */
   background-color: var(--modal-image-bg-color);
   border-radius: var(--radius-md);
-  display: flex;
-  flex-direction: column;
 }
 
 /* Обгортка для зображення, що прокручується */
 .image-scroll-wrapper {
   flex-grow: 1;
-  overflow-y: auto; /* ВМИКАЄМО СКРОЛ ТІЛЬКИ ДЛЯ ФОТО */
-  overflow-x: hidden;
   width: 100%;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden auto; /* ВМИКАЄМО СКРОЛ ТІЛЬКИ ДЛЯ ФОТО */
   border-radius: var(--radius-md);
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Стилі скроллбара */
@@ -59,11 +58,11 @@
 
 .full-screen-image {
   display: block;
+  height: auto;
   max-width: 100%;
   max-height: none;
-  height: auto;
-  object-fit: contain;
   border-radius: var(--radius-md);
+  object-fit: contain;
 }
 
 /* КНОПКА CLOSE - ТЕПЕР ПОЗИЦІОНУЄТЬСЯ ВІДНОСНО ОВЕРЛЕЮ */
@@ -73,21 +72,19 @@
   /* Налаштування позиції як на скріншоті */
   top: 0; /* Відступ від верху, як висота хедера вашої сторінки */
   right: 1rem; /* Відступ від правого краю */
-
   z-index: 1001; /* Переконайтеся, що вона поверх усього */
-
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   min-width: 2.5rem;
   min-height: 2.5rem;
+  background: transparent;
   border: none;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1;
   white-space: nowrap;
-  background: transparent;
   color: var(--button-secondary-text-color);
   transition:
     color 0.2s ease-in-out,

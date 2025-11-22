@@ -75,11 +75,12 @@
 .container-scroll-to-top-button {
   position: fixed;
 }
+
 .no-results-message {
-  color: var(--primary-color);
-  text-align: center;
-  margin-top: 50px;
+  margin-top: 3.125rem;
   font-size: 1.2rem;
+  text-align: center;
+  color: var(--primary-color);
 }
 
 @media (width <= 74.9375rem) {

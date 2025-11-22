@@ -14,7 +14,11 @@ body {
   letter-spacing: normal;
 }
 
-.inputWrapper {
+/* .inputWrapper {
+  position: relative;
+  width: 100%;
+} */
+.input-wrapper {
   position: relative;
   width: 100%;
 }

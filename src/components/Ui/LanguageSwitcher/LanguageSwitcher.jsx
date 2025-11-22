@@ -13,7 +13,7 @@ const LanguageSwitcher = () => {
       <button
         type="button"
         onClick={() => handleLanguageChange('en')}
-        className={`${i18n.language === 'en' ? css.active : ''} ${css['language-En']}`}
+        className={`${i18n.language === 'en' ? css.active : ''} ${css['language-en']}`}
       >
         EN
       </button>
@@ -21,7 +21,7 @@ const LanguageSwitcher = () => {
       <button
         type="button"
         onClick={() => handleLanguageChange('uk')}
-        className={`${i18n.language === 'uk' ? css.active : ''} ${css['language-Uk']}`}
+        className={`${i18n.language === 'uk' ? css.active : ''} ${css['language-uk']}`}
       >
         UK
       </button>

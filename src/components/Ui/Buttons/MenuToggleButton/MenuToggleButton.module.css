@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  vertical-align: middle;
   cursor: pointer;
   margin: 0;
   padding: 0;
@@ -12,6 +11,7 @@
   font-size: 1.3rem;
   line-height: 1;
   color: var(--button-burger-icon-color);
+  vertical-align: middle;
   transition:
     color 0.2s ease,
     transform 0.2s ease;
@@ -26,6 +26,7 @@
   color: var(--active-color);
   transform: scale(0.95);
 }
+
 @media (width <= 74.9375rem) {
   .burger-button {
     font-size: 1.2rem;

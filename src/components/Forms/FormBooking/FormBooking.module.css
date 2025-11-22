@@ -39,7 +39,7 @@
   width: 100%;
 }
 
-/*----------------------------*/
+/* ---------------------------- */
 .label-input-wrapper {
   display: flex;
   align-items: center;
@@ -55,43 +55,46 @@
 .label {
   flex: 0 1 auto;
   min-width: 0;
-  white-space: normal;
-  word-break: break-word;
   font-size: 1rem;
-  color: var(--tertiary-color);
   text-align: left;
+  white-space: normal;
+  color: var(--tertiary-color);
+
+  /* word-break: break-word; */
+  overflow-wrap: break-word;
 }
 
 .field-input-and-field-error {
   position: relative;
-  flex: 1 1 auto;
-  min-width: 0;
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;
 }
 
 .field-input {
+  display: flex;
+  align-items: center;
   width: 100%;
   min-height: 2.5rem;
-  padding: 0.2rem 1.125rem 0.3rem 1.125rem;
+  padding: 0.2rem 1.125rem 0.3rem;
   box-sizing: border-box;
   background-color: var(--blok-field-input-area-bg-color-1);
   border: 0.0625rem solid var(--border-color);
   border-radius: var(--radius-sm);
   font-size: 1rem;
   color: var(--primary-color);
-  display: flex;
-  align-items: center;
 }
-/*--------*/
+
+/* -------- */
 
 .field-input::placeholder {
   font-family: inherit;
   font-size: 1rem;
   line-height: normal;
-  opacity: 1;
   color: var(--placeholder-form-booking-reviews-color);
+  opacity: 1;
 }
 
 .field-input:hover {
@@ -107,6 +110,7 @@
 }
 
 .react-datepicker-input-container input {
+  display: block;
   min-height: 2.2rem;
   padding: 0 1.125rem;
   box-sizing: border-box;
@@ -119,7 +123,6 @@
   line-height: 2.2rem;
   letter-spacing: 0.056rem;
   color: var(--secondary-color);
-  display: block;
 }
 
 .react-datepicker-input-container input::placeholder {
@@ -127,7 +130,7 @@
   color: var(--placeholder-form-booking-color);
 }
 
-/*------------------------------*/
+/* ------------------------------ */
 
 .label-area-wrapper {
   display: flex;
@@ -167,9 +170,9 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  flex-shrink: 0;
   gap: var(--spacing-sm);
   min-width: 0;
-  flex-shrink: 0;
 }
 
 .field-area {
@@ -177,13 +180,13 @@
   flex: 1;
   align-items: center;
   cursor: text;
+  min-height: 5.5rem;
   padding: 0.0625rem 1.125rem;
   box-sizing: border-box;
   background-color: var(--blok-field-input-area-bg-color-1);
   border: 0.0625rem solid var(--border-color);
   border-radius: var(--radius-sm);
   font-size: 1.1rem;
-  min-height: 5.5rem;
   color: var(--primary-color);
 }
 
@@ -191,17 +194,16 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-
   font-size: 1.1rem;
-  opacity: 1;
   color: var(--placeholder-form-booking-reviews-color);
+  opacity: 1;
 }
 
 .field-area:hover {
   border: 0.0625rem solid var(--hover-color);
 }
 
-/*-------------------------------*/
+/* ------------------------------- */
 
 .element-send {
   width: 100%;
@@ -209,7 +211,7 @@
   text-align: center;
 }
 
-/*----------------------------------*/
+/* ---------------------------------- */
 
 .field-error {
   border-color: var(--error-color) !important;
@@ -257,6 +259,7 @@
   .form {
     padding: var(--padding-form-lg);
   }
+
   .title-text-form {
     align-items: center;
   }
@@ -278,6 +281,7 @@
   .form {
     padding: var(--padding-form-xs);
   }
+
   .label-input-wrapper {
     flex-direction: column;
     align-items: stretch;
@@ -303,10 +307,12 @@
     align-items: center;
     width: 100%;
   }
+
   .char-count {
     text-align: right;
     white-space: nowrap;
   }
+
   .field-area-and-field-error {
     width: 100%;
   }

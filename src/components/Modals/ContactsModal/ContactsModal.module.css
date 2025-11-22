@@ -5,33 +5,32 @@
   max-width: 75rem;
   max-height: 80vh;
   margin: 0 auto;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden auto;
 }
 
 .contact-list {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex-wrap: wrap;
   gap: 1.3rem;
   width: 100%;
   max-height: 80vh;
   margin: 0;
   padding: 0;
   overflow-y: auto;
-  list-style-type: none;
   background-color: var(--body-bg-color);
   color: var(--primary-color);
+  flex-wrap: wrap;
+  list-style-type: none;
 }
 
 .contact-item {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  flex-basis: calc(33.33% - 1.3rem * 2 / 3);
   justify-content: center;
   align-items: center;
-  flex-basis: calc(33.33% - 1.3rem * 2 / 3);
-  flex-grow: 1;
   max-width: 24rem;
   min-height: 5.5rem;
   padding: var(--padding-form-xs);
@@ -58,19 +57,21 @@
   margin-bottom: 0.25rem;
   font-size: 1.3rem;
 }
+
 .contact-phone-icon {
   width: 1rem;
   height: 1rem;
   margin-right: 0.3125rem;
-  vertical-align: middle;
   color: var(--contact-phone-icon-color);
+  vertical-align: middle;
 }
+
 .phone-link {
   display: inline-block;
+  cursor: pointer;
   margin-left: var(--spacing-md);
   text-decoration: none;
   color: var(--color-blue);
-  cursor: pointer;
   transition:
     transform 0.3s ease,
     color 0.3s ease;
@@ -80,20 +81,21 @@
   margin: 0;
   font-size: 1.3rem;
 }
+
 .contact-email-icon {
   width: 1rem;
   height: 0.875rem;
   margin-right: 0.3125rem;
-  vertical-align: middle;
   color: var(--contact-email-icon-color);
+  vertical-align: middle;
 }
 
 .email-link {
   display: inline-block;
+  cursor: pointer;
   margin-left: var(--spacing-md);
   text-decoration: none;
   color: var(--color-blue);
-  cursor: pointer;
   transition:
     transform 0.3s ease,
     color 0.3s ease;
@@ -101,21 +103,23 @@
 
 .phone-link:hover,
 .email-link:hover {
-  transform: scale(1.05);
   text-decoration: underline;
   color: var(--hover-color);
+  transform: scale(1.05);
 }
+
 .phone-link:active,
 .email-link:active {
-  transform: scale(0.95);
   text-decoration: underline;
   color: var(--active-color);
+  transform: scale(0.95);
 }
 
 @media (width <= 74.9375rem) {
   .contact-item {
     min-height: 4rem;
   }
+
   .address-info {
     margin-bottom: 0.65rem;
     font-size: 1.2rem;
@@ -133,8 +137,8 @@
 
 @media (width <= 61.9375rem) {
   .container-contacts {
-    max-width: 60rem;
     align-items: flex-start;
+    max-width: 60rem;
   }
 
   .contact-list {
@@ -148,6 +152,7 @@
     max-width: none;
     font-size: 1.1rem;
   }
+
   .address-info {
     margin-bottom: 0.6rem;
     font-size: 1.1rem;
@@ -165,8 +170,8 @@
 
 @media (width <= 47.9375rem) {
   .container-contacts {
-    overflow-x: hidden;
     max-width: 100%;
+    overflow-x: hidden;
   }
 
   .contact-list {
@@ -179,11 +184,12 @@
   }
 
   .contact-item {
-    width: 100%;
     flex-basis: auto;
+    width: 100%;
     max-width: 100%;
     min-height: 4rem;
   }
+
   .address-info {
     margin-bottom: 0.55rem;
     font-size: 1rem;
