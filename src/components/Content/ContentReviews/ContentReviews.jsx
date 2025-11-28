@@ -78,8 +78,10 @@ function ContentReviews({ camper, activeTab, reviews, onReviewAdded }) {
   const handleScrollToTop = () => {
     if (reviewsContainerRef.current) {
       reviewsContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
-      setShowScrollToTop(false);
-      resetPagination();
+      setTimeout(() => {
+        resetPagination();
+        setShowScrollToTop(false);
+      }, 400);
     }
   };
 

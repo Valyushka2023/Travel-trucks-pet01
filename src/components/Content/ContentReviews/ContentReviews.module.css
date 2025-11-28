@@ -189,6 +189,9 @@
   visibility: visible;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 /* КІНЕЦЬ СТАРОГО БЛОКУ */
 
 /* НОВИЙ КЛАС: Кнопка "Нагору" вбудована у потік поруч із "Load more" */
